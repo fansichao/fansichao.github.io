@@ -1,0 +1,23 @@
+### Hexo模板
+
+
+#### 文章头部
+
+```
+---
+title: Celery分布式任务队列入门(一)-理论
+date: 2017-12-10 23:56:56
+
+
+updated: 
+tags:
+    - Celery
+    - GitHub
+categories: 
+    - Celery分布式任务队列入门
+description: 这里是描述信息
+top: false
+
+---
+```
+
