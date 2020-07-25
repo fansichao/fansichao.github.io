@@ -1,0 +1,41 @@
+language: node_js
+
+node_js: stable
+
+cache:
+    apt: true
+    directories:
+        - node_modules
+
+notifications:
+    email:
+        recipients:
+            - babycoolzx@126.com
+        on_success: change
+        on_failure: always
+
+before_install:
+    - export TZ='Asia/Shanghai'
+    - npm install hexo-cli -g
+    - chmod +x ./publish-to-gh-pages.sh
+
+install:
+    - npm install
+
+script:
+    - hexo clean
+    - hexo g
+
+after_script:
+    - ./publish-to-gh-pages.sh
+
+branches:
+    only:
+        - hexo
+
+env:
+    global:
+        # Github Pages
+        - GH_REF: github.com/Leafney/Leafney.github.io.git
+        # Coding Pages
+        - CD_REF: git.coding.net/Leafney/Leafney.coding.me.git
