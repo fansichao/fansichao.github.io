@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Module,Graph,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="...">
+<meta name="keywords" content="Module,Graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Module-Neo4j-使用文档">
+<meta property="og:url" content="https://fansichao.github.io/2020/07/12/04-Module/Module-Neo4j-使用手册/index.html">
+<meta property="og:site_name" content="程序改变世界">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png">
+<meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Module-Neo4j-使用文档">
+<meta name="twitter:description" content="...">
+<meta name="twitter:image" content="http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/2020/07/12/04-Module/Module-Neo4j-使用手册/">
+
+
+
+
+
+  <title>Module-Neo4j-使用文档 | 程序改变世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序改变世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/2020/07/12/04-Module/Module-Neo4j-使用手册/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fansichao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序改变世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Module-Neo4j-使用文档</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Module/" itemprop="url" rel="index">
+                    <span itemprop="name">Module</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  10,554
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  ...
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Neo4j-入门介绍"><a href="#Neo4j-入门介绍" class="headerlink" title="Neo4j 入门介绍"></a>Neo4j 入门介绍</h2><p><img src="http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png" alt="xx"></p>
+<blockquote>
+<p>Neo4j 是目前最流行的图形数据库，支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，<br>顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。<br>Neo4j 创建的图是用顶点和边构建一个有向图，其查询语言 cypher 已经成为事实上的标准。</p>
+</blockquote>
+<p>它包括如下几个显著特点：</p>
+<ul>
+<li>完整的 ACID 支持</li>
+<li>高可用性</li>
+<li>轻易扩展到上亿级别的节点和关系</li>
+<li>通过遍历工具高速检索数据</li>
+</ul>
+<p>其他的图形数据库还包括 Oracle NoSQL 数据库，OrientDB，HypherGraphDB，GraphBase，InfiniteGraph，AllegroGraph。</p>
+<h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>环境说明</p>
+<ul>
+<li>版本说明: neo4j-community-3.3.5</li>
+<li>系统版本: CentOS6.10/CentOS7.5</li>
+</ul>
+<p>部署说明</p>
+<ul>
+<li>安装包获取: <a href="https://neo4j.com/" target="_blank" rel="noopener">Neo4j 官网</a>下载</li>
+<li><a href="https://neo4j.com/artifact.php?name=neo4j-community-3.3.5-unix.tar.gz" target="_blank" rel="noopener">Neo4j 安装包 3.3.5</a></li>
+<li><p>前置依赖:</p>
+<ul>
+<li>Java1.8+</li>
+<li>系统文件数 40000+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi /etc/security/limits.conf</span></span><br><span class="line">fdm              soft    nofile          65535</span><br><span class="line">fdm              hard    nofile          65535</span><br><span class="line"><span class="comment"># 修改后重新进入ssh</span></span><br><span class="line"><span class="comment"># fdm为用户名称</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装说明: 解压即用</li>
+<li>配置文件: <code>conf/neo4j.conf</code></li>
+<li>软件使用:<ul>
+<li><code>bin/neo4j restart</code> 服务重启,启动在后台</li>
+<li><code>bin/neo4j console</code> 服务启动,启动在前台</li>
+<li>Neo4j 页面入口 <a href="http://localhost:7474" target="_blank" rel="noopener">http://localhost:7474</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h2><p>软件目录说明：</p>
+<ul>
+<li>bin 目录：用于存储 Neo4j 的可执行程序；</li>
+<li>conf 目录：用于控制 Neo4j 启动的配置文件；</li>
+<li>data 目录：用于存储核心数据库文件；</li>
+<li>plugins 目录：用于存储 Neo4j 的插件；</li>
+<li>import 目录：用于存放 load csv 文件,作为根目录(配置文件中可修改)</li>
+</ul>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>配置文件路径: <code>conf/neo4j.conf</code></p>
+<p>配置文件说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For more details and a complete list of settings, please see https://neo4j.com/docs/operations-manual/current/reference/configuration-settings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果想自定义neo4j数据库数据的存储路径，要同时修改dbms.active_database 和 dbms.directories.data 两项配置，</span></span><br><span class="line"><span class="comment"># 修改配置后，数据会存放在$&#123;dbms.directories.data&#125;/databases/$&#123;dbms.active_database&#125; 目录下</span></span><br><span class="line"><span class="comment"># 安装的数据库的名称，默认使用$&#123;NEO4J_HOME&#125;/data/databases/graph.db目录</span></span><br><span class="line"><span class="comment"># The name of the database to mount</span></span><br><span class="line"><span class="comment">#dbms.active_database=graph.db</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装Neo4j数据库的各个配置路径，默认使用$NEO4J_HOME下的路径</span></span><br><span class="line"><span class="comment">#Paths of directories in the installation.</span></span><br><span class="line"><span class="comment"># 数据路径</span></span><br><span class="line"><span class="comment">#dbms.directories.data=data</span></span><br><span class="line"><span class="comment"># 插件路径</span></span><br><span class="line"><span class="comment">#dbms.directories.plugins=plugins</span></span><br><span class="line"><span class="comment">#dbms.directories.certificates=certificates  证书路径</span></span><br><span class="line"><span class="comment">#dbms.directories.logs=logs 日志路径</span></span><br><span class="line"><span class="comment">#dbms.directories.lib=lib jar包路径</span></span><br><span class="line"><span class="comment">#dbms.directories.run=run 运行路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#默认情况下想load csv文件，只能把csv文件放到$&#123;NEO4J_HOME&#125;/import目录下，把下面的#删除后，可以在load csv时使用绝对路径，这样可能不安全</span></span><br><span class="line"><span class="comment">#This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the `LOAD CSV` section of the manual for details.</span></span><br><span class="line"><span class="comment">#此设置将所有“LOAD CSV”导入文件限制在`import`目录下。删除注释允许从文件系统的任何地方加载文件;这引入了可能的安全问题。</span></span><br><span class="line">dbms.directories.import=import</span><br><span class="line"></span><br><span class="line"><span class="comment">#把下面这行的#删掉后，连接neo4j数据库时就不用输密码了</span></span><br><span class="line"><span class="comment">#Whether requests to Neo4j are authenticated. 是否对Neo4j的请求进行了身份验证。</span></span><br><span class="line"><span class="comment">#To disable authentication, uncomment this line 要禁用身份验证，请取消注释此行。</span></span><br><span class="line"><span class="comment">#dbms.security.auth_enabled=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable this to be able to upgrade a store from an older version. 是否兼容以前版本的数据</span></span><br><span class="line">dbms.allow_format_migration=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Java Heap Size: by default the Java heap size is dynamically calculated based on available system resources. Java堆大小：默认情况下，Java堆大小是动态地根据可用的系统资源计算。</span></span><br><span class="line"><span class="comment">#Uncomment these lines to set specific initial and maximum heap size. 取消注释这些行以设置特定的初始值和最大值</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.initial_size=512m</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.max_size=512m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#The amount of memory to use for mapping the store files, in bytes (or kilobytes with the 'k' suffix, megabytes with 'm' and gigabytes with 'g').</span></span><br><span class="line"><span class="comment"># 用于映射存储文件的内存量（以字节为单位）千字节带有'k'后缀，兆字节带有'm'，千兆字节带有'g'）。</span></span><br><span class="line"><span class="comment">#If Neo4j is running on a dedicated server, then it is generally recommended to leave about 2-4 gigabytes for the operating system, give the JVM enough heap to hold all your transaction state and query context, and then leave the rest for the page cache.</span></span><br><span class="line"><span class="comment"># 如果Neo4j在专用服务器上运行，那么通常建议为操作系统保留大约2-4千兆字节，为JVM提供足够的堆来保存所有的事务状态和查询上下文，然后保留其余的页面缓存 。</span></span><br><span class="line"><span class="comment">#The default page cache memory assumes the machine is dedicated to running Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.  默认页面缓存存储器假定机器专用于运行Neo4j，并且试探性地设置为RAM的50％减去最大Java堆大小。</span></span><br><span class="line"><span class="comment">#dbms.memory.pagecache.size=10g</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Network connector configuration</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#With default configuration Neo4j only accepts local connections. Neo4j默认只接受本地连接(localhost)</span></span><br><span class="line"><span class="comment">#To accept non-local connections, uncomment this line:  要接受非本地连接，请取消注释此行</span></span><br><span class="line"><span class="comment"># (这是删除#后的配置，可以通过ip访问)</span></span><br><span class="line">dbms.connectors.default_listen_address=0.0.0.0</span><br><span class="line"></span><br><span class="line"><span class="comment">#You can also choose a specific network interface, and configure a non-default port for each connector, by setting their individual listen_address. 还可以选择特定的网络接口，并配置非默认值端口，设置它们各自的listen_address</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#The address at which this server can be reached by its clients. This may be the server's IP address or DNS name, or it may be the address of a reverse proxy which sits in front of the server. This setting may be overridden for individual connectors below. 客户端可以访问此服务器的地址。这可以是服务器的IP地址或DNS名称，或者可以是位于服务器前面的反向代理的地址。此设置可能会覆盖以下各个连接器。</span></span><br><span class="line"><span class="comment">#dbms.connectors.default_advertised_address=localhost</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#You can also choose a specific advertised hostname or IP address, and configure an advertised port for each connector, by setting their individual advertised_address. 您还可以选择特定广播主机名或IP地址，</span></span><br><span class="line"><span class="comment"># 为每个连接器配置通告的端口，通过设置它们独特的advertised_address。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Bolt connector 使用Bolt协议</span></span><br><span class="line">dbms.connector.bolt.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.bolt.tls_level=OPTIONAL</span><br><span class="line">dbms.connector.bolt.listen_address=:7687</span><br><span class="line"></span><br><span class="line"><span class="comment">#HTTP Connector. There must be exactly one HTTP connector. 使用http协议</span></span><br><span class="line">dbms.connector.http.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.http.listen_address=:7474</span><br><span class="line"></span><br><span class="line"><span class="comment">#HTTPS Connector. There can be zero or one HTTPS connectors. 使用https协议</span></span><br><span class="line">dbms.connector.https.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.https.listen_address=:7473</span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of Neo4j worker threads. Neo4j线程数</span></span><br><span class="line"><span class="comment">#dbms.threads.worker_count=</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Logging configuration  日志配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#To enable HTTP logging, uncomment this line  要启用HTTP日志记录，请取消注释此行</span></span><br><span class="line">dbms.logs.http.enabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of HTTP logs to keep. 要保留的HTTP日志数</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size of each HTTP log that is kept. 每个HTTP日志文件的大小</span></span><br><span class="line">dbms.logs.http.rotation.size=20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#To enable GC Logging, uncomment this line 要启用GC日志记录，请取消注释此行</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#GC Logging Options see http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013 for more information.  GC日志记录选项 有关详细信息，请参见http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.options=-XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of GC logs to keep. 要保留的GC日志数</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size of each GC log that is kept. 保留的每个GC日志文件的大小</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size threshold for rotation of the debug log. If set to zero then no rotation will occur. Accepts a binary suffix "k", "m" or "g".  调试日志旋转的大小阈值。如果设置为零，则不会发生滚动(达到指定大小后切割日志文件)。接受二进制后缀“k”，“m”或“g”。</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Maximum number of history files for the internal log. 最多保存几个日志文件</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.keep_number=7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Miscellaneous configuration  其他配置</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable this to specify a parser other than the default one. 启用此选项可指定除默认解析器之外的解析器</span></span><br><span class="line"><span class="comment">#cypher.default_language_version=3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Determines if Cypher will allow using file URLs when loading data using `LOAD CSV`. Setting this value to `false` will cause Neo4j to fail `LOAD CSV` clauses that load data from the file system.</span></span><br><span class="line"><span class="comment"># 确定当使用加载数据时，Cypher是否允许使用文件URL `LOAD CSV`。将此值设置为`false`将导致Neo4j不能通过互联网上的URL导入数据，`LOAD CSV` 会从文件系统加载数据。</span></span><br><span class="line">dbms.security.allow_csv_import_from_file_urls=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Retention policy for transaction logs needed to perform recovery and backups.  执行恢复和备份所需的事务日志的保留策略</span></span><br><span class="line"><span class="comment">#dbms.tx_log.rotation.retention_policy=7 days</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable a remote shell server which Neo4j Shell clients can log in to.  启用Neo4j Shell客户端可以登录的远程shell服务器</span></span><br><span class="line">dbms.shell.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#The network interface IP the shell will listen on (use 0.0.0.0 for all interfaces).</span></span><br><span class="line">dbms.shell.host=127.0.0.1</span><br><span class="line"><span class="comment">#The port the shell will listen on, default is 1337.</span></span><br><span class="line">dbms.shell.port=1337</span><br><span class="line"></span><br><span class="line"><span class="comment">#Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes.</span></span><br><span class="line"><span class="comment"># 只允许从Neo4j实例读取操作。此模式仍然需要对目录的写访问以用于锁定目的。</span></span><br><span class="line"><span class="comment">#dbms.read_only=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Comma separated list of JAX-RS packages containing JAX-RS resources, one package name for each mountpoint. The listed package names will be loaded under the mountpoints specified. Uncomment this line to mount the org.neo4j.examples.server.unmanaged.HelloWorldResource.java from neo4j-server-examples under /examples/unmanaged, resulting in a final URL of http://localhost:7474/examples/unmanaged/helloworld/&#123;nodeId&#125;      包含JAX-RS资源的JAX-RS软件包的逗号分隔列表，每个安装点一个软件包名称。所列出的软件包名称将在指定的安装点下加载。取消注释此行以装载org.neo4j.examples.server.unmanaged.HelloWorldResource.java neo4j-server-examples下/ examples / unmanaged，最终的URL为http//localhost7474/examples/unmanaged/helloworld/&#123;nodeId&#125;</span></span><br><span class="line"><span class="comment">#dbms.unmanaged_extension_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#JVM Parameters  JVM参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#G1GC generally strikes a good balance between throughput and tail latency, without too much tuning. G1GC通常在吞吐量和尾部延迟之间达到很好的平衡，而没有太多的调整。</span></span><br><span class="line">dbms.jvm.additional=-XX:+UseG1GC</span><br><span class="line"></span><br><span class="line"><span class="comment">#Have common exceptions keep producing stack traces, so they can be debugged regardless of how often logs are rotated. 有共同的异常保持生成堆栈跟踪，所以他们可以被调试，无论日志被旋转的频率</span></span><br><span class="line">dbms.jvm.additional=-XX:-OmitStackTraceInFastThrow</span><br><span class="line"></span><br><span class="line"><span class="comment">#Make sure that `initmemory` is not only allocated, but committed to the process, before starting the database. This reduces memory fragmentation, increasing the effectiveness of transparent huge pages. It also reduces the possibility of seeing performance drop due to heap-growing GC events, where a decrease in available page cache leads to an increase in mean IO response time. Try reducing the heap memory, if this flag degrades performance.    确保在启动数据库之前，“initmemory”不仅被分配，而且被提交到进程。这减少了内存碎片，增加了透明大页面的有效性。它还减少了由于堆增长的GC事件而导致性能下降的可能性，其中可用页面缓存的减少导致平均IO响应时间的增加。如果此标志降低性能，请减少堆内存。</span></span><br><span class="line">dbms.jvm.additional=-XX:+AlwaysPreTouch</span><br><span class="line"></span><br><span class="line"><span class="comment">#Trust that non-static final fields are really final. This allows more optimizations and improves overall performance. <span class="doctag">NOTE:</span> Disable this if you use embedded mode, or have extensions or dependencies that may use reflection or serialization to change the value of final fields!    信任非静态final字段真的是final。这允许更多的优化和提高整体性能。注意：如果使用嵌入模式，或者有可能使用反射或序列化更改最终字段的值的扩展或依赖关系，请禁用此选项！</span></span><br><span class="line">dbms.jvm.additional=-XX:+UnlockExperimentalVMOptions</span><br><span class="line">dbms.jvm.additional=-XX:+TrustFinalNonStaticFields</span><br><span class="line"></span><br><span class="line"><span class="comment">#Disable explicit garbage collection, which is occasionally invoked by the JDK itself.  禁用显式垃圾回收，这是偶尔由JDK本身调用。</span></span><br><span class="line">dbms.jvm.additional=-XX:+DisableExplicitGC</span><br><span class="line"></span><br><span class="line"><span class="comment">#Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and jmx.password files are required.</span></span><br><span class="line"><span class="comment"># 远程JMX监视，取消注释并根据需要调整以下行。需要jmx.access和jmx.password文件的绝对路径。</span></span><br><span class="line"><span class="comment">#Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords, the shipped configuration contains only a read only role called 'monitor' with password 'Neo4j'.</span></span><br><span class="line"><span class="comment"># 还要确保使用适当的权限角色和密码更新jmx.access和jmx.password文件，所配置的配置只包含名为“monitor”的只读角色，密码为“Neo4j”。</span></span><br><span class="line"><span class="comment">#For more details, see: http://download.oracle.com/javase/8/docs/technotes/guides/management/agent.html On Unix based systems the jmx.password file needs to be owned by the user that will run the server, and have permissions set to 0600. Unix系统，有关详情，请参阅：http：//download.oracle.com/javase/8/docs/technotes/guides/management/agent.html，jmx.password文件需要由运行服务器的用户拥有，并且权限设置为0600。</span></span><br><span class="line"><span class="comment">#For details on setting these file permissions on Windows see: http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html   Windows系统  有关在设置这些文件权限的详细信息，请参阅：http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.port=3637</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.authenticate=true</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.ssl=false</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.password.file=/absolute/path/to/conf/jmx.password</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.access.file=/absolute/path/to/conf/jmx.access</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Some systems cannot discover host name automatically, and need this line configured:  某些系统无法自动发现主机名，需要配置以下行：</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Djava.rmi.server.hostname=$THE_NEO4J_SERVER_HOSTNAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Expand Diffie Hellman (DH) key size from default 1024 to 2048 for DH-RSA cipher suites used in server TLS handshakes. 对于服务器TLS握手中使用的DH-RSA密码套件，将Diffie Hellman（DH）密钥大小从默认1024展开到2048。</span></span><br><span class="line"><span class="comment">#This is to protect the server from any potential passive eavesdropping. 这是为了保护服务器免受任何潜在的被动窃听。</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.ephemeralDHKeySize=2048</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Wrapper Windows NT/2000/XP Service Properties  包装器Windows NT / 2000 / XP服务属性包装器Windows NT / 2000 / XP服务属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#WARNING - Do not modify any of these properties when an application using this configuration file has been installed as a service.  WARNING - 当使用此配置文件的应用程序已作为服务安装时，不要修改任何这些属性。</span></span><br><span class="line"><span class="comment">#Please uninstall the service before modifying this section.  The service can then be reinstalled. 请在修改此部分之前卸载服务。 然后可以重新安装该服务。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Name of the service 服务的名称</span></span><br><span class="line">dbms.windows_service_name=neo4j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Other Neo4j system properties  其他Neo4j系统属性</span></span><br><span class="line">dbms.jvm.additional=-Dunsupported.dbms.udc.source=zip</span><br></pre></td></tr></table></figure>
+<p>默认的 Neo4j 配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Neo4j configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more details and a complete list of settings, please see</span></span><br><span class="line"><span class="comment"># https://neo4j.com/docs/operations-manual/current/reference/configuration-settings/</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The name of the database to mount</span></span><br><span class="line">dbms.active_database=graph.db</span><br><span class="line"></span><br><span class="line"><span class="comment"># Paths of directories in the installation.</span></span><br><span class="line"><span class="comment">#dbms.directories.data=data</span></span><br><span class="line"><span class="comment">#dbms.directories.plugins=plugins</span></span><br><span class="line"><span class="comment">#dbms.directories.certificates=certificates</span></span><br><span class="line"><span class="comment">#dbms.directories.logs=logs</span></span><br><span class="line"><span class="comment">#dbms.directories.lib=lib</span></span><br><span class="line"><span class="comment">#dbms.directories.run=run</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to</span></span><br><span class="line"><span class="comment"># allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the</span></span><br><span class="line"><span class="comment"># `LOAD CSV` section of the manual for details.</span></span><br><span class="line">dbms.directories.import=import</span><br><span class="line"></span><br><span class="line"><span class="comment"># Whether requests to Neo4j are authenticated.</span></span><br><span class="line"><span class="comment"># To disable authentication, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.security.auth_enabled=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable this to be able to upgrade a store from an older version.</span></span><br><span class="line"><span class="comment">#dbms.allow_upgrade=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Java Heap Size: by default the Java heap size is dynamically</span></span><br><span class="line"><span class="comment"># calculated based on available system resources.</span></span><br><span class="line"><span class="comment"># Uncomment these lines to set specific initial and maximum</span></span><br><span class="line"><span class="comment"># heap size.</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.initial_size=512m</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.max_size=512m</span></span><br><span class="line">dbms.memory.heap.initial_size=1024m</span><br><span class="line">dbms.memory.heap.max_size=1024m</span><br><span class="line"></span><br><span class="line"><span class="comment"># The amount of memory to use for mapping the store files, in bytes (or</span></span><br><span class="line"><span class="comment"># kilobytes with the 'k' suffix, megabytes with 'm' and gigabytes with 'g').</span></span><br><span class="line"><span class="comment"># If Neo4j is running on a dedicated server, then it is generally recommended</span></span><br><span class="line"><span class="comment"># to leave about 2-4 gigabytes for the operating system, give the JVM enough</span></span><br><span class="line"><span class="comment"># heap to hold all your transaction state and query context, and then leave the</span></span><br><span class="line"><span class="comment"># rest for the page cache.</span></span><br><span class="line"><span class="comment"># The default page cache memory assumes the machine is dedicated to running</span></span><br><span class="line"><span class="comment"># Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.</span></span><br><span class="line"><span class="comment">#dbms.memory.pagecache.size=10g</span></span><br><span class="line">dbms.memory.pagecache.size=20g</span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Network connector configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># With default configuration Neo4j only accepts local connections.</span></span><br><span class="line"><span class="comment"># To accept non-local connections, uncomment this line:</span></span><br><span class="line">dbms.connectors.default_listen_address=localhost</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can also choose a specific network interface, and configure a non-default</span></span><br><span class="line"><span class="comment"># port for each connector, by setting their individual listen_address.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The address at which this server can be reached by its clients. This may be the server's IP address or DNS name, or</span></span><br><span class="line"><span class="comment"># it may be the address of a reverse proxy which sits in front of the server. This setting may be overridden for</span></span><br><span class="line"><span class="comment"># individual connectors below.</span></span><br><span class="line"><span class="comment">#dbms.connectors.default_advertised_address=localhost</span></span><br><span class="line">dbms.connectors.default_advertised_address=localhost</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can also choose a specific advertised hostname or IP address, and</span></span><br><span class="line"><span class="comment"># configure an advertised port for each connector, by setting their</span></span><br><span class="line"><span class="comment"># individual advertised_address.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bolt connector</span></span><br><span class="line">dbms.connector.bolt.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#dbms.connector.bolt.tls_level=OPTIONAL</span></span><br><span class="line"><span class="comment">#dbms.connector.bolt.listen_address=:7687</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTP Connector. There must be exactly one HTTP connector.</span></span><br><span class="line">dbms.connector.http.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#dbms.connector.http.listen_address=:7474</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTPS Connector. There can be zero or one HTTPS connectors.</span></span><br><span class="line">dbms.connector.https.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#dbms.connector.https.listen_address=:7473</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of Neo4j worker threads.</span></span><br><span class="line"><span class="comment">#dbms.threads.worker_count=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># apoc setting [scfan] [2018-06-19]</span></span><br><span class="line">dbms.security.procedures.unrestricted=apoc.*</span><br><span class="line">apoc.import.file.enabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># SSL system configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Names of the SSL policies to be used for the respective components.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The legacy policy is a special policy which is not defined in</span></span><br><span class="line"><span class="comment"># the policy configuration section, but rather derives from</span></span><br><span class="line"><span class="comment"># dbms.directories.certificates and associated files</span></span><br><span class="line"><span class="comment"># (by default: neo4j.key and neo4j.cert). Its use will be deprecated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The policies to be used for connectors.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># N.B: Note that a connector must be configured to support/require</span></span><br><span class="line"><span class="comment">#      SSL/TLS for the policy to actually be utilized.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># see: dbms.connector.*.tls_level</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#bolt.ssl_policy=legacy</span></span><br><span class="line"><span class="comment">#https.ssl_policy=legacy</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># SSL policy configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Each policy is configured under a separate namespace, e.g.</span></span><br><span class="line"><span class="comment">#    dbms.ssl.policy.&lt;policyname&gt;.*</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The example settings below are for a new policy named 'default'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The base directory for cryptographic objects. Each policy will by</span></span><br><span class="line"><span class="comment"># default look for its associated objects (keys, certificates, ...)</span></span><br><span class="line"><span class="comment"># under the base directory.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Every such setting can be overriden using a full path to</span></span><br><span class="line"><span class="comment"># the respective object, but every policy will by default look</span></span><br><span class="line"><span class="comment"># for cryptographic objects in its base location.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Mandatory setting</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.base_directory=certificates/default</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Allows the generation of a fresh private key and a self-signed</span></span><br><span class="line"><span class="comment"># certificate if none are found in the expected locations. It is</span></span><br><span class="line"><span class="comment"># recommended to turn this off again after keys have been generated.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Keys should in general be generated and distributed offline</span></span><br><span class="line"><span class="comment"># by a trusted certificate authority (CA) and not by utilizing</span></span><br><span class="line"><span class="comment"># this mode.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.allow_key_generation=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enabling this makes it so that this policy ignores the contents</span></span><br><span class="line"><span class="comment"># of the trusted_dir and simply resorts to trusting everything.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use of this mode is discouraged. It would offer encryption but no security.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.trust_all=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The private key for the default SSL policy. By default a file</span></span><br><span class="line"><span class="comment"># named private.key is expected under the base directory of the policy.</span></span><br><span class="line"><span class="comment"># It is mandatory that a key can be found or generated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.private_key=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The private key for the default SSL policy. By default a file</span></span><br><span class="line"><span class="comment"># named public.crt is expected under the base directory of the policy.</span></span><br><span class="line"><span class="comment"># It is mandatory that a certificate can be found or generated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.public_certificate=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The certificates of trusted parties. By default a directory named</span></span><br><span class="line"><span class="comment"># 'trusted' is expected under the base directory of the policy. It is</span></span><br><span class="line"><span class="comment"># mandatory to create the directory so that it exists, because it cannot</span></span><br><span class="line"><span class="comment"># be auto-created (for security purposes).</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># To enforce client authentication client_auth must be set to 'require'!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.trusted_dir=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Client authentication setting. Values: none, optional, require</span></span><br><span class="line"><span class="comment"># The default is to require client authentication.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Servers are always authenticated unless explicitly overridden</span></span><br><span class="line"><span class="comment"># using the trust_all setting. In a mutual authentication setup this</span></span><br><span class="line"><span class="comment"># should be kept at the default of require and trusted certificates</span></span><br><span class="line"><span class="comment"># must be installed in the trusted_dir.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.client_auth=require</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A comma-separated list of allowed TLS versions.</span></span><br><span class="line"><span class="comment"># By default TLSv1, TLSv1.1 and TLSv1.2 are allowed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.tls_versions=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A comma-separated list of allowed ciphers.</span></span><br><span class="line"><span class="comment"># The default ciphers are the defaults of the JVM platform.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.ciphers=</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Logging configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># To enable HTTP logging, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.logs.http.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of HTTP logs to keep.</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of each HTTP log that is kept.</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># To enable GC Logging, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GC Logging Options</span></span><br><span class="line"><span class="comment"># see http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013 for more information.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.options=-XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of GC logs to keep.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of each GC log that is kept.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size threshold for rotation of the debug log. If set to zero then no rotation will occur. Accepts a binary suffix "k",</span></span><br><span class="line"><span class="comment"># "m" or "g".</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Maximum number of history files for the internal log.</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.keep_number=7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Miscellaneous configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable this to specify a parser other than the default one.</span></span><br><span class="line"><span class="comment">#cypher.default_language_version=3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Determines if Cypher will allow using file URLs when loading data using</span></span><br><span class="line"><span class="comment"># `LOAD CSV`. Setting this value to `false` will cause Neo4j to fail `LOAD CSV`</span></span><br><span class="line"><span class="comment"># clauses that load data from the file system.</span></span><br><span class="line">dbms.security.allow_csv_import_from_file_urls=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Retention policy for transaction logs needed to perform recovery and backups.</span></span><br><span class="line">dbms.tx_log.rotation.retention_policy=1 days</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable a remote shell server which Neo4j Shell clients can log in to.</span></span><br><span class="line"><span class="comment">#dbms.shell.enabled=true</span></span><br><span class="line"><span class="comment"># The network interface IP the shell will listen on (use 0.0.0.0 for all interfaces).</span></span><br><span class="line"><span class="comment">#dbms.shell.host=127.0.0.1</span></span><br><span class="line"><span class="comment"># The port the shell will listen on, default is 1337.</span></span><br><span class="line"><span class="comment">#dbms.shell.port=1337</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Only allow read operations from this Neo4j instance. This mode still requires</span></span><br><span class="line"><span class="comment"># write access to the directory for lock purposes.</span></span><br><span class="line"><span class="comment">#dbms.read_only=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Comma separated list of JAX-RS packages containing JAX-RS resources, one</span></span><br><span class="line"><span class="comment"># package name for each mountpoint. The listed package names will be loaded</span></span><br><span class="line"><span class="comment"># under the mountpoints specified. Uncomment this line to mount the</span></span><br><span class="line"><span class="comment"># org.neo4j.examples.server.unmanaged.HelloWorldResource.java from</span></span><br><span class="line"><span class="comment"># neo4j-server-examples under /examples/unmanaged, resulting in a final URL of</span></span><br><span class="line"><span class="comment"># http://localhost:7474/examples/unmanaged/helloworld/&#123;nodeId&#125;</span></span><br><span class="line"><span class="comment">#dbms.unmanaged_extension_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># JVM Parameters</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># G1GC generally strikes a good balance between throughput and tail</span></span><br><span class="line"><span class="comment"># latency, without too much tuning.</span></span><br><span class="line">dbms.jvm.additional=-XX:+UseG1GC</span><br><span class="line"></span><br><span class="line"><span class="comment"># Have common exceptions keep producing stack traces, so they can be</span></span><br><span class="line"><span class="comment"># debugged regardless of how often logs are rotated.</span></span><br><span class="line">dbms.jvm.additional=-XX:-OmitStackTraceInFastThrow</span><br><span class="line"></span><br><span class="line"><span class="comment"># Make sure that `initmemory` is not only allocated, but committed to</span></span><br><span class="line"><span class="comment"># the process, before starting the database. This reduces memory</span></span><br><span class="line"><span class="comment"># fragmentation, increasing the effectiveness of transparent huge</span></span><br><span class="line"><span class="comment"># pages. It also reduces the possibility of seeing performance drop</span></span><br><span class="line"><span class="comment"># due to heap-growing GC events, where a decrease in available page</span></span><br><span class="line"><span class="comment"># cache leads to an increase in mean IO response time.</span></span><br><span class="line"><span class="comment"># Try reducing the heap memory, if this flag degrades performance.</span></span><br><span class="line">dbms.jvm.additional=-XX:+AlwaysPreTouch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trust that non-static final fields are really final.</span></span><br><span class="line"><span class="comment"># This allows more optimizations and improves overall performance.</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> Disable this if you use embedded mode, or have extensions or dependencies that may use reflection or</span></span><br><span class="line"><span class="comment"># serialization to change the value of final fields!</span></span><br><span class="line">dbms.jvm.additional=-XX:+UnlockExperimentalVMOptions</span><br><span class="line">dbms.jvm.additional=-XX:+TrustFinalNonStaticFields</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable explicit garbage collection, which is occasionally invoked by the JDK itself.</span></span><br><span class="line">dbms.jvm.additional=-XX:+DisableExplicitGC</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and</span></span><br><span class="line"><span class="comment"># jmx.password files are required.</span></span><br><span class="line"><span class="comment"># Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords,</span></span><br><span class="line"><span class="comment"># the shipped configuration contains only a read only role called 'monitor' with password 'Neo4j'.</span></span><br><span class="line"><span class="comment"># For more details, see: http://download.oracle.com/javase/8/docs/technotes/guides/management/agent.html</span></span><br><span class="line"><span class="comment"># On Unix based systems the jmx.password file needs to be owned by the user that will run the server,</span></span><br><span class="line"><span class="comment"># and have permissions set to 0600.</span></span><br><span class="line"><span class="comment"># For details on setting these file permissions on Windows see:</span></span><br><span class="line"><span class="comment">#     http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.port=3637</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.authenticate=true</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.ssl=false</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.password.file=/absolute/path/to/conf/jmx.password</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.access.file=/absolute/path/to/conf/jmx.access</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Some systems cannot discover host name automatically, and need this line configured:</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Djava.rmi.server.hostname=$THE_NEO4J_SERVER_HOSTNAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expand Diffie Hellman (DH) key size from default 1024 to 2048 for DH-RSA cipher suites used in server TLS handshakes.</span></span><br><span class="line"><span class="comment"># This is to protect the server from any potential passive eavesdropping.</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.ephemeralDHKeySize=2048</span><br><span class="line"></span><br><span class="line"><span class="comment"># This mitigates a DDoS vector.</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.rejectClientInitiatedRenegotiation=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># Wrapper Windows NT/2000/XP Service Properties</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># WARNING - Do not modify any of these properties when an application</span></span><br><span class="line"><span class="comment">#  using this configuration file has been installed as a service.</span></span><br><span class="line"><span class="comment">#  Please uninstall the service before modifying this section.  The</span></span><br><span class="line"><span class="comment">#  service can then be reinstalled.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Name of the service</span></span><br><span class="line">dbms.windows_service_name=neo4j</span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># Other Neo4j system properties</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line">dbms.jvm.additional=-Dunsupported.dbms.udc.source=tarball</span><br></pre></td></tr></table></figure>
+<p>使用的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本和默认配置文件相同，仅修改如下项。其他同原样</span></span><br><span class="line">dbms.active_database=20190718095032289977.db</span><br><span class="line">dbms.directories.import=import</span><br><span class="line">dbms.memory.heap.initial_size=1024m</span><br><span class="line">dbms.memory.heap.max_size=1024m</span><br><span class="line">dbms.memory.pagecache.size=20g</span><br><span class="line">dbms.connectors.default_listen_address=192.168.100.162</span><br><span class="line">dbms.connectors.default_advertised_address=192.168.100.162</span><br></pre></td></tr></table></figure>
+<h2 id="Neo4j-语法"><a href="#Neo4j-语法" class="headerlink" title="Neo4j 语法"></a>Neo4j 语法</h2><p>Cypher 是图形数据库 Neo4j 的声明式查询语言。</p>
+<p>CQL 代表 Cypher 查询语言。 像 Oracle 数据库具有查询语言 SQL，Neo4j 具有 CQL 作为查询语言。</p>
+<p><a href="https://www.w3cschool.cn/neo4j/neo4j_id_property.html" target="_blank" rel="noopener">neo4j 入门教程</a></p>
+<h3 id="Neo4j-术语-概念"><a href="#Neo4j-术语-概念" class="headerlink" title="Neo4j 术语/概念"></a>Neo4j 术语/概念</h3><p>基础术语/概念</p>
+<p>下面介绍下 neo4j 的几个核心概念：</p>
+<ul>
+<li><p>Nodes（节点，类似地铁图里的一个地铁站）<br>图谱的基本单位主要是节点和关系，他们都可以包含属性，一个节点就是一行数据，一个关系也是一行数据，里面的属性就是数据库里面的 row 里面的字段。<br>除了属性之外，关系和节点还可以有零到多个标签，标签也可以认为是一个特殊分组方式。</p>
+</li>
+<li><p>Relationships（关系，类似两个相邻地铁站之间路线）<br>关系的功能是组织和连接节点，一个关系连接 2 个节点，一个开始节点和一个结束节点。当所有的点被连接起来，就形成了一张图谱，通过关系可以组织节点形成任意的结构，比如 list，tree，map，tuple，或者更复杂的结构。关系拥有方向进和出，代表一种指向。</p>
+</li>
+<li><p>Properties（属性，类似地铁站的名字，位置，大小，进出口数量等）<br>属性非常类似数据库里面的字段，只有节点和关系可以拥有 0 到多个属性，属性类型基本和 java 的数据类型一致，分为 数值，字符串，布尔，以及其他的一些类型，字段名必须是字符串。</p>
+</li>
+<li><p>Labels（标签，类似地铁站的属于哪个区）<br>标签通过形容一种角色或者给节点加上一种类型，一个节点可以有多个类型，通过类型区分一类节点，这样在查询时候可以更加方便和高效，除此之外标签在给属性建立索引或者约束时候也会用到。label 名称必须是非空的 unicode 字符串，另外 lables 最大标记容量是 int 的最大值，近似 21 亿。</p>
+</li>
+<li><p>Traversal（遍历，类似我们看地图找路径）<br>查询时候通常是遍历图谱然后找到路径，在遍历时通常会有一个开始节点，然后根据 cpyher 提供的查询语句，遍历相关路径上的节点和关系，从而得到最终的结果。</p>
+</li>
+<li><p>Paths（路径，类似从一个地铁站到另一个地铁站的所有的到达路径）<br>路径是一个或多个节点通过关系连接起来的产物，例如得到图谱查询或者遍历的结果。</p>
+</li>
+<li><p>Schema（模式，类似存储数据的结构）<br>neo4j 是一个无模式或者 less 模式的图谱数据库，像 mongodb，solr，lucene 或者 es 一样，你可以使用它不需要定义任何 schema，</p>
+</li>
+<li><p>Indexes（索引）<br>遍历图通过需要大量的随机读写，如果没有索引，则可能意味着每次都是全图扫描，这样效率非常低下，为了获得更好的性能，我们可以在字段属性上构建索引，这样任何查询操作都会使用索引，从而大幅度提升 seek 性能，</p>
+</li>
+</ul>
+<p>构建索引是一个异步请求，并不会立刻生效，会再后台创建直至成功后，才能最终生效。如果创建失败，可以重建索引，先删除索引，在创建即可，然后从 log 里面找出创建失败的原因然后分析。</p>
+<ul>
+<li>Constraints（约束）<br>约束可以定义在某个字段上，限制字段值唯一，创建约束会自动创建索引。</li>
+</ul>
+<p>参考链接:</p>
+<p><a href="https://blog.csdn.net/u010454030/article/details/52949031" target="_blank" rel="noopener">Neo4j 术语与概念</a></p>
+<h3 id="Neo4j-运算符"><a href="#Neo4j-运算符" class="headerlink" title="Neo4j 运算符"></a>Neo4j 运算符</h3><table>
+<thead>
+<tr>
+<th>运算名称</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常规运算</td>
+<td>DISTINCT, ., []</td>
+</tr>
+<tr>
+<td>算数运算</td>
+<td>+, -, *, /, %, ^</td>
+</tr>
+<tr>
+<td>比较运算</td>
+<td>=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, IS NULL, IS NOT NULL</td>
+</tr>
+<tr>
+<td>逻辑运算</td>
+<td>AND, OR, XOR, NOT</td>
+</tr>
+<tr>
+<td>字符串操作</td>
+<td>+</td>
+</tr>
+<tr>
+<td>List 操作</td>
+<td>+, IN, [x], [x .. y]</td>
+</tr>
+<tr>
+<td>正则操作</td>
+<td>=~</td>
+</tr>
+<tr>
+<td>字符串匹配</td>
+<td>STARTS WITH, ENDS WITH, CONTAINS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Cypher-语法"><a href="#Cypher-语法" class="headerlink" title="Cypher 语法"></a>Cypher 语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create 语句</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create语法</span></span><br><span class="line">CREATE (&lt;node-name&gt;:&lt;label-name&gt;&#123;&lt;Property1-name&gt;...&lt;Propertyn-name&gt;&#125;)</span><br><span class="line">- node-name 节点名称。Neo4j使用。不能使用它来访问节点详细信息</span><br><span class="line">- label-name 标签名称 使用此标签名称来访问节点详细信息。</span><br><span class="line">- Property1-name 属性</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create 节点+标签 + 属性</span></span><br><span class="line">CREATE (node_name:label1:label2&#123;id:<span class="number">123</span>,name:<span class="string">"Lokesh"</span>,sal:<span class="number">35000</span>,deptno:<span class="number">10</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Match - 查询指定节点</span></span><br><span class="line">match (lab:label1)</span><br><span class="line">where lab.name = <span class="string">'Lokesh'</span></span><br><span class="line">RETURN lab.name,lab.id</span><br><span class="line"><span class="comment"># label1 标签名称</span></span><br><span class="line"><span class="comment"># lab 标签名称重命名。类似 as</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Match - 查询指定节点,创建关系</span></span><br><span class="line">MATCH (cust:Customer),(cc:CreditCard)</span><br><span class="line">WHERE cust.id = <span class="string">"1001"</span> AND cc.id= <span class="string">"5001"</span></span><br><span class="line">CREATE (cust)-[r:DO_SHOPPING_WITH&#123;shopdate:"12/12/2014",price:55000&#125;]-&gt;(cc)</span><br><span class="line">RETURN r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sort排序 - 对 Match 结果升序或降序排序</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp.empid,emp.name,emp.salary,emp.deptno</span><br><span class="line">ORDER BY emp.name DESC</span><br><span class="line"></span><br><span class="line"><span class="comment"># UNION - 数据合并(字段名称类型必须一致) 不返回重复行</span></span><br><span class="line"></span><br><span class="line">MATCH (cc:CreditCard)</span><br><span class="line">RETURN cc.id <span class="keyword">as</span> id,cc.number <span class="keyword">as</span> number,cc.name <span class="keyword">as</span> name,</span><br><span class="line">   cc.valid_from <span class="keyword">as</span> valid_from,cc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line">UNION</span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">RETURN dc.id <span class="keyword">as</span> id,dc.number <span class="keyword">as</span> number,dc.name <span class="keyword">as</span> name,</span><br><span class="line">   dc.valid_from <span class="keyword">as</span> valid_from,dc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line"></span><br><span class="line"><span class="comment"># UNION ALL - 数据合并(字段名称类型必须一致) 返回重复行</span></span><br><span class="line">MATCH (cc:CreditCard)</span><br><span class="line">RETURN cc.id <span class="keyword">as</span> id,cc.number <span class="keyword">as</span> number,cc.name <span class="keyword">as</span> name,</span><br><span class="line">   cc.valid_from <span class="keyword">as</span> valid_from,cc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line">UNION ALL</span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">RETURN dc.id <span class="keyword">as</span> id,dc.number <span class="keyword">as</span> number,dc.name <span class="keyword">as</span> name,</span><br><span class="line">   dc.valid_from <span class="keyword">as</span> valid_from,dc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line"></span><br><span class="line"><span class="comment"># Limit 过滤或限制查询返回的行数. 去掉CQL查询结果集底部的结果</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp</span><br><span class="line">LIMIT <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># skip 过滤或限制查询返回的行数. 去掉CQL查询结果集顶部的结果</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp</span><br><span class="line">SKIP <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Merge 合并</span></span><br><span class="line"></span><br><span class="line">Neo4j使用CQL MERGE命令</span><br><span class="line">- 创建节点，关系和属性</span><br><span class="line">- 为从数据库检索数据</span><br><span class="line">- 命令使用：Create+Match组合</span><br><span class="line"></span><br><span class="line">MERGE (gp2:GoogleProfile2&#123; Id: <span class="number">201402</span>,Name:<span class="string">"Nokia"</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE命令总是向数据库添加新的节点</span><br><span class="line">Merge命令只有在不存在时创建节点。存在时更新</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># NULL</span></span><br><span class="line"></span><br><span class="line">Neo4j CQL将空值视为对节点或关系的属性的缺失值或未定义值。</span><br><span class="line"></span><br><span class="line">当我们创建一个具有现有节点标签名称但未指定其属性值的节点时，它将创建一个具有NULL属性值的新节点。</span><br><span class="line"><span class="comment"># 查看存在 id 属性的节点</span></span><br><span class="line">MATCH (e:Employee)</span><br><span class="line">WHERE e.id IS NOT NULL</span><br><span class="line">RETURN e.id,e.name,e.sal,e.deptno</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除属性</span></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br><span class="line"></span><br><span class="line"><span class="comment"># IN 查询集合</span></span><br><span class="line">MATCH (e:Employee)</span><br><span class="line">WHERE e.id IN [<span class="number">123</span>,<span class="number">124</span>]</span><br><span class="line">RETURN e.id,e.name,e.sal,e.deptno</span><br></pre></td></tr></table></figure>
+<p>Cypher 删除</p>
+<ul>
+<li>两种删除方式。DELETE REMOVE</li>
+<li>Delete 用于删除节点和关系。Remove 用于删除标签和属性。</li>
+<li>Delete 和 Remove 都需要和 Match 配合使用。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除节点</span></span><br><span class="line">MATCH (e: Employee) DELETE e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除节点及关系</span></span><br><span class="line">MATCH (cc: CreditCard)-[rel]-(c:Customer)</span><br><span class="line">DELETE cc,c,rel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除属性</span></span><br><span class="line">MATCH (book &#123; id:122 &#125;)</span><br><span class="line">REMOVE book.price</span><br><span class="line">RETURN book</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除匹配 label1 数据. 标签 label2.</span></span><br><span class="line">MATCH (m:label1)</span><br><span class="line">REMOVE m:label2</span><br></pre></td></tr></table></figure>
+<p>Cypher 更新</p>
+<ul>
+<li>set 方式更新数据。可以和 match 等配合使用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新节点属性</span></span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">SET dc.atm_pin = 3456</span><br><span class="line">RETURN dc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除属性</span></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br></pre></td></tr></table></figure>
+<p>ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">一，创建节点</span><br><span class="line">1，创建空的节点</span><br><span class="line"></span><br><span class="line">CREATE (n)</span><br><span class="line">CREATE (a),(b)</span><br><span class="line">2，创建带标签的节点</span><br><span class="line"></span><br><span class="line">CREATE (n:Person)</span><br><span class="line">CREATE (n:Person:Swedish)</span><br><span class="line">3，创建带标签和属性的节点</span><br><span class="line"></span><br><span class="line">CREATE (n:Person &#123; name: <span class="string">'Andres'</span>, title: <span class="string">'Developer'</span> &#125;)</span><br><span class="line">二，创建关系</span><br><span class="line">创建节点之前的关系</span><br><span class="line"></span><br><span class="line">1，在两个节点之间创建关系</span><br><span class="line"></span><br><span class="line">在两个节点之间创建关系，并设置关系类型</span><br><span class="line"></span><br><span class="line">MATCH (a:Person),(b:Person)</span><br><span class="line">WHERE a.name = <span class="string">'A'</span> AND b.name = <span class="string">'B'</span></span><br><span class="line">CREATE (a)-[r:RELTYPE]-&gt;(b)</span><br><span class="line">RETURN <span class="built_in">type</span>(r)</span><br><span class="line">2，创建关系，并设置关系的属性</span><br><span class="line"></span><br><span class="line">MATCH (a:Person),(b:Person)</span><br><span class="line">WHERE a.name = <span class="string">'A'</span> AND b.name = <span class="string">'B'</span></span><br><span class="line">CREATE (a)-[r:RELTYPE &#123; name: a.name + <span class="string">'&lt;-&gt;'</span> + b.name &#125;]-&gt;(b)</span><br><span class="line">RETURN <span class="built_in">type</span>(r), r.name</span><br><span class="line">3，CREATE子句和模式</span><br><span class="line"></span><br><span class="line">在CREATE子句和模式中，对于模式中的任意部分，如果它不存在于图中，那么CREATE子句创建它；如果存在于图中，那么就会引用它。</span><br><span class="line"></span><br><span class="line">CREATE p =(andres &#123; name:<span class="string">'Andres'</span> &#125;)-[:WORKS_AT]-&gt;(neo)&lt;-[:WORKS_AT]-(michael &#123; name: <span class="string">'Michael'</span> &#125;)</span><br><span class="line">RETURN p</span><br><span class="line">三，删除节点和关系</span><br><span class="line">使用delete子句删除节点、关系和路径，当删除节点时，该节点必须是孤立的节点，也就是说，必须首先删除跟节点相关的所有关系。</span><br><span class="line"></span><br><span class="line">detach delete： 表示删除一个节点或多个节点，跟节点相关的所有关系也都被删除。</span><br><span class="line"></span><br><span class="line">1，删除节点</span><br><span class="line"></span><br><span class="line">MATCH (n:Person &#123; name: <span class="string">'UNKNOWN'</span> &#125;)</span><br><span class="line">DELETE n</span><br><span class="line">2，删除所有节点和关系</span><br><span class="line"></span><br><span class="line">MATCH (n)</span><br><span class="line">DETACH DELETE n</span><br><span class="line">3，删除一个节点和它的所有关系</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">DETACH DELETE n</span><br><span class="line">4，删除关系</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)-[r:KNOWS]-&gt;()</span><br><span class="line">DELETE r</span><br><span class="line">四，更新属性或标签</span><br><span class="line"><span class="built_in">set</span>子句用于更新节点的标签，向节点和关系中添加属性</span><br><span class="line"></span><br><span class="line">1，向节点或关系中添加属性</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.surname = <span class="string">'Taylor'</span></span><br><span class="line">RETURN n.name, n.surname</span><br><span class="line">2，移除属性</span><br><span class="line"></span><br><span class="line">如果设置属性的值是NULL，相当于把该属性从节点或关系中移除</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br><span class="line">3，复制属性</span><br><span class="line"></span><br><span class="line">把一个节点的属性复制给另一个节点</span><br><span class="line"></span><br><span class="line">MATCH (at &#123; name: <span class="string">'Andres'</span> &#125;),(pn &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">SET at = pn</span><br><span class="line">RETURN at.name, at.age, at.hungry, pn.name, pn.age</span><br><span class="line">4，从Map中添加属性</span><br><span class="line"></span><br><span class="line">MATCH (p &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">SET p += &#123; hungry: TRUE , position: <span class="string">'Entrepreneur'</span> &#125;</span><br><span class="line">5，在一条<span class="built_in">set</span>子句中添加多个属性</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.position = <span class="string">'Developer'</span>, n.surname = <span class="string">'Taylor'</span></span><br><span class="line">6，向节点中添加标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Stefan'</span> &#125;)</span><br><span class="line">SET n:German</span><br><span class="line">RETURN n.name, labels(n) AS labels</span><br><span class="line">7，向节点中添加多个标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Emil'</span> &#125;)</span><br><span class="line">SET n:Swedish:Bossman</span><br><span class="line">RETURN n.name, labels(n) AS labels</span><br><span class="line">五，移除属性</span><br><span class="line">使用remove子句从节点中移除标签和属性，从关系中移除属性。</span><br><span class="line"></span><br><span class="line">1，移除属性</span><br><span class="line"></span><br><span class="line">默认情况下，Neo4j不允许存在值为null的属性；如果属性不存在，那么返回该属性的值是null。</span><br><span class="line"></span><br><span class="line">MATCH (a &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">REMOVE a.age</span><br><span class="line">RETURN a.name, a.age</span><br><span class="line">2，移除节点的标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">REMOVE n:German</span><br><span class="line">RETURN n.name, labels(n)</span><br><span class="line">3，移除节点的多个标签</span><br><span class="line"></span><br><span class="line">当节点的标签为空时，labels(n)函数返回空的list</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">REMOVE n:German:Swedish</span><br><span class="line">RETURN n.name, labels(n)</span><br><span class="line">六，foreach子句</span><br><span class="line">列表和路径是Cypher中的关键概念，foreach子句用于更新数据，例如，对路径中的元素或通过聚合创建的列表执行更新命令。</span><br><span class="line"></span><br><span class="line">1，对路径中的元素执行更新命令</span><br><span class="line"></span><br><span class="line">对路径中匹配的所有节点，添加marked属性，并设置属性值为TRUE</span><br><span class="line"></span><br><span class="line">MATCH p =(begin)-[*]-&gt;(END )</span><br><span class="line">WHERE begin.name = <span class="string">'A'</span> AND END .name = <span class="string">'D'</span></span><br><span class="line">FOREACH (n IN nodes(p)| SET n.marked = TRUE )</span><br></pre></td></tr></table></figure>
+<h3 id="Cpyher-函数"><a href="#Cpyher-函数" class="headerlink" title="Cpyher 函数"></a>Cpyher 函数</h3><h3 id="Cypher-常用语句"><a href="#Cypher-常用语句" class="headerlink" title="Cypher 常用语句"></a>Cypher 常用语句</h3><p>查询指定节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n:cust) <span class="built_in">where</span> n.id = <span class="string">'623026199412212548'</span> RETURN n LIMIT 25</span><br></pre></td></tr></table></figure>
+<p>更新指定节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n:cust) <span class="built_in">where</span> n.id = <span class="string">'623026199412212548'</span> <span class="built_in">set</span> n.name=<span class="string">'set_name_test'</span> RETURN n LIMIT 25</span><br></pre></td></tr></table></figure>
+<p>查询节点和边</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">match (ee:cust)-[:tran]-(tranx) <span class="built_in">where</span> ee.address=<span class="string">'吉林省东莞市新城哈尔滨街D座 690272'</span> <span class="built_in">return</span> ee,tranx</span><br></pre></td></tr></table></figure>
+<p>节点数据导入-loadcsv 方式-merge(更新已存在数据)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">USING PERIODIC COMMIT 10000 LOAD CSV WITH HEADERS</span><br><span class="line">            FROM <span class="string">"file:///test.csv"</span> AS line</span><br><span class="line">            fieldterminator <span class="string">','</span></span><br><span class="line">            Merge (n:cust&#123;id:line.id&#125;)</span><br><span class="line">            <span class="built_in">set</span> n.name = line.name</span><br><span class="line"><span class="comment"># PERIODIC COMMIT 10000 指定每10000条数据提交一次，减小内存压力</span></span><br><span class="line"><span class="comment"># WITH HEADERS 文件自带表头</span></span><br><span class="line"><span class="comment"># fieldterminator 指定文件分隔符</span></span><br></pre></td></tr></table></figure>
+<p>创建索引(加快查询，插入速度)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index on :cust(id)</span><br><span class="line">create index on :tran(id)</span><br></pre></td></tr></table></figure>
+<h2 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h2><p>数据导入的几种方式</p>
+<ul>
+<li>Cypher create 语句，为每一条数据写一个 create</li>
+<li>Cypher load csv 语句，将数据转成 CSV 格式，通过 LOAD CSV 读取数据。</li>
+<li>官方提供的 neo4j-import 工具，未来将被 neo4j-admin import 代替</li>
+<li>官方提供的 Java API - BatchInserter</li>
+<li>大牛编写的 batch-import 工具</li>
+<li>neo4j-apoc load.csv + apoc.load.relationship</li>
+<li>针对实际业务场景，定制化开发</li>
+</ul>
+<p>参考链接:</p>
+<ul>
+<li><a href="https://blog.csdn.net/zhanaolu4821/article/details/80820434" target="_blank" rel="noopener">海量数据导入 Neo4j 的几种方式</a></li>
+<li><a href="http://weikeqin.cn/2017/04/14/neo4j-import-data/" target="_blank" rel="noopener">Neo4j 批量导入数据的几种方式</a></li>
+<li><a href="https://my.oschina.net/u/2538940/blog/883829" target="_blank" rel="noopener">使用 batch-import 工具向 neo4j 中导入海量数据</a></li>
+<li><a href="https://github.com/mo9527/batch-import-tool" target="_blank" rel="noopener">batch-import 已经编译好的工具 3.0，对应 neo4j-3.0.4</a></li>
+<li><a href="https://github.com/mo9527/batch-import" target="_blank" rel="noopener">batch-import 的 github</a></li>
+<li><a href="https://github.com/jexp/batch-import/tree/20" target="_blank" rel="noopener">batch-import 的相关说明</a></li>
+</ul>
+<p>本节主要说明三种导入方式 loadcsv、neo4j-import、batch-import</p>
+<p>本文数据导入使用唯一 ID(node)</p>
+<p>数据导入的注意事项</p>
+<ul>
+<li>如果设定唯一主键时，ID 必须唯一</li>
+<li>边中的 ID 必须存在于节点中，否则关系导入会跳过。</li>
+</ul>
+<h3 id="Neo4j-import"><a href="#Neo4j-import" class="headerlink" title="Neo4j-import"></a>Neo4j-import</h3><p>注意事项</p>
+<h4 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h4><p>文件格式样例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id:ID,certno,name,label,cust_certtype:string,cust_namespell:string,birthday:int,sex:string,address:string,mob_phone:string</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">:START_ID,:END_ID,Type,tran_date:int,amount:int,count:int</span><br></pre></td></tr></table></figure>
+<p>文件格式说明</p>
+<ul>
+<li>文件中 ID 必须唯一</li>
+</ul>
+<h4 id="导入命令"><a href="#导入命令" class="headerlink" title="导入命令"></a>导入命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">neo4j-import适应场景</span><br><span class="line">neo4j-import参数  (bin/neo4j-import <span class="built_in">help</span>)</span><br><span class="line">    - 指定最大进程数 --processors &lt;max processor count&gt;</span><br><span class="line">    - 跳过重复节点 --skip-duplicate-nodes &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line">    - 跳过异常关系 --skip-bad-relationships &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line">    - 最大跳过数量 --bad-tolerance &lt;max number of bad entries, or <span class="literal">true</span> <span class="keyword">for</span> unlimited&gt;</span><br><span class="line">    - 跳过异常行(例如行列数异常) --ignore-extra-columns &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令样例:</span><br><span class="line"></span><br><span class="line">bin/neo4j-import --bad-tolerance=1000000 --skip-duplicate-nodes=<span class="literal">true</span> --skip-bad-relationships=<span class="literal">true</span> --into data/databases/graph.db --id-type string --nodes:cust import/c.csv  --relationships:tran import/t.csv</span><br></pre></td></tr></table></figure>
+<h3 id="batch-import"><a href="#batch-import" class="headerlink" title="batch-import"></a>batch-import</h3><p>注意事项:</p>
+<ul>
+<li>batch-import 不支持多进程调用。</li>
+<li>batch-import 版本必须和 neo4j 版本一致。<ul>
+<li>(否则导致数据库自动升级后虽然正常使用，但是 batch-import 已经无法读取升级后的数据库了)</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件格式-1"><a href="#文件格式-1" class="headerlink" title="文件格式"></a>文件格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id:string:id_index,certno:string:id_index,name,Label:label,cust_certtype:string,cust_namespell:string,birthday:int,sex:string,address:string,mob_phone:string</span><br><span class="line">874018718864465,874018718864465,鞠瑜,cust,其他证件,juyu,19801010,男,河北省岩市龙潭东莞街d座 188848,15767524738</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">id:string:id_index,certno:string:id_index,Type,tran_date:int,amount:int,count:int</span><br><span class="line">874018718864465,411224195908138440,tran,20180108,20,2</span><br></pre></td></tr></table></figure>
+<p>文件格式说明：</p>
+<ul>
+<li>id:string:id_index ID 唯一,指定类型,设置索引</li>
+</ul>
+<h4 id="导入命令-1"><a href="#导入命令-1" class="headerlink" title="导入命令"></a>导入命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># batch-import命令</span></span><br><span class="line">sh import.sh /home/fdm/neo4j_test/neo4j-community-3.0.4/data/databases/fdm.db /home/fdm/import_data/c.csv /home/fdm/import_data/t.csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># batch-import3.0已经编译好的软件包</span></span><br><span class="line">https://github.com/mo9527/batch-import-tool</span><br><span class="line"></span><br><span class="line"><span class="comment"># batch.properties配置文件</span></span><br><span class="line">dump_configuration=<span class="literal">false</span></span><br><span class="line">cache_type=none</span><br><span class="line">use_memory_mapped_buffers=<span class="literal">true</span></span><br><span class="line">neostore.propertystore.db.index.keys.mapped_memory=1000M</span><br><span class="line">neostore.propertystore.db.index.mapped_memory=10M</span><br><span class="line">neostore.nodestore.db.mapped_memory=10240M</span><br><span class="line">neostore.relationshipstore.db.mapped_memory=10240M</span><br><span class="line">neostore.propertystore.db.mapped_memory=5120M</span><br><span class="line">neostore.propertystore.db.strings.mapped_memory=2000M</span><br><span class="line"><span class="comment">#batch_import.csv.quotes=true</span></span><br><span class="line"><span class="comment">#batch_import.csv.delim=,workInfoId</span></span><br><span class="line"><span class="comment">#contactRecordId deviceId workInfoId</span></span><br><span class="line"><span class="comment">#batch_array_separator=,</span></span><br><span class="line"></span><br><span class="line">batch_import.csv.quotes=<span class="literal">true</span></span><br><span class="line">batch_import.csv.delim=,</span><br><span class="line">batch_import.keep_db=<span class="literal">true</span></span><br><span class="line">batch_import.node_index.id_index=exact</span><br><span class="line">batch_import.node_index.id_index2=exact</span><br><span class="line">batch_import.node_index.id_index3=exact</span><br></pre></td></tr></table></figure>
+<h3 id="Load-csv"><a href="#Load-csv" class="headerlink" title="Load-csv"></a>Load-csv</h3><h4 id="文件格式-2"><a href="#文件格式-2" class="headerlink" title="文件格式"></a>文件格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">load csv 导入格式要求</span><br><span class="line"></span><br><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id,certno,name,label,cust_certtype,cust_namespell,birthday,sex,address,mob_phone</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">start_id,end_id,<span class="built_in">type</span>,tran_date,amount,count</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 节点</span></span><br><span class="line">LOAD CSV WITH HEADERS FROM <span class="string">"file:///cust.csv"</span> AS line create</span><br><span class="line">(p:cust&#123;id:line.id,certno:line.certno,name:line.name,label:line.label,cust_certtype:line.cust_certtype,cust_namespell:line.cust_namespell,birthday:toInteger(line.birthday),sex:line.sex,address:line.address,mob_phone:line.mob_phone&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建索引</span></span><br><span class="line">CREATE INDEX ON :cust(id)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 边</span></span><br><span class="line">LOAD CSV WITH HEADERS FROM <span class="string">"file:///tran.csv"</span> AS line match</span><br><span class="line">(from:cust&#123;id:line.start_id&#125;),(to:cust&#123;id:line.end_id&#125;) create (from)-[r:tran&#123; <span class="built_in">type</span>:line. <span class="built_in">type</span>,tran_date:line.tran_date,amount:line.amount,count:line.count&#125;]-&gt;(to)</span><br></pre></td></tr></table></figure>
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="Value-15979221751-is-too-big-to-be-represented-as-int"><a href="#Value-15979221751-is-too-big-to-be-represented-as-int" class="headerlink" title="Value 15979221751 is too big to be represented as int"></a>Value 15979221751 is too big to be represented as int</h3><p>int 不支持 11 位及其以上</p>
+<h3 id="already-contains-a-database"><a href="#already-contains-a-database" class="headerlink" title="already contains a database"></a>already contains a database</h3><p>使用 neo4j-import 时,指定的数据库名称必须不存在,否则会报此错。</p>
+<h3 id="Max-1024-open-files-allowed-minimum-of-40000-recommended"><a href="#Max-1024-open-files-allowed-minimum-of-40000-recommended" class="headerlink" title="Max 1024 open files allowed, minimum of 40000 recommended."></a>Max 1024 open files allowed, minimum of 40000 recommended.</h3><p>文件打开数太小。 修改文件 <code>/etc/security/limits.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加如下两行。重新登录 ssh 即可</span></span><br><span class="line">fdm              soft    nofile          65535</span><br><span class="line">fdm              hard    nofile          65535</span><br></pre></td></tr></table></figure>
+<h3 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h3><p>csv 数据导入失败：可能性有多种</p>
+<pre><code>*
+</code></pre><p>文件 head 头不对。 存在节点和交易关系头不对的情况 *<br>节点或交易边数据，ID 存在重复。 csv 文件中 ID 必须唯一。且所有实体表中的:ID 是必须写的，并且 ID 全局唯一，也就是三个表格中的 ID 都是唯一的，不可以有重复，在关系表中，不可以存在没有 ID 指向的实体。</p>
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="https://www.w3cschool.cn/neo4j/neo4j_cql_set.html" target="_blank" rel="noopener">Neo4j 语句入门</a></li>
+<li><a href="http://weikeqin.com/2017/04/11/neo4j-load-csv/" target="_blank" rel="noopener">Neo4j 数据导入参考博客</a></li>
+<li><a href="https://neo4j.com/developer/python/" target="_blank" rel="noopener">Python-Neo4j 语法</a></li>
+<li><a href="https://neo4j.com/docs/pdf/cypher-refcard-3.3.pdf" target="_blank" rel="noopener">官网 Neo4j 语法简图</a></li>
+</ul>
+<h3 id="No4j-最大支持节点和关系数量"><a href="#No4j-最大支持节点和关系数量" class="headerlink" title="No4j 最大支持节点和关系数量"></a>No4j 最大支持节点和关系数量</h3><p>目前累积统计它有 34.4 亿个节点，344 亿的关系，和 6870 亿条属性。</p>
+<h3 id="Neo4j-数据预热"><a href="#Neo4j-数据预热" class="headerlink" title="Neo4j 数据预热"></a>Neo4j 数据预热</h3><p>使用 bin/neo4j-shell 进入 neo4j 命令行界面，执行以下语句预热：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n)</span><br><span class="line">OPTIONAL MATCH (n)-[r]-&gt;()</span><br><span class="line">RETURN count(n.prop) + count(r.prop);</span><br></pre></td></tr></table></figure>
+<p>建立 index 可以使得查询性能得到巨大提升。如果不建立 index，则需要对每个 node 的每一个属性进行遍历，所以比较慢。 并且 index 建立之后，新加入的数据都会自动编入到 index 中。 注意 index 是建立在 label 上的，不是在 node 上，所以一个 node 有多个 label，需要对每一个 label 都建立 index.</p>
+<h3 id="检查-Neo4j-是否启动"><a href="#检查-Neo4j-是否启动" class="headerlink" title="检查 Neo4j 是否启动"></a>检查 Neo4j 是否启动</h3><p>检查 neo4j 是否启动,通常 10s 左右可以启动成功。<br><a href="https://neo4j.com/docs/operations-manual/current/configuration/wait-for-start/" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/current/configuration/wait-for-start/</a></p>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>neo4j-import 方式</p>
+<p>IMPORT DONE in 1m 17s 799ms. Imported:<br>7295460 nodes<br>10000000 relationships<br>112954600 properties</p>
+<p>real 1m19.456s<br>user 5m51.375s<br>sys 0m15.706s</p>
+<p>耗时 79.73S 速度 216,916.30 条/s</p>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="参考资源-1"><a href="#参考资源-1" class="headerlink" title="参考资源"></a>参考资源</h3><p>图库使用综合考虑项:</p>
+<ul>
+<li>社区是否活跃</li>
+</ul>
+<p>github <a href="https://github.com/hugegraph/hugegraph/" target="_blank" rel="noopener">https://github.com/hugegraph/hugegraph/</a></p>
+<p><a href="https://github.com/hugegraph/hugegraph/" target="_blank" rel="noopener">https://github.com/hugegraph/hugegraph/</a></p>
+<p><a href="https://db-engines.com/en/ranking/graph+dbms" target="_blank" rel="noopener">https://db-engines.com/en/ranking/graph+dbms</a></p>
+<p>Neo4j 的使用与 java 调用案例</p>
+<p><a href="https://blog.csdn.net/sunroyi666/article/details/80801859" target="_blank" rel="noopener">https://blog.csdn.net/sunroyi666/article/details/80801859</a></p>
+<p>Neo4j-admin import 大数据量导入</p>
+<p><a href="https://blog.csdn.net/u013946356/article/details/82629014" target="_blank" rel="noopener">https://blog.csdn.net/u013946356/article/details/82629014</a></p>
+<p>neo4j 之’neo4j-import(neo4j-admin import)实战’</p>
+<p><a href="https://blog.csdn.net/shuibuzhaodeshiren/article/details/88559383" target="_blank" rel="noopener">https://blog.csdn.net/shuibuzhaodeshiren/article/details/88559383</a></p>
+<p>图形数据库 Neo4j 开发实战</p>
+<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-neo4j/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-neo4j/</a></p>
+<p>Neo4j 学习笔记(1)——使用 Java API 实现简单的增删改查</p>
+<p><a href="https://www.cnblogs.com/justcooooode/p/8179202.html" target="_blank" rel="noopener">https://www.cnblogs.com/justcooooode/p/8179202.html</a></p>
+<p>如何使用 org.neo4j.graphdb.Relationship 的最佳示例</p>
+<p><a href="https://www.helplib.com/Java_API_Classes/article_67946" target="_blank" rel="noopener">https://www.helplib.com/Java_API_Classes/article_67946</a></p>
+<p>neo4j 遍历和图算法</p>
+<p><a href="https://blog.csdn.net/jason691353279/article/details/84597509" target="_blank" rel="noopener">https://blog.csdn.net/jason691353279/article/details/84597509</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="fansichao 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="fansichao 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    fansichao
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/2020/07/12/04-Module/Module-Neo4j-使用手册/" title="Module-Neo4j-使用文档">https://fansichao.github.io/2020/07/12/04-Module/Module-Neo4j-使用手册/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Module/" rel="tag"># Module</a>
+          
+            <a href="/tags/Graph/" rel="tag"># Graph</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/12/04-Module/Module-Neo4j-部署文档/" rel="next" title="Module-Neo4j-部署文档">
+                <i class="fa fa-chevron-left"></i> Module-Neo4j-部署文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/12/04-Module/Module-IPython使用手册/" rel="prev" title="Module-Ipython-使用文档">
+                Module-Ipython-使用文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="fansichao">
+            
+              <p class="site-author-name" itemprop="name">fansichao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neo4j-入门介绍"><span class="nav-number">1.</span> <span class="nav-text">Neo4j 入门介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署"><span class="nav-number">2.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件使用"><span class="nav-number">3.</span> <span class="nav-text">软件使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neo4j-语法"><span class="nav-number">4.</span> <span class="nav-text">Neo4j 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-术语-概念"><span class="nav-number">4.1.</span> <span class="nav-text">Neo4j 术语/概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-运算符"><span class="nav-number">4.2.</span> <span class="nav-text">Neo4j 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cypher-语法"><span class="nav-number">4.3.</span> <span class="nav-text">Cypher 语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cpyher-函数"><span class="nav-number">4.4.</span> <span class="nav-text">Cpyher 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cypher-常用语句"><span class="nav-number">4.5.</span> <span class="nav-text">Cypher 常用语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据导入"><span class="nav-number">5.</span> <span class="nav-text">数据导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-import"><span class="nav-number">5.1.</span> <span class="nav-text">Neo4j-import</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式"><span class="nav-number">5.1.1.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入命令"><span class="nav-number">5.1.2.</span> <span class="nav-text">导入命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-import"><span class="nav-number">5.2.</span> <span class="nav-text">batch-import</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入命令-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">导入命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-csv"><span class="nav-number">5.3.</span> <span class="nav-text">Load-csv</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式-2"><span class="nav-number">5.3.1.</span> <span class="nav-text">文件格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题记录"><span class="nav-number">6.</span> <span class="nav-text">问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-15979221751-is-too-big-to-be-represented-as-int"><span class="nav-number">6.1.</span> <span class="nav-text">Value 15979221751 is too big to be represented as int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#already-contains-a-database"><span class="nav-number">6.2.</span> <span class="nav-text">already contains a database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Max-1024-open-files-allowed-minimum-of-40000-recommended"><span class="nav-number">6.3.</span> <span class="nav-text">Max 1024 open files allowed, minimum of 40000 recommended.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他情况"><span class="nav-number">6.4.</span> <span class="nav-text">其他情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他说明"><span class="nav-number">7.</span> <span class="nav-text">其他说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">7.1.</span> <span class="nav-text">参考资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No4j-最大支持节点和关系数量"><span class="nav-number">7.2.</span> <span class="nav-text">No4j 最大支持节点和关系数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-数据预热"><span class="nav-number">7.3.</span> <span class="nav-text">Neo4j 数据预热</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查-Neo4j-是否启动"><span class="nav-number">7.4.</span> <span class="nav-text">检查 Neo4j 是否启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能测试"><span class="nav-number">7.5.</span> <span class="nav-text">性能测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">8.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源-1"><span class="nav-number">8.1.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fansichao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200712153813',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

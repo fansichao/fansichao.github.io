@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content=".....">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-功能模块-SSH配置">
+<meta property="og:url" content="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/SSH密钥配置/index.html">
+<meta property="og:site_name" content="程序改变世界">
+<meta property="og:description" content=".....">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-功能模块-SSH配置">
+<meta name="twitter:description" content=".....">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/SSH密钥配置/">
+
+
+
+
+
+  <title>Linux-功能模块-SSH配置 | 程序改变世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序改变世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/SSH密钥配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fansichao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序改变世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Linux-功能模块-SSH配置</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-功能模块/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux-功能模块</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,706
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  .....
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>SSH(远程连接工具)连接原理：ssh 服务是一个守护进程(demon)，系统后台监听客户端的连接，ssh 服务端的进程名为 sshd,负责实时监听客户端的请求(IP 22 端口)，包括公共秘钥等交换等信息。ssh 服务端由 2 部分组成： openssh(提供 ssh 服务)    openssl(提供加密的程序)ssh 的客户端可以用 XSHELL，Securecrt, Mobaxterm 等工具进行连接</p>
+<h2 id="功能模块-配置-SSH-免密码登录"><a href="#功能模块-配置-SSH-免密码登录" class="headerlink" title="功能模块-配置 SSH 免密码登录"></a>功能模块-配置 SSH 免密码登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">配置1：ssh免密钥登录设置</span><br><span class="line">客户端配置 – 服务器1</span><br><span class="line">1.查看~/.ssh文件夹,若已经存在有公钥文件(id_rsa.pub),私钥文件(id_rsa),则可以跳过客户端配置.</span><br><span class="line">2.生成密钥文件.</span><br><span class="line">$ ssh-keygen</span><br><span class="line">然后一路回车.</span><br><span class="line">然后~/.ssh下会生成id_rsa.pub和id_rsa, 其中id_rsa文件起到唯一标识你的客户机的作用.</span><br><span class="line">注意:不要改这两个文件的文件名,ssh登陆时会读取id_rsa文件.</span><br><span class="line"><span class="comment"># 服务器配置 – 服务器2</span></span><br><span class="line">1.修改sshd配置文件(/etc/ssh/sshd_config).</span><br><span class="line">找到以下内容，并去掉注释符”<span class="comment">#“</span></span><br><span class="line">=========================</span><br><span class="line">　　RSAAuthentication yes</span><br><span class="line">　　PubkeyAuthentication yes</span><br><span class="line">　　AuthorizedKeysFile  .ssh/authorized_keys</span><br><span class="line">=========================</span><br><span class="line">2.配置authorized_keys文件.</span><br><span class="line">若’~/.ssh/authorized_keys’不存在,则建立.ssh文件夹和authorized_keys文件.</span><br><span class="line">将上文中客户机id_rsa.pub的内容拷贝到authorized_keys中.</span><br><span class="line">注意:</span><br><span class="line">1) .ssh目录的权限必须是700</span><br><span class="line">2) .ssh/authorized_keys文件权限必须是600</span><br><span class="line">3.重启sshd.</span><br><span class="line">$ /etc/init.d/sshd restart  <span class="comment"># 非必需</span></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">客户机执行:ssh -v user@host (-v 调试模式)</span><br><span class="line">会显示一些登陆信息.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关键命令</span></span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">/etc/init.d/sshd restart <span class="comment"># 非必需</span></span><br></pre></td></tr></table></figure>
+<h2 id="功能模块-只允许密钥登录-禁用密码登录"><a href="#功能模块-只允许密钥登录-禁用密码登录" class="headerlink" title="功能模块-只允许密钥登录(禁用密码登录)"></a>功能模块-只允许密钥登录(禁用密码登录)</h2><p>为了服务器主机安全，需要设定密钥登录，并且指定 root 不可远程登录。</p>
+<p>[toc]</p>
+<h3 id="步骤-1：生成客户端密钥"><a href="#步骤-1：生成客户端密钥" class="headerlink" title="步骤 1：生成客户端密钥"></a>步骤 1：生成客户端密钥</h3><p>生成密钥方式有如下两种：</p>
+<ul>
+<li>Linux 主机</li>
+<li>Win 主机-Xshell 软件</li>
+</ul>
+<h3 id="步骤-2：添加密钥到服务端"><a href="#步骤-2：添加密钥到服务端" class="headerlink" title="步骤 2：添加密钥到服务端"></a>步骤 2：添加密钥到服务端</h3><p>将 id_rsa.pub 中内容复制到 <code>~/.ssh/authorized_keys</code></p>
+<h3 id="步骤-3：修改服务端配置文件"><a href="#步骤-3：修改服务端配置文件" class="headerlink" title="步骤 3：修改服务端配置文件"></a>步骤 3：修改服务端配置文件</h3><p>配置文件修改后生效，需要重启服务<br>配置文件：<code>/etc/ssh/sshd_config</code><br>重启服务：<code>service sshd restart</code> 或 <code>/bin/systemctl restart sshd.service</code></p>
+<p>开启密钥登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes <span class="comment"># 启用 RSA 认证  # 非必需修改，不存在时不创建不修改。</span></span><br><span class="line">PubkeyAuthentication yes <span class="comment"># 启用公钥私钥配对认证方式</span></span><br></pre></td></tr></table></figure>
+<p>禁止 root 远程登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes <span class="comment"># 禁止 root 远程登录</span></span><br></pre></td></tr></table></figure>
+<p>关闭密码登陆方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication no</span><br><span class="line">ChallengeResponseAuthentication no</span><br></pre></td></tr></table></figure>
+<p>修改完成后重启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+<h2 id="SSH-配置文件"><a href="#SSH-配置文件" class="headerlink" title="SSH 配置文件"></a>SSH 配置文件</h2><p><strong>常用配置项说明:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>SSH 客户端配置文件：</strong> <code>/etc/ssh/ssh_config</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">[root@WOM ~]<span class="comment"># cat  /etc/ssh/ssh_config</span></span><br><span class="line"><span class="comment">#   $OpenBSD: ssh_config,v 1.25 2009/02/17 01:28:32 djm Exp $</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This is the ssh client system-wide configuration file.  See</span></span><br><span class="line"><span class="comment"># ssh_config(5) for more information.  This file provides defaults for</span></span><br><span class="line"><span class="comment"># users, and the values can be changed in per-user configuration files</span></span><br><span class="line"><span class="comment"># or on the command line.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Configuration data is parsed as follows:</span></span><br><span class="line"><span class="comment">#  1. command line options</span></span><br><span class="line"><span class="comment">#  2. user-specific file</span></span><br><span class="line"><span class="comment">#  3. system-wide file</span></span><br><span class="line"><span class="comment"># Any configuration value is only changed the first time it is set.</span></span><br><span class="line"><span class="comment"># Thus, host-specific definitions should be at the beginning of the</span></span><br><span class="line"><span class="comment"># configuration file, and defaults at the end.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site-wide defaults for some commonly used options.  For a comprehensive</span></span><br><span class="line"><span class="comment"># list of available options, their meanings and defaults, please see the</span></span><br><span class="line"><span class="comment"># ssh_config(5) man page.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Host *</span></span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   BatchMode no</span></span><br><span class="line"><span class="comment">#   CheckHostIP yes</span></span><br><span class="line"><span class="comment">#   AddressFamily any</span></span><br><span class="line"><span class="comment">#   ConnectTimeout 0</span></span><br><span class="line"><span class="comment">#   StrictHostKeyChecking ask</span></span><br><span class="line"><span class="comment">#   IdentityFile ~/.ssh/identity</span></span><br><span class="line"><span class="comment">#   IdentityFile ~/.ssh/id_rsa</span></span><br><span class="line"><span class="comment">#   IdentityFile ~/.ssh/id_dsa</span></span><br><span class="line"><span class="comment">#   Port 22</span></span><br><span class="line"><span class="comment">#   Protocol 2,1</span></span><br><span class="line"><span class="comment">#   Cipher 3des</span></span><br><span class="line"><span class="comment">#   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc</span></span><br><span class="line"><span class="comment">#   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160</span></span><br><span class="line"><span class="comment">#   EscapeChar ~</span></span><br><span class="line"><span class="comment">#   Tunnel no</span></span><br><span class="line"><span class="comment">#   TunnelDevice any:any</span></span><br><span class="line"><span class="comment">#   PermitLocalCommand no</span></span><br><span class="line"><span class="comment">#   VisualHostKey no</span></span><br><span class="line">Host *</span><br><span class="line">    GSSAPIAuthentication yes</span><br><span class="line"><span class="comment"># If this option is set to yes then remote X11 clients will have full access</span></span><br><span class="line"><span class="comment"># to the original X11 display. As virtually no X11 client supports the untrusted</span></span><br><span class="line"><span class="comment"># mode correctly we set this to yes.</span></span><br><span class="line">    ForwardX11Trusted yes</span><br><span class="line"><span class="comment"># Send locale-related environment variables</span></span><br><span class="line">    SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES</span><br><span class="line">    SendEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT</span><br><span class="line">    SendEnv LC_IDENTIFICATION LC_ALL LANGUAGE</span><br><span class="line">    SendEnv XMODIFIERS</span><br></pre></td></tr></table></figure>
+<p><strong>SSH 服务端配置文件：</strong> <code>/etc/ssh/sshd_config</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">[root@WOM ~]<span class="comment"># cat  /etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment">#   $OpenBSD: sshd_config,v 1.80 2008/07/02 02:24:18 djm Exp $</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This is the sshd server system-wide configuration file.  See</span></span><br><span class="line"><span class="comment"># sshd_config(5) for more information.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This sshd was compiled with PATH=/usr/local/bin:/bin:/usr/bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The strategy used for options in the default sshd_config shipped with</span></span><br><span class="line"><span class="comment"># OpenSSH is to specify options with their default value where</span></span><br><span class="line"><span class="comment"># possible, but leave them commented.  Uncommented options change a</span></span><br><span class="line"><span class="comment"># default value.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Port 22</span></span><br><span class="line"><span class="comment">#AddressFamily any</span></span><br><span class="line"><span class="comment">#ListenAddress 0.0.0.0</span></span><br><span class="line"><span class="comment">#ListenAddress ::</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable legacy (protocol version 1) support in the server for new</span></span><br><span class="line"><span class="comment"># installations. In future the default will change to require explicit</span></span><br><span class="line"><span class="comment"># activation of protocol 1</span></span><br><span class="line">Protocol 2</span><br><span class="line"></span><br><span class="line"><span class="comment"># HostKey for protocol version 1</span></span><br><span class="line"><span class="comment">#HostKey /etc/ssh/ssh_host_key</span></span><br><span class="line"><span class="comment"># HostKeys for protocol version 2</span></span><br><span class="line"><span class="comment">#HostKey /etc/ssh/ssh_host_rsa_key</span></span><br><span class="line"><span class="comment">#HostKey /etc/ssh/ssh_host_dsa_key</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Lifetime and size of ephemeral version 1 server key</span></span><br><span class="line"><span class="comment">#KeyRegenerationInterval 1h</span></span><br><span class="line"><span class="comment">#ServerKeyBits 1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Logging</span></span><br><span class="line"><span class="comment"># obsoletes QuietMode and FascistLogging</span></span><br><span class="line"><span class="comment">#SyslogFacility AUTH</span></span><br><span class="line">SyslogFacility AUTHPRIV</span><br><span class="line"><span class="comment">#LogLevel INFO</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Authentication:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#LoginGraceTime 2m</span></span><br><span class="line"><span class="comment">#PermitRootLogin yes</span></span><br><span class="line"><span class="comment">#StrictModes yes</span></span><br><span class="line"><span class="comment">#MaxAuthTries 6</span></span><br><span class="line"><span class="comment">#MaxSessions 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#PubkeyAuthentication yes</span></span><br><span class="line"><span class="comment">#AuthorizedKeysFile .ssh/authorized_keys</span></span><br><span class="line"><span class="comment">#AuthorizedKeysCommand none</span></span><br><span class="line"><span class="comment">#AuthorizedKeysCommandRunAs nobody</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For this to work you will also need host keys in /etc/ssh/ssh_known_hosts</span></span><br><span class="line"><span class="comment">#RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment"># similar for protocol version 2</span></span><br><span class="line"><span class="comment">#HostbasedAuthentication no</span></span><br><span class="line"><span class="comment"># Change to yes if you don't trust ~/.ssh/known_hosts for</span></span><br><span class="line"><span class="comment"># RhostsRSAAuthentication and HostbasedAuthentication</span></span><br><span class="line"><span class="comment">#IgnoreUserKnownHosts no</span></span><br><span class="line"><span class="comment"># Don't read the user's ~/.rhosts and ~/.shosts files</span></span><br><span class="line"><span class="comment">#IgnoreRhosts yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># To disable tunneled clear text passwords, change to no here!</span></span><br><span class="line"><span class="comment">#PasswordAuthentication no</span></span><br><span class="line"><span class="comment">#PermitEmptyPasswords no</span></span><br><span class="line">PasswordAuthentication yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># Change to no to disable s/key passwords</span></span><br><span class="line"><span class="comment">#ChallengeResponseAuthentication yes</span></span><br><span class="line">ChallengeResponseAuthentication no</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kerberos options</span></span><br><span class="line"><span class="comment">#KerberosAuthentication no</span></span><br><span class="line"><span class="comment">#KerberosOrLocalPasswd yes</span></span><br><span class="line"><span class="comment">#KerberosTicketCleanup yes</span></span><br><span class="line"><span class="comment">#KerberosGetAFSToken no</span></span><br><span class="line"><span class="comment">#KerberosUseKuserok yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GSSAPI options</span></span><br><span class="line"><span class="comment">#GSSAPIAuthentication no</span></span><br><span class="line">GSSAPIAuthentication yes</span><br><span class="line"><span class="comment">#GSSAPICleanupCredentials yes</span></span><br><span class="line">GSSAPICleanupCredentials yes</span><br><span class="line"><span class="comment">#GSSAPIStrictAcceptorCheck yes</span></span><br><span class="line"><span class="comment">#GSSAPIKeyExchange no</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set this to 'yes' to enable PAM authentication, account processing,</span></span><br><span class="line"><span class="comment"># and session processing. If this is enabled, PAM authentication will</span></span><br><span class="line"><span class="comment"># be allowed through the ChallengeResponseAuthentication and</span></span><br><span class="line"><span class="comment"># PasswordAuthentication.  Depending on your PAM configuration,</span></span><br><span class="line"><span class="comment"># PAM authentication via ChallengeResponseAuthentication may bypass</span></span><br><span class="line"><span class="comment"># the setting of "PermitRootLogin without-password".</span></span><br><span class="line"><span class="comment"># If you just want the PAM account and session checks to run without</span></span><br><span class="line"><span class="comment"># PAM authentication, then enable this but set PasswordAuthentication</span></span><br><span class="line"><span class="comment"># and ChallengeResponseAuthentication to 'no'.</span></span><br><span class="line"><span class="comment">#UsePAM no</span></span><br><span class="line">UsePAM yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># Accept locale-related environment variables</span></span><br><span class="line">AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES</span><br><span class="line">AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT</span><br><span class="line">AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE</span><br><span class="line">AcceptEnv XMODIFIERS</span><br><span class="line"></span><br><span class="line"><span class="comment">#AllowAgentForwarding yes</span></span><br><span class="line"><span class="comment">#AllowTcpForwarding yes</span></span><br><span class="line"><span class="comment">#GatewayPorts no</span></span><br><span class="line"><span class="comment">#X11Forwarding no</span></span><br><span class="line">X11Forwarding yes</span><br><span class="line"><span class="comment">#X11DisplayOffset 10</span></span><br><span class="line"><span class="comment">#X11UseLocalhost yes</span></span><br><span class="line"><span class="comment">#PrintMotd yes</span></span><br><span class="line"><span class="comment">#PrintLastLog yes</span></span><br><span class="line"><span class="comment">#TCPKeepAlive yes</span></span><br><span class="line"><span class="comment">#UseLogin no</span></span><br><span class="line"><span class="comment">#UsePrivilegeSeparation yes</span></span><br><span class="line"><span class="comment">#PermitUserEnvironment no</span></span><br><span class="line"><span class="comment">#Compression delayed</span></span><br><span class="line"><span class="comment">#ClientAliveInterval 0</span></span><br><span class="line"><span class="comment">#ClientAliveCountMax 3</span></span><br><span class="line"><span class="comment">#ShowPatchLevel no</span></span><br><span class="line"><span class="comment">#UseDNS yes</span></span><br><span class="line"><span class="comment">#PidFile /var/run/sshd.pid</span></span><br><span class="line"><span class="comment">#MaxStartups 10:30:100</span></span><br><span class="line"><span class="comment">#PermitTunnel no</span></span><br><span class="line"><span class="comment">#ChrootDirectory none</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># no default banner path</span></span><br><span class="line"><span class="comment">#Banner none</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># override default of no subsystems</span></span><br><span class="line">Subsystem   sftp    /usr/libexec/openssh/sftp-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example of overriding settings on a per-user basis</span></span><br><span class="line"><span class="comment">#Match User anoncvs</span></span><br><span class="line"><span class="comment">#   X11Forwarding no</span></span><br><span class="line"><span class="comment">#   AllowTcpForwarding no</span></span><br><span class="line"><span class="comment">#   ForceCommand cvs server</span></span><br></pre></td></tr></table></figure>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><p>参考链接：</p>
+<ul>
+<li>Linux 实现密钥登陆： <a href="https://www.cnblogs.com/gsxx/p/4447390.html" target="_blank" rel="noopener">https://www.cnblogs.com/gsxx/p/4447390.html</a></li>
+<li>Linux ssh 命令详解： <a href="https://www.cnblogs.com/ftl1012/p/ssh.html" target="_blank" rel="noopener">https://www.cnblogs.com/ftl1012/p/ssh.html</a></li>
+<li>Linux：SSH 服务配置文件详解： <a href="https://www.cnblogs.com/ftl1012/p/ssh.html" target="_blank" rel="noopener">https://www.cnblogs.com/Spiro-K/p/6685943.html</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="fansichao 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="fansichao 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    fansichao
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/SSH密钥配置/" title="Linux-功能模块-SSH配置">https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/SSH密钥配置/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/12/03-Web/JavaScripts-Echarts画图软件/" rel="next" title="Web-Echarts">
+                <i class="fa fa-chevron-left"></i> Web-Echarts
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/12/02-Linux-01功能模块/yum配置/" rel="prev" title="Linux-功能模块-yum源配置">
+                Linux-功能模块-yum源配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="fansichao">
+            
+              <p class="site-author-name" itemprop="name">fansichao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块-配置-SSH-免密码登录"><span class="nav-number">2.</span> <span class="nav-text">功能模块-配置 SSH 免密码登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块-只允许密钥登录-禁用密码登录"><span class="nav-number">3.</span> <span class="nav-text">功能模块-只允许密钥登录(禁用密码登录)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-1：生成客户端密钥"><span class="nav-number">3.1.</span> <span class="nav-text">步骤 1：生成客户端密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-2：添加密钥到服务端"><span class="nav-number">3.2.</span> <span class="nav-text">步骤 2：添加密钥到服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-3：修改服务端配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">步骤 3：修改服务端配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-配置文件"><span class="nav-number">4.</span> <span class="nav-text">SSH 配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resources"><span class="nav-number">5.</span> <span class="nav-text">Resources</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fansichao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200712153813',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

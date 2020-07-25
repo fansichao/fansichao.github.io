@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Module,Graph,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="...">
+<meta name="keywords" content="Module,Graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Module-HugeGragh-使用文档">
+<meta property="og:url" content="https://fansichao.github.io/2020/07/12/04-Module/Module-Graph-02使用文档-HugeGraph/index.html">
+<meta property="og:site_name" content="程序改变世界">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
+<meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Module-HugeGragh-使用文档">
+<meta name="twitter:description" content="...">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/2020/07/12/04-Module/Module-Graph-02使用文档-HugeGraph/">
+
+
+
+
+
+  <title>Module-HugeGragh-使用文档 | 程序改变世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序改变世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/2020/07/12/04-Module/Module-Graph-02使用文档-HugeGraph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fansichao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序改变世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Module-HugeGragh-使用文档</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Module/" itemprop="url" rel="index">
+                    <span itemprop="name">Module</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  914
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  ...
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>tags: HugeGraph 图库 2019 年 11 月</p>
+<h2 id="HugeGraph-使用"><a href="#HugeGraph-使用" class="headerlink" title="HugeGraph 使用"></a>HugeGraph 使用</h2><ul>
+<li><a href="https://github.com/tanglion/PyHugeGraph/blob/master/PyHugeGraph/PyHugeGraphClient.py" target="_blank" rel="noopener">Github-PyHugeGraphClient</a></li>
+</ul>
+<p>TODO Gremlin 语法</p>
+<h2 id="问题项"><a href="#问题项" class="headerlink" title="问题项"></a>问题项</h2><h3 id="问题-2-数据查询时-无法对属性进行大小过滤"><a href="#问题-2-数据查询时-无法对属性进行大小过滤" class="headerlink" title="问题 2-数据查询时,无法对属性进行大小过滤"></a>问题 2-数据查询时,无法对属性进行大小过滤</h3><ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/560" target="_blank" rel="noopener">关于条件查询顶点的两个疑问</a></li>
+</ul>
+<blockquote>
+<p>iterateVertices 接口目前没有提供小于及大于语义的条件查询，仅提供了等于条件查询。<br>Gremlin 更加自由，完全支持小于条件查询，但是 Gremlin 语法目前没有支持分页的机制，所以如你所说也没办法分页。如果结果集大于百万以上，建议每次查询再加上大于条件，相当于分为一个一个时间区间进行查询。</p>
+</blockquote>
+<h3 id="问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><a href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时" class="headerlink" title="问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)"></a>问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</h3><p>问题场景: 使用 HugeGraph-loader 导入数据时，发现原文件 edge 26663，实际入库的只有 26661</p>
+<p>对比 数据文件 edge - HugeGraph 数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">              cust_certno data_mark         peer_certno     tran_amt tran_cnt tran_date</span><br><span class="line">6615   310116199507048741      mark  331102197108166692  468577630.0        4  20170213</span><br><span class="line">16277  431227199801126424      mark  445300194807241683   40649080.0        4  20170206</span><br></pre></td></tr></table></figure>
+<p>查询数据文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@fdm hugegraph_data]$ grep -rn <span class="string">"310116199507048741"</span> edge_mark_CUSTACCTTRANJRNL.csv  | grep 331102197108166692</span><br><span class="line">6617:468577630.0,20170213,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br><span class="line">6618:167389.0,20170224,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br></pre></td></tr></table></figure>
+<p>问题原因:</p>
+<p>发现由于 起始顶点-结束顶点 相同时，HugeGraph 未录入第二条数据.</p>
+<p>根据 起始顶点和结束顶点 对原数据文件去重，仅发现两条相同的 起始顶点-结束顶点 数据，都未导入。</p>
+<p>解决方案:</p>
+<ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/763" target="_blank" rel="noopener">如何创建两个顶点间的多边</a></li>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/97" target="_blank" rel="noopener">Hugegraph 中 edgelabel 的 sortKey 方法调用</a></li>
+</ul>
+<p><strong>代码样例:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">548</span>         <span class="comment"># https://github.com/hugegraph/hugegraph/issues/97 指定 sortkeys,用于在两个节点中增加多条边</span></span><br><span class="line"><span class="number">549</span>         <span class="comment"># sortKeys中字段必须在属性中,重复字段报错! 必须建库第一次使用,后续创建无效!!  exp: .multiTimes().sortKeys("tran_date","tran_cnt")</span></span><br><span class="line"><span class="number">550</span>         sortKeys = list(set([i <span class="keyword">for</span> i <span class="keyword">in</span> sortKeys <span class="keyword">if</span> i <span class="keyword">in</span> cols <span class="keyword">and</span> i <span class="keyword">not</span> <span class="keyword">in</span> primary_cols]))</span><br><span class="line"><span class="number">551</span>         sortKeys_val = str(sortKeys).replace(<span class="string">')'</span>, <span class="string">''</span>).replace(<span class="string">'('</span>, <span class="string">''</span>).replace(<span class="string">']'</span>, <span class="string">''</span>).replace(<span class="string">'['</span>, <span class="string">''</span>)</span><br><span class="line"><span class="number">552</span>         <span class="keyword">if</span> bool(sortKeys):</span><br><span class="line"><span class="number">553</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).multiTimes().sortKeys(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">554</span>                 edge_label, node_label, node_label, properties, sortKeys_val)</span><br><span class="line"><span class="number">555</span>         <span class="keyword">else</span>:</span><br><span class="line"><span class="number">556</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">557</span>                 edge_label, node_label, node_label, properties)</span><br><span class="line"><span class="number">558</span>         schema_list.append(schema_line)</span><br></pre></td></tr></table></figure>
+<p><strong>界面样例:</strong><br><img src="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png" alt="HugeGraph_顶点之间多边.png"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="待完成"><a href="#待完成" class="headerlink" title="待完成"></a>待完成</h3><ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/412" target="_blank" rel="noopener">restful 和 gremlin 接口的使用场景，底层区别简介</a></li>
+</ul>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="字符串属性的模糊查询"><a href="#字符串属性的模糊查询" class="headerlink" title="字符串属性的模糊查询"></a>字符串属性的模糊查询</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/258" target="_blank" rel="noopener">字符串属性的模糊查询</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g.V().hasLabel(<span class="string">"person"</span>).has(<span class="string">"lived"</span>, Text.contains(<span class="string">"海淀区"</span>))</span><br><span class="line"><span class="comment"># Text.contains只支持分词后的全词匹配.</span></span><br><span class="line"><span class="comment"># 用 child来搜索"My children"可能会搜索不到.目前hugegraph还无法支持这种搜索，建议上层使用ES等索引库来实现这种模糊查询</span></span><br></pre></td></tr></table></figure>
+<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/29" target="_blank" rel="noopener">使用 HugeGraph 怎么求解最短路径</a></p>
+<p>Restful-Api-shortestpath</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其URL地址形如：http://localhost:<span class="number">8080</span>/graphs/hugegraph/traversers/shortestpath</span><br></pre></td></tr></table></figure>
+<p>Gremlin-最短路径</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最短路径</span></span><br><span class="line">g.V(<span class="string">"src_v_id"</span>)</span><br><span class="line"> .repeat(out().simplePath()).until(hasId(<span class="string">"target_v_id"</span>)</span><br><span class="line"> .<span class="keyword">or</span>().loops().<span class="keyword">is</span>(gte(<span class="number">4</span>))).hasId(<span class="string">"target_v_id"</span>)</span><br><span class="line"> .path().limit(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># limit(-1) 多条路径不限制</span></span><br></pre></td></tr></table></figure>
+<h3 id="K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居"><a href="#K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居" class="headerlink" title="K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居"></a>K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/716" target="_blank" rel="noopener">使用 gremlin 执行 k nearest neighbor</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g.V(<span class="string">"1:3301167"</span>).repeat(__.out(<span class="string">"MyEdge"</span>)).times(<span class="number">2</span>).dedup().count().next()</span><br></pre></td></tr></table></figure>
+<p>g.V(1).repeat(out().simplePath()).until(hasId(5)).path().limit(1)</p>
+<h2 id="Gremlin语法"><a href="#Gremlin语法" class="headerlink" title="Gremlin语法"></a>Gremlin语法</h2><p><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42076409/article/details/80856911</a></p>
+<p><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">http://tang.love/2018/11/15/gremlin_traversal_language/</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">Gremlin基础语法-条件和过滤</a><br><a href="https://blog.csdn.net/CSDN___LYY/article/details/84771820" target="_blank" rel="noopener">Gremlin – 常用查询用法</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82658777" target="_blank" rel="noopener">深入学习Gremlin（2）：边的遍历操作</a><br><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">gremlin语句详解</a></p>
+<p><a href="http://tinkerpop.apache.org/docs/3.2.5/reference/#drop-step" target="_blank" rel="noopener">GremLin官方文档</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82589895" target="_blank" rel="noopener">深入学习Gremlin（3）：has条件过滤</a><br><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">深入学习Gremlin（9）：条件和过滤</a></p>
+<p><a href="https://blog.csdn.net/u010260089/article/details/82769959" target="_blank" rel="noopener">深入学习Gremlin（10）：逻辑运算</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82625906?utm_source=blogxgwz2" target="_blank" rel="noopener">深入学习Gremlin（5）：查询路径path</a><br><a href="https://blog.csdn.net/javeme/article/details/88417208" target="_blank" rel="noopener">深入学习Gremlin（13）：路径选取与过滤</a><br><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">Gremlin 常用语法总结</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="fansichao 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="fansichao 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    fansichao
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/2020/07/12/04-Module/Module-Graph-02使用文档-HugeGraph/" title="Module-HugeGragh-使用文档">https://fansichao.github.io/2020/07/12/04-Module/Module-Graph-02使用文档-HugeGraph/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Module/" rel="tag"># Module</a>
+          
+            <a href="/tags/Graph/" rel="tag"># Graph</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/12/04-Module/Module-Graph-01部署文档-HugeGraph/" rel="next" title="Module-HugeGragh-部署文档">
+                <i class="fa fa-chevron-left"></i> Module-HugeGragh-部署文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/12/04-Module/Module-Graph-00技术文档-HugeGraph/" rel="prev" title="Module-HugeGragh-使用文档">
+                Module-HugeGragh-使用文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="fansichao">
+            
+              <p class="site-author-name" itemprop="name">fansichao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HugeGraph-使用"><span class="nav-number">1.</span> <span class="nav-text">HugeGraph 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题项"><span class="nav-number">2.</span> <span class="nav-text">问题项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2-数据查询时-无法对属性进行大小过滤"><span class="nav-number">2.1.</span> <span class="nav-text">问题 2-数据查询时,无法对属性进行大小过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><span class="nav-number">2.2.</span> <span class="nav-text">问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#待完成"><span class="nav-number">3.1.</span> <span class="nav-text">待完成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">4.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串属性的模糊查询"><span class="nav-number">4.1.</span> <span class="nav-text">字符串属性的模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路径"><span class="nav-number">4.2.</span> <span class="nav-text">最短路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居"><span class="nav-number">4.3.</span> <span class="nav-text">K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gremlin语法"><span class="nav-number">5.</span> <span class="nav-text">Gremlin语法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fansichao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200712153813',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>
