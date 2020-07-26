@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="Python,Python高级特性,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="....">
-<meta name="keywords" content="Python">
+<meta name="description" content="Python闭包。Python高级特性之一。">
+<meta name="keywords" content="Python,Python高级特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-闭包">
 <meta property="og:url" content="https://fansichao.github.io/2020/07/12/01-Python-05高阶/Python-高阶-Python闭包/index.html">
 <meta property="og:site_name" content="程序改变世界">
-<meta property="og:description" content="....">
+<meta property="og:description" content="Python闭包。Python高级特性之一。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-闭包">
-<meta name="twitter:description" content="....">
+<meta name="twitter:description" content="Python闭包。Python高级特性之一。">
 
 
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  81
+                  300
                 </span>
               
 
@@ -419,7 +419,7 @@
 
           
               <div class="post-description">
-                  ....
+                  Python闭包。Python高级特性之一。
               </div>
           
 
@@ -438,6 +438,10 @@
       
         <p>tags: <code>2020年</code> <code>05月</code> <code>闭包</code> <code>高级特性</code></p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>闭包概念：在一个内部函数中，对外部作用域的变量进行引用，(并且一般外部函数的返回值为内部函数)，那么内部函数就被认为是闭包</p>
+<p>Python 闭包，类似于 子函数</p>
+<h3 id="python-循环中不包含域的概念"><a href="#python-循环中不包含域的概念" class="headerlink" title="python 循环中不包含域的概念"></a>python 循环中不包含域的概念</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python循环中不包含域的概念</span></span><br><span class="line">func_lis = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x*i</span><br><span class="line">    func_lis.append(func)</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> func_lis:</span><br><span class="line">    print(f(<span class="number">2</span>))</span><br><span class="line"><span class="comment"># 6</span></span><br><span class="line"><span class="comment"># 6</span></span><br><span class="line"><span class="comment"># 6</span></span><br><span class="line"><span class="comment"># 6</span></span><br><span class="line">loop在python中是没有域的概念的，flist在像列表中添加func的时候，并没有保存i的值，而是当执行f(<span class="number">2</span>)的时候才去取，这时候循环已经结束，i的值是<span class="number">3</span>，所以结果都是<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="Python-闭包"><a href="#Python-闭包" class="headerlink" title="Python 闭包"></a>Python 闭包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func_lis = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">makefunc</span><span class="params">(i)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> x*i</span><br><span class="line">        <span class="keyword">return</span> func</span><br><span class="line">    func_lis.append(makefunc(i))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> func_lis:</span><br><span class="line">    print(f(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>闭包在爬虫以及 web 应用中都有很广泛的应用，并且闭包也是装饰器的基础</p>
 <h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><p><a href="https://zhuanlan.zhihu.com/p/22229197" target="_blank" rel="noopener">深入浅出 python 闭包</a></p>
 
       
@@ -506,6 +510,8 @@
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
+            <a href="/tags/Python高级特性/" rel="tag"># Python高级特性</a>
+          
         </div>
       
 
@@ -517,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/12/02-Linux-00基础/04术语介绍/" rel="next" title="Linux-基础-术语介绍">
-                <i class="fa fa-chevron-left"></i> Linux-基础-术语介绍
+              <a href="/2020/07/12/02-Linux-00基础/03功能模块/" rel="next" title="Linux-基础-功能模块">
+                <i class="fa fa-chevron-left"></i> Linux-基础-功能模块
               </a>
             
           </div>
@@ -527,8 +533,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/12/01-Python-06其他/Python-脚本-读写Conf配置文件/" rel="prev" title="Python-读写Conf配置文件">
-                Python-读写Conf配置文件 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/12/01-Python-05高阶/Python-高阶-Python语言优劣势/" rel="prev" title="Python语言优劣势">
+                Python语言优劣势 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -678,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">2.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">2.1.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-循环中不包含域的概念"><span class="nav-number">1.1.</span> <span class="nav-text">python 循环中不包含域的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-闭包"><span class="nav-number">1.2.</span> <span class="nav-text">Python 闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用"><span class="nav-number">1.3.</span> <span class="nav-text">闭包的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">2.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">2.1.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
             
 
           </div>
