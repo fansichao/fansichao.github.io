@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="..">
+<meta name="description" content="VNC,远程登录图形化界面配置。">
 <meta name="keywords" content="Module,VNC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Module-VNC-技术文档">
 <meta property="og:url" content="https://fansichao.github.io/2020/07/12/04-Module/Module-VNC-技术文档/index.html">
 <meta property="og:site_name" content="程序改变世界">
-<meta property="og:description" content="..">
+<meta property="og:description" content="VNC,远程登录图形化界面配置。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/fansichao/file/raw/master/picture/Software_VNC001.png">
 <meta property="og:image" content="https://github.com/fansichao/file/raw/master/picture/Software_VNC002.png">
@@ -100,7 +100,7 @@
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Module-VNC-技术文档">
-<meta name="twitter:description" content="..">
+<meta name="twitter:description" content="VNC,远程登录图形化界面配置。">
 <meta name="twitter:image" content="https://github.com/fansichao/file/raw/master/picture/Software_VNC001.png">
 
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  780
+                  771
                 </span>
               
 
@@ -423,7 +423,7 @@
 
           
               <div class="post-description">
-                  ..
+                  VNC,远程登录图形化界面配置。
               </div>
           
 
@@ -440,8 +440,7 @@
       
 
       
-        <p>远程登录图形化界面。</p>
-<p>[toc]</p>
+        <p>[toc]</p>
 <h2 id="安装-VNC"><a href="#安装-VNC" class="headerlink" title="安装 VNC"></a>安装 VNC</h2><p>VNC 服务，可以用于远程登录图形化界面。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">1.安装vnc相关包</span><br><span class="line">rpm –ivh  tigervnc-server-1.1.0-24.el6.x86_64.rpm</span><br><span class="line">yum install vnc</span><br><span class="line">yum install vnc-server</span><br><span class="line">yum install tigervnc-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查安装包是否已经安装</span></span><br><span class="line">rpm -qa | grep vnc</span><br><span class="line"></span><br><span class="line">vnc-server-4.1.2-14.el5_3.1</span><br><span class="line">vnc-4.1.2-14.el5_3.1</span><br><span class="line"></span><br><span class="line">2. 配置vncservers文件</span><br><span class="line"><span class="comment"># vim /etc/sysconfig/vncservers 增加如下两行</span></span><br><span class="line">VNCSERVERS=<span class="string">"1:oracle"</span>                      设置登录“显示号”和用户</span><br><span class="line">VNCSERVERARGS[1]=<span class="string">"-geometry 1024x768"</span>    设置屏幕分辨率</span><br><span class="line">3.配置xstartup文件</span><br><span class="line">编辑配置之前，需要使用vncserver命令创建默认配置文件</span><br><span class="line">[root@web~]<span class="comment"># vncserver</span></span><br><span class="line">输入口令：qwe123</span><br><span class="line">确认口令：qwe123</span><br><span class="line">                            <span class="comment"># vim /root/.vnc/xstartup 加入最后一行</span></span><br><span class="line">                            gnome-session &amp; <span class="built_in">set</span> starting GNOME desktop （增加这一行，表使用gnome界面，否则是xfce界面）</span><br><span class="line">                   4. 设置远程登录口令</span><br><span class="line">[root@web~]<span class="comment"># vncpasswd</span></span><br><span class="line">Password:qwe123</span><br><span class="line">Verifu:qwe123</span><br><span class="line">5.启动vncserver服务</span><br><span class="line">（1）主服务启动：</span><br><span class="line">[root@web~]<span class="comment"># service vncserver start （只启动/etc/sysconfig/vncservers 所定义的界面）</span></span><br><span class="line">[root@web~]<span class="comment"># vncserver  :2  （启动root登录的第二个界面）</span></span><br><span class="line">6.停止vncserver服务</span><br><span class="line">[root@web~]<span class="comment"># service vncserver stop（停止start时候所启动的界面:1，其它另启的界面:2不停止）</span></span><br><span class="line">[root@web~]<span class="comment"># vncserver -kill :1  （停止某个界面，要用kill命令来杀掉界面1的进程）</span></span><br><span class="line">[root@web~]<span class="comment"># vncserver -kill :2  （停止某个界面，要用kill命令来杀掉界面2的进程）</span></span><br><span class="line">通过 <span class="comment">#service vncserver status 命令可以查看出有多少个进程pid号，表示启动了多少个界面。</span></span><br><span class="line">7.让vncserver服务随机启动</span><br><span class="line">默认状态下，vncserver服务不是开机自动启动，需要手工启动。</span><br><span class="line">[root@web~]<span class="comment"># chkconfig --list vncserver</span></span><br><span class="line">[root@web~]<span class="comment"># chkconfig vncserver on</span></span><br><span class="line">保存后，重启测试。</span><br><span class="line">8.客户端登录vncserver服务</span><br><span class="line">（1）先安装vncviewer来远程登录，</span><br><span class="line">（2）然后在地址栏输入“主机地址:1”（即主机IP加界面号的方式）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启VNC服务</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line">vncserver :1</span><br></pre></td></tr></table></figure>
 <h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>需要关闭防火墙，或者配置相应的端口</p>
@@ -530,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/12/07-Book/B_流畅的Python笔记/" rel="next" title="Book-流畅的Python笔记-读书笔记">
-                <i class="fa fa-chevron-left"></i> Book-流畅的Python笔记-读书笔记
+              <a href="/2020/07/12/06_WinTools/Win-MarkDown使用手册/" rel="next" title="Win-MakrDown-技术文档">
+                <i class="fa fa-chevron-left"></i> Win-MakrDown-技术文档
               </a>
             
           </div>
@@ -540,8 +539,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/12/04-Module/README/" rel="prev" title="Module-茵蒂克丝">
-                Module-茵蒂克丝 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/12/04-Module/Module-Selenium技术文档/" rel="prev" title="Module-Selenium-技术文档">
+                Module-Selenium-技术文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +625,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">136</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -637,7 +636,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -648,7 +647,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
