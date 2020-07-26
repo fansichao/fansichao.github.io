@@ -6,7 +6,7 @@ tags:
   - Python
 categories:
   - Python-基础
-description: ....
+description: Python数据类型介绍与使用
 ---
 
 **变量** Python 中的变量是不需要声明数据类型的，每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建，变量的"类型"是所指的内存中被赋值对象的类型

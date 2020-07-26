@@ -1,34 +1,34 @@
 ---
-title: Python-基础-类
+title: Python-类的使用(最全篇)
 date: 2020-07-12 15:38:13
 updated: 2020-07-12 15:38:13
 tags:
   - Python
 categories:
   - Python-基础
-description: ....
+description: Python类的使用与说明
 ---
+
+## 文章结构
+
+
+
+## TODO
+
+
 
 类
 
-## 类的定义（__init__方法，基类，self
+## 类的定义（**init**方法，基类，self
 
-类的定义：class ClassName(object):，object是父类名，object是一切类的基类。
-__init__方法是函数写在类中就是方法，实例化对象的时候必须调用__init__方法。
-
+类的定义：class ClassName(object):，object 是父类名，object 是一切类的基类。
+**init**方法是函数写在类中就是方法，实例化对象的时候必须调用**init**方法。
 
 ## 类的属性
 
-
 属性的本质就是变量。
 
-
-
 ## 私有化
-
-
-
-
 
 ```python
 对于Python中的类属性，可以通过双下划线”__”来实现一定程度的私有化。
@@ -38,42 +38,12 @@ __init__方法是函数写在类中就是方法，实例化对象的时候必须
 “__foo__”：以双下划线开头和结尾的（__foo__）代表python里特殊方法专用的标识，如 __init__（）。
 ```
 
-
-
-
-
 ## 面向对象的三大特性：封装、继承、多态
-
 
 # 参考链接:
 
+- [Python 类说明: https://blog.csdn.net/qq_35732147/article/details/83084774](https://blog.csdn.net/qq_35732147/article/details/83084774)
+- [Python 类术语: https://www.cnblogs.com/chengd/articles/7287528.html](https://www.cnblogs.com/chengd/articles/7287528.html)
 
-- [Python类说明: https://blog.csdn.net/qq_35732147/article/details/83084774](https://blog.csdn.net/qq_35732147/article/details/83084774)
-- [Python类术语: https://www.cnblogs.com/chengd/articles/7287528.html](https://www.cnblogs.com/chengd/articles/7287528.html)
-
-
-- [Python类入门]( https://www.runoob.com/python3/python3-class.html)
-- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [Python 类入门](https://www.runoob.com/python3/python3-class.html)
+*

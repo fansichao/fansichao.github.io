@@ -11,8 +11,6 @@ description: ....
 
 tags: `2020年` `02月` `Python进阶` `Python3`
 
-
-
 ## Xpath
 
 获取两个对象间的值
@@ -39,7 +37,6 @@ div[1]//div[contains(text(),"text1")]/following-sibling::node()[position() <= co
 
 
 ```
-
 
 ## re
 

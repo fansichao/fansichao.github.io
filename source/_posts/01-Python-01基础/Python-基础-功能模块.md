@@ -90,7 +90,7 @@ join 使用：
 时间测试，代码的性能分析
 import timeit
 
-# 生成测试所需的字符数组
+## 生成测试所需的字符数组
 
 格式化字符串优先使用.format，而不是%s 等
 
@@ -259,9 +259,9 @@ https://www.baidu.com/
 Python2中,对url解码  可以这样做：
 >>> print urllib.unquote("%E6%B5%8B%E8%AF%95abc")
 
- 
 
- 
+
+
 
 python3取消unquote属性
 
@@ -270,7 +270,7 @@ python3取消unquote属性
 import urllib.parse
 
 print(urllib.parse.unquote("%E6%B5%8B%E8%AF%95abc"))
- 
 
- 
+
+
 ```

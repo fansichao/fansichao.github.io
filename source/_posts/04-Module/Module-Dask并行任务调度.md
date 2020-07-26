@@ -6,7 +6,7 @@ tags:
   - Module
 categories:
   - Module
-description: ...
+description: Python数据分析-Dask并行计算库，和Pandas类似。
 ---
 
 ## Dask 说明介绍

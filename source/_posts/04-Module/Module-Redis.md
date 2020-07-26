@@ -8,7 +8,7 @@ tags:
   - Centos7
 categories:
   - Module
-description: ...
+description: 内存管理库，可以接受多种数据格式。
 ---
 
 tags: Redis Centos7 2019 年 12 月

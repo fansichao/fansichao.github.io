@@ -6,7 +6,7 @@ tags:
   - Book
 categories:
   - Book
-description: ..
+description: 代码大全读书笔记，主要是项目构建流程等内容
 ---
 
 ## 第 01 章 软件构建中的不同开发活动

@@ -7,7 +7,7 @@ tags:
   - Spark
 categories:
   - Module
-description: ...
+description: Apache Spark是一个围绕速度、易用性和复杂分析构建的大数据处理框架。
 ---
 
  

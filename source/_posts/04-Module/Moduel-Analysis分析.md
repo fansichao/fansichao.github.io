@@ -7,7 +7,7 @@ tags:
   - 数据分析
 categories:
   - Module
-description: ...
+description: Python数据分析，jieba分词等
 ---
 
 ## 功能模块

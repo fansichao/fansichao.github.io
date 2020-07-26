@@ -7,5 +7,5 @@ tags:
   - Database
 categories:
   - Module
-description: ...
+description: Linux-数据库-含Oracle、Mysql、DB2等
 ---

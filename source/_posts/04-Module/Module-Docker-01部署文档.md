@@ -7,7 +7,7 @@ tags:
   - Docker
 categories:
   - Module
-description: ....
+description: Docker安装部署升级等等，Centos7/Centos8
 ---
 
 环境说明:

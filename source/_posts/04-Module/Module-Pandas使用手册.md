@@ -7,7 +7,7 @@ tags:
   - Pandas
 categories:
   - Module
-description: 。。。
+description: 数据分析常用库 Pandas、Numpy
 ---
 
 ## Pandas 简介

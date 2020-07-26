@@ -7,7 +7,7 @@ tags:
   - Graph
 categories:
   - Module
-description: ...
+description: Neo4j 目前最流行的图形数据库，支持完整的事务，操作上手简单快速。
 ---
 
 ## Neo4j 入门介绍

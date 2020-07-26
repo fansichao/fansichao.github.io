@@ -7,10 +7,10 @@ tags:
   - VNC
 categories:
   - Module
-description: ..
+description: VNC,远程登录图形化界面配置。
 ---
 
-远程登录图形化界面。
+
 
 [toc]
 

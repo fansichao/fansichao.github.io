@@ -5,12 +5,12 @@ updated: 2020-07-12 15:38:13
 tags:
   - Module
   - Docker
+  - Docker-compose
+  - Docker-File
 categories:
   - Module
-description: ....
+description: Docker容器快速部署应用。Docker run, Docker-compose, Docker FIle. 用于快速开发搭建应用环境。
 ---
-
-tags: `Docker`
 
 说明:
 

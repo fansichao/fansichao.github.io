@@ -8,7 +8,7 @@ tags:
   - Python
 categories:
   - Module
-description: ...
+description: Python-Sqlalchemy ORM数据库框架，支持多数据之间切换。
 ---
 
 SQLAlchemy 是 Python 编程语言下的一款 ORM 框架，该框架建立在数据库 API 之上，使用关系对象映射进行数据库操作，

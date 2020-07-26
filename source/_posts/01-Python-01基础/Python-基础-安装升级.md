@@ -6,7 +6,7 @@ tags:
   - Python
 categories:
   - Python-基础
-description: ....
+description: Python3安装升级文档
 ---
 
 tags: `python` `部署文档` `python2` `python2`

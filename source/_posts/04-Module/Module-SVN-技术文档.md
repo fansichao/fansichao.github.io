@@ -8,7 +8,7 @@ tags:
   - 版本管理
 categories:
   - Module
-description: ...
+description: 项目代码版本管理库，和Git并列为最常用的代码管理库。
 ---
  
 SVN 是 Subversion 的简称，是一个开放源代码的版本控制系统，相较于 RCS、CVS，它采用了分支管理系统，它的设计目标就是取代 CVS。互联网上很多版本控制服务已从 CVS 迁移到 Subversion。说得简单一点 SVN 就是用于多个人共同开发同一个项目，共用资源的目的。

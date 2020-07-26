@@ -6,7 +6,7 @@ tags:
   - Python
 categories:
   - Python-基础
-description: ....
+description: Python常用基础命令
 ---
 
 ## 获取 os.system(cmd)的执行结果
