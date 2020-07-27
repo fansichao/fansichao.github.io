@@ -91,7 +91,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目部署文档">
 <meta property="og:url" content="https://fansichao.github.io/2020/07/12/08-Document/00-项目部署文档/index.html">
-<meta property="og:site_name" content="程序改变世界">
+<meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="...">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
@@ -133,7 +133,7 @@
 
 
 
-  <title>项目部署文档 | 程序改变世界</title>
+  <title>项目部署文档 | 格物方能致知</title>
   
 
 
@@ -163,7 +163,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">程序改变世界</span>
+        <span class="site-title">格物方能致知</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -311,7 +311,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序改变世界">
+      <meta itemprop="name" content="格物方能致知">
     </span>
 
     
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,723
+                  2,761
                 </span>
               
 
@@ -446,7 +446,7 @@
 <li>CentOS8.1.19/Centos7</li>
 <li>Python3.8.3</li>
 </ul>
-<h2 id="追加命令"><a href="#追加命令" class="headerlink" title="追加命令"></a>追加命令</h2><h3 id="防火墙策略"><a href="#防火墙策略" class="headerlink" title="防火墙策略"></a>防火墙策略</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 防火墙增加80端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3000/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=443/tcp --permanent</span><br><span class="line"><span class="comment"># 列出防火墙开放的端口</span></span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+<h2 id="追加命令"><a href="#追加命令" class="headerlink" title="追加命令"></a>追加命令</h2><h3 id="防火墙策略"><a href="#防火墙策略" class="headerlink" title="防火墙策略"></a>防火墙策略</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 防火墙策略配置</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 防火墙增加 指定端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3000/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=443/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出防火墙开放的端口</span></span><br><span class="line">systemctl restart firewalld</span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际上不启用防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
 <h3 id="Docker-配置"><a href="#Docker-配置" class="headerlink" title="Docker 配置"></a>Docker 配置</h3><p>docker 时区问题，容器时间和宿主机时间不一致问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Docker时区设置</span></span><br><span class="line">docker cp /etc/localtime 容器id:/etc/localtime</span><br></pre></td></tr></table></figure>
 <p>容器中不能使用 systemctl</p>
@@ -454,14 +454,14 @@
 <p>Docker 容器内部命令窗口大小设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">进入容器后，配置</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export TERM=xterm"</span> &gt;&gt; /root/.bashrc</span><br><span class="line">然后退出容器重新进入。</span><br></pre></td></tr></table></figure>
 <h3 id="服务器参数"><a href="#服务器参数" class="headerlink" title="服务器参数"></a>服务器参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Neo4j数据导入并行化等性能增强参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查Doris参数合理性，并整理清单</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查ES参数合理性，并整理清单</span></span><br></pre></td></tr></table></figure>
-<h3 id="服务器用户密码配置"><a href="#服务器用户密码配置" class="headerlink" title="服务器用户密码配置"></a>服务器用户密码配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码</span></span><br><span class="line"></span><br><span class="line">服务器12</span><br><span class="line">  - Doris</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.2:8040</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - fdm qwe123</span><br><span class="line">      - root </span><br><span class="line">  - ES</span><br><span class="line">    - UI界面</span><br><span class="line">      -</span><br><span class="line">服务器13</span><br><span class="line">  - Neo4j</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.3:7474</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - neo4j qwe123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他扩展项</span></span><br><span class="line">es插件 es-head(TODO 仅支持5.x版本？)</span><br><span class="line">doris插件</span><br></pre></td></tr></table></figure>
+<h3 id="服务器用户密码配置"><a href="#服务器用户密码配置" class="headerlink" title="服务器用户密码配置"></a>服务器用户密码配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码</span></span><br><span class="line"></span><br><span class="line">服务器12</span><br><span class="line">  - Doris</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.2:8040</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - fdm qwe123</span><br><span class="line">      - root</span><br><span class="line">  - ES</span><br><span class="line">    - UI界面</span><br><span class="line">      -</span><br><span class="line">服务器13</span><br><span class="line">  - Neo4j</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.3:7474</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - neo4j qwe123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他扩展项</span></span><br><span class="line">es插件 es-head(TODO 仅支持5.x版本？)</span><br><span class="line">doris插件</span><br></pre></td></tr></table></figure>
 <h4 id="ES-用户管理"><a href="#ES-用户管理" class="headerlink" title="ES-用户管理"></a>ES-用户管理</h4><p>1.需要在配置文件中开启 x-pack 验证, 修改 config 目录下面的 elasticsearch.yml 文件，在里面添加如下内容,并重启</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xpack.security.enabled: <span class="literal">true</span></span><br><span class="line">xpack.license.self_generated.type: basic</span><br><span class="line">xpack.security.transport.ssl.enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>2.执行设置用户名和密码的命令,这里需要为 4 个用户分别设置密码，elastic, kibana, logstash_system,beats_system</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch-setup-passwords interactive</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Initiating the setup of passwords <span class="keyword">for</span> reserved users elastic,kibana,logstash_system,beats_system.</span><br><span class="line">You will be prompted to enter passwords as the process progresses.</span><br><span class="line">Please confirm that you would like to <span class="built_in">continue</span> [y/N]y</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">passwords must be at least [6] characters long</span><br><span class="line">Try again.</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Passwords <span class="keyword">do</span> not match.</span><br><span class="line">Try again.</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Enter password <span class="keyword">for</span> [kibana]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [kibana]:</span><br><span class="line">Enter password <span class="keyword">for</span> [logstash_system]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [logstash_system]:</span><br><span class="line">Enter password <span class="keyword">for</span> [beats_system]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [beats_system]:</span><br><span class="line">Changed password <span class="keyword">for</span> user [kibana]</span><br><span class="line">Changed password <span class="keyword">for</span> user [logstash_system]</span><br><span class="line">Changed password <span class="keyword">for</span> user [beats_system]</span><br><span class="line">Changed password <span class="keyword">for</span> user [elastic]</span><br></pre></td></tr></table></figure>
 <p>3.修改密码命令如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">"Content-Type:application/json"</span> -XPOST -u elastic <span class="string">'http://127.0.0.1:9200/_xpack/security/user/elastic/_password'</span> -d <span class="string">'&#123; "password" : "123456" &#125;'</span></span><br></pre></td></tr></table></figure>
-<p>TODO es增加用户</p>
+<p>TODO es 增加用户</p>
 <p><a href="https://blog.csdn.net/weixin_43931625/article/details/104055758" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43931625/article/details/104055758</a></p>
 <p>参考链接：<a href="https://www.cnblogs.com/snail90/p/11444393.html" target="_blank" rel="noopener">ES 配置用户密码</a></p>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api.html" target="_blank" rel="noopener">官网链接</a></p>
@@ -637,8 +637,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/12/07-Book/B_立即执行术/" rel="prev" title="Book-立即执行术-读书笔记">
-                Book-立即执行术-读书笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/12/09-blog/hexo博客/" rel="prev" title="Hexo博客配置">
+                Hexo博客配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -723,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -734,7 +734,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

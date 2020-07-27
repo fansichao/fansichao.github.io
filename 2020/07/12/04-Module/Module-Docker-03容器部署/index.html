@@ -91,7 +91,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Module-Docker-容器快速部署">
 <meta property="og:url" content="https://fansichao.github.io/2020/07/12/04-Module/Module-Docker-03容器部署/index.html">
-<meta property="og:site_name" content="程序改变世界">
+<meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker容器快速部署应用。Docker run, Docker-compose, Docker FIle. 用于快速开发搭建应用环境。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
@@ -133,7 +133,7 @@
 
 
 
-  <title>Module-Docker-容器快速部署 | 程序改变世界</title>
+  <title>Module-Docker-容器快速部署 | 格物方能致知</title>
   
 
 
@@ -163,7 +163,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">程序改变世界</span>
+        <span class="site-title">格物方能致知</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -311,7 +311,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序改变世界">
+      <meta itemprop="name" content="格物方能致知">
     </span>
 
     
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  229
+                  607
                 </span>
               
 
@@ -442,7 +442,9 @@
 </ul>
 <h2 id="Docker-快速部署样例"><a href="#Docker-快速部署样例" class="headerlink" title="Docker-快速部署样例"></a>Docker-快速部署样例</h2><h3 id="Docker-Oracle11g"><a href="#Docker-Oracle11g" class="headerlink" title="Docker-Oracle11g"></a>Docker-Oracle11g</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">前提最新版Docker安装好，配置阿里云镜像库</span><br><span class="line"><span class="comment"># 获取镜像</span></span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/qida/oracle-xe-11g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行命令</span></span><br><span class="line">docker run --name oracle11g -d -p 1521:1521 -v /docker/oracle/v/oradata/:/u01/app/oracle/oradata/oracle11g-data/ -e ORACLE_ALLOW_REMOTE=<span class="literal">true</span> --restart=always registry.cn-hangzhou.aliyuncs.com/qida/oracle-xe-11g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入容器：</span></span><br><span class="line">docker <span class="built_in">exec</span> -it oracle11g bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装好的 Oracle 默认参数</span></span><br><span class="line">- 系统用户：root 密码：admin</span><br><span class="line">- 数据库链接</span><br><span class="line">    - hostname: localhost</span><br><span class="line">    - port: 1521</span><br><span class="line">    - sid: xe</span><br><span class="line">    - username: system</span><br><span class="line">    - password: oracle</span><br><span class="line"></span><br><span class="line">切换用户：su oracle</span><br><span class="line">进入SQL交互：sqlplus / as sysdba</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库用户</span></span><br><span class="line">create user fdm identified by qwe123;</span><br><span class="line"><span class="comment"># 授权给用户</span></span><br><span class="line">GRANT CREATE USER,DROP USER,ALTER USER ,CREATE ANY VIEW ,DROP ANY VIEW,EXP_FULL_DATABASE,IMP_FULL_DATABASE,DBA,CONNECT,RESOURCE,CREATE SESSION TO fdm;</span><br></pre></td></tr></table></figure>
 <p>参考资源: <a href="https://www.jianshu.com/p/fc85bb7e2d90" target="_blank" rel="noopener">Docker 安装 Oracle11g-超简单教程</a></p>
-<h3 id="Docker-ES"><a href="#Docker-ES" class="headerlink" title="Docker-ES"></a>Docker-ES</h3><h3 id="Docker-Neo4j"><a href="#Docker-Neo4j" class="headerlink" title="Docker-Neo4j"></a>Docker-Neo4j</h3><h3 id="Docker-Doris"><a href="#Docker-Doris" class="headerlink" title="Docker-Doris"></a>Docker-Doris</h3>
+<h3 id="Docker-ES"><a href="#Docker-ES" class="headerlink" title="Docker-ES"></a>Docker-ES</h3><h3 id="Docker-Neo4j"><a href="#Docker-Neo4j" class="headerlink" title="Docker-Neo4j"></a>Docker-Neo4j</h3><p>Docker-Neo4j-3.3.5</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于存储Docker化后存储数据的位置</span></span><br><span class="line"><span class="built_in">export</span> DOCKER_BASE_DATAPATH=/space/data_storage</span><br><span class="line">mkdir -p <span class="variable">$DOCKER_BASE_DATAPATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#########################</span></span><br><span class="line"><span class="comment"># Neo4J部署             #</span></span><br><span class="line"><span class="comment">#########################</span></span><br><span class="line"><span class="function"><span class="title">DeployNeo4J</span></span>()&#123;</span><br><span class="line">    container_name=fdm_neo4j</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Mkdir Container_Dir</span></span><br><span class="line">    <span class="built_in">export</span> NEO4J_DATAPATH=<span class="variable">$&#123;DOCKER_BASE_DATAPATH&#125;</span>/<span class="variable">$&#123;container_name&#125;</span></span><br><span class="line">    mkdir -p <span class="variable">$&#123;NEO4J_DATAPATH&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Clear Container</span></span><br><span class="line">    docker stop <span class="variable">$&#123;container_name&#125;</span></span><br><span class="line">    docker rm <span class="variable">$&#123;container_name&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Pulling Neo4J</span></span><br><span class="line">    <span class="comment"># docker pull neo4j:3.3.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.1</span></span><br><span class="line">    <span class="comment"># docker run -p=7474:7474 -p=7687:7687 \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/data:/data \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/logs:/logs \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/conf:/var/lib/neo4j/conf \</span></span><br><span class="line">    <span class="comment">#    --name fdm_neo4j -d neo4j:3.3.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Create Neo4J Container</span></span><br><span class="line">    <span class="comment"># TODO 3.3.5版本logs目录无法映射，只能容器内部做logs软链接到data中</span></span><br><span class="line">    docker run -p=7474:7474 -p=7687:7687 \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/data:/data \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/conf:/var/lib/neo4j/conf \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/import:/var/lib/neo4j/import \</span><br><span class="line">        --env NEO4J_AUTH=neo4j/qwe123 \</span><br><span class="line">        --name <span class="variable">$&#123;container_name&#125;</span> -d neo4j:3.3.5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DeployNeo4J</span><br><span class="line"></span><br><span class="line"><span class="comment"># dbms.directories.import=import</span></span><br><span class="line"><span class="comment"># dbms.default_listen_address=0.0.0.0</span></span><br><span class="line"><span class="comment"># dbms.memory.pagecache.size=60g</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.initial_size=32g</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.max_size=120g</span></span><br><span class="line"><span class="comment"># dbms.tx_log.rotation.retention_policy=100M size</span></span><br><span class="line"><span class="comment"># dbms.directories.logs=/logs</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &gt;&gt;&gt;&gt;&gt; 3.3.5</span></span><br><span class="line"><span class="comment"># dbms.directories.import=/var/lib/neo4j/import</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># wrapper.java.additional=-Dneo4j.ext.udc.source=docker</span></span><br><span class="line"><span class="comment"># ha.host.data=3188fa41c50b:6001</span></span><br><span class="line"><span class="comment"># ha.host.coordination=3188fa41c50b:5001</span></span><br><span class="line"><span class="comment"># dbms.tx_log.rotation.retention_policy=100M size</span></span><br><span class="line"><span class="comment"># dbms.memory.pagecache.size=512M</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.max_size=512M</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.initial_size=512M</span></span><br><span class="line"><span class="comment"># dbms.connectors.default_listen_address=0.0.0.0</span></span><br><span class="line"><span class="comment"># dbms.connector.https.listen_address=0.0.0.0:7473</span></span><br><span class="line"><span class="comment"># dbms.connector.http.listen_address=0.0.0.0:7474</span></span><br><span class="line"><span class="comment"># dbms.connector.bolt.listen_address=0.0.0.0:7687</span></span><br><span class="line"><span class="comment"># causal_clustering.transaction_listen_address=0.0.0.0:6000</span></span><br><span class="line"><span class="comment"># causal_clustering.transaction_advertised_address=3188fa41c50b:6000</span></span><br><span class="line"><span class="comment"># causal_clustering.raft_listen_address=0.0.0.0:7000</span></span><br><span class="line"><span class="comment"># causal_clustering.raft_advertised_address=3188fa41c50b:7000</span></span><br><span class="line"><span class="comment"># causal_clustering.discovery_listen_address=0.0.0.0:5000</span></span><br><span class="line"><span class="comment"># causal_clustering.discovery_advertised_address=3188fa41c50b:5000</span></span><br><span class="line"><span class="comment"># EDITION=community</span></span><br></pre></td></tr></table></figure>
+<h3 id="Docker-Doris"><a href="#Docker-Doris" class="headerlink" title="Docker-Doris"></a>Docker-Doris</h3>
       
     </div>
     
@@ -526,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/12/04-Module/Module-Docker-03常用配置/" rel="next" title="Module-Docker-模块功能">
-                <i class="fa fa-chevron-left"></i> Module-Docker-模块功能
+              <a href="/2020/07/12/04-Module/Module-Docker-04配置详解/" rel="next" title="Module-Docker-配置详解">
+                <i class="fa fa-chevron-left"></i> Module-Docker-配置详解
               </a>
             
           </div>
@@ -536,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/12/04-Module/Module-Docker-04配置详解/" rel="prev" title="Module-Docker-配置详解">
-                Module-Docker-配置详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/12/04-Module/Module-Docker-03Docker-File/" rel="prev" title="Module-Docker-Docker File">
+                Module-Docker-Docker File <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -622,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

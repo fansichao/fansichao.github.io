@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Linux,系统部署,Centos7,Centos8,HTTPS,">
+  <meta name="keywords" content="系统部署,Linux,Centos7,Centos8,HTTPS,">
 
 
 
@@ -87,16 +87,16 @@
 
 
 <meta name="description" content="证书配置">
-<meta name="keywords" content="Linux,系统部署,Centos7,Centos8,HTTPS">
+<meta name="keywords" content="系统部署,Linux,Centos7,Centos8,HTTPS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux-功能模块-HTTPS证书配置">
+<meta property="og:title" content="Linux-功能模块-NFS配置">
 <meta property="og:url" content="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/NFS配置/index.html">
-<meta property="og:site_name" content="程序改变世界">
+<meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="证书配置">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux-功能模块-HTTPS证书配置">
+<meta name="twitter:title" content="Linux-功能模块-NFS配置">
 <meta name="twitter:description" content="证书配置">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Linux-功能模块-HTTPS证书配置 | 程序改变世界</title>
+  <title>Linux-功能模块-NFS配置 | 格物方能致知</title>
   
 
 
@@ -163,7 +163,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">程序改变世界</span>
+        <span class="site-title">格物方能致知</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -311,7 +311,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序改变世界">
+      <meta itemprop="name" content="格物方能致知">
     </span>
 
     
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux-功能模块-HTTPS证书配置</h2>
+          <h2 class="post-title" itemprop="name headline">Linux-功能模块-NFS配置</h2>
         
 
         <div class="post-meta">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,027
+                  1,140
                 </span>
               
 
@@ -466,14 +466,15 @@
 <li>服务器开机时，先开启 NFS 服务端，最后开启 NFS 客户端。</li>
 </ul>
 <h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p>因为 centos7 自带了 rpcbind，所以不用安装 rpc 服务，rpc 监听在 111 端口，可以使用 ss -tnulp | grep 111 查看 rpc 服务是否自动启动，如果没有启动，就 systemctl start rpcbind 启动 rpc 服务。rpc 在 nfs 服务器搭建过程中至关重要，因为 rpc 能够获得 nfs 服务器端的端口号等信息，nfs 服务器端通过 rpc 获得这些信息后才能连接 nfs 服务器端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 nfs 服务</span></span><br><span class="line">yum -y install nfs-utils</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 nfs 服务是否安装成功</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment">#  </span></span><br><span class="line">nfs-utils-2.3.3-31.el8.x86_64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件 /etc/exports 添加如下内容</span></span><br><span class="line">/data  172.21.0.0/24(rw,sync,no_root_squash,insecure)</span><br><span class="line"></span><br><span class="line"><span class="comment"># TODO exports 中 rw,sync,no_root_squash,insecure 参数说明</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 耗时 10s-1min 不等</span></span><br><span class="line">systemctl restart nfs-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 NFS</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment"># rpcinfo -p 172.21.0.111</span></span><br><span class="line">   program vers proto   port  service</span><br><span class="line">    100000    4   tcp    111  portmapper</span><br><span class="line">    100000    3   tcp    111  portmapper</span><br><span class="line">    100000    2   tcp    111  portmapper</span><br><span class="line">    100000    4   udp    111  portmapper</span><br><span class="line">    100000    3   udp    111  portmapper</span><br><span class="line">    100000    2   udp    111  portmapper</span><br><span class="line">    100005    1   udp  20048  mountd</span><br><span class="line">    100005    1   tcp  20048  mountd</span><br><span class="line">    100005    2   udp  20048  mountd</span><br><span class="line">    100005    2   tcp  20048  mountd</span><br><span class="line">    100005    3   udp  20048  mountd</span><br><span class="line">    100005    3   tcp  20048  mountd</span><br><span class="line">    100003    3   tcp   2049  nfs</span><br><span class="line">    100003    4   tcp   2049  nfs</span><br><span class="line">    100227    3   tcp   2049  nfs_acl</span><br><span class="line">    100021    1   udp  43144  nlockmgr</span><br><span class="line">    100021    3   udp  43144  nlockmgr</span><br><span class="line">    100021    4   udp  43144  nlockmgr</span><br><span class="line">    100021    1   tcp  44159  nlockmgr</span><br><span class="line">    100021    3   tcp  44159  nlockmgr</span><br><span class="line">    100021    4   tcp  44159  nlockmgr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 export 内容是否正常</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment"># showmount -e localhost</span></span><br><span class="line">Export list <span class="keyword">for</span> localhost:</span><br><span class="line">/data 172.21.0.0/24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 NFS 目录权限，不然其他用户无法修改</span></span><br><span class="line">chown -R 777 /data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-server</span><br><span class="line">systemctl <span class="built_in">enable</span> rpcbind</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 nfs 服务</span></span><br><span class="line">yum -y install nfs-utils</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 nfs 服务是否安装成功</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment">#</span></span><br><span class="line">nfs-utils-2.3.3-31.el8.x86_64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件 /etc/exports 添加如下内容</span></span><br><span class="line">/data  172.21.0.0/24(rw,sync,no_root_squash,insecure)</span><br><span class="line"></span><br><span class="line"><span class="comment"># TODO exports 中 rw,sync,no_root_squash,insecure 参数说明</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务 耗时 10s-1min 不等</span></span><br><span class="line">systemctl restart nfs-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 NFS</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment"># rpcinfo -p 172.21.0.111</span></span><br><span class="line">   program vers proto   port  service</span><br><span class="line">    100000    4   tcp    111  portmapper</span><br><span class="line">    100000    3   tcp    111  portmapper</span><br><span class="line">    100000    2   tcp    111  portmapper</span><br><span class="line">    100000    4   udp    111  portmapper</span><br><span class="line">    100000    3   udp    111  portmapper</span><br><span class="line">    100000    2   udp    111  portmapper</span><br><span class="line">    100005    1   udp  20048  mountd</span><br><span class="line">    100005    1   tcp  20048  mountd</span><br><span class="line">    100005    2   udp  20048  mountd</span><br><span class="line">    100005    2   tcp  20048  mountd</span><br><span class="line">    100005    3   udp  20048  mountd</span><br><span class="line">    100005    3   tcp  20048  mountd</span><br><span class="line">    100003    3   tcp   2049  nfs</span><br><span class="line">    100003    4   tcp   2049  nfs</span><br><span class="line">    100227    3   tcp   2049  nfs_acl</span><br><span class="line">    100021    1   udp  43144  nlockmgr</span><br><span class="line">    100021    3   udp  43144  nlockmgr</span><br><span class="line">    100021    4   udp  43144  nlockmgr</span><br><span class="line">    100021    1   tcp  44159  nlockmgr</span><br><span class="line">    100021    3   tcp  44159  nlockmgr</span><br><span class="line">    100021    4   tcp  44159  nlockmgr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 export 内容是否正常</span></span><br><span class="line">[root@b9fed615b76b ~]<span class="comment"># showmount -e localhost</span></span><br><span class="line">Export list <span class="keyword">for</span> localhost:</span><br><span class="line">/data 172.21.0.0/24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 NFS 目录权限，不然其他用户无法修改</span></span><br><span class="line">chown -R 777 /data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-server</span><br><span class="line">systemctl <span class="built_in">enable</span> rpcbind</span><br></pre></td></tr></table></figure>
 <h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 NFS 服务, 利用附带的 showmount 工具，查看nfs服务是否正常</span></span><br><span class="line">yum -y install nfs-utils</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测rpc是否启动</span></span><br><span class="line">rpcinfo -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用showmount -e 查看 nfs 服务</span></span><br><span class="line">[root@85d31196f0c6 neo4j-community-3.3.5]<span class="comment"># showmount -e 172.21.0.111</span></span><br><span class="line">Export list <span class="keyword">for</span> 172.21.0.111:</span><br><span class="line">/data 172.21.0.0/24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载到本地目录(服务器重启后失效)</span></span><br><span class="line">mount -t nfs 172.21.0.111:/data /nfs_data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动挂载nfs功能 (可选) - 远程nfs存在问题时，会导致重启慢(需要根据需求配置)</span></span><br><span class="line"><span class="comment"># 加入 /etc/rc.d/rc.local 即可</span></span><br></pre></td></tr></table></figure>
 <h2 id="必选配置"><a href="#必选配置" class="headerlink" title="必选配置"></a>必选配置</h2><h3 id="Linux-关机或重启时提示-A-stop-job-is-running-for"><a href="#Linux-关机或重启时提示-A-stop-job-is-running-for" class="headerlink" title="Linux 关机或重启时提示 A stop job is running for"></a>Linux 关机或重启时提示 A stop job is running for</h3><p>Linux 关机或重启时提示 A stop job is running for .. 导致关机慢。</p>
 <p>修改方法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system.conf</span><br><span class="line">修改下面两个变量为： 生产服务器60s,开发服务器10s</span><br><span class="line">DefaultTimeoutStartSec=60s</span><br><span class="line">DefaultTimeoutStopSec=60s</span><br><span class="line">DefaultRestartSec=100ms</span><br><span class="line"><span class="comment"># 执行命令</span></span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
 <h2 id="可选配置"><a href="#可选配置" class="headerlink" title="可选配置"></a>可选配置</h2><h3 id="挂载优化"><a href="#挂载优化" class="headerlink" title="挂载优化"></a>挂载优化</h3><p>在企业工作场景，一般来说，NFS 服务器共享的只是普通静态数据（图片、附件、视频），不需要执行 suid、exec 等权限，挂载的这个文件系统只能作为数据存取之用，无法执行程序，对于客户端来讲增加了安全性，例如：很多木马篡改站点文件都是由上传入口上传的程序到存储目录，然后执行的。 因此在挂载的时候，用下面的命令很有必要：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安全挂载 只做数据存取 无法执行程序 根据需求使用</span></span><br><span class="line">mount -t nfs -o nosuid,noexec,nodev,rw 172.21.0.111:/data /nfs_data</span><br></pre></td></tr></table></figure>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><h4 id="reason-given-by-server-No-such-file-or-directory"><a href="#reason-given-by-server-No-such-file-or-directory" class="headerlink" title="reason given by server: No such file or directory"></a>reason given by server: No such file or directory</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 问题背景</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># mount -t nfs 172.16.2.4:/data_storage/fdm_neo4j/import /data/neo4j_import_data</span></span><br><span class="line">mount.nfs: mounting 172.16.2.4:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原有 /etc/exports 配置</span></span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决方案</span></span><br><span class="line">增加 fsid=0 参数后，重启服务</span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure,fsid=0)</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure>
+<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
 <li><a href="https://www.jianshu.com/p/d1122d42d5cc" target="_blank" rel="noopener">Docker 下配置 nfs</a></li>
 <li><a href="https://www.jianshu.com/p/f85c4371a43d" target="_blank" rel="noopener">详见此文档：Linux 下的 NFS 系统简介</a></li>
 </ul>
@@ -527,7 +528,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/NFS配置/" title="Linux-功能模块-HTTPS证书配置">https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/NFS配置/</a>
+    <a href="https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/NFS配置/" title="Linux-功能模块-NFS配置">https://fansichao.github.io/2020/07/12/02-Linux-01功能模块/NFS配置/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -542,9 +543,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
             <a href="/tags/系统部署/" rel="tag"># 系统部署</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
             <a href="/tags/Centos7/" rel="tag"># Centos7</a>
           
@@ -573,8 +574,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/12/02-Linux-01功能模块/SSH密钥配置/" rel="prev" title="Linux-功能模块-SSH配置">
-                Linux-功能模块-SSH配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/12/02-Linux-01功能模块/Raid配置/" rel="prev" title="Linux-功能模块-RAID配置">
+                Linux-功能模块-RAID配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -659,7 +660,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -670,7 +671,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -724,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-NFS"><span class="nav-number">1.</span> <span class="nav-text">配置 NFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端配置"><span class="nav-number">1.2.</span> <span class="nav-text">客户端配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必选配置"><span class="nav-number">2.</span> <span class="nav-text">必选配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-关机或重启时提示-A-stop-job-is-running-for"><span class="nav-number">2.1.</span> <span class="nav-text">Linux 关机或重启时提示 A stop job is running for</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选配置"><span class="nav-number">3.</span> <span class="nav-text">可选配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载优化"><span class="nav-number">3.1.</span> <span class="nav-text">挂载优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">4.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">4.1.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-NFS"><span class="nav-number">1.</span> <span class="nav-text">配置 NFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端配置"><span class="nav-number">1.2.</span> <span class="nav-text">客户端配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必选配置"><span class="nav-number">2.</span> <span class="nav-text">必选配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-关机或重启时提示-A-stop-job-is-running-for"><span class="nav-number">2.1.</span> <span class="nav-text">Linux 关机或重启时提示 A stop job is running for</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选配置"><span class="nav-number">3.</span> <span class="nav-text">可选配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载优化"><span class="nav-number">3.1.</span> <span class="nav-text">挂载优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">4.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题记录"><span class="nav-number">4.1.</span> <span class="nav-text">问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reason-given-by-server-No-such-file-or-directory"><span class="nav-number">4.1.1.</span> <span class="nav-text">reason given by server: No such file or directory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">4.2.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
             
 
           </div>
