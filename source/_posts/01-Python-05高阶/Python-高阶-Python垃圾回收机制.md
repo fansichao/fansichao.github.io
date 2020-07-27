@@ -12,7 +12,7 @@ description: ....
 ## 附件
 
 ### 参考资源
-
+https://www.cnblogs.com/aashui/p/9871009.html
 
 - [Python 垃圾回收机制](https://sutune.me/2018/10/14/python-GC/)
 

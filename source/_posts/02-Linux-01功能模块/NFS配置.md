@@ -1,5 +1,5 @@
 ---
-title: Linux-功能模块-HTTPS证书配置
+title: Linux-功能模块-NFS配置
 date: 2020-07-12 15:38:13
 updated: 2020-07-12 15:38:13
 tags:
@@ -47,7 +47,7 @@ description: 证书配置
 yum -y install nfs-utils
 
 # 查看 nfs 服务是否安装成功
-[root@b9fed615b76b ~]#  
+[root@b9fed615b76b ~]#
 nfs-utils-2.3.3-31.el8.x86_64
 
 # 修改文件 /etc/exports 添加如下内容
@@ -148,7 +148,24 @@ mount -t nfs -o nosuid,noexec,nodev,rw 172.21.0.111:/data /nfs_data
 
 ## 附件
 
- 
+### 问题记录
+
+#### reason given by server: No such file or directory
+
+```bash
+# 问题背景
+[root@f3a3540cb8e5 ~]# mount -t nfs 172.16.2.4:/data_storage/fdm_neo4j/import /data/neo4j_import_data
+mount.nfs: mounting 172.16.2.4:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory
+
+# 原有 /etc/exports 配置
+/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure)
+
+# 解决方案
+增加 fsid=0 参数后，重启服务
+/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure,fsid=0)
+systemctl restart nfs-server
+```
+
 ### 参考资源
 
 - [Docker 下配置 nfs](https://www.jianshu.com/p/d1122d42d5cc)
