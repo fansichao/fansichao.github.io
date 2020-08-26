@@ -155,75 +155,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python-学习教程]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"><![CDATA[Python-基础教程资源 菜鸟教程 https://www.runoob.com/python3/python3-tutorial.html 廖雪峰教程 https://www.liaoxuefeng.com/wiki/1016959663602400 网盘视频教程-链接：https://pan.baidu.com/s/1E019-Y5B5XhwFo9u4Ib56g 提取码：b9uj Python-练习实例Python 小项目练手 Python100 天 https://github.com/jackfrued/Python-100-Days Python 练习实例 :https://www.runoob.com/python/python-100-examples.html Python-趣味编程 tkinter-抽签助手 https://github.com/heimoshuiyu/lottery-assistant Python GUI 可视化编程 【Python】图形交互界面 GUI 之 tkinter 各大控件详解 Python-进阶资源Python-项目实战]]></content>
-      <categories>
-        <category>Python-基础</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>学习教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[leetcode刷题记录]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"><![CDATA[面试题 17.10. 主要元素关键点：摩尔投票法， 满足 时间复杂度为 O(N)，空间复杂度为 O(1) 12345678910数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。示例 1：输入：[1,2,5,9,5,9,5,5,5]输出：5来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/find-majority-element-lcci著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 面试题 17.12. BiNode12345678910111213141516171819二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。实现一个方法，把二叉搜索树转换为单向链表，要求依然符合二叉搜索树的性质，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。返回转换后的单向链表的头节点。注意：本题相对原题稍作改动 示例：输入： [4,2,5,1,3,null,6,0]输出： [0,null,1,null,2,null,3,null,4,null,5,null,6]提示：节点数量不会超过 100000。来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/binode-lcci著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 关键点：二叉树 数据结构 面试题 17.06. 2 出现的次数1234567891011面试题 17.06. 2出现的次数编写一个方法，计算从 0 到 n (含 n) 中数字 2 出现的次数。示例:输入: 25输出: 9解释: (2, 12, 20, 21, 22, 23, 24, 25)(注意 22 应该算作两次)提示：n &lt;= 10^9]]></content>
-      <categories>
-        <category>每日记录</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[每日任务]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"><![CDATA[常用资源 leetcode-刷题 极客时间-设计模式之美-课程学习 最近任务每日任务 leetcode-刷题 极客时间-设计模式之美-课程学习 博客 日更 1-2 篇博客 日完善 5-6 篇博客 近期任务 Python 知识体系 Python 算法 Python 教程完善 基础-初阶-进阶-高阶-资源 TODO github 高星项目 stackoverflow 高赞问题 Python 动态方法 动态创建变量 类 函数等 Pandas Python 原理 设计模式 高级特性 单元测试 Python 编码规范 打卡记录 2020-07-26 周日 [ ] leetcode [x] work(服务器应用密码配置) [x] 博客 description 内容添加 [ ] Python 异步编程 [x] Python 底层原理 01 2020-07-27 周一 [x] work(服务器部署&amp;参数记录) [x] work(演示问题记录) [ ] leetcode [x] 极客时间-设计模式之美-课程学习 [ ] Python 底层原理 02 [ ] 博客 description 内容完善 2020-07-28 周二 [ ] leetcode [ ] 博客 description 内容完善-Python [x] 极客时间-设计模式之美-课程学习 2020-07-29 周三 [ ] leetcode [x] 极客时间-设计模式之美-课程学习]]></content>
-      <categories>
-        <category>TODO</category>
-      </categories>
-      <tags>
-        <tag>TODO任务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[设计模式之美]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>Book</category>
-      </categories>
-      <tags>
-        <tag>Python-知识</tag>
-        <tag>Python-高阶</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[项目部署文档]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"><![CDATA[tags: 2020年 05月 CentOS8 环境说明: CentOS8.1.19/Centos7 Python3.8.3 追加命令防火墙策略123456789101112131415# 防火墙策略配置systemctl start firewalld# 防火墙增加 指定端口firewall-cmd --zone=public --add-port=80/tcp --permanentfirewall-cmd --zone=public --add-port=3000/tcp --permanentfirewall-cmd --zone=public --add-port=443/tcp --permanent# 列出防火墙开放的端口systemctl restart firewalldfirewall-cmd --zone=public --list-ports# 实际上不启用防火墙systemctl stop firewalldsystemctl disable firewalld 服务器参数12345# Neo4j数据导入并行化等性能增强参数# 检查Doris参数合理性，并整理清单# 检查ES参数合理性，并整理清单 服务器用户密码配置12345678910111213141516171819202122232425262728293031# 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码服务器12 - Doris - UI界面 - 172.16.1.2:8040 - 用户&amp;密码 - fdm qwe123 - root - ES - UI界面 -服务器13 - Neo4j - UI界面 - 172.16.1.3:7474 - 用户&amp;密码 - neo4j qwe123# 其他扩展项es插件 es-head(TODO 仅支持5.x版本？)doris插件 ES-用户管理1.需要在配置文件中开启 x-pack 验证, 修改 config 目录下面的 elasticsearch.yml 文件，在里面添加如下内容,并重启 123xpack.security.enabled: truexpack.license.self_generated.type: basicxpack.security.transport.ssl.enabled: true 2.执行设置用户名和密码的命令,这里需要为 4 个用户分别设置密码，elastic, kibana, logstash_system,beats_system 12345678910111213141516171819202122232425bin/elasticsearch-setup-passwords interactiveInitiating the setup of passwords for reserved users elastic,kibana,logstash_system,beats_system.You will be prompted to enter passwords as the process progresses.Please confirm that you would like to continue [y/N]yEnter password for [elastic]:passwords must be at least [6] characters longTry again.Enter password for [elastic]:Reenter password for [elastic]:Passwords do not match.Try again.Enter password for [elastic]:Reenter password for [elastic]:Enter password for [kibana]:Reenter password for [kibana]:Enter password for [logstash_system]:Reenter password for [logstash_system]:Enter password for [beats_system]:Reenter password for [beats_system]:Changed password for user [kibana]Changed password for user [logstash_system]Changed password for user [beats_system]Changed password for user [elastic] 3.修改密码命令如下 1curl -H "Content-Type:application/json" -XPOST -u elastic 'http://127.0.0.1:9200/_xpack/security/user/elastic/_password' -d '&#123; "password" : "123456" &#125;' TODO es 增加用户 https://blog.csdn.net/weixin_43931625/article/details/104055758 参考链接：ES 配置用户密码 官网链接 Doris-用户管理Doris 用户管理(类似于 mysql 用户管理) 1234567891011121314151617# 无密码时登录[root@b88a32bec16f /]# mysql -h 172.20.0.160 -P 9030 -u root# 使用 -p密码登录[root@b88a32bec16f /]# mysql -h 172.20.0.160 -P 9030 -u root -pqwe123# 设置root用户密码set password for 'root' = PASSWORD('qwe123');# 创建用户 fdmMySQL [(none)]&gt; CREATE USER 'fdm' IDENTIFIED BY 'qwe123';Query OK, 0 rows affected (0.01 sec)# 用户授权MySQL [(none)]&gt; GRANT ALL ON fdmdb TO fdm;Query OK, 0 rows affected (0.01 sec)# 删除用户 -- user_name 为用户名称drop user user_name@'%'; neo4j-用户管理1234567891011121314151617181920Neo4j密码配置(可视化界面)1. 新增用户# 用户 密码 是否需要修改密码# CALL dbms.security.createUser(name,password,requridchangepassword)# 命令样例CALL dbms.security.createUser('fdm','qwe123',true)2.修改密码# 修改密码:server change-password# 直接修改密码， password参数不能为空，或者跟原密码相同。CALL dbms.security.changePassword('password')3.其他命令# 查看当前用户CALL dbms.security.showCurrentUser()# 查看所有用户：CALL dbms.security.listUsers()# 删除用户CALL dbms.security.deleteUser("username") Neo4j 用户管理-参考链接 常用命令说明(建议)12# yum 命令变更dnf 代替 yum CentOS 系统安装安装 GUI 图形界面 详见 CentOS-部署文档 系统基础环境12yum -y install gcc automake autoconf libtool makeyum install -y libnsl 配置网络详见 网络配置 配置本地 yum详见 网络配置 关闭 selinux1234# 关闭selinux ，selinux不关闭，会容易导致各种情况不允许导致安装配置等报错。sed -i "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config# 关闭selinux防火墙setenforce 0 关闭 防火墙123# 关闭防火墙systemctl disable firewalldsystemctl stop firewalld 升级到 Python3.8详见 Python38-部署文档 配置 pip 源(可选)1234567mkdir ~/.pipvim ~/.pip/pip.conf# 添加如下内容[global]index-url = http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com 12# 安装 virtualenvpip3 install virtualenv 配置-Apache详见 Apache-部署文档 安装 java-jdk 环境ES5.6.4 &amp; Neo4j &amp; Hugegraph 需要jdk1.8+依赖 1234# 进入软件包目录, 找到 java_install 目录cd java_installsh install.sh # 即可成功安装# 其他已打开界面需要 source /etc/profile 方可生效 配置 ntpd 服务器时间同步(可选)多服务器时，需要此配置，单服务器无需配置。 参考 服务器时间同步配置 安装性能测试软件(可选)需要对服务器进行性能测试可以进行此步骤 参考 服务器性能测试 Docker 部署(可选)快速容器环境部署时，需要此步骤。 参考 Docker 部署文档 数据库部署 Oracle 数据库部署 参考 Oracle 部署文档 Mysql 数据库部署 参考 Mysql 部署文档 图库部署 HugeGraph 图库部署 参考 HugeGraph-部署文档 Neo4j 图库部署 参考 Neo4j-部署文档 第一次使用 HugeGraph 时，需要进行初始化 12345678910111213# 进入容器docker exec -it fdm_graph /bin/bash# 创建所需目录mkdir -p /data/hugegraph/rocksdb_data# 目录授权chmod 777 -R /data/hugegraph# 切换用户su - fdm# 切换目录cd /home/fdm/hugegraph/hugegraph-0.9.2# 初始化数据库bin/init-store.sh 使用 Neo4j 时，需要配置在 data 目录下 java 环境 1234# 容器内部cp -r jdk1.8.0_171 /data/.mkdir -p /data/neo4j/import /data/neo4j/databases/chmod 777 -R /data/ ES 部署 ES7.4.0 部署 参考 ES740-部署文档 ES5.6.4 部署 参考 ES564-部署文档 1234567特殊说明第一次使用时，需要在容器内部建目录mkdir -p /data/datamkdir -p /data/logschmod 777 -R /data 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122# ======================== Elasticsearch Configuration =========================## NOTE: Elasticsearch comes with reasonable defaults for most settings.# Before you set out to tweak and tune the configuration, make sure you# understand what are you trying to accomplish and the consequences.## The primary way of configuring a node is via this file. This template lists# the most important settings you may want to configure for a production cluster.## Please consult the documentation for further information on configuration options:# https://www.elastic.co/guide/en/elasticsearch/reference/index.html## ---------------------------------- Cluster -----------------------------------## Use a descriptive name for your cluster:##cluster.name: my-application## ------------------------------------ Node ------------------------------------## Use a descriptive name for the node:##node.name: node-1## Add custom attributes to the node:##node.attr.rack: r1## ----------------------------------- Paths ------------------------------------## Path to directory where to store the data (separate multiple locations by comma):##path.data: /path/to/data## Path to log files:##path.logs: /path/to/logs## ----------------------------------- Memory -----------------------------------## Lock the memory on startup:##bootstrap.memory_lock: true## Make sure that the heap size is set to about half the memory available# on the system and that the owner of the process is allowed to use this# limit.## Elasticsearch performs poorly when the system is swapping the memory.## ---------------------------------- Network -----------------------------------## Set the bind address to a specific IP (IPv4 or IPv6):##network.host: 192.168.0.1## Set a custom port for HTTP:##http.port: 9200## For more information, consult the network module documentation.## --------------------------------- Discovery ----------------------------------## Pass an initial list of hosts to perform discovery when this node is started:# The default list of hosts is ["127.0.0.1", "[::1]"]##discovery.seed_hosts: ["host1", "host2"]## Bootstrap the cluster using an initial set of master-eligible nodes:##cluster.initial_master_nodes: ["node-1", "node-2"]## For more information, consult the discovery and cluster formation module documentation.## ---------------------------------- Gateway -----------------------------------## Block initial recovery after a full cluster restart until N nodes are started:##gateway.recover_after_nodes: 3## For more information, consult the gateway module documentation.## ---------------------------------- Various -----------------------------------## Require explicit names when deleting indices:##action.destructive_requires_name: true### bootstrapbootstrap.system_call_filter: false# namecluster.name: es74_cluste_onenode.name: test1_node-only# nodenode.master: truenode.data: truenode.max_local_storage_nodes: 3#node.zone: zone_one# pathpath.data: /data/datapath.logs: /data/logs# host&amp;portnetwork.host: 0.0.0.0http.port: 7401http.cors.enabled: truehttp.cors.allow-origin: '*'# xpackxpack.security.enabled: false# cluster zonecluster.routing.allocation.awareness.attributes: zonenode.attr.zone: zone_two#discovery.zen.minimum_master_nodes: 2#http.max_content_length: 500mb##thread_pool.bulk.queue_size: 5000transport.tcp.port: 9300discovery.seed_hosts: ["192.168.100.200:9301", "192.168.100.200:9302"]cluster.initial_master_nodes: ["test2_node-only", "test1_node-only"] 常用参数说明 12345678910111213141516# 集群名称cluster.name: es74_cluste_one# 节点名称node.name: test1_node-only# 节点属性node.master: truenode.data: true# 数据日志路径path.data: /data/datapath.logs: /data/logs# 集群内部通信所需transport.tcp.port: 9300discovery.seed_hosts: ["192.168.100.200:9301", "192.168.100.200:9302"]cluster.initial_master_nodes: ["test2_node-only", "test1_node-only"] Doris 部署参考 Doris-部署文档 项目部署分支名称，自定义对应修改，建议采用 FISAMS/trunk 分支，此处采用 FISAMS/branches/trunk_py3 作为演示 安装 SVN12# 安装 SVN root用户yum install subversion -y 下载代码12# 下载分支 fdm用户svn co https://www.yinsho.com/svns/FISAMS/branches/trunk_py3 安装 env 环境12cd /home/fdm/trunk_py3/deployment &amp; pip install -r requirement.txt# 详情见 /home/fdm/trunk_py3/deployment/install.sh TODO Oracle/Mysql 驱动包部署配置 FDM 容器配置123456789101112# 创建FDM容器docker run --privileged=true -m 8000M --cpus=2 -itd --name test1_fdm_server_01 --net extnetwork21 --ip 172.21.0.110 -p 83:80 -p 3003:3000 -p 444:443 -p 121:21 -v /data_storage/test1_fdm_server_01:/data img_fdm_server_centos8 /usr/sbin/init# 创建目录mkdir -p /data/fdm_data /data/ods_path /data/server_logs /data/server_static# 目录授权chmod 777 -R /data# 目录链接ln -s /data/fdm_data /home/fdm/fdm_dataln -s /data/ods_path /home/fdm/ods_pathln -s /data/server_logs /home/fdm/server_logsln -s /data/server_static /home/fdm/server_static 问题记录系统环境配置问题Cannot update read-only repo参考链接: Cannot update read-only repo 123[root@localhost ~]# pythonbash: python: command not found...Failed to search for file: Cannot update read-only repo 解决方案 dnf install -y centos-release-stream dnf update 重启 CentOS8 no acceptable C compiler found in \$PATH123456789101112131415# 安装 Python3.8.3 编译时报错[root@fdm Python-3.8.3]# ./configure prefix=/usr/local/python383checking build system type... x86_64-pc-linux-gnuchecking host system type... x86_64-pc-linux-gnuchecking for python3.8... nochecking for python3... python3checking for --enable-universalsdk... nochecking for --with-universal-archs... nochecking MACHDEP... "linux"checking for gcc... nochecking for cc... nochecking for cl.exe... noconfigure: error: in `/root/Python-3.8.3':configure: error: no acceptable C compiler found in $PATHSee `config.log' for more details 解决方案 1yum install gcc -y AH00112: Warning: DocumentRoot [/home/fdm/quick/web/fdm] does not existApache 服务启动时，显示 DocumentRoot [xxx] dose not exist 解决方案: 关闭 selinux, 参考 关闭 selinux]]></content>
-      <categories>
-        <category>Document</category>
-      </categories>
-      <tags>
-        <tag>Module</tag>
-        <tag>部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo博客配置]]></title>
-    <url>%2Fundefined%2Fundefined%2F</url>
-    <content type="text"><![CDATA[博客主题适合做笔记的博客主题 适合做笔记本的博客 类似印象笔记的博客 很好的文章展示博客 博客配置 Hexo 个人博客绑定域名配置]]></content>
-      <categories>
-        <category>hexo博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[开发方法论-软件对比分析]]></title>
     <url>%2Fundefined%2Fundefined%2F</url>
     <content type="text"><![CDATA[tags: 2019年 12月 开发方法论 高效开发 软件替换-准备工作方法分析 理清需求/目标 明确需求详细内容 明确需求核心模块 明确需求优先级 新软件选择(参考[软件选择流程]) 软件使用 预期分析 预期功能分析 预期涉及代码分析 预期替换方法分析 明确软件官方 API 支持的功能 新旧软件替换，网络上寻找案例或差异文档等 原代码逻辑是否可拆分复用 后续工作 代码封装、格式检查 注释完善 问题分析&amp;解决HugeGraph 举例问题 1：官方文档 API 未提供方法，或未找到方法，无法满足业务功能解决方法： 1. 社区中寻求答案 2. 社区中提问寻求答案 问题 2: 部分功能软件本身不支持解决方法： 1. 曲线救国，社区中寻找思路。从其他处理方式中获取灵感案例：HugeGraph 不支持图库的热创建(可以先创建好多个图库以供使用)HugeGraph 不支持批量删除节点或边。（可以先标记好此节点和边已经删除, 后续等待空闲时间删除(耗时较长)） 问题 3: 官方文档某 APi 不全，找不到详细信息解决方法：可以从官方文档其他 API 中寻找案例：HugeGraph 中 HttpApi 没有找到 参数 action 的所有值，没有找到支持的所有数据类型。在 JavaClient(其他语言 Api)中通过关键字搜索找到了参数的详细说明. 通用方法软件选择流程 明确功能需求。 列出同行内所有软件。 行业内软件对比 性能分析 数据导入性能 数据查询性能 数据支持最大上限 软件综合性能 软件瓶颈(CPU 型还是内存型等) 使用成本分析 安装部署是否复杂 软件语言是否简单易用,例如 SQL/HttpApi 等 软件功能是否较好支持业务需求 数据操作分析 是否支持数据增删改查 是否支持任务管理、任务撤销等 数据热更新 数据备份/冗余 数据容灾 文档资源分析 官方文档是否丰富/完善 社区资源是否丰富/完善 网络资源是否丰富/完善 其他分析 可视化支持 分布式支持 并发支持(是否支持并发,或已内嵌并发) 服务器系统支持(Linux、Win 等) 软件架构分析 软件独有分析(图库为例) 是否支持副本 是否支持多库模式 根据软件选择标准选择软件 支持大部分功能需求 行业软件对比分析较优于其他软件 使用成本在接受范围内]]></content>
@@ -257,6 +188,29 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Python-学习教程]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"><![CDATA[Python-基础教程资源 菜鸟教程 https://www.runoob.com/python3/python3-tutorial.html 廖雪峰教程 https://www.liaoxuefeng.com/wiki/1016959663602400 网盘视频教程-链接：https://pan.baidu.com/s/1E019-Y5B5XhwFo9u4Ib56g 提取码：b9uj Python-练习实例Python 小项目练手 Python100 天 https://github.com/jackfrued/Python-100-Days Python 练习实例 :https://www.runoob.com/python/python-100-examples.html Python-趣味编程 tkinter-抽签助手 https://github.com/heimoshuiyu/lottery-assistant Python GUI 可视化编程 【Python】图形交互界面 GUI 之 tkinter 各大控件详解 Python-进阶资源Python-项目实战]]></content>
+      <categories>
+        <category>Python-基础</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>学习教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode刷题记录]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"><![CDATA[面试题 17.10. 主要元素关键点：摩尔投票法， 满足 时间复杂度为 O(N)，空间复杂度为 O(1) 12345678910数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。示例 1：输入：[1,2,5,9,5,9,5,5,5]输出：5来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/find-majority-element-lcci著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 面试题 17.12. BiNode12345678910111213141516171819二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。实现一个方法，把二叉搜索树转换为单向链表，要求依然符合二叉搜索树的性质，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。返回转换后的单向链表的头节点。注意：本题相对原题稍作改动 示例：输入： [4,2,5,1,3,null,6,0]输出： [0,null,1,null,2,null,3,null,4,null,5,null,6]提示：节点数量不会超过 100000。来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/binode-lcci著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 关键点：二叉树 数据结构 面试题 17.06. 2 出现的次数1234567891011面试题 17.06. 2出现的次数编写一个方法，计算从 0 到 n (含 n) 中数字 2 出现的次数。示例:输入: 25输出: 9解释: (2, 12, 20, 21, 22, 23, 24, 25)(注意 22 应该算作两次)提示：n &lt;= 10^9]]></content>
+      <categories>
+        <category>每日记录</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python-内置包-logging]]></title>
     <url>%2Fundefined%2Fundefined%2F</url>
     <content type="text"><![CDATA[https://www.jb51.net/article/126681.htm https://cloud.tencent.com/developer/article/1354396https://cuiqingcai.com/6080.htmlhttps://docs.python.org/2/library/logging.html#logger-objectshttps://www.cnblogs.com/CJOKER/p/8295272.htmlhttps://www.cnblogs.com/liujiacai/p/7804848.html]]></content>
@@ -265,6 +219,17 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[每日任务]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"><![CDATA[常用资源 leetcode-刷题 极客时间-设计模式之美-课程学习 最近任务每日任务 leetcode-刷题 极客时间-设计模式之美-课程学习 博客 日更 1-2 篇博客 日完善 5-6 篇博客 近期任务 Python 知识体系 Python 算法 Python 教程完善 基础-初阶-进阶-高阶-资源 TODO github 高星项目 stackoverflow 高赞问题 Python 动态方法 动态创建变量 类 函数等 Pandas Python 原理 设计模式 高级特性 单元测试 Python 编码规范 打卡记录 2020-07-26 周日 [ ] leetcode [x] work(服务器应用密码配置) [x] 博客 description 内容添加 [ ] Python 异步编程 [x] Python 底层原理 01 2020-07-27 周一 [x] work(服务器部署&amp;参数记录) [x] work(演示问题记录) [ ] leetcode [x] 极客时间-设计模式之美-课程学习 [ ] Python 底层原理 02 [ ] 博客 description 内容完善 2020-07-28 周二 [ ] leetcode [ ] 博客 description 内容完善-Python [x] 极客时间-设计模式之美-课程学习 2020-07-29 周三 [ ] leetcode [x] 极客时间-设计模式之美-课程学习]]></content>
+      <categories>
+        <category>TODO</category>
+      </categories>
+      <tags>
+        <tag>TODO任务</tag>
       </tags>
   </entry>
   <entry>
@@ -551,6 +516,18 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[设计模式之美]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Book</category>
+      </categories>
+      <tags>
+        <tag>Python-知识</tag>
+        <tag>Python-高阶</tag>
       </tags>
   </entry>
   <entry>
@@ -1599,6 +1576,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[项目部署文档]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"><![CDATA[tags: 2020年 05月 CentOS8 环境说明: CentOS8.1.19/Centos7 Python3.8.3 追加命令防火墙策略123456789101112131415# 防火墙策略配置systemctl start firewalld# 防火墙增加 指定端口firewall-cmd --zone=public --add-port=80/tcp --permanentfirewall-cmd --zone=public --add-port=3000/tcp --permanentfirewall-cmd --zone=public --add-port=443/tcp --permanent# 列出防火墙开放的端口systemctl restart firewalldfirewall-cmd --zone=public --list-ports# 实际上不启用防火墙systemctl stop firewalldsystemctl disable firewalld 服务器参数12345# Neo4j数据导入并行化等性能增强参数# 检查Doris参数合理性，并整理清单# 检查ES参数合理性，并整理清单 服务器用户密码配置12345678910111213141516171819202122232425262728293031# 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码服务器12 - Doris - UI界面 - 172.16.1.2:8040 - 用户&amp;密码 - fdm qwe123 - root - ES - UI界面 -服务器13 - Neo4j - UI界面 - 172.16.1.3:7474 - 用户&amp;密码 - neo4j qwe123# 其他扩展项es插件 es-head(TODO 仅支持5.x版本？)doris插件 ES-用户管理1.需要在配置文件中开启 x-pack 验证, 修改 config 目录下面的 elasticsearch.yml 文件，在里面添加如下内容,并重启 123xpack.security.enabled: truexpack.license.self_generated.type: basicxpack.security.transport.ssl.enabled: true 2.执行设置用户名和密码的命令,这里需要为 4 个用户分别设置密码，elastic, kibana, logstash_system,beats_system 12345678910111213141516171819202122232425bin/elasticsearch-setup-passwords interactiveInitiating the setup of passwords for reserved users elastic,kibana,logstash_system,beats_system.You will be prompted to enter passwords as the process progresses.Please confirm that you would like to continue [y/N]yEnter password for [elastic]:passwords must be at least [6] characters longTry again.Enter password for [elastic]:Reenter password for [elastic]:Passwords do not match.Try again.Enter password for [elastic]:Reenter password for [elastic]:Enter password for [kibana]:Reenter password for [kibana]:Enter password for [logstash_system]:Reenter password for [logstash_system]:Enter password for [beats_system]:Reenter password for [beats_system]:Changed password for user [kibana]Changed password for user [logstash_system]Changed password for user [beats_system]Changed password for user [elastic] 3.修改密码命令如下 1curl -H "Content-Type:application/json" -XPOST -u elastic 'http://127.0.0.1:9200/_xpack/security/user/elastic/_password' -d '&#123; "password" : "123456" &#125;' TODO es 增加用户 https://blog.csdn.net/weixin_43931625/article/details/104055758 参考链接：ES 配置用户密码 官网链接 Doris-用户管理Doris 用户管理(类似于 mysql 用户管理) 1234567891011121314151617# 无密码时登录[root@b88a32bec16f /]# mysql -h 172.20.0.160 -P 9030 -u root# 使用 -p密码登录[root@b88a32bec16f /]# mysql -h 172.20.0.160 -P 9030 -u root -pqwe123# 设置root用户密码set password for 'root' = PASSWORD('qwe123');# 创建用户 fdmMySQL [(none)]&gt; CREATE USER 'fdm' IDENTIFIED BY 'qwe123';Query OK, 0 rows affected (0.01 sec)# 用户授权MySQL [(none)]&gt; GRANT ALL ON fdmdb TO fdm;Query OK, 0 rows affected (0.01 sec)# 删除用户 -- user_name 为用户名称drop user user_name@'%'; neo4j-用户管理1234567891011121314151617181920Neo4j密码配置(可视化界面)1. 新增用户# 用户 密码 是否需要修改密码# CALL dbms.security.createUser(name,password,requridchangepassword)# 命令样例CALL dbms.security.createUser('fdm','qwe123',true)2.修改密码# 修改密码:server change-password# 直接修改密码， password参数不能为空，或者跟原密码相同。CALL dbms.security.changePassword('password')3.其他命令# 查看当前用户CALL dbms.security.showCurrentUser()# 查看所有用户：CALL dbms.security.listUsers()# 删除用户CALL dbms.security.deleteUser("username") Neo4j 用户管理-参考链接 常用命令说明(建议)12# yum 命令变更dnf 代替 yum CentOS 系统安装安装 GUI 图形界面 详见 CentOS-部署文档 系统基础环境12yum -y install gcc automake autoconf libtool makeyum install -y libnsl 配置网络详见 网络配置 配置本地 yum详见 网络配置 关闭 selinux1234# 关闭selinux ，selinux不关闭，会容易导致各种情况不允许导致安装配置等报错。sed -i "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config# 关闭selinux防火墙setenforce 0 关闭 防火墙123# 关闭防火墙systemctl disable firewalldsystemctl stop firewalld 升级到 Python3.8详见 Python38-部署文档 配置 pip 源(可选)1234567mkdir ~/.pipvim ~/.pip/pip.conf# 添加如下内容[global]index-url = http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com 12# 安装 virtualenvpip3 install virtualenv 配置-Apache详见 Apache-部署文档 安装 java-jdk 环境ES5.6.4 &amp; Neo4j &amp; Hugegraph 需要jdk1.8+依赖 1234# 进入软件包目录, 找到 java_install 目录cd java_installsh install.sh # 即可成功安装# 其他已打开界面需要 source /etc/profile 方可生效 配置 ntpd 服务器时间同步(可选)多服务器时，需要此配置，单服务器无需配置。 参考 服务器时间同步配置 安装性能测试软件(可选)需要对服务器进行性能测试可以进行此步骤 参考 服务器性能测试 Docker 部署(可选)快速容器环境部署时，需要此步骤。 参考 Docker 部署文档 数据库部署 Oracle 数据库部署 参考 Oracle 部署文档 Mysql 数据库部署 参考 Mysql 部署文档 图库部署 HugeGraph 图库部署 参考 HugeGraph-部署文档 Neo4j 图库部署 参考 Neo4j-部署文档 第一次使用 HugeGraph 时，需要进行初始化 12345678910111213# 进入容器docker exec -it fdm_graph /bin/bash# 创建所需目录mkdir -p /data/hugegraph/rocksdb_data# 目录授权chmod 777 -R /data/hugegraph# 切换用户su - fdm# 切换目录cd /home/fdm/hugegraph/hugegraph-0.9.2# 初始化数据库bin/init-store.sh 使用 Neo4j 时，需要配置在 data 目录下 java 环境 1234# 容器内部cp -r jdk1.8.0_171 /data/.mkdir -p /data/neo4j/import /data/neo4j/databases/chmod 777 -R /data/ ES 部署 ES7.4.0 部署 参考 ES740-部署文档 ES5.6.4 部署 参考 ES564-部署文档 1234567特殊说明第一次使用时，需要在容器内部建目录mkdir -p /data/datamkdir -p /data/logschmod 777 -R /data 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122# ======================== Elasticsearch Configuration =========================## NOTE: Elasticsearch comes with reasonable defaults for most settings.# Before you set out to tweak and tune the configuration, make sure you# understand what are you trying to accomplish and the consequences.## The primary way of configuring a node is via this file. This template lists# the most important settings you may want to configure for a production cluster.## Please consult the documentation for further information on configuration options:# https://www.elastic.co/guide/en/elasticsearch/reference/index.html## ---------------------------------- Cluster -----------------------------------## Use a descriptive name for your cluster:##cluster.name: my-application## ------------------------------------ Node ------------------------------------## Use a descriptive name for the node:##node.name: node-1## Add custom attributes to the node:##node.attr.rack: r1## ----------------------------------- Paths ------------------------------------## Path to directory where to store the data (separate multiple locations by comma):##path.data: /path/to/data## Path to log files:##path.logs: /path/to/logs## ----------------------------------- Memory -----------------------------------## Lock the memory on startup:##bootstrap.memory_lock: true## Make sure that the heap size is set to about half the memory available# on the system and that the owner of the process is allowed to use this# limit.## Elasticsearch performs poorly when the system is swapping the memory.## ---------------------------------- Network -----------------------------------## Set the bind address to a specific IP (IPv4 or IPv6):##network.host: 192.168.0.1## Set a custom port for HTTP:##http.port: 9200## For more information, consult the network module documentation.## --------------------------------- Discovery ----------------------------------## Pass an initial list of hosts to perform discovery when this node is started:# The default list of hosts is ["127.0.0.1", "[::1]"]##discovery.seed_hosts: ["host1", "host2"]## Bootstrap the cluster using an initial set of master-eligible nodes:##cluster.initial_master_nodes: ["node-1", "node-2"]## For more information, consult the discovery and cluster formation module documentation.## ---------------------------------- Gateway -----------------------------------## Block initial recovery after a full cluster restart until N nodes are started:##gateway.recover_after_nodes: 3## For more information, consult the gateway module documentation.## ---------------------------------- Various -----------------------------------## Require explicit names when deleting indices:##action.destructive_requires_name: true### bootstrapbootstrap.system_call_filter: false# namecluster.name: es74_cluste_onenode.name: test1_node-only# nodenode.master: truenode.data: truenode.max_local_storage_nodes: 3#node.zone: zone_one# pathpath.data: /data/datapath.logs: /data/logs# host&amp;portnetwork.host: 0.0.0.0http.port: 7401http.cors.enabled: truehttp.cors.allow-origin: '*'# xpackxpack.security.enabled: false# cluster zonecluster.routing.allocation.awareness.attributes: zonenode.attr.zone: zone_two#discovery.zen.minimum_master_nodes: 2#http.max_content_length: 500mb##thread_pool.bulk.queue_size: 5000transport.tcp.port: 9300discovery.seed_hosts: ["192.168.100.200:9301", "192.168.100.200:9302"]cluster.initial_master_nodes: ["test2_node-only", "test1_node-only"] 常用参数说明 12345678910111213141516# 集群名称cluster.name: es74_cluste_one# 节点名称node.name: test1_node-only# 节点属性node.master: truenode.data: true# 数据日志路径path.data: /data/datapath.logs: /data/logs# 集群内部通信所需transport.tcp.port: 9300discovery.seed_hosts: ["192.168.100.200:9301", "192.168.100.200:9302"]cluster.initial_master_nodes: ["test2_node-only", "test1_node-only"] Doris 部署参考 Doris-部署文档 项目部署分支名称，自定义对应修改，建议采用 FISAMS/trunk 分支，此处采用 FISAMS/branches/trunk_py3 作为演示 安装 SVN12# 安装 SVN root用户yum install subversion -y 下载代码12# 下载分支 fdm用户svn co https://www.yinsho.com/svns/FISAMS/branches/trunk_py3 安装 env 环境12cd /home/fdm/trunk_py3/deployment &amp; pip install -r requirement.txt# 详情见 /home/fdm/trunk_py3/deployment/install.sh TODO Oracle/Mysql 驱动包部署配置 FDM 容器配置123456789101112# 创建FDM容器docker run --privileged=true -m 8000M --cpus=2 -itd --name test1_fdm_server_01 --net extnetwork21 --ip 172.21.0.110 -p 83:80 -p 3003:3000 -p 444:443 -p 121:21 -v /data_storage/test1_fdm_server_01:/data img_fdm_server_centos8 /usr/sbin/init# 创建目录mkdir -p /data/fdm_data /data/ods_path /data/server_logs /data/server_static# 目录授权chmod 777 -R /data# 目录链接ln -s /data/fdm_data /home/fdm/fdm_dataln -s /data/ods_path /home/fdm/ods_pathln -s /data/server_logs /home/fdm/server_logsln -s /data/server_static /home/fdm/server_static 问题记录系统环境配置问题Cannot update read-only repo参考链接: Cannot update read-only repo 123[root@localhost ~]# pythonbash: python: command not found...Failed to search for file: Cannot update read-only repo 解决方案 dnf install -y centos-release-stream dnf update 重启 CentOS8 no acceptable C compiler found in \$PATH123456789101112131415# 安装 Python3.8.3 编译时报错[root@fdm Python-3.8.3]# ./configure prefix=/usr/local/python383checking build system type... x86_64-pc-linux-gnuchecking host system type... x86_64-pc-linux-gnuchecking for python3.8... nochecking for python3... python3checking for --enable-universalsdk... nochecking for --with-universal-archs... nochecking MACHDEP... "linux"checking for gcc... nochecking for cc... nochecking for cl.exe... noconfigure: error: in `/root/Python-3.8.3':configure: error: no acceptable C compiler found in $PATHSee `config.log' for more details 解决方案 1yum install gcc -y AH00112: Warning: DocumentRoot [/home/fdm/quick/web/fdm] does not existApache 服务启动时，显示 DocumentRoot [xxx] dose not exist 解决方案: 关闭 selinux, 参考 关闭 selinux]]></content>
+      <categories>
+        <category>Document</category>
+      </categories>
+      <tags>
+        <tag>Module</tag>
+        <tag>部署</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Book-流畅的Python笔记-读书笔记]]></title>
     <url>%2Fundefined%2Fundefined%2F</url>
     <content type="text"><![CDATA[书籍说明适合有一定 Python 基础，官网推荐进阶书籍。 序列列表推导（list comprehension）简称为 listcomps，生成式表达器（generator expression）则称为 genexps。 列表表推导式 123456789# 带条件的列表推导式In [2]: symbols = '$¢£¥€¤'In [3]: print [ord(s) for s in symbols if ord(s) &gt; 127][194, 162, 194, 163, 194, 165, 226, 130, 172, 194, 164]# 多个列表推导式In [5]: colors = ['black', 'white']In [6]: sizes = ['S', 'M', 'L']In [7]: print [(color, size) for color in colors for size in sizes][('black', 'S'), ('black', 'M'), ('black', 'L'), ('white', 'S'), ('white', 'M'), ('white', 'L')] map/filter 组合 12In [4]: print list(filter(lambda c: c &gt; 127, map(ord, symbols)))[194, 162, 194, 163, 194, 165, 226, 130, 172, 194, 164] 生成器表达式 a, b, *rest = range(2) a, b, rest(0, 1, []) 具名元组collections.namedtuple 是一个工厂函数，它可以用来构建一个带字段名的元组和一个有名字的类 通过对象取元组值。 1234567891011from collections import namedtuple# 创建City类 字段名称City = namedtuple('City', 'name country population coordinates')# 字段赋值tokyo = City('Tokyo', 'JP', 36.933, (35.689722, 139.691667))# 取值print tokyo.population# 显示 类中所有字段print City._fields# 显示 字典信息print City._asdict() s[a:b:c] 对象切片: 在 a 和 b 之间，以间隔 c 取值。 双向队列 deque支持对左侧或右侧处理 使用 可选参数 maxlen. 一旦设定无法修改。超出 maxlen 后，会删除另一侧元素 rotate 参数： 反转元素，&gt;0 时将右侧元素转移到左侧，&lt;0 时左侧元素移到右侧 appendleft 左侧添加元素 extendleft 左侧添加列表 1234567In [15]: from collections import dequeIn [16]: dq = deque(range(10), maxlen=10)In [20]: dqOut[20]: deque([7, 8, 9, 0, 1, 2, 3, 4, 5, 6])In [21]: dq.rotate(-4)In [22]: dqOut[22]: deque([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) 其他说明 常见序列分类 可变序列 不可变序列 其他分类： 扁平序列：体积更小、速度更快而且用起来更简单，但是它只能保存一些原子性的数据 容器序列：容器序列则比较灵活，但是当容器序列遇到可变对象时 列表推导和生成器表达式则提供了灵活构建和初始化序列的方式]]></content>
@@ -1629,6 +1618,17 @@
       </categories>
       <tags>
         <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客配置]]></title>
+    <url>%2Fundefined%2Fundefined%2F</url>
+    <content type="text"><![CDATA[博客主题适合做笔记的博客主题 适合做笔记本的博客 类似印象笔记的博客 很好的文章展示博客 博客配置 Hexo 个人博客绑定域名配置]]></content>
+      <categories>
+        <category>hexo博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo博客</tag>
       </tags>
   </entry>
   <entry>
