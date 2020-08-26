@@ -584,3 +584,23 @@ Out[137]:
 3    20170228
 Name: dic_date, dtype: object
 ```
+
+### 本对方数据翻转
+
+本对方数据翻转 公式
+
+```python
+df.loc[翻转条件, [本方,对方]] = df.loc[翻转条件, [对方,本方]]
+```
+
+本对方数据翻转 样例
+
+```python
+df_tran.loc[df_tran["TRAN_DIRECT"] == 'C',
+  ['CUST_CERTNO', 'CUST_NAME', 'CUST_NAMESPELL', 'ACCT_NO', 'CARD_NO',
+  'PEER_CERTNO', 'PEER_NAME', 'PEER_ACCT_NAMESPELL', 'PEER_ACCTNO', 'PEER_CARDNO']
+] = df_tran.loc[df_tran["TRAN_DIRECT"] == 'C',
+  ['PEER_CERTNO', 'PEER_NAME', 'PEER_ACCT_NAMESPELL', 'PEER_ACCTNO', 'PEER_CARDNO',
+  'CUST_CERTNO', 'CUST_NAME', 'CUST_NAMESPELL', 'ACCT_NO', 'CARD_NO']
+].values
+```

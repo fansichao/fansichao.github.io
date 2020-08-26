@@ -160,7 +160,7 @@ curl -XPUT 'http://0.0.0.0:7401/_cluster/settings'  -H 'Content-Type: applicatio
 {
   "transient": {
     "cluster": {
-      "max_shards_per_node": 10000
+      "max_shards_per_node": 50000
     }
   }
 }

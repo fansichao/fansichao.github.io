@@ -804,5 +804,7 @@ css: css
 js: js
 images: images
 
+display_updated: true
+
 # Theme version
 version: 5.1.3

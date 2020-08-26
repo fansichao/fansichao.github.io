@@ -7,7 +7,7 @@ tags:
   - Graph
 categories:
   - Module
-description: ...
+description: HugeGraph图库
 ---
 
 tags: HugeGraph 图库 2019 年 11 月
@@ -128,6 +128,9 @@ g.V("src_v_id")
 
 ```python
 g.V("1:3301167").repeat(__.out("MyEdge")).times(2).dedup().count().next()
+
+
+
 ```
 
 g.V(1).repeat(out().simplePath()).until(hasId(5)).path().limit(1)

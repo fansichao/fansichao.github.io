@@ -11,3 +11,9 @@ description: Python高级特性大全。Python高级特性，对于Python知识�
 ---
 
 ## Python 高级特性清单
+
+
+https://www.zhihu.com/question/23760468
+https://segmentfault.com/a/1190000010280700
+https://stackoverflow.com/questions/101268/hidden-features-of-python
+
