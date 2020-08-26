@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Linux,系统部署,Centos7,Centos8,时间同步,">
+  <meta name="keywords" content="Linux,系统部署,Centos7,Centos8,">
 
 
 
@@ -87,20 +87,17 @@
 
 
 <meta name="description" content="服务器集群时间同步">
-<meta name="keywords" content="Linux,系统部署,Centos7,Centos8,时间同步">
+<meta name="keywords" content="Linux,系统部署,Centos7,Centos8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux-功能模块-服务器时间同步">
+<meta property="og:title" content="Linux-功能模块-网络配置">
 <meta property="og:url" content="https://fansichao.github.io/undefined/undefined/index.html">
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="服务器集群时间同步">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fansichao.github.io/images/ntpd服务器配置.png">
-<meta property="og:image" content="https://fansichao.github.io/images/ntpd客户端配置.png">
 <meta property="og:updated_time" content="2018-11-12T11:17:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux-功能模块-服务器时间同步">
+<meta name="twitter:title" content="Linux-功能模块-网络配置">
 <meta name="twitter:description" content="服务器集群时间同步">
-<meta name="twitter:image" content="https://fansichao.github.io/images/ntpd服务器配置.png">
 
 
 
@@ -136,7 +133,7 @@
 
 
 
-  <title>Linux-功能模块-服务器时间同步 | 格物方能致知</title>
+  <title>Linux-功能模块-网络配置 | 格物方能致知</title>
   
 
 
@@ -322,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux-功能模块-服务器时间同步</h2>
+          <h2 class="post-title" itemprop="name headline">Linux-功能模块-网络配置</h2>
         
 
         <div class="post-meta">
@@ -417,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,063
+                  141
                 </span>
               
 
@@ -446,38 +443,12 @@
       
 
       
-        <p>tags: <code>时间同步</code> <code>ntdp</code> <code>chrony</code> <code>Linux</code></p>
-<p>说明:</p>
+        <p>说明:</p>
 <ul>
-<li>分布式多台服务器时需要配置时间同步机制。<ul>
-<li>对于集群或者跨服务器的系统而言，需要统一服务器时间</li>
+<li>详细文档详见 印象笔记中《配置静态IP》</li>
 </ul>
-</li>
-<li>能够连接外网的机器可以所有机器和网络时间同步</li>
-<li>不能连接外网的机器可以所有机器和第一台同步</li>
-<li>主机需要和网络时间同步。</li>
-</ul>
-<h2 id="ntpd-时间同步"><a href="#ntpd-时间同步" class="headerlink" title="ntpd 时间同步"></a>ntpd 时间同步</h2><p>前置依赖</p>
-<ul>
-<li>多主机必须在 <code>/etc/hosts</code> 中有注册信息</li>
-<li>多主机之间可以互相访问</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 ntp</span></span><br><span class="line">yum install ntp ntpdate -y</span><br></pre></td></tr></table></figure>
-<h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><p><img src="/images/ntpd服务器配置.png" alt="ntpd服务器配置"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置文件 如图所示，增加 restrict，并注释原本的 server。</span></span><br><span class="line"><span class="comment"># 需要修改 restrict 的 IP 网段。其他不变</span></span><br><span class="line"></span><br><span class="line">服务器 1 ------------------------------------ ntp 服务器</span><br><span class="line">[root@ES1 ~]<span class="comment"># vim /etc/ntp.conf</span></span><br><span class="line">restrict 191.110.0.0 mask 255.255.0.0 nomodify notrap</span><br><span class="line">server 127.127.1.0</span><br><span class="line">fudge 127.127.1.0</span><br><span class="line">stratum 8</span><br><span class="line"><span class="comment"># 开启服务 &amp; 查看服务状态</span></span><br><span class="line">service ntpd restart &amp;&amp; service ntpd status</span><br><span class="line">[root@ES1 ~]<span class="comment"># ntpq -p</span></span><br><span class="line">remote refid st t when poll reach delay offset jitter</span><br><span class="line">==============================================================================</span><br><span class="line">*LOCAL(0) .LOCL. 5 l 11 64 377 0.000 0.000 0.000</span><br><span class="line">[root@ES1 ~]<span class="comment"># ntpq -4p</span></span><br><span class="line">remote refid st t when poll reach delay offset jitter</span><br><span class="line">==============================================================================</span><br><span class="line">*LOCAL(0) .LOCL. 5 l 46 64 377 0.000 0.000 0.000</span><br><span class="line">[root@ES1 ~]<span class="comment"># ntpq -6p</span></span><br><span class="line">remote refid st t when poll reach delay offset jitter</span><br><span class="line">==============================================================================</span><br><span class="line">\*LOCAL(0) .LOCL. 5 l 53 64 377 0.000 0.000 0.000</span><br></pre></td></tr></table></figure>
-<h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p><img src="/images/ntpd客户端配置.png" alt="ntpd客户端配置"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">服务器 2 ------------------------------------ 同步跟随于服务器 1 的时间</span><br><span class="line">[root@ES2 ~]<span class="comment"># yum install ntp -y</span></span><br><span class="line">[root@ES2 ~]<span class="comment"># vim /etc/ntp.conf</span></span><br><span class="line">注释</span><br><span class="line"><span class="comment"># server 0</span></span><br><span class="line"><span class="comment"># server 1</span></span><br><span class="line"><span class="comment"># server 2</span></span><br><span class="line"><span class="comment"># server 3</span></span><br><span class="line">server ES1  <span class="comment"># ES1 是 服务器 1 的主机名称</span></span><br><span class="line">[root@ES2 ~]<span class="comment"># service ntpd restart</span></span><br><span class="line">[root@ES2 ~]<span class="comment"># ntpq -p ES1 或 ntpq -p 191.110.110.61</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">chkconfig ntpd on</span><br><span class="line">systemctl <span class="built_in">enable</span> ntpd</span><br><span class="line">注：修改完后非立即生效，需要等待 15min 左右。</span><br><span class="line"></span><br><span class="line">使用 date 查看当前服务器时间</span><br></pre></td></tr></table></figure>
-<h2 id="chrony-时间同步"><a href="#chrony-时间同步" class="headerlink" title="chrony 时间同步"></a>chrony 时间同步</h2><ul>
-<li><a href="https://www.zfl9.com/chrony.html" target="_blank" rel="noopener">chrony 时间同步参考链接</a></li>
-<li><a href="https://www.linuxprobe.com/centos7-chrony-time.html" target="_blank" rel="noopener">详解：Linux Chrony 设置服务器集群同步时间</a></li>
-</ul>
-<p>ntp ntpd 是古老的时间同步命令，chrony 是新出已经给应用到 CentoS7 之后的时间同步命令，<br>建议使用 chrony .</p>
-<h3 id="网络时间同步"><a href="#网络时间同步" class="headerlink" title="网络时间同步"></a>网络时间同步</h3><p>修改配置文件 <code>/etc/chrony.conf</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use public servers from the pool.ntp.org project.</span></span><br><span class="line"><span class="comment"># Please consider joining the pool (http://www.pool.ntp.org/join.html).</span></span><br><span class="line"><span class="comment"># pool 2.centos.pool.ntp.org iburst</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 上游公共 ntp 服务器</span></span><br><span class="line">server 0.centos.pool.ntp.org iburst         <span class="comment"># 增加远程网络</span></span><br><span class="line">server 1.centos.pool.ntp.org iburst         <span class="comment"># 增加远程网络</span></span><br><span class="line">server 2.centos.pool.ntp.org iburst         <span class="comment"># 增加远程网络</span></span><br><span class="line">server 3.centos.pool.ntp.org iburst         <span class="comment"># 增加远程网络</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Record the rate at which the system clock gains/losses time.</span></span><br><span class="line">driftfile /var/lib/chrony/drift</span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow the system clock to be stepped in the first three updates</span></span><br><span class="line"><span class="comment"># if its offset is larger than 1 second.</span></span><br><span class="line">makestep 1.0 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable kernel synchronization of the real-time clock (RTC).</span></span><br><span class="line">rtcsync</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable hardware timestamping on all interfaces that support it.</span></span><br><span class="line"><span class="comment">#hwtimestamp *</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Increase the minimum number of selectable sources required to adjust</span></span><br><span class="line"><span class="comment"># the system clock.</span></span><br><span class="line"><span class="comment">#minsources 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow NTP client access from local network.</span></span><br><span class="line"><span class="comment">#allow 192.168.0.0/16</span></span><br><span class="line">allow 192.168.0.0/16    <span class="comment"># 添加本机网段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Serve time even if not synchronized to a time source.</span></span><br><span class="line"><span class="comment">#local stratum 10</span></span><br><span class="line"><span class="built_in">local</span> stratum 10        <span class="comment"># 解除注释</span></span><br></pre></td></tr></table></figure>
-<p>配置 chrony</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@fdm ~]<span class="comment"># systemctl restart chronyd.service</span></span><br><span class="line">[root@fdm ~]<span class="comment"># systemctl enable chronyd.service</span></span><br><span class="line">[root@fdm ~]<span class="comment"># date</span></span><br><span class="line">Fri Jun 12 00:58:00 CST 2020</span><br><span class="line">[root@fdm ~]<span class="comment"># chronyc sources -v</span></span><br><span class="line">210 Number of sources = 1</span><br><span class="line"></span><br><span class="line">  .-- Source mode  <span class="string">'^'</span> = server, <span class="string">'='</span> = peer, <span class="string">'#'</span> = <span class="built_in">local</span> clock.</span><br><span class="line"> / .- Source state <span class="string">'*'</span> = current synced, <span class="string">'+'</span> = combined , <span class="string">'-'</span> = not combined,</span><br><span class="line">| /   <span class="string">'?'</span> = unreachable, <span class="string">'x'</span> = time may be <span class="keyword">in</span> error, <span class="string">'~'</span> = time too variable.</span><br><span class="line">||                                                 .- xxxx [ yyyy ] +/- zzzz</span><br><span class="line">||      Reachability register (octal) -.           |  xxxx = adjusted offset,</span><br><span class="line">||      Log2(Polling interval) --.      |          |  yyyy = measured offset,</span><br><span class="line">||                                \     |          |  zzzz = estimated error.</span><br><span class="line">||                                 |    |           \</span><br><span class="line">MS Name/IP address         Stratum Poll Reach LastRx Last sample</span><br><span class="line">===============================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">^? 203.107.6.88                  0   6     0     -     +0ns[   +0ns] +/-    0ns</span><br><span class="line"></span><br><span class="line">[root@fdm ~]<span class="comment"># timedatectl</span></span><br><span class="line">               Local time: Tue 2020-06-16 10:40:24 CST</span><br><span class="line">           Universal time: Tue 2020-06-16 02:40:24 UTC</span><br><span class="line">                 RTC time: Thu 2020-06-11 11:12:33</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: yes</span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br><span class="line">[root@fdm ~]<span class="comment"># date</span></span><br><span class="line">Tue Jun 16 10:40:31 CST 2020</span><br></pre></td></tr></table></figure>
-<h3 id="集群时间同步"><a href="#集群时间同步" class="headerlink" title="集群时间同步"></a>集群时间同步</h3><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查看 ntp_servers 状态</span></span><br><span class="line">chronyc sources -v</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看 ntp_sync 状态</span></span><br><span class="line">chronyc sourcestats -v</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看 ntp_servers 是否在线</span></span><br><span class="line">chronyc activity -v</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看 ntp 详细信息</span></span><br><span class="line">chronyc tracking -v</span><br></pre></td></tr></table></figure>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><p>参考链接：<a href="http://blog.sina.com.cn/s/blog_5369bee10100aysx.html" target="_blank" rel="noopener">CentOS 下 NTP 安装配置</a></p>
+<h2 id="Cenots7-网络配置"><a href="#Cenots7-网络配置" class="headerlink" title="Cenots7-网络配置"></a>Cenots7-网络配置</h2><p>TODO</p>
+<h2 id="Centos8-网络配置"><a href="#Centos8-网络配置" class="headerlink" title="Centos8-网络配置"></a>Centos8-网络配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启网络</span></span><br><span class="line">nmcli c reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 桥接网络-配置静态网络(仅供参考)</span></span><br><span class="line"><span class="comment"># 文件 /etc/sysconfig/network-scripts/ifcfg-enp0s3</span></span><br><span class="line">TYPE=<span class="string">"Ethernet"</span></span><br><span class="line">PROXY_METHOD=<span class="string">"none"</span></span><br><span class="line">BROWSER_ONLY=<span class="string">"no"</span></span><br><span class="line">DEFROUTE=<span class="string">"yes"</span></span><br><span class="line">IPV4_FAILURE_FATAL=<span class="string">"no"</span></span><br><span class="line">IPV6INIT=<span class="string">"yes"</span></span><br><span class="line">IPV6_AUTOCONF=<span class="string">"yes"</span></span><br><span class="line">IPV6_DEFROUTE=<span class="string">"yes"</span></span><br><span class="line">IPV6_FAILURE_FATAL=<span class="string">"no"</span></span><br><span class="line">IPV6_ADDR_GEN_MODE=<span class="string">"stable-privacy"</span></span><br><span class="line">NAME=<span class="string">"enp0s3"</span></span><br><span class="line">UUID=<span class="string">"8b27dabc-8940-4697-be98-57ac96559def"</span></span><br><span class="line">DEVICE=<span class="string">"enp0s3"</span></span><br><span class="line">ONBOOT=<span class="string">"yes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># BOOTPROTO="dhcp"</span></span><br><span class="line">BOOTPROTO=<span class="string">"static"</span></span><br><span class="line">IPADDR=192.168.0.177</span><br><span class="line">GATEWAY=192.168.0.102  <span class="comment"># 根据实际修改</span></span><br><span class="line">NETMASK=255.255.255.0</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -528,7 +499,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/undefined/undefined/" title="Linux-功能模块-服务器时间同步">https://fansichao.github.io/undefined/undefined/</a>
+    <a href="https://fansichao.github.io/undefined/undefined/" title="Linux-功能模块-网络配置">https://fansichao.github.io/undefined/undefined/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -551,8 +522,6 @@
           
             <a href="/tags/Centos8/" rel="tag"># Centos8</a>
           
-            <a href="/tags/时间同步/" rel="tag"># 时间同步</a>
-          
         </div>
       
 
@@ -570,8 +539,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/undefined/" rel="prev" title="Linux-功能模块-网络配置">
-                Linux-功能模块-网络配置 <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/undefined/" rel="prev" title="Linux-功能模块-服务器时间同步">
+                Linux-功能模块-服务器时间同步 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -721,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ntpd-时间同步"><span class="nav-number">1.</span> <span class="nav-text">ntpd 时间同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器配置"><span class="nav-number">1.1.</span> <span class="nav-text">服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端配置"><span class="nav-number">1.2.</span> <span class="nav-text">客户端配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrony-时间同步"><span class="nav-number">2.</span> <span class="nav-text">chrony 时间同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络时间同步"><span class="nav-number">2.1.</span> <span class="nav-text">网络时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群时间同步"><span class="nav-number">2.2.</span> <span class="nav-text">集群时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">2.3.</span> <span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">3.</span> <span class="nav-text">附件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cenots7-网络配置"><span class="nav-number">1.</span> <span class="nav-text">Cenots7-网络配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos8-网络配置"><span class="nav-number">2.</span> <span class="nav-text">Centos8-网络配置</span></a></li></ol></div>
             
 
           </div>
