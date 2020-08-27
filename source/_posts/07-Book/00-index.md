@@ -9,7 +9,7 @@ categories:
 description: Book-index, 读书笔记 目录索引。
 ---
 
-## Web-目录索引
+## Book-目录索引
 
 - 技术类-读书笔记
   - [SparkHadoop 机器学习与大数据实战](http://www.superscfan.top/book/SparkHadoop机器学习与大数据实战)
@@ -19,6 +19,5 @@ description: Book-index, 读书笔记 目录索引。
   - [程序员的思维修炼](http://www.superscfan.top/book/程序员的思维修炼)
 - 高效类-读书笔记
   - [立即执行术](http://www.superscfan.top/book/立即执行术)
-
 
 ## 相关资源

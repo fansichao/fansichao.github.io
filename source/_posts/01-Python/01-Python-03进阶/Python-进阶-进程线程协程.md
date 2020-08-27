@@ -143,7 +143,7 @@ https://www.jb51.net/article/95971.htm
 
 - [进程、线程、协程理解](https://www.cnblogs.com/buwuliao/p/9142699.html)
 - [快速理解多进程与多线程以及协程的使用场合和特点](https://blog.csdn.net/zlx_csdn/article/details/79886705)
-- [【面试高频问题】线程、进程、协程](https://cloud.tencent.com/developer/article/1447043)
+- [【高频问题】线程、进程、协程](https://cloud.tencent.com/developer/article/1447043)
 
 [Python 之路[9] - 进程、线程、携程篇](https://www.cnblogs.com/richardzgt/articles/7761172.html)
 
