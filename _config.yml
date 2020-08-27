@@ -15,7 +15,7 @@ timezone:
 url: https://fansichao.github.io/
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: :url_dir/:url_name/
+permalink: :url_path/
 permalink_defaults:
 
 # Directory

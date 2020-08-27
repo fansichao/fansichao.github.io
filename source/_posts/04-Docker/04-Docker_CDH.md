@@ -1,15 +1,12 @@
 ---
-title: Docker-CDH大数据平台部署
-url_dir: 04-Docker
-url_name: 04-Docker_CDH
-date: 2020-08-25 15:38:13
-updated: 2020-08-25 15:38:13
+title: Docker-CDH部署文档
+url_path: docker/docker_cdh
 tags:
-  - Docker
-  - CDH
+  - docker
+  - module
 categories:
-  - Module
-description: CDH大数据平台部署，Spark、HDFS、Hive等等一键部署。 
+  - docker
+description: CDH大数据平台部署，Spark、HDFS、Hive等等一键部署。
 ---
 
 ## 文档说明
@@ -85,7 +82,7 @@ Success! You can now log into Cloudera Manager from the QuickStart VM s browser:
 
 ## 详细使用
 
-详见 站内文档 [CDH使用文档](www.superscfan.top/05-Module/CDH-Docs)
+详见 站内文档 [CDH 使用文档](www.superscfan.top/05-Module/CDH-Docs)
 
 ## 参考资源
 
