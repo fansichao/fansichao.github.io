@@ -3,7 +3,7 @@ title: Markdown-使用文档
 url_path: win/markdown
 tags:
   - win
-- categories:
+categories:
   - win
 description: MarkDown-文本语言
 ---
