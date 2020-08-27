@@ -3,7 +3,7 @@ title: Linux-性能监控工具
 url_path: linux/cmdn_tools
 tags:
   - linux
-- categories:
+categories:
   - linux
 description: Linux-性能监控工具
 ---

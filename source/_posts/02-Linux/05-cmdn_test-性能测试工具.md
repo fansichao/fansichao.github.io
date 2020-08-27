@@ -3,7 +3,7 @@ title: Linux-性能测试工具
 url_path: linux/cmdn_test
 tags:
   - linux
-- categories:
+categories:
   - linux
 description: Linux-性能测试工具
 ---
