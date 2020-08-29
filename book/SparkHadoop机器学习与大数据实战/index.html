@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="读书笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-27T00:33:44.034Z">
+<meta property="og:updated_time" content="2020-08-29T06:00:14.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记-SparkHadoop机器学习与大数据实战">
 <meta name="twitter:description" content="读书笔记">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-27T08:33:44+08:00">
-                2020-08-27
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T14:00:14+08:00">
+                2020-08-29
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,851
+                  1,848
                 </span>
               
 
@@ -487,7 +487,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="命令使用样例"><a href="#命令使用样例" class="headerlink" title="命令使用样例"></a>命令使用样例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">hadoop fs -mkdir -p /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 查看HDFS目录</span></span><br><span class="line">hadoop fs -ls /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 查看所有子目录</span></span><br><span class="line">hadoop fs -ls -R /</span><br><span class="line"><span class="comment"># 复制本地文件到HDFS</span></span><br><span class="line">hadoop fs -copyFromLocal /user/<span class="built_in">local</span>/hadoop/README.txt /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 复制本地文件到HDFS 强制，文件已经存在，会直接覆盖</span></span><br><span class="line">hadoop fs -copyFromLocal -f /user/<span class="built_in">local</span>/hadoop/README.txt /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 复制本地文件到HDFS 多个同时复制</span></span><br><span class="line">hadoop fs -copyFromLocal -f /user/<span class="built_in">local</span>/hadoop/README.txt a.txt /user/hduser/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<h3 id="命令使用样例"><a href="#命令使用样例" class="headerlink" title="命令使用样例"></a>命令使用样例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">hadoop fs -mkdir -p /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 查看HDFS目录</span></span><br><span class="line">hadoop fs -ls /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 查看所有子目录</span></span><br><span class="line">hadoop fs -ls -R /</span><br><span class="line"><span class="comment"># 复制本地文件到HDFS</span></span><br><span class="line">hadoop fs -copyFromLocal /user/<span class="built_in">local</span>/hadoop/.txt /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 复制本地文件到HDFS 强制，文件已经存在，会直接覆盖</span></span><br><span class="line">hadoop fs -copyFromLocal -f /user/<span class="built_in">local</span>/hadoop/.txt /user/hduser/<span class="built_in">test</span></span><br><span class="line"><span class="comment"># 复制本地文件到HDFS 多个同时复制</span></span><br><span class="line">hadoop fs -copyFromLocal -f /user/<span class="built_in">local</span>/hadoop/.txt a.txt /user/hduser/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>-put: 复制文件，如果文件存在，直接覆盖，无提示。 put 可以接受<code>stdin</code>标准输入</li>
 <li>-copyFromLocal: 复制文件，如果文件存在，会提示。</li>
@@ -737,7 +737,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-count">149</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -759,7 +759,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="index,bigdata,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Apache Spark是一个围绕速度、易用性和复杂分析构建的大数据处理框架。">
+<meta name="keywords" content="index,bigdata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark-使用文档">
+<meta property="og:url" content="https://fansichao.github.io/bigdata/spark/index.html">
+<meta property="og:site_name" content="格物方能致知">
+<meta property="og:description" content="Apache Spark是一个围绕速度、易用性和复杂分析构建的大数据处理框架。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160830094200918-1846127221.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160829161404996-1972748563.png">
+<meta property="og:image" content="https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-yarn/images/image002.jpg">
+<meta property="og:updated_time" content="2020-08-29T07:26:31.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark-使用文档">
+<meta name="twitter:description" content="Apache Spark是一个围绕速度、易用性和复杂分析构建的大数据处理框架。">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160830094200918-1846127221.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/bigdata/spark/">
+
+
+
+
+
+  <title>Spark-使用文档 | 格物方能致知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">格物方能致知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/bigdata/spark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SuperScfan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物方能致知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Spark-使用文档</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T18:43:15+08:00">
+                2020-07-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T15:26:31+08:00">
+                2020-08-29
+              </time>
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bigdata/" itemprop="url" rel="index">
+                    <span itemprop="name">bigdata</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,858
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  Apache Spark是一个围绕速度、易用性和复杂分析构建的大数据处理框架。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-1-Spark-说明"><a href="#1-1-Spark-说明" class="headerlink" title="1.1. Spark 说明"></a>1.1. Spark 说明</h2><p>Apache Spark 是一个围绕速度、易用性和复杂分析构建的大数据处理框架，最初在 2009 年由加州大学伯克利分校的 AMPLab 开发，并于 2010 年成为 Apache 的开源项目之一，与 Hadoop 和 Storm 等其他大数据和 MapReduce 技术相比，Spark 有如下优势：</p>
+<ul>
+<li>Spark 提供了一个全面、统一的框架用于管理各种有着不同性质（文本数据、图表数据等）的数据集和数据源（批量数据或实时的流数据）的大数据处理的需求</li>
+<li>官方资料介绍 Spark 可以将 Hadoop 集群中的应用在内存中的运行速度提升 100 倍，甚至能够将应用在磁盘上的运行速度提升 10 倍</li>
+</ul>
+<p><a href="http://spark.apache.org/" target="_blank" rel="noopener">Spark 官网</a></p>
+<h2 id="1-2-Spark-框架"><a href="#1-2-Spark-框架" class="headerlink" title="1.2. Spark 框架"></a>1.2. Spark 框架</h2><p><strong>spark 运行流程图</strong></p>
+<p><img src="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160830094200918-1846127221.png" alt="Spark运行流程图"></p>
+<p><strong>Spark 架构</strong></p>
+<p><img src="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160829161404996-1972748563.png" alt="Spark架构"></p>
+<p><strong>详见参考链接</strong>：<a href="https://blog.csdn.net/swing2008/article/details/60869183" target="_blank" rel="noopener">https://blog.csdn.net/swing2008/article/details/60869183</a></p>
+<h2 id="1-3-Hadoop-说明"><a href="#1-3-Hadoop-说明" class="headerlink" title="1.3. Hadoop 说明"></a>1.3. Hadoop 说明</h2><p>Hadoop 是一个由 Apache 基金会所开发的<strong>分布式系统基础架构</strong>。</p>
+<p>Hadoop 实现了一个分布式文件系统（Hadoop Distributed File System），简称 HDFS。</p>
+<p>Hadoop 的框架最核心的设计就是：HDFS 和 MapReduce。HDFS 为海量的数据提供了存储，而 MapReduce 则为海量的数据提供了计算</p>
+<p><a href="https://baike.baidu.com/item/Hadoop/3526507?fr=aladdin" target="_blank" rel="noopener">Hadoop 百度百科</a></p>
+<p><strong>Hadoop 优点:</strong></p>
+<ul>
+<li>高可靠性。Hadoop 按位存储和处理数据的能力值得人们信赖。</li>
+<li>高扩展性。Hadoop 是在可用的计算机集簇间分配数据并完成计算任务的，这些集簇可以方便地扩展到数以千计的节点中。</li>
+<li>高效性。Hadoop 能够在节点之间动态地移动数据，并保证各个节点的动态平衡，因此处理速度非常快。</li>
+<li>高容错性。Hadoop 能够自动保存数据的多个副本，并且能够自动将失败的任务重新分配。</li>
+<li>低成本。与一体机、商用数据仓库以及 QlikView、Yonghong Z-Suite 等数据集市相比，hadoop 是开源的，项目的软件成本因此会大大降低。</li>
+</ul>
+<p><strong>Hadoop 框架</strong><br>Hadoop 有两个核心模块，<strong>分布式存储模块 HDFS</strong>和<strong>分布式计算模块 Mapreduce</strong>.</p>
+<h2 id="1-4-Yarn-框架说明"><a href="#1-4-Yarn-框架说明" class="headerlink" title="1.4. Yarn 框架说明"></a>1.4. Yarn 框架说明</h2><p>由于原有框架 JobTracker/TaskTracker 需要大规模的调整来修复它在可扩展性，内存消耗，线程模型，可靠性和性能上的缺陷,所以推出了 Yarn 框架。</p>
+<ul>
+<li>参考链接：<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-yarn/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-yarn/</a></li>
+</ul>
+<p>Yarn 框架核心在于将资源管理和任务调度/监控拆分。</p>
+<ul>
+<li>资源管理器: 全局管理所有应用程序计算资源的分配</li>
+<li>每一个应用的 ApplicationMaster 负责相应的调度和协调</li>
+<li>ResourceManager 和每一台机器的节点管理服务器能够管理用户在那台机器上的进程并能对计算进行组织</li>
+</ul>
+<p><img src="https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-yarn/images/image002.jpg" alt="Hadoop新MapReduce框架Yarn"></p>
+<ul>
+<li>ResourceManager :中心服务，调度和启动 Job 中的 ApplicationMaster,并监控 ApplicationMaster 存在情况</li>
+<li>NodeManager : 负责 Container 状态的维护，并向 ResourceManager 返回日志</li>
+<li>ApplicationMaster :负责一个 Job 生命周期内的所有工作</li>
+</ul>
+<h1 id="2-Spark-环境部署"><a href="#2-Spark-环境部署" class="headerlink" title="2. Spark 环境部署"></a>2. Spark 环境部署</h1><p><strong>不同部署模式</strong></p>
+<ul>
+<li>Standalone 模式：独立部署模式</li>
+<li>Apache Mesos</li>
+<li>Hadoop YARN</li>
+<li>Kubernetes</li>
+</ul>
+<p>版本说明:</p>
+<ul>
+<li>Spark 2.4.0</li>
+<li>Scala 2.12</li>
+<li>Spark 和 Hadoop 版本必须相互配合</li>
+</ul>
+<h2 id="2-1-安装-Scala"><a href="#2-1-安装-Scala" class="headerlink" title="2.1. 安装 Scala"></a>2.1. 安装 Scala</h2><p>Spark 支持 Scala、Java 和 Python 等语言，不过 Spark 是采用 Scala 语言开发，所以必须先安装 Scala.</p>
+<p><strong>步骤 1：下载</strong><br>Scala-2.12.7 下载地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 2：解压</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">tar -zxvf scala-2.12.7.tgz</span><br><span class="line">sudo mv scala-2.12.7 /usr/<span class="built_in">local</span>/scala</span><br><span class="line">sudo chown scfan:scfan -R /usr/<span class="built_in">local</span>/scala</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 3：配置环境变量</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开文件</span></span><br><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加内容如下</span></span><br><span class="line">export SCALA_HOME=/usr/local/scala</span><br><span class="line">export PATH=$SCALA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 4：生效与验证</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@WOM ~]$ <span class="built_in">source</span> /etc/profile</span><br><span class="line">(env) [scfan@WOM ~]$ scala</span><br><span class="line">Welcome to Scala 2.12.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_171).</span><br><span class="line">Type <span class="keyword">in</span> expressions <span class="keyword">for</span> evaluation. Or try :<span class="built_in">help</span>.</span><br><span class="line"></span><br><span class="line">scala&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-安装-Spark"><a href="#2-2-安装-Spark" class="headerlink" title="2.2. 安装 Spark"></a>2.2. 安装 Spark</h2><p><strong>步骤 1：下载</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 2：解压</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf spark-2.4.0-bin-hadoop2.7.tgz</span><br><span class="line">sudo mv spark-2.4.0-bin-hadoop2.7 /usr/<span class="built_in">local</span>/spark</span><br><span class="line">sudo chown -R scfan:scfan /usr/<span class="built_in">local</span>/spark</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 3：配置环境变量</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开文件</span></span><br><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加内容如下</span></span><br><span class="line"><span class="comment"># Spark path</span></span><br><span class="line">export SPARK_HOME=/usr/local/spark</span><br><span class="line">export PATH=$SPARK_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 4：生效与验证</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@WOM ~]$ <span class="built_in">source</span> /etc/profile</span><br><span class="line">(env) [scfan@WOM spark]$ <span class="built_in">source</span> /etc/profile</span><br><span class="line">(env) [scfan@WOM spark]$ pyspark</span><br><span class="line">Python 2.7.11 (default, Apr 10 2018, 16:42:22)</span><br><span class="line">[GCC 4.4.7 20120313 (Red Hat 4.4.7-18)] on linux2</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">2018-12-06 15:37:54 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">Setting default <span class="built_in">log</span> level to <span class="string">"WARN"</span>.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  <span class="string">'_/</span></span><br><span class="line"><span class="string">   /__ / .__/\_,_/_/ /_/\_\   version 2.4.0</span></span><br><span class="line"><span class="string">      /_/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Using Python version 2.7.11 (default, Apr 10 2018 16:42:22)</span></span><br><span class="line"><span class="string">SparkSession available as '</span>spark<span class="string">'.</span></span><br><span class="line"><span class="string">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>步骤 5：启动 Spark</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@WOM spark]$ ./bin/spark-shell --master <span class="built_in">local</span>[2]</span><br><span class="line">2018-12-06 15:49:10 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">Setting default <span class="built_in">log</span> level to <span class="string">"WARN"</span>.</span><br><span class="line">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span><br><span class="line">Spark context Web UI available at http://WOM:4040</span><br><span class="line">Spark context available as <span class="string">'sc'</span> (master = <span class="built_in">local</span>[2], app id = <span class="built_in">local</span>-1544082590634).</span><br><span class="line">Spark session available as <span class="string">'spark'</span>.</span><br><span class="line">Welcome to</span><br><span class="line">      ____              __</span><br><span class="line">     / __/__  ___ _____/ /__</span><br><span class="line">    _\ \/ _ \/ _ `/ __/  <span class="string">'_/</span></span><br><span class="line"><span class="string">   /___/ .__/\_,_/_/ /_/\_\   version 2.4.0</span></span><br><span class="line"><span class="string">      /_/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Using Scala version 2.11.12 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_171)</span></span><br><span class="line"><span class="string">Type in expressions to have them evaluated.</span></span><br><span class="line"><span class="string">Type :help for more information.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">scala&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>页面 UI:</strong> <a href="http://WOM:4040" target="_blank" rel="noopener">http://WOM:4040</a></p>
+<h2 id="2-3-安装-Hadoop-本地单节点"><a href="#2-3-安装-Hadoop-本地单节点" class="headerlink" title="2.3. 安装 Hadoop(本地单节点)"></a>2.3. 安装 Hadoop(本地单节点)</h2><p><strong>安装步骤</strong></p>
+<ul>
+<li>安装 JDK 1.8+</li>
+<li>设置 SSH 无密钥登录</li>
+<li>下载安装 Hadoop</li>
+<li>设置环境变量</li>
+<li>设置 Hadoop 配置文件</li>
+<li>创建并格式化 HDFS 目录</li>
+<li>启动 Hadoop</li>
+<li>打开 Web 页面</li>
+</ul>
+<h3 id="2-3-1-下载安装-Hadoop"><a href="#2-3-1-下载安装-Hadoop" class="headerlink" title="2.3.1. 下载安装 Hadoop"></a>2.3.1. 下载安装 Hadoop</h3><p>官网：<a href="https://hadoop.apache.org/releases.html" target="_blank" rel="noopener">https://hadoop.apache.org/releases.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载</span></span><br><span class="line">wget http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf hadoop-2.7.7.tar.gz</span><br><span class="line"><span class="comment"># 迁移</span></span><br><span class="line">sudo mv hadoop-2.7.7 /usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="comment"># 授权</span></span><br><span class="line">sudo chown scfan:scfan -R usr/<span class="built_in">local</span>/hadoop</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-2-设置环境变量"><a href="#2-3-2-设置环境变量" class="headerlink" title="2.3.2. 设置环境变量"></a>2.3.2. 设置环境变量</h3><p>文件 /etc/profile</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## hadoop home</span></span><br><span class="line">export HADOOP_HOME=/usr/local/hadoop</span><br><span class="line"><span class="comment"># hadoop path</span></span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/sbin</span><br><span class="line"><span class="comment"># hadoop else env</span></span><br><span class="line">export HADOOP_MAPRED_HOME=$HADOOP_HOME</span><br><span class="line">export HADOOP_COMMON_HOME=$HADOOP_HOME</span><br><span class="line">export HADOOP_HDFS_HOME=$HADOOP_HOME</span><br><span class="line">export YARN_HOME=$HADOOP_HOME</span><br><span class="line">export HADOOP_PREFIX=$HADOOP_HOME</span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line"><span class="comment"># hadoop lib</span></span><br><span class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native</span><br><span class="line">export HADOOP_OPTS=<span class="string">"-Djava.library.path=$HADOOP_HOME/lib"</span></span><br><span class="line">export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-3-修改-Hadoop-配置文件"><a href="#2-3-3-修改-Hadoop-配置文件" class="headerlink" title="2.3.3. 修改 Hadoop 配置文件"></a>2.3.3. 修改 Hadoop 配置文件</h3><p><strong>配置文件：/usr/local/hadoop/etc/hadoop/hadoop-env.sh</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1<span class="number">.8</span><span class="number">.0</span>_171</span><br></pre></td></tr></table></figure>
+<p><strong>HDFS 默认名称 /usr/local/hadoop/etc/hadoop/core-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>MapReduce 配置 /usr/local/hadoop/etc/hadoop/yarn-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services.mapreduce.shuffle.class<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.mapred.ShuffleHandler<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 后续如果 spark-yarn 部署报错，需要解开此处</span></span><br><span class="line"><span class="comment">    &lt;property&gt;</span></span><br><span class="line"><span class="comment">        &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span></span><br><span class="line"><span class="comment">        &lt;value&gt;master:8032&lt;/value&gt;</span></span><br><span class="line"><span class="comment">    &lt;/property&gt;</span></span><br><span class="line"><span class="comment">    &lt;property&gt;</span></span><br><span class="line"><span class="comment">      &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span></span><br><span class="line"><span class="comment">      &lt;value&gt;master:8030&lt;/value&gt;</span></span><br><span class="line"><span class="comment">    &lt;/property&gt;</span></span><br><span class="line"><span class="comment">    &lt;property&gt;</span></span><br><span class="line"><span class="comment">      &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span></span><br><span class="line"><span class="comment">      &lt;value&gt;master:8031&lt;/value&gt;</span></span><br><span class="line"><span class="comment">    &lt;/property&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Job 配置 /usr/local/hadoop/etc/hadoop/mapred-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">vaule</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">vaule</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>HDFS 分布式文件系统 /usr/local/hadoop/etc/hadoop/hdfs-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">vlaue</span>&gt;</span>3<span class="tag">&lt;/<span class="name">vlaue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">vlaue</span>&gt;</span>file:/usr/local/hadoop/hadoop_data/hdfs/namenode<span class="tag">&lt;/<span class="name">vlaue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">vlaue</span>&gt;</span>file:/usr/local/hadoop/hadoop_data/hdfs/datanode<span class="tag">&lt;/<span class="name">vlaue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-4-格式化目录"><a href="#2-3-4-格式化目录" class="headerlink" title="2.3.4. 格式化目录"></a>2.3.4. 格式化目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建存储目录</span></span><br><span class="line">mkdir -p /usr/<span class="built_in">local</span>/hadoop/hadoop_data/hdfs/namenode/</span><br><span class="line">mkdir -p /usr/<span class="built_in">local</span>/hadoop/hadoop_data/hdfs/datanode/</span><br><span class="line"><span class="comment"># 进行格式化(如果报错，删除namenode下文件夹current)</span></span><br><span class="line">hadoop namenode -format <span class="comment"># 会删除HDFS数据</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-5-查看页面"><a href="#2-3-5-查看页面" class="headerlink" title="2.3.5. 查看页面"></a>2.3.5. 查看页面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动HDFS</span></span><br><span class="line">start-dfs.sh</span><br><span class="line"><span class="comment"># 启动Yarn</span></span><br><span class="line">start-yarn.sh</span><br></pre></td></tr></table></figure>
+<p>Hadoop 界面： <a href="http://localhost:8088" target="_blank" rel="noopener">http://localhost:8088</a><br>HDFS 界面： <a href="http://localhost:50070" target="_blank" rel="noopener">http://localhost:50070</a></p>
+<h2 id="2-4-部署-Spark-Standalone-Mode"><a href="#2-4-部署-Spark-Standalone-Mode" class="headerlink" title="2.4. 部署 Spark Standalone Mode"></a>2.4. 部署 Spark Standalone Mode</h2><p>参考链接：</p>
+<ul>
+<li><a href="http://spark.apache.org/docs/latest/spark-standalone.html" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/spark-standalone.html</a></li>
+</ul>
+<p>本地单机模式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动主节点 默认端口8080</span></span><br><span class="line">./sbin/start-master.sh -h localhost --webui-port 8080</span><br><span class="line"><span class="comment"># 启动子节点</span></span><br><span class="line">./sbin/start-slave.sh &lt;master-spark-URL&gt;</span><br><span class="line">例如: &lt;master-spark-URL&gt; 可以在页面localhost:8080上面查看</span><br><span class="line">./sbin/start-slave.sh spark://localhost:7077</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-部署-Spark-Mesos-模式"><a href="#2-5-部署-Spark-Mesos-模式" class="headerlink" title="2.5. 部署 Spark Mesos 模式"></a>2.5. 部署 Spark Mesos 模式</h2><p>参考链接： <a href="http://spark.apache.org/docs/latest/running-on-mesos.html" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/running-on-mesos.html</a></p>
+<p><strong>Mesos 安装</strong><br>参考链接：<a href="https://open.mesosphere.com/downloads/mesos/" target="_blank" rel="noopener">https://open.mesosphere.com/downloads/mesos/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载系统对应 rpm 包</span></span><br><span class="line">wget http://repos.mesosphere.com/el/6/x86_64/RPMS/mesos-1.7.0-2.0.1.el6.x86_64.rpm</span><br><span class="line">rpm -ivh mesos-1.7.0-2.0.1.el6.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p><strong>前端 WebUI 启动命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mesos master --ip=localhost  --work_dir=/var/lib/mesos</span><br></pre></td></tr></table></figure>
+<p><strong>前端 WebUI 地址:</strong><br><a href="http://localhost:5050/#/" target="_blank" rel="noopener">http://localhost:5050/#/</a></p>
+<h2 id="2-6-部署-Spark-Yarn"><a href="#2-6-部署-Spark-Yarn" class="headerlink" title="2.6. 部署 Spark Yarn"></a>2.6. 部署 Spark Yarn</h2><p>参考链接： <a href="http://spark.apache.org/docs/latest/running-on-yarn.html" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/running-on-yarn.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">命令参数:</span><br><span class="line">./bin/spark-submit --class path.to.your.Class --master yarn --deploy-mode cluster [options] &lt;app jar&gt; [app options]</span><br><span class="line">命令样例:</span><br><span class="line">$ ./bin/spark-submit --class org.apache.spark.examples.SparkPi \</span><br><span class="line">    --master yarn \</span><br><span class="line">    --deploy-mode cluster \</span><br><span class="line">    --driver-memory 4g \</span><br><span class="line">    --executor-memory 2g \</span><br><span class="line">    --executor-cores 1 \</span><br><span class="line">    --queue thequeue \</span><br><span class="line">    examples/jars/spark-examples*.jar \</span><br><span class="line">    10</span><br></pre></td></tr></table></figure>
+<h3 id="2-6-1-问题记录"><a href="#2-6-1-问题记录" class="headerlink" title="2.6.1. 问题记录"></a>2.6.1. 问题记录</h3><p><strong>问题说明</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 执行命令</span><br><span class="line">$ ./bin/spark-submit --class org.apache.spark.examples.SparkPi \</span><br><span class="line">    --master yarn \</span><br><span class="line">    --deploy-mode cluster \</span><br><span class="line">    --driver-memory 4g \</span><br><span class="line">    --executor-memory 2g \</span><br><span class="line">    --executor-cores 1 \</span><br><span class="line">    --queue thequeue \</span><br><span class="line">    examples/jars/spark-examples*.jar \</span><br><span class="line">    10</span><br><span class="line"># 报错如下</span><br><span class="line">2018-12-07 16:19:07 INFO  Client:871 - Retrying connect to server: 0.0.0.0/0.0.0.0:8032. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)</span><br></pre></td></tr></table></figure>
+<p><strong>问题解决</strong><br>yarn-site.xml 增加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;master:8032&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;master:8030&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;master:8031&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-7-部署-Spark-Kubernetes"><a href="#2-7-部署-Spark-Kubernetes" class="headerlink" title="2.7. 部署 Spark Kubernetes"></a>2.7. 部署 Spark Kubernetes</h2><p><strong>Spark Kubernetes:</strong> https//spark.apache.org/docs/latest/running-on-kubernetes.html</p>
+<p><strong>kubernetes 官网：</strong><a href="https://kubernetes.io/" target="_blank" rel="noopener">https://kubernetes.io/</a></p>
+<p>TODO</p>
+<h1 id="3-Spark-数据统计"><a href="#3-Spark-数据统计" class="headerlink" title="3. Spark 数据统计"></a>3. Spark 数据统计</h1><h2 id="3-1-SparkRDD-使用"><a href="#3-1-SparkRDD-使用" class="headerlink" title="3.1. SparkRDD 使用"></a>3.1. SparkRDD 使用</h2><p>RDD - 弹性分布式数据集</p>
+<p>RDD 是可以并行操作的容错的容错集合。创建 RDD 有两种方法：并行化 驱动程序中的现有集合，或引用外部存储系统中的数据集</p>
+<p>官网 RDD 参考链接：<br><a href="http://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds</a></p>
+<p><strong>Spark 启动</strong><br>bin/pyspark</p>
+<p><strong>Spark 初始化</strong></p>
+<ul>
+<li>创建 SparkContext 对象，告知 Spark 如何访问集群。</li>
+<li>appName 参数是应用程序在群集 UI 上显示的名称</li>
+<li>master 是 URL</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext, SparkConf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>appName=<span class="string">"fdm"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>master=<span class="string">"mesos://localhost:5050"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>conf = SparkConf().setAppName(appName).setMaster(master)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc = SparkContext(conf=conf)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sc</span><br><span class="line">&lt;SparkContext master=local[*] appName=PySparkShell&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>并行化集合</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>distData = sc.parallelize(data)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> distData</span><br><span class="line">ParallelCollectionRDD[<span class="number">0</span>] at parallelize at PythonRDD.scala:<span class="number">195</span></span><br></pre></td></tr></table></figure>
+<p><strong>外部数据集</strong><br>支持导入本地数据集、HDFS://xxxxxx 等</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>distFile = sc.textFile(<span class="string">"data.txt"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>distFile</span><br><span class="line">data.txt MapPartitionsRDD[<span class="number">2</span>] at textFile at NativeMethodAccessorImpl.java:<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>可写类型：</p>
+<ul>
+<li>int</li>
+<li>float</li>
+<li>double</li>
+<li>bool</li>
+<li>byte</li>
+<li>null</li>
+<li>dict<br><strong>保存和加载 SequenceFiles</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rdd = sc.parallelize(range(<span class="number">1</span>, <span class="number">4</span>)).map(<span class="keyword">lambda</span> x: (x, <span class="string">"a"</span> * x))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>rdd.saveAsSequenceFile(<span class="string">"path/to/file"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted(sc.sequenceFile(<span class="string">"path/to/file"</span>).collect())</span><br><span class="line">[(<span class="number">1</span>, <span class="string">u'a'</span>), (<span class="number">2</span>, <span class="string">u'aa'</span>), (<span class="number">3</span>, <span class="string">u'aaa'</span>)]</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-SparkDataFrame-使用"><a href="#3-2-SparkDataFrame-使用" class="headerlink" title="3.2. SparkDataFrame 使用"></a>3.2. SparkDataFrame 使用</h2><p>官网 DataFrame 参考链接：<br><a href="http://spark.apache.org/docs/latest/sql-programming-guide.html" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/sql-programming-guide.html</a></p>
+<p><strong>初始化 Spark Session</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line">spark = SparkSession \</span><br><span class="line">    .builder \</span><br><span class="line">    .appName(<span class="string">"Python Spark SQL basic example"</span>) \</span><br><span class="line">    .config(<span class="string">"spark.some.config.option"</span>, <span class="string">"some-value"</span>) \</span><br><span class="line">    .getOrCreate()</span><br></pre></td></tr></table></figure>
+<p><strong>创建 DataFrame</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># spark is an existing SparkSession</span></span><br><span class="line">df = spark.read.json(<span class="string">"examples/src/main/resources/people.json"</span>)</span><br><span class="line"><span class="comment"># Displays the content of the DataFrame to stdout</span></span><br><span class="line">df.show()</span><br><span class="line"><span class="comment"># +----+-------+</span></span><br><span class="line"><span class="comment"># | age|   name|</span></span><br><span class="line"><span class="comment"># +----+-------+</span></span><br><span class="line"><span class="comment"># |null|Michael|</span></span><br><span class="line"><span class="comment"># |  30|   Andy|</span></span><br><span class="line"><span class="comment"># |  19| Justin|</span></span><br><span class="line"><span class="comment"># +----+-------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-3-SparkSQL-使用"><a href="#3-3-SparkSQL-使用" class="headerlink" title="3.3. SparkSQL 使用"></a>3.3. SparkSQL 使用</h2><p>官网参考链接：<br><a href="http://spark.apache.org/docs/latest/sql-distributed-sql-engine.html#running-the-thrift-jdbcodbc-server" target="_blank" rel="noopener">http://spark.apache.org/docs/latest/sql-distributed-sql-engine.html#running-the-thrift-jdbcodbc-server</a></p>
+<p><strong>启动 Thrift JDBC / ODBC 服务器</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sbin/start-thriftserver.sh</span><br></pre></td></tr></table></figure>
+<p><strong>访问前端 UI</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4042/SQL/</span><br></pre></td></tr></table></figure>
+<p><strong>使用 beeline 来测试 Thrift JDBC / ODBC 服务器：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./bin/beeline</span><br><span class="line">beeline&gt; !connect jdbc:hive2://localhost:10000</span><br><span class="line"><span class="comment"># 输入用户名和空白密码</span></span><br></pre></td></tr></table></figure>
+<p>启动 spark-sql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/spark-sql</span><br></pre></td></tr></table></figure>
+<h1 id="Spark-问题整理"><a href="#Spark-问题整理" class="headerlink" title="Spark 问题整理"></a>Spark 问题整理</h1><h2 id="Service-‘SparkUI’-could-not-bind-on-port-4040-Attempting-port-4041"><a href="#Service-‘SparkUI’-could-not-bind-on-port-4040-Attempting-port-4041" class="headerlink" title="Service ‘SparkUI’ could not bind on port 4040. Attempting port 4041."></a>Service ‘SparkUI’ could not bind on port 4040. Attempting port 4041.</h2><p>问题：运行 Spark 脚本报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">self.spark = SparkSession.builder.master(self.MASTER).appName(self.APPNAME).getOrCreate()</span><br></pre></td></tr></table></figure>
+<p>原因：<br>由于启动一个 Spark context 时，SparkUI 默认会使用 4040 端口，当 4040 端口被占用时，则尝试使用另外一个端口</p>
+<p>解决步骤：<br>关闭 Spark-Shell 即可</p>
+<p>错误日志:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2018-12-27 09:38:59 WARN  Utils:66 - Service <span class="string">'SparkUI'</span> could not <span class="built_in">bind</span> on port 4040. Attempting port 4041.</span><br><span class="line">I1227 09:39:02.612689 26652 sched.cpp:232] Version: 1.7.0</span><br><span class="line">I1227 09:39:02.619974 26650 sched.cpp:336] New master detected at master@192.168.172.70:5050</span><br><span class="line">I1227 09:39:02.620997 26650 sched.cpp:356] No credentials provided. Attempting to register without authentication</span><br></pre></td></tr></table></figure>
+<h1 id="Spark-操作细节"><a href="#Spark-操作细节" class="headerlink" title="Spark 操作细节"></a>Spark 操作细节</h1><h1 id="Mesos-使用"><a href="#Mesos-使用" class="headerlink" title="Mesos 使用"></a>Mesos 使用</h1><h2 id="Messos-安装-amp-配置"><a href="#Messos-安装-amp-配置" class="headerlink" title="Messos 安装&amp;配置"></a>Messos 安装&amp;配置</h2><p><a href="http://mesos.apache.org/documentation/latest/building/" target="_blank" rel="noopener">mesos 官方部署文档</a></p>
+<h2 id="Mesos-启动-amp-关闭"><a href="#Mesos-启动-amp-关闭" class="headerlink" title="Mesos 启动 &amp; 关闭"></a>Mesos 启动 &amp; 关闭</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/spark</span><br><span class="line">./bin/spark-shell --master mesos://192.168.172.70:5050</span><br><span class="line"></span><br><span class="line">/etc/mesos-master</span><br><span class="line">/etc/mesos-slave</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭 mesos-master</span></span><br><span class="line">[root@WOM mesos-master]<span class="comment"># netstat -lntp | grep 5050</span></span><br><span class="line">[root@WOM mesos-master]<span class="comment"># kill -9 XXXX</span></span><br><span class="line"><span class="comment"># 启动 mesoso-master</span></span><br><span class="line">mesos-master --work_dir=/usr/<span class="built_in">local</span>/mesos/master_data --log_dir=/usr/<span class="built_in">local</span>/mesos/master_logs --no-hostname_lookup --ip=192.168.172.70 --cluster=wom</span><br><span class="line"><span class="comment"># 启动master-salve</span></span><br><span class="line">mesos-slave --work_dir=/usr/<span class="built_in">local</span>/mesos/salves_data --log_dir=/usr/<span class="built_in">local</span>/mesos/salves_logs --master=192.168.172.70:5050 --no-hostname_lookup --ip=192.168.172.70 --port=5052</span><br><span class="line"><span class="comment"># 启动 Spark</span></span><br><span class="line">./sbin/start-master.sh -h localhost --webui-port 8080</span><br><span class="line">(env) [scfan@WOM spark]$ bin/spark-shell --master mesos://192.168.172.70:5050 --total-executor-cores 1 --driver-memory 512M --executor-memory 512M</span><br><span class="line"><span class="comment">## 2.4. 部署Spark Standalone Mode</span></span><br><span class="line">参考链接：</span><br><span class="line">- http://spark.apache.org/docs/latest/spark-standalone.html</span><br><span class="line"></span><br><span class="line">本地单机模式</span><br><span class="line"><span class="comment"># 启动主节点 默认端口8080</span></span><br><span class="line">./sbin/start-master.sh -h localhost --webui-port 8080</span><br><span class="line"><span class="comment"># 启动子节点</span></span><br><span class="line">./sbin/start-slave.sh &lt;master-spark-URL&gt;</span><br><span class="line">例如: &lt;master-spark-URL&gt; 可以在页面localhost:8080上面查看</span><br><span class="line">./sbin/start-slave.sh spark://localhost:7077</span><br></pre></td></tr></table></figure>
+<h2 id="删除-mesos-工作目录"><a href="#删除-mesos-工作目录" class="headerlink" title="删除 mesos 工作目录"></a>删除 mesos 工作目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果我需要一个新的mesos集群，我需要master的干净工作目录。但问题不在于10.142.55.202约瑟夫吴说。我清除了所有的word_dir，并摆脱了这个问题。</span><br><span class="line"></span><br><span class="line">如何清理工作目录：</span><br><span class="line"></span><br><span class="line">找到mesos-master工作目录</span><br><span class="line"></span><br><span class="line">$ cat /etc/mesos-master/work_dir</span><br><span class="line">/var/lib/mesos</span><br><span class="line">去掉它</span><br><span class="line"></span><br><span class="line">$ rm -rf /var/lib/mesos</span><br></pre></td></tr></table></figure>
+<h2 id="Initial-job-has-not-accepted-any-resources-check-your-cluster-UI-to-ensure-that-workers-are-registered-and-have-sufficient-resources"><a href="#Initial-job-has-not-accepted-any-resources-check-your-cluster-UI-to-ensure-that-workers-are-registered-and-have-sufficient-resources" class="headerlink" title="Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources"></a>Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources</h2><p>当前的集群的可用资源不能满足应用程序所请求的资源</p>
+<p>资源分 2 类： cores 和 ram<br>Core 代表对执行可用的 executor slots<br>Ram 代表每个 Worker 上被需要的空闲内存来运行你的 Application。<br>解决方法：<br>应用不要请求多余空闲可用资源的<br>关闭掉已经执行结束的 Application</p>
+<p>解决方法：</p>
+<ol>
+<li>执行参数修改内存大小</li>
+<li>释放内存，增加内存大小</li>
+</ol>
+<p>export SPARK_WORKER_MEMORY=512M<br>export SPARK_DAEMON_MEMORY=256M</p>
+<p>这些–executor-memory、–driver-memory 你是否能先指定得更小些（比如 50M、100M）</p>
+<p>1.因为提交任务的节点不能和 worker 节点交互，因为提交完任务后提交任务节点上会起一个进程，展示任务进度，大多端口为 4044，工作节点需要反馈进度给该该端口，所以如果主机名或者 IP 在 hosts 中配置不正确。所以检查下主机名和 ip 是否配置正确。</p>
+<p>2.也有可能是内存不足造成的。内存设置可以根据情况调整下。另外，也检查下 web UI 看看，确保 worker 节点处于 alive 状态。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="SuperScfan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SuperScfan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SuperScfan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/bigdata/spark/" title="Spark-使用文档">https://fansichao.github.io/bigdata/spark/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/index/" rel="tag"># index</a>
+          
+            <a href="/tags/bigdata/" rel="tag"># bigdata</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/module/selenium/" rel="next" title="Selenium-技术文档">
+                <i class="fa fa-chevron-left"></i> Selenium-技术文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/module/svn/" rel="prev" title="SQLAlchemy-技术文档">
+                SQLAlchemy-技术文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="SuperScfan">
+            
+              <p class="site-author-name" itemprop="name">SuperScfan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">149</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Spark-说明"><span class="nav-number">1.</span> <span class="nav-text">1.1. Spark 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Spark-框架"><span class="nav-number">2.</span> <span class="nav-text">1.2. Spark 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Hadoop-说明"><span class="nav-number">3.</span> <span class="nav-text">1.3. Hadoop 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Yarn-框架说明"><span class="nav-number">4.</span> <span class="nav-text">1.4. Yarn 框架说明</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Spark-环境部署"><span class="nav-number"></span> <span class="nav-text">2. Spark 环境部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-安装-Scala"><span class="nav-number">1.</span> <span class="nav-text">2.1. 安装 Scala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-安装-Spark"><span class="nav-number">2.</span> <span class="nav-text">2.2. 安装 Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-安装-Hadoop-本地单节点"><span class="nav-number">3.</span> <span class="nav-text">2.3. 安装 Hadoop(本地单节点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-下载安装-Hadoop"><span class="nav-number">3.1.</span> <span class="nav-text">2.3.1. 下载安装 Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">2.3.2. 设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-修改-Hadoop-配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">2.3.3. 修改 Hadoop 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-格式化目录"><span class="nav-number">3.4.</span> <span class="nav-text">2.3.4. 格式化目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-5-查看页面"><span class="nav-number">3.5.</span> <span class="nav-text">2.3.5. 查看页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-部署-Spark-Standalone-Mode"><span class="nav-number">4.</span> <span class="nav-text">2.4. 部署 Spark Standalone Mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-部署-Spark-Mesos-模式"><span class="nav-number">5.</span> <span class="nav-text">2.5. 部署 Spark Mesos 模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-部署-Spark-Yarn"><span class="nav-number">6.</span> <span class="nav-text">2.6. 部署 Spark Yarn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-1-问题记录"><span class="nav-number">6.1.</span> <span class="nav-text">2.6.1. 问题记录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-部署-Spark-Kubernetes"><span class="nav-number">7.</span> <span class="nav-text">2.7. 部署 Spark Kubernetes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Spark-数据统计"><span class="nav-number"></span> <span class="nav-text">3. Spark 数据统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-SparkRDD-使用"><span class="nav-number">1.</span> <span class="nav-text">3.1. SparkRDD 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-SparkDataFrame-使用"><span class="nav-number">2.</span> <span class="nav-text">3.2. SparkDataFrame 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-SparkSQL-使用"><span class="nav-number">3.</span> <span class="nav-text">3.3. SparkSQL 使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-问题整理"><span class="nav-number"></span> <span class="nav-text">Spark 问题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-‘SparkUI’-could-not-bind-on-port-4040-Attempting-port-4041"><span class="nav-number">1.</span> <span class="nav-text">Service ‘SparkUI’ could not bind on port 4040. Attempting port 4041.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-操作细节"><span class="nav-number"></span> <span class="nav-text">Spark 操作细节</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mesos-使用"><span class="nav-number"></span> <span class="nav-text">Mesos 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Messos-安装-amp-配置"><span class="nav-number">1.</span> <span class="nav-text">Messos 安装&amp;配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mesos-启动-amp-关闭"><span class="nav-number">2.</span> <span class="nav-text">Mesos 启动 &amp; 关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-mesos-工作目录"><span class="nav-number">3.</span> <span class="nav-text">删除 mesos 工作目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initial-job-has-not-accepted-any-resources-check-your-cluster-UI-to-ensure-that-workers-are-registered-and-have-sufficient-resources"><span class="nav-number">4.</span> <span class="nav-text">Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SuperScfan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200725184315',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

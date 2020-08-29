@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Python,Python底层,">
+  <meta name="keywords" content="Module,Graph,">
 
 
 
@@ -86,20 +86,18 @@
 
 
 
-<meta name="description" content="从底层了解 Python 实现，从深度层面探索 Python 方法">
-<meta name="keywords" content="Python,Python底层">
+<meta name="description" content="...">
+<meta name="keywords" content="Module,Graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-底层实现原理">
+<meta property="og:title" content="Module-Graph-HugeGraph数据导入">
 <meta property="og:url" content="https://fansichao.github.io/undefined/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="从底层了解 Python 实现，从深度层面探索 Python 方法">
+<meta property="og:description" content="...">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/fansichao/images/master/markdown/%40%E5%B8%B8%E7%94%A8%E5%A4%B4%E5%83%8F01.jpg">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python-底层实现原理">
-<meta name="twitter:description" content="从底层了解 Python 实现，从深度层面探索 Python 方法">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/fansichao/images/master/markdown/%40%E5%B8%B8%E7%94%A8%E5%A4%B4%E5%83%8F01.jpg">
+<meta name="twitter:title" content="Module-Graph-HugeGraph数据导入">
+<meta name="twitter:description" content="...">
 
 
 
@@ -135,7 +133,7 @@
 
 
 
-  <title>Python-底层实现原理 | 格物方能致知</title>
+  <title>Module-Graph-HugeGraph数据导入 | 格物方能致知</title>
   
 
 
@@ -321,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Python-底层实现原理</h2>
+          <h2 class="post-title" itemprop="name headline">Module-Graph-HugeGraph数据导入</h2>
         
 
         <div class="post-meta">
@@ -336,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-01T15:38:13+08:00">
-                2020-05-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T15:38:13+08:00">
+                2020-07-12
               </time>
             
 
@@ -370,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-高阶/" itemprop="url" rel="index">
-                    <span itemprop="name">Python-高阶</span>
+                  <a href="/categories/Module/" itemprop="url" rel="index">
+                    <span itemprop="name">Module</span>
                   </a>
                 </span>
 
@@ -408,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,394
+                  797
                 </span>
               
 
@@ -420,7 +418,7 @@
 
           
               <div class="post-description">
-                  从底层了解 Python 实现，从深度层面探索 Python 方法
+                  ...
               </div>
           
 
@@ -437,76 +435,18 @@
       
 
       
-        <h2 id="Python-底层实现清单"><a href="#Python-底层实现清单" class="headerlink" title="Python-底层实现清单"></a>Python-底层实现清单</h2><ul>
-<li>内存管理&amp;垃圾回收</li>
-<li>变量对象管理</li>
-<li>数据类型底层实现<ul>
-<li>列表</li>
-<li>元组</li>
-<li>字符串</li>
-<li>数值</li>
-<li>字典</li>
-</ul>
-</li>
-<li>类封装</li>
-</ul>
-<h2 id="数据类型底层实现"><a href="#数据类型底层实现" class="headerlink" title="数据类型底层实现"></a>数据类型底层实现</h2><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p><strong>实现原理:</strong></p>
-<p>列表实现可以<code>数组和链表</code></p>
-<p>列表是一个线性的集合，它允许用户在任何位置插入、删除、访问和替换元素。</p>
-<p>列表实现是基于数组或基于链表结构的。当使用列表迭代器的时候，双链表结构比单链表结构更快。</p>
-<p>有序的列表是元素总是按照升序或者降序排列的元素。</p>
-<p>Cpython 中列表被实现为 长度可变的数组。</p>
-<p>实现原理说明：<strong>从细节上看，Python 中的列表是由对其它对象的引用组成的连续数组。指向这个数组的指针及其长度被保存在一个列表头结构中</strong>。这意味着，每次添加或删除一个元素时，由引用组成的数组需要该标大小（重新分配）。幸运的是，Python 在创建这些数组时采用了指数分配，所以并不是每次操作都需要改变数组的大小。但是，也因为这个原因添加或取出元素的平摊复杂度较低</p>
-<p><strong>列表的算法效率:</strong></p>
-<p>可以采用时间复杂度来衡量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">index() O(1)</span><br><span class="line">append O(1)</span><br><span class="line">pop() O(1)</span><br><span class="line">pop(i) O(n)</span><br><span class="line">insert(i,item) O(n)</span><br><span class="line">del operator O(n)</span><br><span class="line">iteration O(n)</span><br><span class="line">contains(<span class="keyword">in</span>) O(n)</span><br><span class="line">get slice[x:y] O(k)</span><br><span class="line">del slice O(n)</span><br><span class="line"><span class="built_in">set</span> slice O(n+k)</span><br><span class="line">reverse O(n)</span><br><span class="line">concatenate O(k)</span><br><span class="line">sort O(nlogn)</span><br><span class="line">multiply O(nk)</span><br></pre></td></tr></table></figure>
-<p><strong>列表-参考资源:</strong></p>
-<ul>
-<li><a href="https://blog.csdn.net/Yuyh131/article/details/83592608" target="_blank" rel="noopener">Python-列表底层实现原理</a></li>
-</ul>
-<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><p>tuple 和 list 相似，本质也是一个数组，但是空间大小固定。不同于一般数组，Python 的 tuple 做了许多优化，来提升在程序中的效率。</p>
-<p>举个例子，为了提高效率，避免频繁的调用系统函数 free 和 malloc 向操作系统申请和释放空间，tuple 源文件中定义了一个 free_list：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static PyTupleObject *free_list[PyTuple_MAXSAVESIZE];</span><br></pre></td></tr></table></figure>
-<p>所有申请过的，小于一定大小的元组，在释放的时候会被放进这个 free_list 中以供下次使用。也就是说，如果以后需要再去创建同样的 tuple，Python 就可以直接从缓存中载入。</p>
-<p><strong>元组-参考资源:</strong></p>
-<ul>
-<li><a href="http://c.biancheng.net/view/5360.html" target="_blank" rel="noopener">Python 列表和元组的底层实现-源码分析</a></li>
-<li><a href="https://blog.csdn.net/qq_31720329/article/details/88529792" target="_blank" rel="noopener">Python 元组源码和结构图分析</a></li>
-</ul>
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p><strong>实现原理:</strong></p>
-<p><strong>字典是通过散列表或说哈希表实现的</strong>。字典也被称为关联数组，还称为哈希数组等。也就是说，字典也是一个数组，但<strong>数组的索引是键经过哈希函数处理后得到的散列值</strong>。</p>
-<p><strong>参考资源:</strong></p>
-<ul>
-<li><a href="https://blog.csdn.net/answer3lin/article/details/84523332" target="_blank" rel="noopener">Python 字典底层实现原理</a></li>
-</ul>
-<p>数据添加：把 key 通过哈希函数转换成一个整型数字，然后就将该数字对数组长度进行取余，取余结果就当作数组的下标，将 value 存储在以该数字为下标的数组空间里。<br>数据查询：再次使用哈希函数将 key 转换为对应的数组下标，并定位到数组的位置获取 value。</p>
-<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合底层实现原理类似于字典</p>
-<p>set 集合和 dict 一样也是基于散列表的，只是他的表元只包含键的引用，而没有对值的引用，其他的和 dict 基本上是一致的，所以在此就不再多说了。并且 dict 要求键必须是能被哈希的不可变对象，因此普通的 set 无法作为 dict 的键，必须选择被“冻结”的不可变集合类：frozenset。顾名思义，一旦初始化，集合内数据不可修改</p>
-<h2 id="变量对象底层原理"><a href="#变量对象底层原理" class="headerlink" title="变量对象底层原理"></a>变量对象底层原理</h2><ul>
-<li>可变类型，值可以改变：<ul>
-<li>列表 list</li>
-<li>字典 dict</li>
-</ul>
-</li>
-<li>不可变类型，值不可以改变：<ul>
-<li>数值类型 int, long, bool, float</li>
-<li>字符串 str</li>
-<li>元组 tuple</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不可变类型修改</span></span><br><span class="line">例如 a = 5 修改为 a = 10</span><br><span class="line">实际上重新生成了对象10，然后a指向5。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可变类型修改</span></span><br><span class="line">lis = [a,b,c,d]</span><br><span class="line">lis存储着不同对象的引用，其中a,b,c,d的修改，实质上lis并未修改。只是a,b,c,d做了对应修改。</span><br></pre></td></tr></table></figure>
-<p>本质是因为不可变对象一旦新建后，系统就会根据他的大小给他分配固定死的内存，所以不允许修改，只修改值只能申请新的内存和地址。而可变对象，他的内存大小可以随着值的变化而自动扩容</p>
-<h2 id="类-封装底层实现原理"><a href="#类-封装底层实现原理" class="headerlink" title="类-封装底层实现原理"></a>类-封装底层实现原理</h2><p><a href="http://c.biancheng.net/view/7033.html" target="_blank" rel="noopener">Python 封装底层实现原理详解</a></p>
-<p>Python 封装特性的实现纯属“投机取巧”，之所以类对象无法直接调用以双下划线开头命名的类属性和类方法，是因为其底层实现时，Python 偷偷改变了它们的名称</p>
-<p>Python 类对于 <code>__func()</code>函数和<code>__name</code>属性，都修改了名称变为<code>_类名__属性名</code>的格式，可以通过<code>_类名__属性名</code>的方式调用。如果希望类函数或类名称隐藏起来，加<code>__</code>前缀即可</p>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看代码执行过程</span></span><br><span class="line">python3 -m dis a.py</span><br></pre></td></tr></table></figure>
-<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
-<li><a href="https://blog.csdn.net/qq_31720329/article/details/86751412" target="_blank" rel="noopener">python 源码分析 基本篇</a></li>
-<li><a href="https://blog.csdn.net/qq_27944187/article/details/99770138" target="_blank" rel="noopener">Python 中的 list、tuple、set、dict 的底层实现的理解</a></li>
-<li><a href="https://blog.csdn.net/weixin_44374595/article/details/87734090" target="_blank" rel="noopener">Python 数据结构底层实现浅析——list 和 tuple</a></li>
-</ul>
-<p> <img src="https://raw.githubusercontent.com/fansichao/images/master/markdown/%40%E5%B8%B8%E7%94%A8%E5%A4%B4%E5%83%8F01.jpg" alt="@常用头像01"></p>
+        <p>tags: HugeGraph 图库 2019 年 11 月</p>
+<h2 id="导入案例"><a href="#导入案例" class="headerlink" title="导入案例"></a>导入案例</h2><p>hugegraph-loader-0.9.0 目录结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">│   └── hugegraph-loader</span><br><span class="line">├── conf</span><br><span class="line">│   └── log4j2.xml</span><br><span class="line">├── example</span><br><span class="line">│   ├── file</span><br><span class="line">│   ├── graph_schema.groovy</span><br><span class="line">│   ├── graph_struct.json</span><br><span class="line">│   ├── hdfs</span><br><span class="line">│   └── mysql</span><br><span class="line">├── lib</span><br><span class="line">├── LICENSE</span><br><span class="line">├── logs</span><br><span class="line">│   ├── edge_insert_error.data</span><br><span class="line">│   ├── hugegraph-loader.log</span><br><span class="line">│   ├── parse_error.data</span><br><span class="line">│   └── vertex_insert_error.data</span><br><span class="line">└── README.md</span><br></pre></td></tr></table></figure>
+<p>数据文件 支持 csv/text/json 等(详情见官网)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">==&gt; cust_01_100000.csv &lt;==</span><br><span class="line">mob_phone:string,birthday:int,name:string,cust_no:string,cust_namespell:string,address:string,sex:string,id:ID,cust_certtype:string</span><br><span class="line">13965170263,19340324,巢海燕,350124193403249522,chaohaiyan,西藏自治区通辽市海港蔚路x座 213898,女,350124193403249522,2</span><br><span class="line">13844740188,19950101,蒋静,411281199501016156,jiangjing,安徽省金凤县萧山六安路X座 814241,男,411281199501016156,0</span><br><span class="line"></span><br><span class="line">==&gt; tran_01_148111.csv &lt;==</span><br><span class="line">tran_amt:float,tran_date:int,:START_ID,tran_cnt:int,:END_ID</span><br><span class="line">455229.75,20170103,110000194107111151,1,141123197707099408</span><br><span class="line">83693.8,20170101,110000194508084959,1,513435194206212598</span><br></pre></td></tr></table></figure>
+<p>graph_schema.groovy(指定 Schema 文件)</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">schema.propertyKey(<span class="string">"id"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"mob_phone"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"birthday"</span>).asInt().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"name"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"cust_no"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"cust_namespell"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"address"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"sex"</span>).asText().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"cust_certtype"</span>).asText().ifNotExist().create();</span><br><span class="line"></span><br><span class="line">schema.propertyKey(<span class="string">"tran_amt"</span>).asDouble().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"tran_date"</span>).asInt().ifNotExist().create();</span><br><span class="line">schema.propertyKey(<span class="string">"tran_cnt"</span>).asInt().ifNotExist().create();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">schema.vertexLabel(<span class="string">"cust"</span>).properties(<span class="string">"id"</span>, <span class="string">"mob_phone"</span>, <span class="string">"birthday"</span>, <span class="string">"name"</span>, <span class="string">"cust_no"</span>, <span class="string">"cust_namespell"</span>, <span class="string">"address"</span>, <span class="string">"sex"</span>, <span class="string">"cust_certtype"</span>).primaryKeys(<span class="string">"id"</span>).ifNotExist().create();</span><br><span class="line"></span><br><span class="line">schema.indexLabel(<span class="string">"custByName"</span>).onV(<span class="string">"cust"</span>).by(<span class="string">"name"</span>).secondary().ifNotExist().create();</span><br><span class="line">schema.indexLabel(<span class="string">"custByBirthday"</span>).onV(<span class="string">"cust"</span>).by(<span class="string">"birthday"</span>).range().ifNotExist().create();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">schema.edgeLabel(<span class="string">"tran"</span>).sourceLabel(<span class="string">"cust"</span>).targetLabel(<span class="string">"cust"</span>).properties(<span class="string">"tran_amt"</span>, <span class="string">"tran_date"</span>, <span class="string">"tran_cnt"</span>).ifNotExist().create();</span><br><span class="line"></span><br><span class="line">schema.indexLabel(<span class="string">"tranByTran_amt"</span>).onE(<span class="string">"tran"</span>).by(<span class="string">"tran_amt"</span>).secondary().ifNotExist().create();</span><br><span class="line">schema.indexLabel(<span class="string">"tranByTran_date"</span>).onE(<span class="string">"tran"</span>).by(<span class="string">"tran_date"</span>).range().ifNotExist().create();</span><br></pre></td></tr></table></figure>
+<p>graph_struct.json 导入结构文件</p>
+<p>(结构文件错误时,导入会出现奇怪报错,注意检查其中参数。存在多指定了 headers 导致报错 Error: More than 1 vertices parsing error … Stopping)</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"vertices"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"label"</span>: <span class="string">"cust"</span>,</span><br><span class="line">      <span class="attr">"input"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"file"</span>,</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/data/test_data/graph_data/cust.csv"</span>,</span><br><span class="line">        <span class="attr">"format"</span>: <span class="string">"CSV"</span>,</span><br><span class="line">        <span class="attr">"charset"</span>: <span class="string">"UTF-8"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"mapping"</span>: &#123;</span><br><span class="line">        <span class="attr">"mob_phone:string"</span>: <span class="string">"mob_phone"</span>,</span><br><span class="line">        <span class="attr">"birthday:int"</span>: <span class="string">"birthday"</span>,</span><br><span class="line">        <span class="attr">"name:string"</span>: <span class="string">"name"</span>,</span><br><span class="line">        <span class="attr">"cust_no:string"</span>: <span class="string">"cust_no"</span>,</span><br><span class="line">        <span class="attr">"cust_namespell:string"</span>: <span class="string">"cust_namespell"</span>,</span><br><span class="line">        <span class="attr">"address:string"</span>: <span class="string">"address"</span>,</span><br><span class="line">        <span class="attr">"sex:string"</span>: <span class="string">"sex"</span>,</span><br><span class="line">        <span class="attr">"id:ID"</span>: <span class="string">"id"</span>,</span><br><span class="line">        <span class="attr">"cust_certtype:string"</span>: <span class="string">"cust_certtype"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"edges"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"label"</span>: <span class="string">"tran"</span>,</span><br><span class="line">      <span class="attr">"source"</span>: [<span class="string">":START_ID"</span>],</span><br><span class="line">      <span class="attr">"target"</span>: [<span class="string">":END_ID"</span>],</span><br><span class="line">      <span class="attr">"input"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"file"</span>,</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/data/test_data/graph_data/tran.csv"</span>,</span><br><span class="line">        <span class="attr">"format"</span>: <span class="string">"CSV"</span>,</span><br><span class="line">        <span class="attr">"charset"</span>: <span class="string">"UTF-8"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"mapping"</span>: &#123;</span><br><span class="line">        <span class="attr">":START_ID"</span>: <span class="string">"id"</span>,</span><br><span class="line">        <span class="attr">":END_ID"</span>: <span class="string">"id"</span>,</span><br><span class="line">        <span class="attr">"tran_amt:float"</span>: <span class="string">"tran_amt"</span>,</span><br><span class="line">        <span class="attr">"tran_date:int"</span>: <span class="string">"tran_date"</span>,</span><br><span class="line">        <span class="attr">"tran_cnt:int"</span>: <span class="string">"tran_cnt"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>导入命令 hugegraph-loader-0.9.0 目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">bin/hugegraph-loader -g hugegraph -f example/graph_struct.json -s example/graph_schema.groovy</span><br><span class="line"></span><br><span class="line">(fenv) [fdm@neo4j hugegraph-loader-0.9.0]$ time bin/hugegraph-loader -g hugegraph -f example/graph_struct.json -s example/graph_schema.groovy</span><br><span class="line">SLF4J: Class path contains multiple SLF4J bindings.</span><br><span class="line">SLF4J: Found binding <span class="keyword">in</span> [jar:file:/home/fdm/software/hugegraph/hugegraph-loader-0.9.0/lib/log4j-slf4j-impl-2.8.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding <span class="keyword">in</span> [jar:file:/home/fdm/software/hugegraph/hugegraph-loader-0.9.0/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html<span class="comment">#multiple_bindings for an explanation.</span></span><br><span class="line">SLF4J: Actual binding is of <span class="built_in">type</span> [org.apache.logging.slf4j.Log4jLoggerFactory]</span><br><span class="line">log4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.apache.http.client.protocol.RequestAddCookies).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html<span class="comment">#noconfig for more info.</span></span><br><span class="line">Vertices has been imported: 149299</span><br><span class="line">Edges has been imported: 98812</span><br><span class="line">---------------------------------------------</span><br><span class="line">vertices results:</span><br><span class="line">  parse failure vertices   :  0</span><br><span class="line">  insert failure vertices  :  0</span><br><span class="line">  insert success vertices  :  149299</span><br><span class="line">---------------------------------------------</span><br><span class="line">edges results:</span><br><span class="line">  parse failure edges      :  0</span><br><span class="line">  insert failure edges     :  0</span><br><span class="line">  insert success edges     :  98812</span><br><span class="line">---------------------------------------------</span><br><span class="line">time results:</span><br><span class="line">  vertices loading time    :  2</span><br><span class="line">  edges loading time       :  1</span><br><span class="line">  total loading time       :  4</span><br><span class="line"></span><br><span class="line">real  0m9.967s</span><br><span class="line">user  0m37.601s</span><br><span class="line">sys  0m2.050s</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -557,7 +497,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/undefined/" title="Python-底层实现原理">https://fansichao.github.io/undefined/</a>
+    <a href="https://fansichao.github.io/undefined/" title="Module-Graph-HugeGraph数据导入">https://fansichao.github.io/undefined/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -572,9 +512,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/Module/" rel="tag"># Module</a>
           
-            <a href="/tags/Python底层/" rel="tag"># Python底层</a>
+            <a href="/tags/Graph/" rel="tag"># Graph</a>
           
         </div>
       
@@ -593,8 +533,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/" rel="prev" title="Python-基础-菜鸟驿站">
-                Python-基础-菜鸟驿站 <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/" rel="prev" title="Module-Docker-模块功能">
+                Module-Docker-模块功能 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -679,7 +619,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-count">149</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -701,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -744,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-底层实现清单"><span class="nav-number">1.</span> <span class="nav-text">Python-底层实现清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型底层实现"><span class="nav-number">2.</span> <span class="nav-text">数据类型底层实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">2.1.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.2.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">2.3.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number">2.4.</span> <span class="nav-text">集合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量对象底层原理"><span class="nav-number">3.</span> <span class="nav-text">变量对象底层原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-封装底层实现原理"><span class="nav-number">4.</span> <span class="nav-text">类-封装底层实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">5.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他命令"><span class="nav-number">5.1.</span> <span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">5.2.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入案例"><span class="nav-number">1.</span> <span class="nav-text">导入案例</span></a></li></ol></div>
             
 
           </div>
@@ -967,7 +907,7 @@
           repo: 'Leafney.github.io',
           owner: 'leafney',
           admin: ['leafney'],
-          id:'itfanr_20200501153813',
+          id:'itfanr_20200712153813',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',
