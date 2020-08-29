@@ -1,12 +1,12 @@
 ---
 title: Module-Neo4j-使用文档
-url_path: moudule/neo4j/neo4j
+url_path: moudule/neo4j/neo4j2
 tags:
   - Module
   - Graph
 categories:
   - Module
-description:Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。
+description: Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。
 ---
 
 [Neo4j3.5-Config](https://neo4j.com/docs/operations-manual/3.5/reference/configuration-settings/)
