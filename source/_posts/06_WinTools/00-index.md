@@ -1,6 +1,6 @@
 ---
 title: Windows工具-index
-url_path: win/readme
+url_path: win/
 tags:
   - win
   - index
@@ -18,3 +18,4 @@ description: Windows工具-index
   - [Virtualbox 使用手册](http://www.superscfan.top/win/virtualbox)
   - [Vscode 使用手册](http://www.superscfan.top/win/vscode)
 - 其他软件工具
+  - [VNC 远程图形化控制](http://www.superscfan.top/win/vnc)

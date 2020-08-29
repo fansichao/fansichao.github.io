@@ -1,11 +1,12 @@
 ---
 title: Python-算法
-date: 2020-07-12 15:38:13
-updated: 2020-07-12 15:38:13
+url_path: python/algorithm
 tags:
-  - Python
+  - python
+  - python-algorithm
+  - index
 categories:
-  - Python-算法
+  - python-algorithm
 description: ....
 ---
 

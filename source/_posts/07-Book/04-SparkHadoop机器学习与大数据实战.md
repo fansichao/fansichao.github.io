@@ -44,11 +44,11 @@ hadoop fs -ls /user/hduser/test
 # 查看所有子目录
 hadoop fs -ls -R /
 # 复制本地文件到HDFS
-hadoop fs -copyFromLocal /user/local/hadoop/README.txt /user/hduser/test
+hadoop fs -copyFromLocal /user/local/hadoop/.txt /user/hduser/test
 # 复制本地文件到HDFS 强制，文件已经存在，会直接覆盖
-hadoop fs -copyFromLocal -f /user/local/hadoop/README.txt /user/hduser/test
+hadoop fs -copyFromLocal -f /user/local/hadoop/.txt /user/hduser/test
 # 复制本地文件到HDFS 多个同时复制
-hadoop fs -copyFromLocal -f /user/local/hadoop/README.txt a.txt /user/hduser/test
+hadoop fs -copyFromLocal -f /user/local/hadoop/.txt a.txt /user/hduser/test
 ```
 
 1. -put: 复制文件，如果文件存在，直接覆盖，无提示。 put 可以接受`stdin`标准输入

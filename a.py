@@ -1,68 +1,53 @@
-"""
+import traceback
+import copy
+while True:
+    try:
+        n = int(input().strip())
+        cp_n = copy.deepcopy(n)
 
-求解方法
-1. 暴力统计所有情况
-2. 动态规划
+        def get_all_zhishu(n, zhishu_lis=[]):
+            """ 获取所有质数
 
-"""
+            :param int n: 获取质数的范围
+            :param list zhishu_lis: 质数列表
+            """
+            # TODO 性能
+            for i in range(2, n+1):
+                is_flag = True
+                for y in zhishu_lis:
+                    # 整除
+                    if divmod(i, y)[1] == 0:
+                        is_flag = False
+                if is_flag:
+                    zhishu_lis.append(i)
+            #print(zhishu_lis)
+            return zhishu_lis
 
-n = int(input().strip())
-m = int(input().strip())
+        if n > 2:
+            all_zhishu = get_all_zhishu(n, zhishu_lis=[2])
+        elif n == 1:
+            print(1)
+        elif n < 0:
+            pass
 
+        res_lis = []
+        while n not in all_zhishu:
+            for i in all_zhishu:
+                if divmod(n, i)[1] == 0:
+                    n = divmod(n, i)[0]
+                    res_lis.append(i)
 
-# 所有路径信息 设置 起点为 0 
-distance_info = list()
-for i in range(n):
-    _ll = str(input().strip()).split(' ')
-    distance_info.append([0] + [int(l) for l in _ll])
-for i in range(m):
-    _ll = str(input().strip()).split(' ')
-    distance_info.append([int(l) for l in _ll])
+        if n in all_zhishu:
+            res_lis.append(n)
 
-# 快递站-客户
-station_node = [info[1] for info in distance_info if info[0] == 0]
-# 客户-客户
-node_node = [info[1] for info in distance_info if info[0] != 0]
-run_path = []
+        
+        res_lis.sort()
+        res_lis = [str(i) for i in res_lis]
 
-# 0 - 客户信息必然存在
+        
+        print("%s=%s"%('*'.join(res_lis), str(cp_n)))
+
+    except:
+        print(traceback.format_exc())
+        pass
  
-
-# 数据结构转换
-dic = dict()
-# '0':[{'node':1,'distance':100}]
-for info in distance_info:
-    if info[0] not in dic.keys():
-        dic[info[0]] = []
-    dic[info[0]].append({'node':info[1], 'distance':info[2]})
-for info in distance_info:
-    if info[1] not in dic.keys():
-        dic[info[1]] = []
-    dic[info[1]].append({'node':info[0], 'distance':info[2]})
-
-max_lens = []
-max_len = distance_info[0][2]
-for info in dic.values():
-    max_lens.append(min([i['distance'] for i in info]))
-# TODO
-print(sum(max_lens))
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
- 
-
-
-
-
-

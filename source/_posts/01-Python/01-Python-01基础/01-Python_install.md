@@ -1,13 +1,14 @@
 ---
-title: Python-基础-安装升级
-date: 2020-07-12 15:38:13
-updated: 2020-07-12 15:38:13
+title: Python安装升级
+url_path: python/base/python_install
 tags:
-  - Python
+  - python
+  - python基础
 categories:
-  - Python-基础
+  - python基础
 description: Python3安装升级文档
 ---
+
 
 tags: `python` `部署文档` `python2` `python2`
 

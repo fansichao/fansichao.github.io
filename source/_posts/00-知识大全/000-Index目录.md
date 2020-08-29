@@ -1,7 +1,6 @@
 ---
 title: IT知识大全
-url_path: know/readme
-top: true
+url_path: know/
 tags:
   - knows
   - blog

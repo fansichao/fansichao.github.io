@@ -1,6 +1,6 @@
 ---
 title: Book-index
-url_path: book/readme
+url_path: book/
 tags:
   - book
   - index

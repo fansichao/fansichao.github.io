@@ -1,6 +1,6 @@
 ---
 title: Web-index
-url_path: web/readme
+url_path: web/
 tags:
   - web
   - index

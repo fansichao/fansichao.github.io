@@ -7,7 +7,6 @@ tags:
   - 学习教程
 categories:
   - Python-基础
-top: true
 description: 从零开始学python, 含基础教程资源链接，优质Python资源网站等，适合初学者。
 ---
 

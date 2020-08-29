@@ -1,6 +1,6 @@
 ---
 title: Docker-index
-url_path: docker/readme
+url_path: docker/
 tags:
   - docker
   - index
