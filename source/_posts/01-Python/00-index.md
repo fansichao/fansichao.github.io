@@ -19,7 +19,7 @@ description: Python-index 目录索引, Python 相关内容详见此文件。
 
 ### Python-基础
 
-- [Python-基础知识-index](http://www.superscfan.top/python/base)
+[Python-基础知识-index](http://www.superscfan.top/python/base)
 
 - 基础使用
   - [Python 安装升级](http://www.superscfan.top/python/base/python_install)
