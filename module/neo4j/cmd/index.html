@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="module,Neo4j,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Neo4j-常用命令">
+<meta name="keywords" content="module,Neo4j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neo4j-常用命令">
+<meta property="og:url" content="https://fansichao.github.io/module/neo4j/cmd/index.html">
+<meta property="og:site_name" content="格物方能致知">
+<meta property="og:description" content="Neo4j-常用命令">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-31T13:01:00.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neo4j-常用命令">
+<meta name="twitter:description" content="Neo4j-常用命令">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/module/neo4j/cmd/">
+
+
+
+
+
+  <title>Neo4j-常用命令 | 格物方能致知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">格物方能致知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/module/neo4j/cmd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SuperScfan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物方能致知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Neo4j-常用命令</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-31T20:40:07+08:00">
+                2020-08-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T21:01:00+08:00">
+                2020-08-31
+              </time>
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/module/" itemprop="url" rel="index">
+                    <span itemprop="name">module</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/module/grpah/" itemprop="url" rel="index">
+                    <span itemprop="name">grpah</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,353
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  Neo4j-常用命令
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Neo4j-运算符"><a href="#Neo4j-运算符" class="headerlink" title="Neo4j 运算符"></a>Neo4j 运算符</h3><table>
+<thead>
+<tr>
+<th>运算名称</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常规运算</td>
+<td>DISTINCT, ., []</td>
+</tr>
+<tr>
+<td>算数运算</td>
+<td>+, -, *, /, %, ^</td>
+</tr>
+<tr>
+<td>比较运算</td>
+<td>=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, IS NULL, IS NOT NULL</td>
+</tr>
+<tr>
+<td>逻辑运算</td>
+<td>AND, OR, XOR, NOT</td>
+</tr>
+<tr>
+<td>字符串操作</td>
+<td>+</td>
+</tr>
+<tr>
+<td>List 操作</td>
+<td>+, IN, [x], [x .. y]</td>
+</tr>
+<tr>
+<td>正则操作</td>
+<td>=~</td>
+</tr>
+<tr>
+<td>字符串匹配</td>
+<td>STARTS WITH, ENDS WITH, CONTAINS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="路径查询"><a href="#路径查询" class="headerlink" title="路径查询"></a>路径查询</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 节点之间的最短路径</span></span><br><span class="line">MATCH p=shortestPath((a)-[*]-&gt;(b))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 节点之前的所有最短路径</span></span><br><span class="line">MATCH P = allShortestPaths((c:cust &#123;id:<span class="string">'xxx'</span>&#125;)-[*..5]-(t:cust &#123;id:<span class="string">'xxxx'</span>&#125;)) <span class="built_in">return</span> P</span><br><span class="line"></span><br><span class="line"><span class="comment"># shortestPath &amp; allShortestPaths 对比分析</span></span><br><span class="line">cypher提供了两个查询最短路径的特殊函数 shortestPath 和 allShortestPath</span><br><span class="line">在真实测试中发现，allShortestPath在已有两点间短路径情况下，会忽略两点之间额外更长的路径</span><br><span class="line">allShortestPath ，因为它不会返回任何长度大于较短路径的路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># true-读取属性记录</span></span><br><span class="line">call apoc.warmup.run(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 两个节点间所有路径  (数据量较大时会存在性能问题)</span></span><br><span class="line">MATCH p=(n1 &#123;thingId:<span class="string">"11"</span>&#125;)-[r*0..6]-(n2 &#123;thingId:<span class="string">"222"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有路径（按路径长度排序），并且仅限制返回的项目的深度和数量</span></span><br><span class="line">MATCH p =(a)-[*2..5]-(b)</span><br><span class="line">RETURN p, length(p)</span><br><span class="line">order by length(p)</span><br><span class="line">LIMIT 5;</span><br></pre></td></tr></table></figure>
+<h3 id="Cypher-语法"><a href="#Cypher-语法" class="headerlink" title="Cypher 语法"></a>Cypher 语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create 语句</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create语法</span></span><br><span class="line">CREATE (&lt;node-name&gt;:&lt;label-name&gt;&#123;&lt;Property1-name&gt;...&lt;Propertyn-name&gt;&#125;)</span><br><span class="line">- node-name 节点名称。Neo4j使用。不能使用它来访问节点详细信息</span><br><span class="line">- label-name 标签名称 使用此标签名称来访问节点详细信息。</span><br><span class="line">- Property1-name 属性</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create 节点+标签 + 属性</span></span><br><span class="line">CREATE (node_name:label1:label2&#123;id:<span class="number">123</span>,name:<span class="string">"Lokesh"</span>,sal:<span class="number">35000</span>,deptno:<span class="number">10</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Match - 查询指定节点</span></span><br><span class="line">match (lab:label1)</span><br><span class="line">where lab.name = <span class="string">'Lokesh'</span></span><br><span class="line">RETURN lab.name,lab.id</span><br><span class="line"><span class="comment"># label1 标签名称</span></span><br><span class="line"><span class="comment"># lab 标签名称重命名。类似 as</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Match - 查询指定节点,创建关系</span></span><br><span class="line">MATCH (cust:Customer),(cc:CreditCard)</span><br><span class="line">WHERE cust.id = <span class="string">"1001"</span> AND cc.id= <span class="string">"5001"</span></span><br><span class="line">CREATE (cust)-[r:DO_SHOPPING_WITH&#123;shopdate:"12/12/2014",price:55000&#125;]-&gt;(cc)</span><br><span class="line">RETURN r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sort排序 - 对 Match 结果升序或降序排序</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp.empid,emp.name,emp.salary,emp.deptno</span><br><span class="line">ORDER BY emp.name DESC</span><br><span class="line"></span><br><span class="line"><span class="comment"># UNION - 数据合并(字段名称类型必须一致) 不返回重复行</span></span><br><span class="line"></span><br><span class="line">MATCH (cc:CreditCard)</span><br><span class="line">RETURN cc.id <span class="keyword">as</span> id,cc.number <span class="keyword">as</span> number,cc.name <span class="keyword">as</span> name,</span><br><span class="line">   cc.valid_from <span class="keyword">as</span> valid_from,cc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line">UNION</span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">RETURN dc.id <span class="keyword">as</span> id,dc.number <span class="keyword">as</span> number,dc.name <span class="keyword">as</span> name,</span><br><span class="line">   dc.valid_from <span class="keyword">as</span> valid_from,dc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line"></span><br><span class="line"><span class="comment"># UNION ALL - 数据合并(字段名称类型必须一致) 返回重复行</span></span><br><span class="line">MATCH (cc:CreditCard)</span><br><span class="line">RETURN cc.id <span class="keyword">as</span> id,cc.number <span class="keyword">as</span> number,cc.name <span class="keyword">as</span> name,</span><br><span class="line">   cc.valid_from <span class="keyword">as</span> valid_from,cc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line">UNION ALL</span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">RETURN dc.id <span class="keyword">as</span> id,dc.number <span class="keyword">as</span> number,dc.name <span class="keyword">as</span> name,</span><br><span class="line">   dc.valid_from <span class="keyword">as</span> valid_from,dc.valid_to <span class="keyword">as</span> valid_to</span><br><span class="line"></span><br><span class="line"><span class="comment"># Limit 过滤或限制查询返回的行数. 去掉CQL查询结果集底部的结果</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp</span><br><span class="line">LIMIT <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># skip 过滤或限制查询返回的行数. 去掉CQL查询结果集顶部的结果</span></span><br><span class="line">MATCH (emp:Employee)</span><br><span class="line">RETURN emp</span><br><span class="line">SKIP <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Merge 合并</span></span><br><span class="line"></span><br><span class="line">Neo4j使用CQL MERGE命令</span><br><span class="line">- 创建节点，关系和属性</span><br><span class="line">- 为从数据库检索数据</span><br><span class="line">- 命令使用：Create+Match组合</span><br><span class="line"></span><br><span class="line">MERGE (gp2:GoogleProfile2&#123; Id: <span class="number">201402</span>,Name:<span class="string">"Nokia"</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE命令总是向数据库添加新的节点</span><br><span class="line">Merge命令只有在不存在时创建节点。存在时更新</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># NULL</span></span><br><span class="line"></span><br><span class="line">Neo4j CQL将空值视为对节点或关系的属性的缺失值或未定义值。</span><br><span class="line"></span><br><span class="line">当我们创建一个具有现有节点标签名称但未指定其属性值的节点时，它将创建一个具有NULL属性值的新节点。</span><br><span class="line"><span class="comment"># 查看存在 id 属性的节点</span></span><br><span class="line">MATCH (e:Employee)</span><br><span class="line">WHERE e.id IS NOT NULL</span><br><span class="line">RETURN e.id,e.name,e.sal,e.deptno</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除属性</span></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br><span class="line"></span><br><span class="line"><span class="comment"># IN 查询集合</span></span><br><span class="line">MATCH (e:Employee)</span><br><span class="line">WHERE e.id IN [<span class="number">123</span>,<span class="number">124</span>]</span><br><span class="line">RETURN e.id,e.name,e.sal,e.deptno</span><br></pre></td></tr></table></figure>
+<p>Cypher 删除</p>
+<ul>
+<li>两种删除方式。DELETE REMOVE</li>
+<li>Delete 用于删除节点和关系。Remove 用于删除标签和属性。</li>
+<li>Delete 和 Remove 都需要和 Match 配合使用。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除节点</span></span><br><span class="line">MATCH (e: Employee) DELETE e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除节点及关系</span></span><br><span class="line">MATCH (cc: CreditCard)-[rel]-(c:Customer)</span><br><span class="line">DELETE cc,c,rel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除属性</span></span><br><span class="line">MATCH (book &#123; id:122 &#125;)</span><br><span class="line">REMOVE book.price</span><br><span class="line">RETURN book</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除匹配 label1 数据. 标签 label2.</span></span><br><span class="line">MATCH (m:label1)</span><br><span class="line">REMOVE m:label2</span><br></pre></td></tr></table></figure>
+<p>Cypher 更新</p>
+<ul>
+<li>set 方式更新数据。可以和 match 等配合使用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新节点属性</span></span><br><span class="line">MATCH (dc:DebitCard)</span><br><span class="line">SET dc.atm_pin = 3456</span><br><span class="line">RETURN dc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除属性</span></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br></pre></td></tr></table></figure>
+<p>ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">一，创建节点</span><br><span class="line">1，创建空的节点</span><br><span class="line"></span><br><span class="line">CREATE (n)</span><br><span class="line">CREATE (a),(b)</span><br><span class="line">2，创建带标签的节点</span><br><span class="line"></span><br><span class="line">CREATE (n:Person)</span><br><span class="line">CREATE (n:Person:Swedish)</span><br><span class="line">3，创建带标签和属性的节点</span><br><span class="line"></span><br><span class="line">CREATE (n:Person &#123; name: <span class="string">'Andres'</span>, title: <span class="string">'Developer'</span> &#125;)</span><br><span class="line">二，创建关系</span><br><span class="line">创建节点之前的关系</span><br><span class="line"></span><br><span class="line">1，在两个节点之间创建关系</span><br><span class="line"></span><br><span class="line">在两个节点之间创建关系，并设置关系类型</span><br><span class="line"></span><br><span class="line">MATCH (a:Person),(b:Person)</span><br><span class="line">WHERE a.name = <span class="string">'A'</span> AND b.name = <span class="string">'B'</span></span><br><span class="line">CREATE (a)-[r:RELTYPE]-&gt;(b)</span><br><span class="line">RETURN <span class="built_in">type</span>(r)</span><br><span class="line">2，创建关系，并设置关系的属性</span><br><span class="line"></span><br><span class="line">MATCH (a:Person),(b:Person)</span><br><span class="line">WHERE a.name = <span class="string">'A'</span> AND b.name = <span class="string">'B'</span></span><br><span class="line">CREATE (a)-[r:RELTYPE &#123; name: a.name + <span class="string">'&lt;-&gt;'</span> + b.name &#125;]-&gt;(b)</span><br><span class="line">RETURN <span class="built_in">type</span>(r), r.name</span><br><span class="line">3，CREATE子句和模式</span><br><span class="line"></span><br><span class="line">在CREATE子句和模式中，对于模式中的任意部分，如果它不存在于图中，那么CREATE子句创建它；如果存在于图中，那么就会引用它。</span><br><span class="line"></span><br><span class="line">CREATE p =(andres &#123; name:<span class="string">'Andres'</span> &#125;)-[:WORKS_AT]-&gt;(neo)&lt;-[:WORKS_AT]-(michael &#123; name: <span class="string">'Michael'</span> &#125;)</span><br><span class="line">RETURN p</span><br><span class="line">三，删除节点和关系</span><br><span class="line">使用delete子句删除节点、关系和路径，当删除节点时，该节点必须是孤立的节点，也就是说，必须首先删除跟节点相关的所有关系。</span><br><span class="line"></span><br><span class="line">detach delete： 表示删除一个节点或多个节点，跟节点相关的所有关系也都被删除。</span><br><span class="line"></span><br><span class="line">1，删除节点</span><br><span class="line"></span><br><span class="line">MATCH (n:Person &#123; name: <span class="string">'UNKNOWN'</span> &#125;)</span><br><span class="line">DELETE n</span><br><span class="line">2，删除所有节点和关系</span><br><span class="line"></span><br><span class="line">MATCH (n)</span><br><span class="line">DETACH DELETE n</span><br><span class="line">3，删除一个节点和它的所有关系</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">DETACH DELETE n</span><br><span class="line">4，删除关系</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)-[r:KNOWS]-&gt;()</span><br><span class="line">DELETE r</span><br><span class="line">四，更新属性或标签</span><br><span class="line"><span class="built_in">set</span>子句用于更新节点的标签，向节点和关系中添加属性</span><br><span class="line"></span><br><span class="line">1，向节点或关系中添加属性</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.surname = <span class="string">'Taylor'</span></span><br><span class="line">RETURN n.name, n.surname</span><br><span class="line">2，移除属性</span><br><span class="line"></span><br><span class="line">如果设置属性的值是NULL，相当于把该属性从节点或关系中移除</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.name = NULL RETURN n.name, n.age</span><br><span class="line">3，复制属性</span><br><span class="line"></span><br><span class="line">把一个节点的属性复制给另一个节点</span><br><span class="line"></span><br><span class="line">MATCH (at &#123; name: <span class="string">'Andres'</span> &#125;),(pn &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">SET at = pn</span><br><span class="line">RETURN at.name, at.age, at.hungry, pn.name, pn.age</span><br><span class="line">4，从Map中添加属性</span><br><span class="line"></span><br><span class="line">MATCH (p &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">SET p += &#123; hungry: TRUE , position: <span class="string">'Entrepreneur'</span> &#125;</span><br><span class="line">5，在一条<span class="built_in">set</span>子句中添加多个属性</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">SET n.position = <span class="string">'Developer'</span>, n.surname = <span class="string">'Taylor'</span></span><br><span class="line">6，向节点中添加标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Stefan'</span> &#125;)</span><br><span class="line">SET n:German</span><br><span class="line">RETURN n.name, labels(n) AS labels</span><br><span class="line">7，向节点中添加多个标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Emil'</span> &#125;)</span><br><span class="line">SET n:Swedish:Bossman</span><br><span class="line">RETURN n.name, labels(n) AS labels</span><br><span class="line">五，移除属性</span><br><span class="line">使用remove子句从节点中移除标签和属性，从关系中移除属性。</span><br><span class="line"></span><br><span class="line">1，移除属性</span><br><span class="line"></span><br><span class="line">默认情况下，Neo4j不允许存在值为null的属性；如果属性不存在，那么返回该属性的值是null。</span><br><span class="line"></span><br><span class="line">MATCH (a &#123; name: <span class="string">'Andres'</span> &#125;)</span><br><span class="line">REMOVE a.age</span><br><span class="line">RETURN a.name, a.age</span><br><span class="line">2，移除节点的标签</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">REMOVE n:German</span><br><span class="line">RETURN n.name, labels(n)</span><br><span class="line">3，移除节点的多个标签</span><br><span class="line"></span><br><span class="line">当节点的标签为空时，labels(n)函数返回空的list</span><br><span class="line"></span><br><span class="line">MATCH (n &#123; name: <span class="string">'Peter'</span> &#125;)</span><br><span class="line">REMOVE n:German:Swedish</span><br><span class="line">RETURN n.name, labels(n)</span><br><span class="line">六，foreach子句</span><br><span class="line">列表和路径是Cypher中的关键概念，foreach子句用于更新数据，例如，对路径中的元素或通过聚合创建的列表执行更新命令。</span><br><span class="line"></span><br><span class="line">1，对路径中的元素执行更新命令</span><br><span class="line"></span><br><span class="line">对路径中匹配的所有节点，添加marked属性，并设置属性值为TRUE</span><br><span class="line"></span><br><span class="line">MATCH p =(begin)-[*]-&gt;(END )</span><br><span class="line">WHERE begin.name = <span class="string">'A'</span> AND END .name = <span class="string">'D'</span></span><br><span class="line">FOREACH (n IN nodes(p)| SET n.marked = TRUE )</span><br></pre></td></tr></table></figure>
+<h3 id="Cpyher-函数"><a href="#Cpyher-函数" class="headerlink" title="Cpyher 函数"></a>Cpyher 函数</h3><h3 id="Cypher-常用语句"><a href="#Cypher-常用语句" class="headerlink" title="Cypher 常用语句"></a>Cypher 常用语句</h3><p>查询指定节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n:cust) <span class="built_in">where</span> n.id = <span class="string">'623026199412212548'</span> RETURN n LIMIT 25</span><br></pre></td></tr></table></figure>
+<p>更新指定节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCH (n:cust) <span class="built_in">where</span> n.id = <span class="string">'623026199412212548'</span> <span class="built_in">set</span> n.name=<span class="string">'set_name_test'</span> RETURN n LIMIT 25</span><br></pre></td></tr></table></figure>
+<p>查询节点和边</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">match (ee:cust)-[:tran]-(tranx) <span class="built_in">where</span> ee.address=<span class="string">'吉林省东莞市新城哈尔滨街D座 690272'</span> <span class="built_in">return</span> ee,tranx</span><br></pre></td></tr></table></figure>
+<p>节点数据导入-loadcsv 方式-merge(更新已存在数据)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">USING PERIODIC COMMIT 10000 LOAD CSV WITH HEADERS</span><br><span class="line">            FROM <span class="string">"file:///test.csv"</span> AS line</span><br><span class="line">            fieldterminator <span class="string">','</span></span><br><span class="line">            Merge (n:cust&#123;id:line.id&#125;)</span><br><span class="line">            <span class="built_in">set</span> n.name = line.name</span><br><span class="line"><span class="comment"># PERIODIC COMMIT 10000 指定每10000条数据提交一次，减小内存压力</span></span><br><span class="line"><span class="comment"># WITH HEADERS 文件自带表头</span></span><br><span class="line"><span class="comment"># fieldterminator 指定文件分隔符</span></span><br></pre></td></tr></table></figure>
+<p>创建索引(加快查询，插入速度)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index on :cust(id)</span><br><span class="line">create index on :tran(id)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="SuperScfan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SuperScfan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SuperScfan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/module/neo4j/cmd/" title="Neo4j-常用命令">https://fansichao.github.io/module/neo4j/cmd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/module/" rel="tag"># module</a>
+          
+            <a href="/tags/Neo4j/" rel="tag"># Neo4j</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/module/neo4j/function/" rel="next" title="Neo4j-功能模块">
+                <i class="fa fa-chevron-left"></i> Neo4j-功能模块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/module/gremlin/" rel="prev" title="Gremlin-index">
+                Gremlin-index <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="SuperScfan">
+            
+              <p class="site-author-name" itemprop="name">SuperScfan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-运算符"><span class="nav-number">1.</span> <span class="nav-text">Neo4j 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径查询"><span class="nav-number">2.</span> <span class="nav-text">路径查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cypher-语法"><span class="nav-number">3.</span> <span class="nav-text">Cypher 语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cpyher-函数"><span class="nav-number">4.</span> <span class="nav-text">Cpyher 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cypher-常用语句"><span class="nav-number">5.</span> <span class="nav-text">Cypher 常用语句</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SuperScfan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200831204007',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

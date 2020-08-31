@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。">
+<meta name="description" content="HugeGraph图库">
 <meta name="keywords" content="Module,Graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Module-Neo4j-使用文档">
-<meta property="og:url" content="https://fansichao.github.io/moudule/neo4j/neo4j2/index.html">
+<meta property="og:title" content="HugeGragh-使用文档">
+<meta property="og:url" content="https://fansichao.github.io/moudule/hugegraph/cmd/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。">
+<meta property="og:description" content="HugeGraph图库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-29T07:55:48.799Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
+<meta property="og:updated_time" content="2020-08-31T13:58:13.418Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Module-Neo4j-使用文档">
-<meta name="twitter:description" content="Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。">
+<meta name="twitter:title" content="HugeGragh-使用文档">
+<meta name="twitter:description" content="HugeGraph图库">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://fansichao.github.io/moudule/neo4j/neo4j2/">
+  <link rel="canonical" href="https://fansichao.github.io/moudule/hugegraph/cmd/">
 
 
 
 
 
-  <title>Module-Neo4j-使用文档 | 格物方能致知</title>
+  <title>HugeGragh-使用文档 | 格物方能致知</title>
   
 
 
@@ -302,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/moudule/neo4j/neo4j2/">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/moudule/hugegraph/cmd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SuperScfan">
@@ -319,7 +321,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Module-Neo4j-使用文档</h2>
+          <h2 class="post-title" itemprop="name headline">HugeGragh-使用文档</h2>
         
 
         <div class="post-meta">
@@ -334,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-29T20:04:35+08:00">
-                2020-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T18:43:15+08:00">
+                2020-07-25
               </time>
             
 
@@ -350,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T15:55:48+08:00">
-                2020-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T21:58:13+08:00">
+                2020-08-31
               </time>
             
           </span>
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,750
+                  794
                 </span>
               
 
@@ -418,7 +420,7 @@
 
           
               <div class="post-description">
-                  Neo4j图库使用文档。Neo4j，最流行的图库软件之一，上手简单易用。
+                  HugeGraph图库
               </div>
           
 
@@ -435,18 +437,49 @@
       
 
       
-        <p><a href="https://neo4j.com/docs/operations-manual/3.5/reference/configuration-settings/" target="_blank" rel="noopener">Neo4j3.5-Config</a></p>
-<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h2 id="路径查询"><a href="#路径查询" class="headerlink" title="路径查询"></a>路径查询</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 节点之间的最短路径</span></span><br><span class="line">MATCH p=shortestPath((a)-[*]-&gt;(b))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 节点之前的所有最短路径</span></span><br><span class="line">MATCH P = allShortestPaths((c:cust &#123;id:<span class="string">'xxx'</span>&#125;)-[*..5]-(t:cust &#123;id:<span class="string">'xxxx'</span>&#125;)) <span class="built_in">return</span> P</span><br><span class="line"></span><br><span class="line"><span class="comment"># shortestPath &amp; allShortestPaths 对比分析</span></span><br><span class="line">cypher提供了两个查询最短路径的特殊函数 shortestPath 和 allShortestPath</span><br><span class="line">在真实测试中发现，allShortestPath在已有两点间短路径情况下，会忽略两点之间额外更长的路径</span><br><span class="line">allShortestPath ，因为它不会返回任何长度大于较短路径的路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># Neo4j-系统预热</span></span><br><span class="line">https://neo4j.com/developer/kb/warm-the-cache-to-improve-performance-from-cold-start/</span><br><span class="line"></span><br><span class="line"><span class="comment"># true-读取属性记录</span></span><br><span class="line">call apoc.warmup.run(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两个节点间所有路径 方法1 (数据量较大时会存在性能问题)</span></span><br><span class="line">MATCH p=(n1 &#123;thingId:<span class="string">"11"</span>&#125;)-[r*0..6]-(n2 &#123;thingId:<span class="string">"222"</span>&#125;)</span><br><span class="line"></span><br><span class="line">5度交易无法展示，此cypher语句性能存在问题</span><br><span class="line">match p=(c:cust &#123;id:<span class="string">'aaa'</span>&#125;)-[:tran*..5]-(t:cust &#123;id:<span class="string">'bbb'</span>&#125;) WITH *, RELATIONSHIPS(p) as r</span><br><span class="line">    WHERE ALL (</span><br><span class="line">        e IN r <span class="built_in">where</span></span><br><span class="line">        e.tran_date&gt;=20000101 and e.tran_date &lt;=20200805</span><br><span class="line">        and e.tran_amt &gt;= 0 and e.tran_amt &lt;= 9223372036854775807</span><br><span class="line">    )</span><br><span class="line">UNWIND r AS x</span><br><span class="line">WITH DISTINCT x</span><br><span class="line">RETURN collect(x) as all_relation</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MATCH (c)--(e)--(t)</span><br><span class="line"></span><br><span class="line">      <span class="built_in">where</span></span><br><span class="line">       c.id = <span class="string">"896332053110652"</span> AND t.id = <span class="string">"6228480588998875573"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RETURN c,e,t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">match p=(c:cust &#123;id:<span class="string">'896332053110652'</span>&#125;)--(t1)--(t2)--(t3)--(t:cust &#123;id:<span class="string">'6228480588998875573'</span>&#125;) WITH *, RELATIONSHIPS(p) as r</span><br><span class="line">    WHERE ALL (</span><br><span class="line">        e IN r <span class="built_in">where</span></span><br><span class="line">        e.tran_date&gt;=20000101 and e.tran_date &lt;=20200805</span><br><span class="line">        and e.tran_amt &gt;= 0 and e.tran_amt &lt;= 9223372036854775807</span><br><span class="line">    )</span><br><span class="line">UNWIND r AS x</span><br><span class="line">WITH DISTINCT x</span><br><span class="line">RETURN collect(x) as all_relation</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"tran_date"</span>: 20190628,</span><br><span class="line">  <span class="string">"tran_cnt"</span>: 1,</span><br><span class="line">  <span class="string">"tran_amt"</span>: 1000,</span><br><span class="line">  <span class="string">"dataset"</span>: <span class="string">"history_data"</span></span><br><span class="line">&#125;</span><br><span class="line">37s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6217680601180727</span><br><span class="line">370202198405065421</span><br><span class="line">4000027219200208691</span><br><span class="line">340302198803271634</span><br><span class="line">33001616783059000667</span><br><span class="line">372328199104063022</span><br><span class="line">31050173530000000304</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">match p=(c:cust &#123;id:<span class="string">'6217680601180727'</span>&#125;)--(t1)--(t2)--(t3)--(t:cust &#123;id:<span class="string">'33001616783059000667'</span>&#125;) WITH *, RELATIONSHIPS(p) as r</span><br><span class="line">    WHERE ALL (</span><br><span class="line">        e IN r <span class="built_in">where</span></span><br><span class="line">        e.tran_date&gt;=20000101 and e.tran_date &lt;=20200805</span><br><span class="line">        and e.tran_amt &gt;= 0 and e.tran_amt &lt;= 9223372036854775807</span><br><span class="line">    )</span><br><span class="line">UNWIND r AS x</span><br><span class="line">WITH DISTINCT x</span><br><span class="line">RETURN collect(x) as all_relation</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 两个节点间所有路径 方法2</span></span><br><span class="line">MATCH (k)--(m)--(l)</span><br><span class="line">WHERE k.id = <span class="string">"896332053110652"</span> AND l.id = <span class="string">"6228480588998875573"</span></span><br><span class="line">RETURN k,m,l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有路径（按路径长度排序），并且仅限制返回的项目的深度和数量</span></span><br><span class="line">MATCH p =(a)-[*2..5]-(b)</span><br><span class="line">RETURN p, length(p)</span><br><span class="line">order by length(p)</span><br><span class="line">LIMIT 5;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.shuzhiduo.com/A/A2dm6vjxze/" target="_blank" rel="noopener">https://www.shuzhiduo.com/A/A2dm6vjxze/</a></p>
-<h3 id="查询两个节点间所有路径"><a href="#查询两个节点间所有路径" class="headerlink" title="查询两个节点间所有路径"></a>查询两个节点间所有路径</h3><p>解决方案</p>
-<p>性能优化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器预热后</span></span><br><span class="line">match p=shortestPath(c:cust &#123;id:<span class="string">'896332053110652'</span>&#125;)-[:tran*..3]-(t:cust &#123;id:<span class="string">'6228480588998875573'</span>&#125;) WITH *, RELATIONSHIPS(p) as r</span><br><span class="line"></span><br><span class="line">  WHERE ALL (</span><br><span class="line">      e IN r <span class="built_in">where</span></span><br><span class="line">      e.tran_date&gt;=20000101 and e.tran_date &lt;=20200805</span><br><span class="line">      and e.tran_amt &gt;= 0 and e.tran_amt &lt;= 9223372036854775807</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">UNWIND r AS x</span><br><span class="line">WITH DISTINCT x</span><br><span class="line">RETURN collect(x) as all_relation</span><br><span class="line"><span class="comment"># 14s</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://neo4j.com.cn/topic/5818519dcdf6c5bf145675c7" target="_blank" rel="noopener">http://neo4j.com.cn/topic/5818519dcdf6c5bf145675c7</a></p>
-<p><a href="https://www.cnblogs.com/ljhdo/p/5516793.html" target="_blank" rel="noopener">https://www.cnblogs.com/ljhdo/p/5516793.html</a></p>
-<p><a href="https://juejin.im/post/6844903848553742349" target="_blank" rel="noopener">https://juejin.im/post/6844903848553742349</a></p>
-<p><a href="https://jpanj.com/2017/neo4j-warms-up/" target="_blank" rel="noopener">https://jpanj.com/2017/neo4j-warms-up/</a></p>
-<p>Neo4j 官方超时配置<br><a href="https://neo4j.com/developer/kb/understanding-transaction-and-lock-timeouts/" target="_blank" rel="noopener">https://neo4j.com/developer/kb/understanding-transaction-and-lock-timeouts/</a></p>
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Neo4j 配置了 超时后，未成功超时，后台报错！</span></span><br><span class="line"></span><br><span class="line">2020-08-05 09:34:37.476+0000 ERROR [o.n.b.v.r.ErrorReporter] Client triggered an unexpected error [UnknownError]: Access to record Node[-3,used=<span class="literal">false</span>,rel=-1,prop=-1,labels=Inline(0x0:[]),light,secondaryUnitId=-1] went out of bounds of the page. The record size is 15 bytes, and the access was at offset -45 bytes into page 0, and the pages have a capacity of 8190 bytes. The mapped store file <span class="keyword">in</span> question is /home/fdm/quick/data/databases/graph.db/neostore.nodestore.db, reference 894de038-457c-492f-8fe9-19533f720375.</span><br><span class="line">2020-08-05 09:34:37.476+0000 ERROR [o.n.b.v.r.ErrorReporter] Client triggered an unexpected error [UnknownError]: Access to record Node[-3,used=<span class="literal">false</span>,rel=-1,prop=-1,labels=Inline(0x0:[]),light,secondaryUnitId=-1] went out of bounds of the page. The record size is 15 bytes, and the access was at offset -45 bytes into page 0, and the pages have a capacity of 8190 bytes. The mapped store file <span class="keyword">in</span> question is /home/fdm/quick/data/databases/graph.db/neostore.nodestore.db, reference 894de038-457c-492f-8fe9-19533f720375. Access to record Node[-3,used=<span class="literal">false</span>,rel=-1,prop=-1,labels=Inline(0x0:[]),light,secondaryUnitId=-1] went out of bounds of the page. The record size is 15 bytes, and the access was at offset -45 bytes into page 0, and the pages have a capacity of 8190 bytes. The mapped store file <span class="keyword">in</span> question is /home/fdm/quick/data/databases/graph.db/neostore.nodestore.db</span><br><span class="line">org.neo4j.kernel.impl.store.UnderlyingStorageException: Access to record Node[-3,used=<span class="literal">false</span>,rel=-1,prop=-1,labels=Inline(0x0:[]),light,secondaryUnitId=-1] went out of bounds of the page. The record size is 15 bytes, and the access was at offset -45 bytes into page 0, and the pages have a capacity of 8190 bytes. The mapped store file <span class="keyword">in</span> question is /home/fdm/quick/data/databases/graph.db/neostore.nodestore.db</span><br><span class="line">	at org.neo4j.kernel.impl.store.CommonAbstractStore.throwOutOfBoundsException(CommonAbstractStore.java:1184)</span><br><span class="line">	at org.neo4j.kernel.impl.store.CommonAbstractStore.checkForDecodingErrors(CommonAbstractStore.java:1173)</span><br><span class="line">	at org.neo4j.kernel.impl.store.CommonAbstractStore.isInUse(CommonAbstractStore.java:400)</span><br><span class="line">	at org.neo4j.kernel.impl.api.store.StorageLayer.nodeExists(StorageLayer.java:537)</span><br><span class="line">	at org.neo4j.kernel.impl.api.StateHandlingStatementOperations.nodeExists(StateHandlingStatementOperations.java:1751)</span><br><span class="line">	at org.neo4j.kernel.impl.api.ConstraintEnforcingEntityOperations.nodeExists(ConstraintEnforcingEntityOperations.java:646)</span><br><span class="line">	at org.neo4j.kernel.impl.api.OperationsFacade.nodeExists(OperationsFacade.java:247)</span><br><span class="line">	at org.neo4j.cypher.internal.spi.v3_3.TransactionBoundQueryContext<span class="variable">$NodeOperations</span>.getByIdIfExists(TransactionBoundQueryContext.scala:418)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.ExceptionTranslatingQueryContext<span class="variable">$ExceptionTranslatingOperations</span>$<span class="variable">$anonfun</span><span class="variable">$getByIdIfExists</span><span class="variable">$1</span>.apply(ExceptionTranslatingQueryContext.scala:303)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.ExceptionTranslatingQueryContext<span class="variable">$ExceptionTranslatingOperations</span>$<span class="variable">$anonfun</span><span class="variable">$getByIdIfExists</span><span class="variable">$1</span>.apply(ExceptionTranslatingQueryContext.scala:303)</span><br><span class="line">	at org.neo4j.cypher.internal.spi.v3_3.ExceptionTranslationSupport<span class="variable">$class</span>.translateException(ExceptionTranslationSupport.scala:32)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.ExceptionTranslatingQueryContext.translateException(ExceptionTranslatingQueryContext.scala:39)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.ExceptionTranslatingQueryContext<span class="variable">$ExceptionTranslatingOperations</span>.getByIdIfExists(ExceptionTranslatingQueryContext.scala:303)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.IdSeekIterator.computeNextEntity(IdSeekIterator.scala:53)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.IdSeekIterator.&lt;init&gt;(IdSeekIterator.scala:32)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.NodeIdSeekIterator.&lt;init&gt;(IdSeekIterator.scala:64)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.NodeByIdSeekPipe.internalCreateResults(NodeByIdSeekPipe.scala:70)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.Pipe<span class="variable">$class</span>.createResults(Pipe.scala:41)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.NodeByIdSeekPipe.createResults(NodeByIdSeekPipe.scala:62)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.PipeWithSource.createResults(Pipe.scala:59)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.PipeWithSource.createResults(Pipe.scala:59)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.pipes.PipeWithSource.createResults(Pipe.scala:59)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.executionplan.DefaultExecutionResultBuilderFactory<span class="variable">$ExecutionWorkflowBuilder</span>.createResults(DefaultExecutionResultBuilderFactory.scala:102)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.executionplan.DefaultExecutionResultBuilderFactory<span class="variable">$ExecutionWorkflowBuilder</span>.build(DefaultExecutionResultBuilderFactory.scala:74)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.BuildInterpretedExecutionPlan$<span class="variable">$anonfun</span><span class="variable">$getExecutionPlanFunction</span><span class="variable">$1</span>.apply(BuildInterpretedExecutionPlan.scala:100)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.BuildInterpretedExecutionPlan$<span class="variable">$anonfun</span><span class="variable">$getExecutionPlanFunction</span><span class="variable">$1</span>.apply(BuildInterpretedExecutionPlan.scala:83)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.runtime.BuildInterpretedExecutionPlan<span class="variable">$InterpretedExecutionPlan</span>.run(BuildInterpretedExecutionPlan.scala:116)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.Compatibility<span class="variable">$ExecutionPlanWrapper</span>$<span class="variable">$anonfun</span><span class="variable">$run</span><span class="variable">$1</span>.apply(Compatibility.scala:183)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.Compatibility<span class="variable">$ExecutionPlanWrapper</span>$<span class="variable">$anonfun</span><span class="variable">$run</span><span class="variable">$1</span>.apply(Compatibility.scala:179)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.exceptionHandler<span class="variable">$runSafely</span>$.apply(exceptionHandler.scala:90)</span><br><span class="line">	at org.neo4j.cypher.internal.compatibility.v3_3.Compatibility<span class="variable">$ExecutionPlanWrapper</span>.run(Compatibility.scala:179)</span><br><span class="line">	at org.neo4j.cypher.internal.PreparedPlanExecution.execute(PreparedPlanExecution.scala:29)</span><br><span class="line">	at org.neo4j.cypher.internal.ExecutionEngine.execute(ExecutionEngine.scala:120)</span><br><span class="line">	at org.neo4j.cypher.internal.javacompat.ExecutionEngine.executeQuery(ExecutionEngine.java:62)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.TransactionStateMachineSPI<span class="variable">$1</span>.start(TransactionStateMachineSPI.java:146)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.TransactionStateMachine<span class="variable">$State</span><span class="variable">$1</span>.run(TransactionStateMachine.java:247)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.TransactionStateMachine.run(TransactionStateMachine.java:82)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.BoltStateMachine<span class="variable">$State</span><span class="variable">$2</span>.run(BoltStateMachine.java:408)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.BoltStateMachine.run(BoltStateMachine.java:200)</span><br><span class="line">	at org.neo4j.bolt.v1.messaging.BoltMessageRouter.lambda<span class="variable">$onRun</span><span class="variable">$3</span>(BoltMessageRouter.java:93)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.concurrent.RunnableBoltWorker.execute(RunnableBoltWorker.java:152)</span><br><span class="line">	at org.neo4j.bolt.v1.runtime.concurrent.RunnableBoltWorker.run(RunnableBoltWorker.java:104)</span><br><span class="line">	at java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:511)</span><br><span class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">	at org.neo4j.helpers.NamedThreadFactory<span class="variable">$2</span>.run(NamedThreadFactory.java:109)</span><br><span class="line">2020-08-05 09:35:52.808+0000 WARN [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked <span class="keyword">for</span> 228ms.</span><br></pre></td></tr></table></figure>
+        <p>tags: HugeGraph 图库 2019 年 11 月</p>
+<h2 id="HugeGraph-使用"><a href="#HugeGraph-使用" class="headerlink" title="HugeGraph 使用"></a>HugeGraph 使用</h2><ul>
+<li><a href="https://github.com/tanglion/PyHugeGraph/blob/master/PyHugeGraph/PyHugeGraphClient.py" target="_blank" rel="noopener">Github-PyHugeGraphClient</a></li>
+</ul>
+<p>TODO Gremlin 语法</p>
+<h2 id="问题项"><a href="#问题项" class="headerlink" title="问题项"></a>问题项</h2><h3 id="问题-2-数据查询时-无法对属性进行大小过滤"><a href="#问题-2-数据查询时-无法对属性进行大小过滤" class="headerlink" title="问题 2-数据查询时,无法对属性进行大小过滤"></a>问题 2-数据查询时,无法对属性进行大小过滤</h3><ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/560" target="_blank" rel="noopener">关于条件查询顶点的两个疑问</a></li>
+</ul>
+<blockquote>
+<p>iterateVertices 接口目前没有提供小于及大于语义的条件查询，仅提供了等于条件查询。<br>Gremlin 更加自由，完全支持小于条件查询，但是 Gremlin 语法目前没有支持分页的机制，所以如你所说也没办法分页。如果结果集大于百万以上，建议每次查询再加上大于条件，相当于分为一个一个时间区间进行查询。</p>
+</blockquote>
+<h3 id="问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><a href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时" class="headerlink" title="问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)"></a>问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</h3><p>问题场景: 使用 HugeGraph-loader 导入数据时，发现原文件 edge 26663，实际入库的只有 26661</p>
+<p>对比 数据文件 edge - HugeGraph 数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">              cust_certno data_mark         peer_certno     tran_amt tran_cnt tran_date</span><br><span class="line">6615   310116199507048741      mark  331102197108166692  468577630.0        4  20170213</span><br><span class="line">16277  431227199801126424      mark  445300194807241683   40649080.0        4  20170206</span><br></pre></td></tr></table></figure>
+<p>查询数据文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@fdm hugegraph_data]$ grep -rn <span class="string">"310116199507048741"</span> edge_mark_CUSTACCTTRANJRNL.csv  | grep 331102197108166692</span><br><span class="line">6617:468577630.0,20170213,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br><span class="line">6618:167389.0,20170224,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br></pre></td></tr></table></figure>
+<p>问题原因:</p>
+<p>发现由于 起始顶点-结束顶点 相同时，HugeGraph 未录入第二条数据.</p>
+<p>根据 起始顶点和结束顶点 对原数据文件去重，仅发现两条相同的 起始顶点-结束顶点 数据，都未导入。</p>
+<p>解决方案:</p>
+<ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/763" target="_blank" rel="noopener">如何创建两个顶点间的多边</a></li>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/97" target="_blank" rel="noopener">Hugegraph 中 edgelabel 的 sortKey 方法调用</a></li>
+</ul>
+<p><strong>代码样例:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">548</span>         <span class="comment"># https://github.com/hugegraph/hugegraph/issues/97 指定 sortkeys,用于在两个节点中增加多条边</span></span><br><span class="line"><span class="number">549</span>         <span class="comment"># sortKeys中字段必须在属性中,重复字段报错! 必须建库第一次使用,后续创建无效!!  exp: .multiTimes().sortKeys("tran_date","tran_cnt")</span></span><br><span class="line"><span class="number">550</span>         sortKeys = list(set([i <span class="keyword">for</span> i <span class="keyword">in</span> sortKeys <span class="keyword">if</span> i <span class="keyword">in</span> cols <span class="keyword">and</span> i <span class="keyword">not</span> <span class="keyword">in</span> primary_cols]))</span><br><span class="line"><span class="number">551</span>         sortKeys_val = str(sortKeys).replace(<span class="string">')'</span>, <span class="string">''</span>).replace(<span class="string">'('</span>, <span class="string">''</span>).replace(<span class="string">']'</span>, <span class="string">''</span>).replace(<span class="string">'['</span>, <span class="string">''</span>)</span><br><span class="line"><span class="number">552</span>         <span class="keyword">if</span> bool(sortKeys):</span><br><span class="line"><span class="number">553</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).multiTimes().sortKeys(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">554</span>                 edge_label, node_label, node_label, properties, sortKeys_val)</span><br><span class="line"><span class="number">555</span>         <span class="keyword">else</span>:</span><br><span class="line"><span class="number">556</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">557</span>                 edge_label, node_label, node_label, properties)</span><br><span class="line"><span class="number">558</span>         schema_list.append(schema_line)</span><br></pre></td></tr></table></figure>
+<p><strong>界面样例:</strong><br><img src="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png" alt="HugeGraph_顶点之间多边.png"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="待完成"><a href="#待完成" class="headerlink" title="待完成"></a>待完成</h3><ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/412" target="_blank" rel="noopener">restful 和 gremlin 接口的使用场景，底层区别简介</a></li>
+</ul>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="字符串属性的模糊查询"><a href="#字符串属性的模糊查询" class="headerlink" title="字符串属性的模糊查询"></a>字符串属性的模糊查询</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/258" target="_blank" rel="noopener">字符串属性的模糊查询</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g.V().hasLabel(<span class="string">"person"</span>).has(<span class="string">"lived"</span>, Text.contains(<span class="string">"海淀区"</span>))</span><br><span class="line"><span class="comment"># Text.contains只支持分词后的全词匹配.</span></span><br><span class="line"><span class="comment"># 用 child来搜索"My children"可能会搜索不到.目前hugegraph还无法支持这种搜索，建议上层使用ES等索引库来实现这种模糊查询</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/hugegraph/hugegraph/issues/29" target="_blank" rel="noopener">使用 HugeGraph 怎么求解最短路径</a></li>
+</ul>
+<h2 id="Gremlin-语法"><a href="#Gremlin-语法" class="headerlink" title="Gremlin 语法"></a>Gremlin 语法</h2><p><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42076409/article/details/80856911</a></p>
+<p><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">http://tang.love/2018/11/15/gremlin_traversal_language/</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">Gremlin 基础语法-条件和过滤</a><br><a href="https://blog.csdn.net/CSDN___LYY/article/details/84771820" target="_blank" rel="noopener">Gremlin – 常用查询用法</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82658777" target="_blank" rel="noopener">深入学习 Gremlin（2）：边的遍历操作</a><br><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">gremlin 语句详解</a></p>
+<p><a href="http://tinkerpop.apache.org/docs/3.2.5/reference/#drop-step" target="_blank" rel="noopener">GremLin 官方文档</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82589895" target="_blank" rel="noopener">深入学习 Gremlin（3）：has 条件过滤</a><br><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">深入学习 Gremlin（9）：条件和过滤</a></p>
+<p><a href="https://blog.csdn.net/u010260089/article/details/82769959" target="_blank" rel="noopener">深入学习 Gremlin（10）：逻辑运算</a></p>
+<p><a href="https://blog.csdn.net/linlin1989117/article/details/82625906?utm_source=blogxgwz2" target="_blank" rel="noopener">深入学习 Gremlin（5）：查询路径 path</a><br><a href="https://blog.csdn.net/javeme/article/details/88417208" target="_blank" rel="noopener">深入学习 Gremlin（13）：路径选取与过滤</a><br><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">Gremlin 常用语法总结</a></p>
 
       
     </div>
@@ -497,7 +530,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/moudule/neo4j/neo4j2/" title="Module-Neo4j-使用文档">https://fansichao.github.io/moudule/neo4j/neo4j2/</a>
+    <a href="https://fansichao.github.io/moudule/hugegraph/cmd/" title="HugeGragh-使用文档">https://fansichao.github.io/moudule/hugegraph/cmd/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -527,8 +560,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python/advance/知识整理/" rel="next" title="Python-知识整理">
-                <i class="fa fa-chevron-left"></i> Python-知识整理
+              <a href="/moudule/hugegraph/install/" rel="next" title="hugegraph-部署文档">
+                <i class="fa fa-chevron-left"></i> hugegraph-部署文档
               </a>
             
           </div>
@@ -537,8 +570,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/" rel="prev" title="趣味Python">
-                趣味Python <i class="fa fa-chevron-right"></i>
+              <a href="/bigdata/hadoop/" rel="prev" title="hadoop-使用文档">
+                hadoop-使用文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -623,7 +656,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">149</span>
+                  <span class="site-state-item-count">158</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -634,7 +667,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -645,7 +678,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -688,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块"><span class="nav-number">1.</span> <span class="nav-text">功能模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径查询"><span class="nav-number">2.</span> <span class="nav-text">路径查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询两个节点间所有路径"><span class="nav-number">2.1.</span> <span class="nav-text">查询两个节点间所有路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题记录"><span class="nav-number">3.</span> <span class="nav-text">问题记录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HugeGraph-使用"><span class="nav-number">1.</span> <span class="nav-text">HugeGraph 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题项"><span class="nav-number">2.</span> <span class="nav-text">问题项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2-数据查询时-无法对属性进行大小过滤"><span class="nav-number">2.1.</span> <span class="nav-text">问题 2-数据查询时,无法对属性进行大小过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><span class="nav-number">2.2.</span> <span class="nav-text">问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#待完成"><span class="nav-number">3.1.</span> <span class="nav-text">待完成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">4.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串属性的模糊查询"><span class="nav-number">4.1.</span> <span class="nav-text">字符串属性的模糊查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gremlin-语法"><span class="nav-number">5.</span> <span class="nav-text">Gremlin 语法</span></a></li></ol></div>
             
 
           </div>
@@ -911,7 +944,7 @@
           repo: 'Leafney.github.io',
           owner: 'leafney',
           admin: ['leafney'],
-          id:'itfanr_20200729200435',
+          id:'itfanr_20200725184315',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',

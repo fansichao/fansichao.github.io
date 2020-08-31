@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="module,Neo4j,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Neo4j-数据导入">
+<meta name="keywords" content="module,Neo4j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neo4j-数据导入">
+<meta property="og:url" content="https://fansichao.github.io/module/neo4j/load/index.html">
+<meta property="og:site_name" content="格物方能致知">
+<meta property="og:description" content="Neo4j-数据导入">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-31T12:46:00.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neo4j-数据导入">
+<meta name="twitter:description" content="Neo4j-数据导入">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/module/neo4j/load/">
+
+
+
+
+
+  <title>Neo4j-数据导入 | 格物方能致知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">格物方能致知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/module/neo4j/load/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SuperScfan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物方能致知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Neo4j-数据导入</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-31T20:38:14+08:00">
+                2020-08-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T20:46:00+08:00">
+                2020-08-31
+              </time>
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/module/" itemprop="url" rel="index">
+                    <span itemprop="name">module</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/module/grpah/" itemprop="url" rel="index">
+                    <span itemprop="name">grpah</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,114
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  Neo4j-数据导入
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>Version<ul>
+<li>Neo4j-3.3.5</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h2><p>数据导入的几种方式</p>
+<ul>
+<li>Cypher create 语句，为每一条数据写一个 create</li>
+<li>Cypher load csv 语句，将数据转成 CSV 格式，通过 LOAD CSV 读取数据。</li>
+<li>官方提供的 neo4j-import 工具，未来将被 neo4j-admin import 代替</li>
+<li>官方提供的 Java API - BatchInserter</li>
+<li>大牛编写的 batch-import 工具</li>
+<li>neo4j-apoc load.csv + apoc.load.relationship</li>
+<li>针对实际业务场景，定制化开发</li>
+</ul>
+<p>参考链接:</p>
+<ul>
+<li><a href="https://blog.csdn.net/zhanaolu4821/article/details/80820434" target="_blank" rel="noopener">海量数据导入 Neo4j 的几种方式</a></li>
+<li><a href="http://weikeqin.cn/2017/04/14/neo4j-import-data/" target="_blank" rel="noopener">Neo4j 批量导入数据的几种方式</a></li>
+<li><a href="https://my.oschina.net/u/2538940/blog/883829" target="_blank" rel="noopener">使用 batch-import 工具向 neo4j 中导入海量数据</a></li>
+<li><a href="https://github.com/mo9527/batch-import-tool" target="_blank" rel="noopener">batch-import 已经编译好的工具 3.0，对应 neo4j-3.0.4</a></li>
+<li><a href="https://github.com/mo9527/batch-import" target="_blank" rel="noopener">batch-import 的 github</a></li>
+<li><a href="https://github.com/jexp/batch-import/tree/20" target="_blank" rel="noopener">batch-import 的相关说明</a></li>
+</ul>
+<p>本节主要说明三种导入方式 loadcsv、neo4j-import、batch-import</p>
+<p>本文数据导入使用唯一 ID(node)</p>
+<p>数据导入的注意事项</p>
+<ul>
+<li>如果设定唯一主键时，ID 必须唯一</li>
+<li>边中的 ID 必须存在于节点中，否则关系导入会跳过。</li>
+</ul>
+<h3 id="Neo4j-import"><a href="#Neo4j-import" class="headerlink" title="Neo4j-import"></a>Neo4j-import</h3><p>注意事项</p>
+<h4 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h4><p>文件格式样例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id:ID,certno,name,label,cust_certtype:string,cust_namespell:string,birthday:int,sex:string,address:string,mob_phone:string</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">:START_ID,:END_ID,Type,tran_date:int,amount:int,count:int</span><br></pre></td></tr></table></figure>
+<p>文件格式说明</p>
+<ul>
+<li>文件中 ID 必须唯一</li>
+</ul>
+<h4 id="导入命令"><a href="#导入命令" class="headerlink" title="导入命令"></a>导入命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">neo4j-import适应场景</span><br><span class="line">neo4j-import参数  (bin/neo4j-import <span class="built_in">help</span>)</span><br><span class="line">    - 指定最大进程数 --processors &lt;max processor count&gt;</span><br><span class="line">    - 跳过重复节点 --skip-duplicate-nodes &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line">    - 跳过异常关系 --skip-bad-relationships &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line">    - 最大跳过数量 --bad-tolerance &lt;max number of bad entries, or <span class="literal">true</span> <span class="keyword">for</span> unlimited&gt;</span><br><span class="line">    - 跳过异常行(例如行列数异常) --ignore-extra-columns &lt;<span class="literal">true</span>/<span class="literal">false</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令样例:</span><br><span class="line"></span><br><span class="line">bin/neo4j-import --bad-tolerance=1000000 --skip-duplicate-nodes=<span class="literal">true</span> --skip-bad-relationships=<span class="literal">true</span> --into data/databases/graph.db --id-type string --nodes:cust import/c.csv  --relationships:tran import/t.csv</span><br></pre></td></tr></table></figure>
+<h3 id="batch-import"><a href="#batch-import" class="headerlink" title="batch-import"></a>batch-import</h3><p>注意事项:</p>
+<ul>
+<li>batch-import 不支持多进程调用。</li>
+<li>batch-import 版本必须和 neo4j 版本一致。<ul>
+<li>(否则导致数据库自动升级后虽然正常使用，但是 batch-import 已经无法读取升级后的数据库了)</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件格式-1"><a href="#文件格式-1" class="headerlink" title="文件格式"></a>文件格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id:string:id_index,certno:string:id_index,name,Label:label,cust_certtype:string,cust_namespell:string,birthday:int,sex:string,address:string,mob_phone:string</span><br><span class="line">874018718864465,874018718864465,鞠瑜,cust,其他证件,juyu,19801010,男,河北省岩市龙潭东莞街d座 188848,15767524738</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">id:string:id_index,certno:string:id_index,Type,tran_date:int,amount:int,count:int</span><br><span class="line">874018718864465,411224195908138440,tran,20180108,20,2</span><br></pre></td></tr></table></figure>
+<p>文件格式说明：</p>
+<ul>
+<li>id:string:id_index ID 唯一,指定类型,设置索引</li>
+</ul>
+<h4 id="导入命令-1"><a href="#导入命令-1" class="headerlink" title="导入命令"></a>导入命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># batch-import命令</span></span><br><span class="line">sh import.sh /home/fdm/neo4j_test/neo4j-community-3.0.4/data/databases/fdm.db /home/fdm/import_data/c.csv /home/fdm/import_data/t.csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># batch-import3.0已经编译好的软件包</span></span><br><span class="line">https://github.com/mo9527/batch-import-tool</span><br><span class="line"></span><br><span class="line"><span class="comment"># batch.properties配置文件</span></span><br><span class="line">dump_configuration=<span class="literal">false</span></span><br><span class="line">cache_type=none</span><br><span class="line">use_memory_mapped_buffers=<span class="literal">true</span></span><br><span class="line">neostore.propertystore.db.index.keys.mapped_memory=1000M</span><br><span class="line">neostore.propertystore.db.index.mapped_memory=10M</span><br><span class="line">neostore.nodestore.db.mapped_memory=10240M</span><br><span class="line">neostore.relationshipstore.db.mapped_memory=10240M</span><br><span class="line">neostore.propertystore.db.mapped_memory=5120M</span><br><span class="line">neostore.propertystore.db.strings.mapped_memory=2000M</span><br><span class="line"><span class="comment">#batch_import.csv.quotes=true</span></span><br><span class="line"><span class="comment">#batch_import.csv.delim=,workInfoId</span></span><br><span class="line"><span class="comment">#contactRecordId deviceId workInfoId</span></span><br><span class="line"><span class="comment">#batch_array_separator=,</span></span><br><span class="line"></span><br><span class="line">batch_import.csv.quotes=<span class="literal">true</span></span><br><span class="line">batch_import.csv.delim=,</span><br><span class="line">batch_import.keep_db=<span class="literal">true</span></span><br><span class="line">batch_import.node_index.id_index=exact</span><br><span class="line">batch_import.node_index.id_index2=exact</span><br><span class="line">batch_import.node_index.id_index3=exact</span><br></pre></td></tr></table></figure>
+<h3 id="Load-csv"><a href="#Load-csv" class="headerlink" title="Load-csv"></a>Load-csv</h3><h4 id="文件格式-2"><a href="#文件格式-2" class="headerlink" title="文件格式"></a>文件格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">load csv 导入格式要求</span><br><span class="line"></span><br><span class="line"><span class="comment"># cust.csv</span></span><br><span class="line">id,certno,name,label,cust_certtype,cust_namespell,birthday,sex,address,mob_phone</span><br><span class="line"><span class="comment"># tran.csv</span></span><br><span class="line">start_id,end_id,<span class="built_in">type</span>,tran_date,amount,count</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 节点</span></span><br><span class="line">LOAD CSV WITH HEADERS FROM <span class="string">"file:///cust.csv"</span> AS line create</span><br><span class="line">(p:cust&#123;id:line.id,certno:line.certno,name:line.name,label:line.label,cust_certtype:line.cust_certtype,cust_namespell:line.cust_namespell,birthday:toInteger(line.birthday),sex:line.sex,address:line.address,mob_phone:line.mob_phone&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建索引</span></span><br><span class="line">CREATE INDEX ON :cust(id)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 边</span></span><br><span class="line">LOAD CSV WITH HEADERS FROM <span class="string">"file:///tran.csv"</span> AS line match</span><br><span class="line">(from:cust&#123;id:line.start_id&#125;),(to:cust&#123;id:line.end_id&#125;) create (from)-[r:tran&#123; <span class="built_in">type</span>:line. <span class="built_in">type</span>,tran_date:line.tran_date,amount:line.amount,count:line.count&#125;]-&gt;(to)</span><br></pre></td></tr></table></figure>
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><h3 id="特殊说明"><a href="#特殊说明" class="headerlink" title="特殊说明"></a>特殊说明</h3><p>csv 数据导入失败：可能性有多种</p>
+<p>文件 head 头不对。 存在节点和交易关系头不对的情况</p>
+<p>节点或交易边数据，ID 存在重复。 csv 文件中 ID 必须唯一。且所有实体表中的:ID 是必须写的，并且 ID 全局唯一，也就是三个表格中的 ID 都是唯一的，不可以有重复，在关系表中，不可以存在没有 ID 指向的实体。</p>
+<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="https://www.w3cschool.cn/neo4j/neo4j_cql_set.html" target="_blank" rel="noopener">Neo4j 语句入门</a></li>
+<li><a href="http://weikeqin.com/2017/04/11/neo4j-load-csv/" target="_blank" rel="noopener">Neo4j 数据导入参考博客</a></li>
+<li><a href="https://neo4j.com/developer/python/" target="_blank" rel="noopener">Python-Neo4j 语法</a></li>
+<li><a href="https://neo4j.com/docs/pdf/cypher-refcard-3.3.pdf" target="_blank" rel="noopener">官网 Neo4j 语法简图</a></li>
+</ul>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><p>neo4j-import 方式</p>
+<p>IMPORT DONE in 1m 17s 799ms. Imported:<br>7295460 nodes<br>10000000 relationships<br>112954600 properties</p>
+<p>real 1m19.456s<br>user 5m51.375s<br>sys 0m15.706s</p>
+<p>耗时 79.73S 速度 216,916.30 条/s</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="SuperScfan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SuperScfan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SuperScfan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/module/neo4j/load/" title="Neo4j-数据导入">https://fansichao.github.io/module/neo4j/load/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/module/" rel="tag"># module</a>
+          
+            <a href="/tags/Neo4j/" rel="tag"># Neo4j</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/module/neo4j/config/" rel="next" title="Neo4j-配置说明">
+                <i class="fa fa-chevron-left"></i> Neo4j-配置说明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/module/neo4j/function/" rel="prev" title="Neo4j-功能模块">
+                Neo4j-功能模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="SuperScfan">
+            
+              <p class="site-author-name" itemprop="name">SuperScfan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据导入"><span class="nav-number">1.</span> <span class="nav-text">数据导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neo4j-import"><span class="nav-number">1.1.</span> <span class="nav-text">Neo4j-import</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">导入命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-import"><span class="nav-number">1.2.</span> <span class="nav-text">batch-import</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入命令-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">导入命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-csv"><span class="nav-number">1.3.</span> <span class="nav-text">Load-csv</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">文件格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他说明"><span class="nav-number">2.</span> <span class="nav-text">其他说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊说明"><span class="nav-number">2.1.</span> <span class="nav-text">特殊说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">2.2.</span> <span class="nav-text">参考资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能测试"><span class="nav-number">2.3.</span> <span class="nav-text">性能测试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SuperScfan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f28d68fd5271fd52826d',
+          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
+          repo: 'Leafney.github.io',
+          owner: 'leafney',
+          admin: ['leafney'],
+          id:'itfanr_20200831203814',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

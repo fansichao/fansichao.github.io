@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker-Neo4j 图库技术部署文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T12:58:22.650Z">
+<meta property="og:updated_time" content="2020-08-31T09:10:28.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-Neo4j 部署文档">
 <meta name="twitter:description" content="Docker-Neo4j 图库技术部署文档">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-26T20:58:22+08:00">
-                2020-08-26
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T17:10:28+08:00">
+                2020-08-31
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  380
                 </span>
               
 
@@ -435,7 +435,9 @@
       
 
       
-        
+        <h3 id="Docker-Neo4j"><a href="#Docker-Neo4j" class="headerlink" title="Docker-Neo4j"></a>Docker-Neo4j</h3><p>Docker-Neo4j-3.3.5</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于存储Docker化后存储数据的位置</span></span><br><span class="line"><span class="built_in">export</span> DOCKER_BASE_DATAPATH=/space/data_storage</span><br><span class="line">mkdir -p <span class="variable">$DOCKER_BASE_DATAPATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#########################</span></span><br><span class="line"><span class="comment"># Neo4J部署             #</span></span><br><span class="line"><span class="comment">#########################</span></span><br><span class="line"><span class="function"><span class="title">DeployNeo4J</span></span>()&#123;</span><br><span class="line">    container_name=fdm_neo4j</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Mkdir Container_Dir</span></span><br><span class="line">    <span class="built_in">export</span> NEO4J_DATAPATH=<span class="variable">$&#123;DOCKER_BASE_DATAPATH&#125;</span>/<span class="variable">$&#123;container_name&#125;</span></span><br><span class="line">    mkdir -p <span class="variable">$&#123;NEO4J_DATAPATH&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Clear Container</span></span><br><span class="line">    docker stop <span class="variable">$&#123;container_name&#125;</span></span><br><span class="line">    docker rm <span class="variable">$&#123;container_name&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Pulling Neo4J</span></span><br><span class="line">    <span class="comment"># docker pull neo4j:3.3.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4.1</span></span><br><span class="line">    <span class="comment"># docker run -p=7474:7474 -p=7687:7687 \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/data:/data \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/logs:/logs \</span></span><br><span class="line">    <span class="comment">#     --volume=$NEO4J_DATAPATH/conf:/var/lib/neo4j/conf \</span></span><br><span class="line">    <span class="comment">#    --name fdm_neo4j -d neo4j:3.3.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Create Neo4J Container</span></span><br><span class="line">    <span class="comment"># TODO 3.3.5版本logs目录无法映射，只能容器内部做logs软链接到data中</span></span><br><span class="line">    docker run -p=7474:7474 -p=7687:7687 \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/data:/data \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/conf:/var/lib/neo4j/conf \</span><br><span class="line">        --volume=<span class="variable">$NEO4J_DATAPATH</span>/import:/var/lib/neo4j/import \</span><br><span class="line">        --env NEO4J_AUTH=neo4j/qwe123 \</span><br><span class="line">        --name <span class="variable">$&#123;container_name&#125;</span> -d neo4j:3.3.5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DeployNeo4J</span><br><span class="line"></span><br><span class="line"><span class="comment"># dbms.directories.import=import</span></span><br><span class="line"><span class="comment"># dbms.default_listen_address=0.0.0.0</span></span><br><span class="line"><span class="comment"># dbms.memory.pagecache.size=60g</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.initial_size=32g</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.max_size=120g</span></span><br><span class="line"><span class="comment"># dbms.tx_log.rotation.retention_policy=100M size</span></span><br><span class="line"><span class="comment"># dbms.directories.logs=/logs</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &gt;&gt;&gt;&gt;&gt; 3.3.5</span></span><br><span class="line"><span class="comment"># dbms.directories.import=/var/lib/neo4j/import</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># wrapper.java.additional=-Dneo4j.ext.udc.source=docker</span></span><br><span class="line"><span class="comment"># ha.host.data=3188fa41c50b:6001</span></span><br><span class="line"><span class="comment"># ha.host.coordination=3188fa41c50b:5001</span></span><br><span class="line"><span class="comment"># dbms.tx_log.rotation.retention_policy=100M size</span></span><br><span class="line"><span class="comment"># dbms.memory.pagecache.size=512M</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.max_size=512M</span></span><br><span class="line"><span class="comment"># dbms.memory.heap.initial_size=512M</span></span><br><span class="line"><span class="comment"># dbms.connectors.default_listen_address=0.0.0.0</span></span><br><span class="line"><span class="comment"># dbms.connector.https.listen_address=0.0.0.0:7473</span></span><br><span class="line"><span class="comment"># dbms.connector.http.listen_address=0.0.0.0:7474</span></span><br><span class="line"><span class="comment"># dbms.connector.bolt.listen_address=0.0.0.0:7687</span></span><br><span class="line"><span class="comment"># causal_clustering.transaction_listen_address=0.0.0.0:6000</span></span><br><span class="line"><span class="comment"># causal_clustering.transaction_advertised_address=3188fa41c50b:6000</span></span><br><span class="line"><span class="comment"># causal_clustering.raft_listen_address=0.0.0.0:7000</span></span><br><span class="line"><span class="comment"># causal_clustering.raft_advertised_address=3188fa41c50b:7000</span></span><br><span class="line"><span class="comment"># causal_clustering.discovery_listen_address=0.0.0.0:5000</span></span><br><span class="line"><span class="comment"># causal_clustering.discovery_advertised_address=3188fa41c50b:5000</span></span><br><span class="line"><span class="comment"># EDITION=community</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -584,8 +586,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -602,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">149</span>
+                  <span class="site-state-item-count">158</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +624,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -624,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -657,6 +668,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-Neo4j"><span class="nav-number">1.</span> <span class="nav-text">Docker-Neo4j</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

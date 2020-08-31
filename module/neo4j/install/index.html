@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Module,Graph,">
+  <meta name="keywords" content="module,Neo4j,">
 
 
 
@@ -86,20 +86,18 @@
 
 
 
-<meta name="description" content="HugeGraph图库">
-<meta name="keywords" content="Module,Graph">
+<meta name="description" content="Neo4j部署文档">
+<meta name="keywords" content="module,Neo4j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HugeGragh-使用文档">
-<meta property="og:url" content="https://fansichao.github.io/moudule/hugegraph/index.html">
+<meta property="og:title" content="Neo4j-部署文档">
+<meta property="og:url" content="https://fansichao.github.io/module/neo4j/install/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="HugeGraph图库">
+<meta property="og:description" content="Neo4j部署文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
-<meta property="og:updated_time" content="2020-08-29T07:50:25.950Z">
+<meta property="og:updated_time" content="2020-08-31T12:39:59.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HugeGragh-使用文档">
-<meta name="twitter:description" content="HugeGraph图库">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png">
+<meta name="twitter:title" content="Neo4j-部署文档">
+<meta name="twitter:description" content="Neo4j部署文档">
 
 
 
@@ -129,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://fansichao.github.io/moudule/hugegraph/">
+  <link rel="canonical" href="https://fansichao.github.io/module/neo4j/install/">
 
 
 
 
 
-  <title>HugeGragh-使用文档 | 格物方能致知</title>
+  <title>Neo4j-部署文档 | 格物方能致知</title>
   
 
 
@@ -304,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/moudule/hugegraph/">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/module/neo4j/install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SuperScfan">
@@ -321,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">HugeGragh-使用文档</h2>
+          <h2 class="post-title" itemprop="name headline">Neo4j-部署文档</h2>
         
 
         <div class="post-meta">
@@ -352,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T15:50:25+08:00">
-                2020-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T20:39:59+08:00">
+                2020-08-31
               </time>
             
           </span>
@@ -370,8 +368,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Module/" itemprop="url" rel="index">
-                    <span itemprop="name">Module</span>
+                  <a href="/categories/module/" itemprop="url" rel="index">
+                    <span itemprop="name">module</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/module/grpah/" itemprop="url" rel="index">
+                    <span itemprop="name">grpah</span>
                   </a>
                 </span>
 
@@ -408,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  914
+                  203
                 </span>
               
 
@@ -420,7 +429,7 @@
 
           
               <div class="post-description">
-                  HugeGraph图库
+                  Neo4j部署文档
               </div>
           
 
@@ -437,54 +446,26 @@
       
 
       
-        <p>tags: HugeGraph 图库 2019 年 11 月</p>
-<h2 id="HugeGraph-使用"><a href="#HugeGraph-使用" class="headerlink" title="HugeGraph 使用"></a>HugeGraph 使用</h2><ul>
-<li><a href="https://github.com/tanglion/PyHugeGraph/blob/master/PyHugeGraph/PyHugeGraphClient.py" target="_blank" rel="noopener">Github-PyHugeGraphClient</a></li>
+        <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><ul>
+<li>Version<ul>
+<li>Neo4j-3.3.5</li>
+<li>CentOS8.1.19</li>
 </ul>
-<p>TODO Gremlin 语法</p>
-<h2 id="问题项"><a href="#问题项" class="headerlink" title="问题项"></a>问题项</h2><h3 id="问题-2-数据查询时-无法对属性进行大小过滤"><a href="#问题-2-数据查询时-无法对属性进行大小过滤" class="headerlink" title="问题 2-数据查询时,无法对属性进行大小过滤"></a>问题 2-数据查询时,无法对属性进行大小过滤</h3><ul>
-<li><a href="https://github.com/hugegraph/hugegraph/issues/560" target="_blank" rel="noopener">关于条件查询顶点的两个疑问</a></li>
+</li>
 </ul>
-<blockquote>
-<p>iterateVertices 接口目前没有提供小于及大于语义的条件查询，仅提供了等于条件查询。<br>Gremlin 更加自由，完全支持小于条件查询，但是 Gremlin 语法目前没有支持分页的机制，所以如你所说也没办法分页。如果结果集大于百万以上，建议每次查询再加上大于条件，相当于分为一个一个时间区间进行查询。</p>
-</blockquote>
-<h3 id="问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><a href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时" class="headerlink" title="问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)"></a>问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</h3><p>问题场景: 使用 HugeGraph-loader 导入数据时，发现原文件 edge 26663，实际入库的只有 26661</p>
-<p>对比 数据文件 edge - HugeGraph 数据</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">              cust_certno data_mark         peer_certno     tran_amt tran_cnt tran_date</span><br><span class="line">6615   310116199507048741      mark  331102197108166692  468577630.0        4  20170213</span><br><span class="line">16277  431227199801126424      mark  445300194807241683   40649080.0        4  20170206</span><br></pre></td></tr></table></figure>
-<p>查询数据文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(env) [scfan@fdm hugegraph_data]$ grep -rn <span class="string">"310116199507048741"</span> edge_mark_CUSTACCTTRANJRNL.csv  | grep 331102197108166692</span><br><span class="line">6617:468577630.0,20170213,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br><span class="line">6618:167389.0,20170224,310116199507048741,4,331102197108166692,mark,310116199507048741,331102197108166692</span><br></pre></td></tr></table></figure>
-<p>问题原因:</p>
-<p>发现由于 起始顶点-结束顶点 相同时，HugeGraph 未录入第二条数据.</p>
-<p>根据 起始顶点和结束顶点 对原数据文件去重，仅发现两条相同的 起始顶点-结束顶点 数据，都未导入。</p>
-<p>解决方案:</p>
+<h3 id="容器部署"><a href="#容器部署" class="headerlink" title="容器部署"></a>容器部署</h3><p>参考 <a href="http://wwww.superscfan.top/docker/docker_neo4j" target="_blank" rel="noopener">Docker-Neo4j 安装文档</a></p>
+<h3 id="宿主机部署"><a href="#宿主机部署" class="headerlink" title="宿主机部署"></a>宿主机部署</h3><p>解压即用</p>
 <ul>
-<li><a href="https://github.com/hugegraph/hugegraph/issues/763" target="_blank" rel="noopener">如何创建两个顶点间的多边</a></li>
-<li><a href="https://github.com/hugegraph/hugegraph/issues/97" target="_blank" rel="noopener">Hugegraph 中 edgelabel 的 sortKey 方法调用</a></li>
+<li>环境依赖<ul>
+<li>Java1.8+</li>
+<li>系统文件数 40000+</li>
 </ul>
-<p><strong>代码样例:</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">548</span>         <span class="comment"># https://github.com/hugegraph/hugegraph/issues/97 指定 sortkeys,用于在两个节点中增加多条边</span></span><br><span class="line"><span class="number">549</span>         <span class="comment"># sortKeys中字段必须在属性中,重复字段报错! 必须建库第一次使用,后续创建无效!!  exp: .multiTimes().sortKeys("tran_date","tran_cnt")</span></span><br><span class="line"><span class="number">550</span>         sortKeys = list(set([i <span class="keyword">for</span> i <span class="keyword">in</span> sortKeys <span class="keyword">if</span> i <span class="keyword">in</span> cols <span class="keyword">and</span> i <span class="keyword">not</span> <span class="keyword">in</span> primary_cols]))</span><br><span class="line"><span class="number">551</span>         sortKeys_val = str(sortKeys).replace(<span class="string">')'</span>, <span class="string">''</span>).replace(<span class="string">'('</span>, <span class="string">''</span>).replace(<span class="string">']'</span>, <span class="string">''</span>).replace(<span class="string">'['</span>, <span class="string">''</span>)</span><br><span class="line"><span class="number">552</span>         <span class="keyword">if</span> bool(sortKeys):</span><br><span class="line"><span class="number">553</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).multiTimes().sortKeys(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">554</span>                 edge_label, node_label, node_label, properties, sortKeys_val)</span><br><span class="line"><span class="number">555</span>         <span class="keyword">else</span>:</span><br><span class="line"><span class="number">556</span>             schema_line = <span class="string">'schema.edgeLabel("%s").sourceLabel("%s").targetLabel("%s").properties(%s).ifNotExist().create();'</span> % (</span><br><span class="line"><span class="number">557</span>                 edge_label, node_label, node_label, properties)</span><br><span class="line"><span class="number">558</span>         schema_list.append(schema_line)</span><br></pre></td></tr></table></figure>
-<p><strong>界面样例:</strong><br><img src="https://raw.githubusercontent.com/fansichao/awesome-it/master/images/20191128092739.png" alt="HugeGraph_顶点之间多边.png"></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="待完成"><a href="#待完成" class="headerlink" title="待完成"></a>待完成</h3><ul>
-<li><a href="https://github.com/hugegraph/hugegraph/issues/412" target="_blank" rel="noopener">restful 和 gremlin 接口的使用场景，底层区别简介</a></li>
+</li>
 </ul>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="字符串属性的模糊查询"><a href="#字符串属性的模糊查询" class="headerlink" title="字符串属性的模糊查询"></a>字符串属性的模糊查询</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/258" target="_blank" rel="noopener">字符串属性的模糊查询</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g.V().hasLabel(<span class="string">"person"</span>).has(<span class="string">"lived"</span>, Text.contains(<span class="string">"海淀区"</span>))</span><br><span class="line"><span class="comment"># Text.contains只支持分词后的全词匹配.</span></span><br><span class="line"><span class="comment"># 用 child来搜索"My children"可能会搜索不到.目前hugegraph还无法支持这种搜索，建议上层使用ES等索引库来实现这种模糊查询</span></span><br></pre></td></tr></table></figure>
-<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/29" target="_blank" rel="noopener">使用 HugeGraph 怎么求解最短路径</a></p>
-<p>Restful-Api-shortestpath</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其URL地址形如：http://localhost:<span class="number">8080</span>/graphs/hugegraph/traversers/shortestpath</span><br></pre></td></tr></table></figure>
-<p>Gremlin-最短路径</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最短路径</span></span><br><span class="line">g.V(<span class="string">"src_v_id"</span>)</span><br><span class="line"> .repeat(out().simplePath()).until(hasId(<span class="string">"target_v_id"</span>)</span><br><span class="line"> .<span class="keyword">or</span>().loops().<span class="keyword">is</span>(gte(<span class="number">4</span>))).hasId(<span class="string">"target_v_id"</span>)</span><br><span class="line"> .path().limit(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># limit(-1) 多条路径不限制</span></span><br></pre></td></tr></table></figure>
-<h3 id="K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居"><a href="#K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居" class="headerlink" title="K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居"></a>K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居</h3><p><a href="https://github.com/hugegraph/hugegraph/issues/716" target="_blank" rel="noopener">使用 gremlin 执行 k nearest neighbor</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g.V(<span class="string">"1:3301167"</span>).repeat(__.out(<span class="string">"MyEdge"</span>)).times(<span class="number">2</span>).dedup().count().next()</span><br></pre></td></tr></table></figure>
-<p>g.V(1).repeat(out().simplePath()).until(hasId(5)).path().limit(1)</p>
-<h2 id="Gremlin-语法"><a href="#Gremlin-语法" class="headerlink" title="Gremlin 语法"></a>Gremlin 语法</h2><p><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42076409/article/details/80856911</a></p>
-<p><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">http://tang.love/2018/11/15/gremlin_traversal_language/</a></p>
-<p><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">Gremlin 基础语法-条件和过滤</a><br><a href="https://blog.csdn.net/CSDN___LYY/article/details/84771820" target="_blank" rel="noopener">Gremlin – 常用查询用法</a></p>
-<p><a href="https://blog.csdn.net/linlin1989117/article/details/82658777" target="_blank" rel="noopener">深入学习 Gremlin（2）：边的遍历操作</a><br><a href="https://blog.csdn.net/weixin_42076409/article/details/80856911" target="_blank" rel="noopener">gremlin 语句详解</a></p>
-<p><a href="http://tinkerpop.apache.org/docs/3.2.5/reference/#drop-step" target="_blank" rel="noopener">GremLin 官方文档</a></p>
-<p><a href="https://blog.csdn.net/linlin1989117/article/details/82589895" target="_blank" rel="noopener">深入学习 Gremlin（3）：has 条件过滤</a><br><a href="https://blog.csdn.net/linlin1989117/article/details/82692587" target="_blank" rel="noopener">深入学习 Gremlin（9）：条件和过滤</a></p>
-<p><a href="https://blog.csdn.net/u010260089/article/details/82769959" target="_blank" rel="noopener">深入学习 Gremlin（10）：逻辑运算</a></p>
-<p><a href="https://blog.csdn.net/linlin1989117/article/details/82625906?utm_source=blogxgwz2" target="_blank" rel="noopener">深入学习 Gremlin（5）：查询路径 path</a><br><a href="https://blog.csdn.net/javeme/article/details/88417208" target="_blank" rel="noopener">深入学习 Gremlin（13）：路径选取与过滤</a><br><a href="http://tang.love/2018/11/15/gremlin_traversal_language/" target="_blank" rel="noopener">Gremlin 常用语法总结</a></p>
+<p>配置系统文件数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi /etc/security/limits.conf</span></span><br><span class="line">fdm              soft    nofile          65535</span><br><span class="line">fdm              hard    nofile          65535</span><br><span class="line"></span><br><span class="line">sysctl -p</span><br><span class="line"><span class="comment"># 修改后重新进入ssh</span></span><br><span class="line"><span class="comment"># fdm为用户名称</span></span><br></pre></td></tr></table></figure>
+<p>建议配置 apoc-3.3.0.3-all.jar 以支持 Neo4j 更多功能</p>
+<h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">[fdm@5e272144faf5 neo4j-community-3.3.5]$ bin/neo4j restart</span><br><span class="line">Stopping Neo4j.. stopped</span><br><span class="line">Starting Neo4j.</span><br><span class="line">Started neo4j (pid 1420). It is available at http://0.0.0.0:7474/</span><br><span class="line">There may be a short delay until the server is ready.</span><br><span class="line">See /home/fdm/neo4j/neo4j-community-3.3.5/logs/neo4j.log <span class="keyword">for</span> current status.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前端页面</span></span><br><span class="line">0.0.0.0:7474</span><br><span class="line"></span><br><span class="line">默认用户名 neo4j</span><br><span class="line">默认密码 qwe123</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -535,7 +516,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/moudule/hugegraph/" title="HugeGragh-使用文档">https://fansichao.github.io/moudule/hugegraph/</a>
+    <a href="https://fansichao.github.io/module/neo4j/install/" title="Neo4j-部署文档">https://fansichao.github.io/module/neo4j/install/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -550,9 +531,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Module/" rel="tag"># Module</a>
+            <a href="/tags/module/" rel="tag"># module</a>
           
-            <a href="/tags/Graph/" rel="tag"># Graph</a>
+            <a href="/tags/Neo4j/" rel="tag"># Neo4j</a>
           
         </div>
       
@@ -565,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/moudule/hugegraph/install/" rel="next" title="hugegraph-部署文档">
-                <i class="fa fa-chevron-left"></i> hugegraph-部署文档
+              <a href="/module/ipython/" rel="next" title="Ipython-技术文档">
+                <i class="fa fa-chevron-left"></i> Ipython-技术文档
               </a>
             
           </div>
@@ -575,8 +556,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/moudule/gremlin/" rel="prev" title="gremlin-使用文档">
-                gremlin-使用文档 <i class="fa fa-chevron-right"></i>
+              <a href="/module/nosetests/" rel="prev" title="Nosetests-技术文档">
+                Nosetests-技术文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -661,7 +642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">149</span>
+                  <span class="site-state-item-count">158</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -672,7 +653,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -683,7 +664,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -726,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HugeGraph-使用"><span class="nav-number">1.</span> <span class="nav-text">HugeGraph 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题项"><span class="nav-number">2.</span> <span class="nav-text">问题项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-2-数据查询时-无法对属性进行大小过滤"><span class="nav-number">2.1.</span> <span class="nav-text">问题 2-数据查询时,无法对属性进行大小过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-1-数据导入时-发现部分边缺失-起始顶点和结束顶点重复时"><span class="nav-number">2.2.</span> <span class="nav-text">问题 1-数据导入时,发现部分边缺失(起始顶点和结束顶点重复时)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#待完成"><span class="nav-number">3.1.</span> <span class="nav-text">待完成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">4.</span> <span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串属性的模糊查询"><span class="nav-number">4.1.</span> <span class="nav-text">字符串属性的模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路径"><span class="nav-number">4.2.</span> <span class="nav-text">最短路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-neighbor-API，根据起始顶点，查找-N-步以内可达的所有邻居"><span class="nav-number">4.3.</span> <span class="nav-text">K neighbor API，根据起始顶点，查找 N 步以内可达的所有邻居</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gremlin-语法"><span class="nav-number">5.</span> <span class="nav-text">Gremlin 语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">1.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器部署"><span class="nav-number">1.1.</span> <span class="nav-text">容器部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宿主机部署"><span class="nav-number">1.2.</span> <span class="nav-text">宿主机部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础使用"><span class="nav-number">2.</span> <span class="nav-text">基础使用</span></a></li></ol></div>
             
 
           </div>
