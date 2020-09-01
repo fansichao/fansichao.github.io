@@ -1,11 +1,12 @@
 ---
 title: HugeGragh-使用文档
-url_path: moudule/hugegraph/cmd
+url_path: module/hugegraph/cmd
 tags:
-  - Module
-  - Graph
+  - module
+  - graph
 categories:
-  - Module
+  - module
+  - graph
 description: HugeGraph图库
 ---
 

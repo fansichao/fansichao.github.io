@@ -86,3 +86,24 @@ search:
   field: post
   format: html
   limit: 10000
+
+# ---------------------------------------------------------------
+# Chat Services
+# See: https://theme-next.js.org/docs/third-party-services/chat-services
+# ---------------------------------------------------------------
+
+# Chatra Support
+# See: https://chatra.io
+# Dashboard: https://app.chatra.io/settings/general
+chatra:
+  enable: false
+  async: true
+  id: # Visit Dashboard to get your ChatraID
+  #embed: # Unfinished experimental feature for developers. See: https://chatra.io/help/api/#injectto
+
+# Tidio Support
+# See: https://www.tidiochat.com
+# Dashboard: https://www.tidiochat.com/panel/dashboard
+tidio:
+  enable: false
+  key: # Public Key, get it from dashboard. See: https://www.tidiochat.com/panel/settings/developer  

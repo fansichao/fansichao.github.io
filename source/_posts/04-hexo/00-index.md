@@ -15,7 +15,14 @@ description: Hexo博客配置
   - [Hexo 配置](http://www.superscfan.top/hexo/config)
   - [Hexo](http://www.superscfan.top/hexo/hexo)
 
+- 
 ## 相关资源
 
-- 外部资源
-  - [Hexo 博客如何折叠(显示/隐藏)部分文字](https://www.faker.top/2020/02/14/Hexo/h6-%E6%8A%98%E5%8F%A0%E6%96%87%E5%AD%97/)
+ 
+ 
+适合做笔记的博客主题
+
+- [适合做笔记本的博客](https://wujun234.github.io/)
+- [类似印象笔记的博客](https://yelog.org/2020/06/13/Docker-summary/)
+- [很好的文章展示博客](https://www.itfanr.cc/categories/)
+

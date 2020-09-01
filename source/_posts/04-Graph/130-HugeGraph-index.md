@@ -1,11 +1,11 @@
 ---
 title: hugegraph-使用文档
-url_path: moudule/hugegraph/index
+url_path: module/hugegraph/index
 tags:
-  - Module
+  - module
   - Graph
 categories:
-  - Module
+  - module
 description: hugegraph
 ---
 

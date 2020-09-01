@@ -406,12 +406,12 @@ gitment:
 # Gitalk
 gitalk:
   enable: true
-  ClientID: f28d68fd5271fd52826d
-  ClientSecret: 70a085c82c8d67b07e5482058272fcab3e969b83
-  repo: Leafney.github.io
-  owner: leafney
-  adminUser: leafney
-  IdPrefix: itfanr
+  ClientID: 02c9633efd3ac5a7b389
+  ClientSecret: e0245151fec034c33e2c69c104c586538ccc71e3
+  repo: fansichao.github.io
+  owner: fansichao
+  adminUser: http://www.superscfan.top/
+  IdPrefix: 
   labels: comments
   perPage: 10
   pagerDirection: last
@@ -808,3 +808,32 @@ images: images
 
 # Theme version
 version: 5.1.3
+
+
+# ---------------------------------------------------------------
+# Chat Services
+# See: https://theme-next.js.org/docs/third-party-services/chat-services
+# ---------------------------------------------------------------
+
+# Chatra Support
+# See: https://chatra.io
+# Dashboard: https://app.chatra.io/settings/general
+chatra:
+  enable: true
+  async: true
+  id: fansichao@126.com
+  # Visit Dashboard to get your ChatraID
+  #embed: # Unfinished experimental feature for developers. See: https://chatra.io/help/api/#injectto
+
+# Tidio Support
+# See: https://www.tidiochat.com
+# Dashboard: https://www.tidiochat.com/panel/dashboard
+tidio:
+  enable: false
+  key: # Public Key, get it from dashboard. See: https://www.tidiochat.com/panel/settings/developer  
+
+
+
+
+# 参考博客配置#
+# https://github.com/next-theme/hexo-theme-next/blob/master/_config.yml

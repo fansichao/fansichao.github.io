@@ -5,13 +5,53 @@ tags:
   - hexo
   - blog
 categories:
-  - module
+  - hexo
 description: Hexo静态博客使用文档
 ---
 
-## 文档说明
+## Hexo 博客配置
 
-## 使用说明
+### 折叠隐藏部分文字
+
+````bash
+<details>
+  <summary>隐藏内容的标题</summary>
+
+- 支持MarkDown语法
+- 支持代码块等等
+
+  ```python
+  import os
+  ``` // 防止排版错误：因为这是代码块内的代码。使用时可删除
+
+- 支持表格
+
+    |文字|文字|
+    |-|-|
+    |文字|文字|
+
+</details>
+````
+
+<details>
+  <summary>隐藏内容的标题</summary>
+
+- 支持 MarkDown 语法
+- 支持代码块等等
+
+  ```python
+  import os
+  ```
+
+- 支持表格
+
+  | 文字 | 文字 |
+  | ---- | ---- |
+  | 文字 | 文字 |
+
+</details>
+
+[Hexo 博客如何折叠(显示/隐藏)部分文字](https://www.faker.top/2020/02/14/Hexo/h6-%E6%8A%98%E5%8F%A0%E6%96%87%E5%AD%97/)
 
 ### 添加文章创建时间和更新时间
 
@@ -80,7 +120,20 @@ post:
   posted: 发表于
 ```
 
-## 参考链接
+参考链接
 
 - [Hexo 官方文档](https://hexo.io/docs/)
 - [hexo 添加文章更新时间](https://www.jianshu.com/p/ae3a0666e998)
+
+### 修改文章 URL 生成方式
+
+```yml
+# _config.yml 文件
+
+# permalink: :year/:month/:day/:title/
+permalink: :url_path/
+```
+
+### 个人博客绑定域名配置
+
+- [Hexo 个人博客绑定域名配置](https://blog.csdn.net/Wonz5130/article/details/82828761)

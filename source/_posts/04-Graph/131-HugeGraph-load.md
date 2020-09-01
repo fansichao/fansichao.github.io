@@ -6,7 +6,7 @@ tags:
   - module
   - hugegraph
 categories:
-  - Graph
+  - graph
 description: HugeGraph数据导入
 ---
 

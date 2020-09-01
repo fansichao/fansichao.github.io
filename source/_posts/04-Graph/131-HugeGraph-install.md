@@ -1,11 +1,11 @@
 ---
 title: hugegraph-部署文档
-url_path: moudule/hugegraph/install
+url_path: module/hugegraph/install
 tags:
-  - Module
+  - module
   - Graph
 categories:
-  - Module
+  - module
 description: hugegraph
 ---
 

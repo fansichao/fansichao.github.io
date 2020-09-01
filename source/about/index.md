@@ -37,7 +37,7 @@ comments: false
 
 #### 交流
 
-<!-- Email: service@itfanr.cc -->
+Email: 643566002@qq.com
 
 说明：如在浏览文章时遇到相关技术问题或有任何疑问，欢迎通过 Email 的方式和我讨论，我会在看到邮件留言后的第一时间回复您。
 
