@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="hexo,blog,">
+  <meta name="keywords" content="module,Graph,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Hexo博客配置">
-<meta name="keywords" content="hexo,blog">
+<meta name="description" content="hugegraph">
+<meta name="keywords" content="module,Graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客配置">
-<meta property="og:url" content="https://fansichao.github.io/hexo/hexo/index.html">
+<meta property="og:title" content="hugegraph-部署文档">
+<meta property="og:url" content="https://fansichao.github.io/module/hugegraph/install/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="Hexo博客配置">
+<meta property="og:description" content="hugegraph">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-29T05:54:02.219Z">
+<meta property="og:updated_time" content="2020-08-31T14:27:44.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客配置">
-<meta name="twitter:description" content="Hexo博客配置">
+<meta name="twitter:title" content="hugegraph-部署文档">
+<meta name="twitter:description" content="hugegraph">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://fansichao.github.io/hexo/hexo/">
+  <link rel="canonical" href="https://fansichao.github.io/module/hugegraph/install/">
 
 
 
 
 
-  <title>Hexo博客配置 | 格物方能致知</title>
+  <title>hugegraph-部署文档 | 格物方能致知</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/hexo/hexo/">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/module/hugegraph/install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SuperScfan">
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hexo博客配置</h2>
+          <h2 class="post-title" itemprop="name headline">hugegraph-部署文档</h2>
         
 
         <div class="post-meta">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T20:12:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T18:43:15+08:00">
                 2020-07-25
               </time>
             
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T13:54:02+08:00">
-                2020-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T22:27:44+08:00">
+                2020-08-31
               </time>
             
           </span>
@@ -368,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/module/" itemprop="url" rel="index">
+                    <span itemprop="name">module</span>
                   </a>
                 </span>
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  56
+                  1,367
                 </span>
               
 
@@ -418,7 +418,7 @@
 
           
               <div class="post-description">
-                  Hexo博客配置
+                  hugegraph
               </div>
           
 
@@ -435,14 +435,52 @@
       
 
       
-        <h2 id="博客主题"><a href="#博客主题" class="headerlink" title="博客主题"></a>博客主题</h2><p>适合做笔记的博客主题</p>
+        <h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>HugeGragh 共有如下工具</p>
 <ul>
-<li><a href="https://wujun234.github.io/" target="_blank" rel="noopener">适合做笔记本的博客</a></li>
-<li><a href="https://yelog.org/2020/06/13/Docker-summary/" target="_blank" rel="noopener">类似印象笔记的博客</a></li>
-<li><a href="https://www.itfanr.cc/categories/" target="_blank" rel="noopener">很好的文章展示博客</a></li>
+<li><strong>一键部署</strong>: 通过部署工具简单轻松的一键部署所有组件。参考 hugegraph-tools deploy。</li>
+<li><strong>可视化界面</strong>: 基于 Web 的可视化环境，提供图操作界面、图数据展示与分析。参考 hugegraph-studio。</li>
+<li><strong>导入工具</strong>: 数据导入工具，支持从 txt、csv、json 等格式文件导入到 HugeGraph。参考 hugegraph-loader。</li>
+<li><strong>导出工具</strong>: 数据导出工具，可将顶点及关联边导出到文件，支持用户实现 formatter 自定义格式。参考 hugegraph-tools/dump。</li>
+<li><strong>备份恢复工具</strong>: 数据备份与恢复工具，支持定时备份、手动备份、手动恢复等功能。参考 hugegraph-tools/backup&amp;restore。</li>
+<li><strong>Gremlin 任务工具</strong>: Gremlin 任务执行工具，支持同步执行 Gremlin 查询与分析（OLTP），支持异步执行 Gremlin 任务（OLAP）。参考 hugegraph-tools/gremlin。</li>
+<li><strong>集成 Spark GraphX 工具(Github 已下架)</strong>: 基于 Spark GraphX 的大数据环境下的图分析工具。参考 hugegraph-spark。</li>
 </ul>
-<h2 id="博客配置"><a href="#博客配置" class="headerlink" title="博客配置"></a>博客配置</h2><ul>
-<li><a href="https://blog.csdn.net/Wonz5130/article/details/82828761" target="_blank" rel="noopener">Hexo 个人博客绑定域名配置</a></li>
+<p>HugeGragh 框架模块</p>
+<ul>
+<li><strong>HugeGraph-Server</strong>: HugeGraph-Server 是 HugeGraph 项目的核心部分，包含 Core、Backend、API 等子模块；<ul>
+<li>Core: 图引擎实现，向下连接 Backend 模块，向上支持 API 模块；</li>
+<li>Backend: 实现将图数据存储到后端，支持的后端包括: Memory、Cassandra、ScyllaDB、RocksDB、HBase 以及 Mysql，用户根据实际情况选择一种即可；</li>
+<li>API: 内置 REST Server，向用户提供 RESTful API，同时兼容 Gremlin 查询。</li>
+</ul>
+</li>
+<li><strong>HugeGraph-Client</strong>: HugeGraph-Client 提供了 RESTful API 的客户端，用于连接 HugeGraph-Server，目前仅实现 Java 版，其他语言用户可自行实现；</li>
+<li><strong>HugeGraph-Studio</strong>: HugeGraph-Studio 是 HugeGraph 的 Web 可视化工具，可用于执行 Gremlin 语句及展示图；</li>
+<li><strong>HugeGraph-Loader</strong>: HugeGraph-Loader 是基于 HugeGraph-Client 的数据导入工具，将普通文本数据转化为图形的顶点和边并插入图形数据库中；</li>
+<li><strong>HugeGraph-Spark</strong>: 基于 Spark GraphX 的图分析工具 ，HugeGraph-Spark 能在图上做并行计算，例如 PageRank 算法等；</li>
+<li><strong>HugeGraph-Tools</strong>: HugeGraph-Tools 是 HugeGraph 的部署和管理工具，包括管理图、备份/恢复、Gremlin 执行等功能。</li>
+</ul>
+<p>总结: 部署 HugeGraph 需要 HugeGraph-Server，在网页上操作图需要 HugeGraph-Studio。</p>
+<p>需要安装 HugeGraph-Server HugeGraph-Studio HugeGraph-Loader 下载解压即用，详情见<a href="https://hugegraph.github.io/hugegraph-doc" target="_blank" rel="noopener">HugeGraph 官网</a></p>
+<p>安装部署命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认CentOS会自带这些包,Docker中的镜像需要自行安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决问题 line 92: crontab: command not found</span></span><br><span class="line">yum -y install lsof crontabs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压即用，安装包详见 Packages/hugegraph 下</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h2><h3 id="hugegraph-properties"><a href="#hugegraph-properties" class="headerlink" title="hugegraph.properties"></a>hugegraph.properties</h3><p><code>cat conf/hugegraph.properties</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gremlin entrence to create graph</span></span><br><span class="line">gremlin.graph=com.baidu.hugegraph.HugeFactory</span><br><span class="line"></span><br><span class="line"><span class="comment"># cache config</span></span><br><span class="line"><span class="comment">#schema.cache_capacity=1048576</span></span><br><span class="line"><span class="comment">#graph.cache_capacity=10485760</span></span><br><span class="line"><span class="comment">#graph.cache_expire=600</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># schema illegal name template</span></span><br><span class="line"><span class="comment">#schema.illegal_name_regex=\s+|~.*</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#vertex.default_label=vertex</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 rocksdb 方式，配置目录 rocksdb_data &amp; rocksdb_wal, 需要自建</span></span><br><span class="line">backend=rocksdb</span><br><span class="line">serializer=binary</span><br><span class="line">rocksdb.data_path=/data/hugegraph/rocksdb_data</span><br><span class="line">rocksdb.wal_path=/data/hugegraph/rocksdb_wal</span><br><span class="line"></span><br><span class="line"><span class="comment">#backend=scylladb</span></span><br><span class="line"><span class="comment">#serializer=scylladb</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Memory 临时存储在内存中,重启服务器后数据消失</span></span><br><span class="line"><span class="comment"># backend=memory</span></span><br><span class="line"><span class="comment"># serializer=text</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置存储库名称</span></span><br><span class="line">store=hugegraph</span><br><span class="line"></span><br><span class="line"><span class="comment"># rocksdb backend config</span></span><br><span class="line"><span class="comment">#rocksdb.data_path=/path/to/disk</span></span><br><span class="line"><span class="comment">#rocksdb.wal_path=/path/to/disk</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># cassandra backend config</span></span><br><span class="line">cassandra.host=0.0.0.0</span><br><span class="line">cassandra.port=9042</span><br><span class="line">cassandra.username=</span><br><span class="line">cassandra.password=</span><br><span class="line"><span class="comment">#cassandra.connect_timeout=5</span></span><br><span class="line"><span class="comment">#cassandra.read_timeout=20</span></span><br><span class="line"><span class="comment">#cassandra.keyspace.strategy=SimpleStrategy</span></span><br><span class="line"><span class="comment">#cassandra.keyspace.replication=3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql backend config</span></span><br><span class="line"><span class="comment">#jdbc.url=jdbc:mysql://127.0.0.1:3306</span></span><br><span class="line"><span class="comment">#jdbc.username=root</span></span><br><span class="line"><span class="comment">#jdbc.password=</span></span><br><span class="line"><span class="comment">#jdbc.reconnect_max_times=3</span></span><br><span class="line"><span class="comment">#jdbc.reconnect_interval=3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># palo backend config</span></span><br><span class="line"><span class="comment">#palo.host=127.0.0.1</span></span><br><span class="line"><span class="comment">#palo.poll_interval=10</span></span><br><span class="line"><span class="comment">#palo.temp_dir=./palo-data</span></span><br><span class="line"><span class="comment">#palo.file_limit_size=32</span></span><br></pre></td></tr></table></figure>
+<h3 id="rest-server-properties"><a href="#rest-server-properties" class="headerlink" title="rest-server.properties"></a>rest-server.properties</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cat conf/rest-server.properties</span><br><span class="line"><span class="comment"># bind url</span></span><br><span class="line"><span class="comment"># 配置为 0.0.0.0 使得其他机器可以访问</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#restserver.url=http://127.0.0.1:8080</span></span><br><span class="line">restserver.url=http://0.0.0.0:8080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 图库对应使用的配置文件</span></span><br><span class="line"><span class="comment"># graphs list with pair NAME:CONF_PATH</span></span><br><span class="line">graphs=[hugegraph:conf/hugegraph.properties]</span><br><span class="line"></span><br><span class="line"><span class="comment"># authentication</span></span><br><span class="line"><span class="comment">#auth.require_authentication=</span></span><br><span class="line"><span class="comment">#auth.admin_token=</span></span><br><span class="line"><span class="comment">#auth.user_tokens=[]</span></span><br></pre></td></tr></table></figure>
+<h3 id="gremlin-server"><a href="#gremlin-server" class="headerlink" title="gremlin-server"></a>gremlin-server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">cat conf/gremlin-server.yaml</span><br><span class="line"></span><br><span class="line">scriptEvaluationTimeout: 30000</span><br><span class="line"># If you want to start gremlin-server for gremlin-console(web-socket),</span><br><span class="line"># please change `HttpChannelizer` to `WebSocketChannelizer` or comment this line.</span><br><span class="line">channelizer: org.apache.tinkerpop.gremlin.server.channel.HttpChannelizer</span><br><span class="line">graphs: &#123;</span><br><span class="line">    # 库名称 &amp; 库配置文件</span><br><span class="line">    hugegraph: conf/hugegraph.properties</span><br><span class="line">&#125;</span><br><span class="line">plugins:</span><br><span class="line">  - com.baidu.hugegraph</span><br><span class="line">scriptEngines: &#123;</span><br><span class="line">  gremlin-groovy: &#123;</span><br><span class="line">    imports: [java.lang.Math],</span><br><span class="line">    staticImports: [java.lang.Math.PI],</span><br><span class="line">    scripts: [scripts/empty-sample.groovy]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">serializers:</span><br><span class="line">  - &#123; className: org.apache.tinkerpop.gremlin.driver.ser.GryoLiteMessageSerializerV1d0,</span><br><span class="line">      config: &#123;</span><br><span class="line">        serializeResultToString: false,</span><br><span class="line">        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  - &#123; className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0,</span><br><span class="line">      config: &#123;</span><br><span class="line">        serializeResultToString: true,</span><br><span class="line">        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  - &#123; className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV1d0,</span><br><span class="line">      config: &#123;</span><br><span class="line">        serializeResultToString: false,</span><br><span class="line">        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  - &#123; className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV2d0,</span><br><span class="line">      config: &#123;</span><br><span class="line">        serializeResultToString: false,</span><br><span class="line">        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  - &#123; className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,</span><br><span class="line">      config: &#123;</span><br><span class="line">        serializeResultToString: false,</span><br><span class="line">        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">metrics: &#123;</span><br><span class="line">  consoleReporter: &#123;enabled: false, interval: 180000&#125;,</span><br><span class="line">  csvReporter: &#123;enabled: true, interval: 180000, fileName: /tmp/gremlin-server-metrics.csv&#125;,</span><br><span class="line">  jmxReporter: &#123;enabled: false&#125;,</span><br><span class="line">  slf4jReporter: &#123;enabled: false, interval: 180000&#125;,</span><br><span class="line">  gangliaReporter: &#123;enabled: false, interval: 180000, addressingMode: MULTICAST&#125;,</span><br><span class="line">  graphiteReporter: &#123;enabled: false, interval: 180000&#125;</span><br><span class="line">&#125;</span><br><span class="line">maxInitialLineLength: 4096</span><br><span class="line">maxHeaderSize: 8192</span><br><span class="line">maxChunkSize: 8192</span><br><span class="line">maxContentLength: 65536</span><br><span class="line">maxAccumulationBufferComponents: 1024</span><br><span class="line">resultIterationBatchSize: 64</span><br><span class="line">writeBufferLowWaterMark: 32768</span><br><span class="line">writeBufferHighWaterMark: 65536</span><br><span class="line">ssl: &#123;</span><br><span class="line">  enabled: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置-HugeGraph-连接数据库"><a href="#配置-HugeGraph-连接数据库" class="headerlink" title="配置 HugeGraph 连接数据库"></a>配置 HugeGraph 连接数据库</h3><p>修改配置文件</p>
+<p>第一次使用 HugeGraph 时，需要初始化数据库</p>
+<p>bin/init-store.sh</p>
+<blockquote>
+<p>初始化数据库时，必须先 bin/stop-hugegraph.sh ,否则可能初始化失败。</p>
+</blockquote>
+<p>启动服务</p>
+<p>bin/start-hugegraph.sh</p>
+<blockquote>
+<p>启动服务时,必须先关闭 hugegraph-studio 服务。否则会启动失败,报错端口已被使用。</p>
+</blockquote>
+<h2 id="查看浏览器页面"><a href="#查看浏览器页面" class="headerlink" title="查看浏览器页面"></a>查看浏览器页面</h2><ul>
+<li>前台操作页面 <a href="http://0.0.0.0:8088/" target="_blank" rel="noopener">http://0.0.0.0:8088/</a></li>
+<li>后台页面: <a href="http://0.0.0.0:8080/graphs" target="_blank" rel="noopener">http://0.0.0.0:8080/graphs</a></li>
 </ul>
 
       
@@ -494,7 +532,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/hexo/hexo/" title="Hexo博客配置">https://fansichao.github.io/hexo/hexo/</a>
+    <a href="https://fansichao.github.io/module/hugegraph/install/" title="hugegraph-部署文档">https://fansichao.github.io/module/hugegraph/install/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -509,9 +547,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/module/" rel="tag"># module</a>
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/Graph/" rel="tag"># Graph</a>
           
         </div>
       
@@ -524,8 +562,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/else/项目通用流程/" rel="next" title="项目流程-index">
-                <i class="fa fa-chevron-left"></i> 项目流程-index
+              <a href="/module/hugegraph/index/" rel="next" title="hugegraph-使用文档">
+                <i class="fa fa-chevron-left"></i> hugegraph-使用文档
               </a>
             
           </div>
@@ -534,8 +572,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python/advance/高级特性大全/" rel="prev" title="Python 高级特性大全">
-                Python 高级特性大全 <i class="fa fa-chevron-right"></i>
+              <a href="/module/hugegraph/cmd/" rel="prev" title="HugeGragh-使用文档">
+                HugeGragh-使用文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,7 +658,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-count">157</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -642,7 +680,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -685,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客主题"><span class="nav-number">1.</span> <span class="nav-text">博客主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客配置"><span class="nav-number">2.</span> <span class="nav-text">博客配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署"><span class="nav-number">1.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件详解"><span class="nav-number">2.</span> <span class="nav-text">配置文件详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hugegraph-properties"><span class="nav-number">2.1.</span> <span class="nav-text">hugegraph.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rest-server-properties"><span class="nav-number">2.2.</span> <span class="nav-text">rest-server.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gremlin-server"><span class="nav-number">2.3.</span> <span class="nav-text">gremlin-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-HugeGraph-连接数据库"><span class="nav-number">2.4.</span> <span class="nav-text">配置 HugeGraph 连接数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看浏览器页面"><span class="nav-number">3.</span> <span class="nav-text">查看浏览器页面</span></a></li></ol></div>
             
 
           </div>
@@ -903,12 +941,12 @@
 
    <script type="text/javascript">
         var gitalk = new Gitalk({
-          clientID: 'f28d68fd5271fd52826d',
-          clientSecret: '70a085c82c8d67b07e5482058272fcab3e969b83',
-          repo: 'Leafney.github.io',
-          owner: 'leafney',
-          admin: ['leafney'],
-          id:'itfanr_20200725201202',
+          clientID: '02c9633efd3ac5a7b389',
+          clientSecret: 'e0245151fec034c33e2c69c104c586538ccc71e3',
+          repo: 'fansichao.github.io',
+          owner: 'fansichao',
+          admin: ['fansichao'],
+          id:'_20200725184315',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',
