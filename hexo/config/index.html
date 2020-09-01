@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Hexo静态博客使用文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T23:31:38.617Z">
+<meta property="og:updated_time" content="2020-09-01T00:19:45.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo静态博客使用文档">
 <meta name="twitter:description" content="Hexo静态博客使用文档">
@@ -350,7 +350,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T07:31:38+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T08:19:45+08:00">
                 2020-09-01
               </time>
             
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  513
+                  599
                 </span>
               
 
@@ -456,6 +456,8 @@
 <h3 id="个人博客绑定域名配置"><a href="#个人博客绑定域名配置" class="headerlink" title="个人博客绑定域名配置"></a>个人博客绑定域名配置</h3><ul>
 <li><a href="https://blog.csdn.net/Wonz5130/article/details/82828761" target="_blank" rel="noopener">Hexo 个人博客绑定域名配置</a></li>
 </ul>
+<h3 id="博客评论配置"><a href="#博客评论配置" class="headerlink" title="博客评论配置"></a>博客评论配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># themes\next\layout\_partials\comments.swig</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">elseif</span> <span class="string">theme.gitalk.enable</span> <span class="string">%&#125;</span></span><br><span class="line">  <span class="string">&lt;div</span> <span class="string">class="comments"</span> <span class="string">id="comments"&gt;</span></span><br><span class="line">      <span class="string">&lt;div</span> <span class="string">id="gitalk-container"&gt;&lt;/div&gt;</span></span><br><span class="line">  <span class="string">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  ClientID:</span> <span class="string">xxxxx</span></span><br><span class="line"><span class="attr">  ClientSecret:</span> <span class="string">xxxxxx</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">fansichao.github.io</span></span><br><span class="line"><span class="attr">  owner:</span> <span class="string">fansichao</span></span><br><span class="line"><span class="attr">  adminUser:</span> <span class="string">fansichao</span></span><br><span class="line"><span class="attr">  IdPrefix:</span></span><br><span class="line"><span class="attr">  labels:</span> <span class="string">comments</span></span><br><span class="line"><span class="attr">  perPage:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">  pagerDirection:</span> <span class="string">last</span></span><br><span class="line"><span class="attr">  createIssueManually:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  distractionFreeMode:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  enableHotKey:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>配置详见 <a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gittalk-github 参考</a></p>
 
       
     </div>
@@ -697,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-博客配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠隐藏部分文字"><span class="nav-number">1.1.</span> <span class="nav-text">折叠隐藏部分文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章创建时间和更新时间"><span class="nav-number">1.2.</span> <span class="nav-text">添加文章创建时间和更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章-URL-生成方式"><span class="nav-number">1.3.</span> <span class="nav-text">修改文章 URL 生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人博客绑定域名配置"><span class="nav-number">1.4.</span> <span class="nav-text">个人博客绑定域名配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-博客配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠隐藏部分文字"><span class="nav-number">1.1.</span> <span class="nav-text">折叠隐藏部分文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章创建时间和更新时间"><span class="nav-number">1.2.</span> <span class="nav-text">添加文章创建时间和更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章-URL-生成方式"><span class="nav-number">1.3.</span> <span class="nav-text">修改文章 URL 生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人博客绑定域名配置"><span class="nav-number">1.4.</span> <span class="nav-text">个人博客绑定域名配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客评论配置"><span class="nav-number">1.5.</span> <span class="nav-text">博客评论配置</span></a></li></ol></li></ol></div>
             
 
           </div>
