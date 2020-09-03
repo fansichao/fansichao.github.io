@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="....">
+<meta name="description" content="ES部署文档">
 <meta name="keywords" content="Module,Elasticsearch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Module-ES-564部署文档">
+<meta property="og:title" content="ES部署文档">
 <meta property="og:url" content="https://fansichao.github.io/module/es/install/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="....">
+<meta property="og:description" content="ES部署文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-29T07:54:16.190Z">
+<meta property="og:updated_time" content="2020-09-02T12:15:11.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Module-ES-564部署文档">
-<meta name="twitter:description" content="....">
+<meta name="twitter:title" content="ES部署文档">
+<meta name="twitter:description" content="ES部署文档">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Module-ES-564部署文档 | 格物方能致知</title>
+  <title>ES部署文档 | 格物方能致知</title>
   
 
 
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Module-ES-564部署文档</h2>
+          <h2 class="post-title" itemprop="name headline">ES部署文档</h2>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-29T15:54:16+08:00">
-                2020-08-29
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-02T20:15:11+08:00">
+                2020-09-02
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  142
+                  697
                 </span>
               
 
@@ -418,7 +418,7 @@
 
           
               <div class="post-description">
-                  ....
+                  ES部署文档
               </div>
           
 
@@ -435,8 +435,27 @@
       
 
       
-        <p>tags: <code>2020年</code> <code>05月</code> <code>elasticsearch</code></p>
-<h2 id="部署文档"><a href="#部署文档" class="headerlink" title="部署文档"></a>部署文档</h2><p><strong>环境说明:</strong></p>
+        <h2 id="部署文档"><a href="#部署文档" class="headerlink" title="部署文档"></a>部署文档</h2><h3 id="ES740"><a href="#ES740" class="headerlink" title="ES740"></a>ES740</h3><p><strong>环境说明:</strong></p>
+<ul>
+<li>CentOS8.1.19</li>
+<li>version: ES7.4.0</li>
+<li>分词、拼音、python 的 elasticsearch 必须和 ES740 版本对应，否则可能存在使用异常情况。</li>
+</ul>
+<h4 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a>系统依赖</h4><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.4/system-config.html" target="_blank" rel="noopener">ES 官网系统配置</a></p>
+<p>修改系统参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改文件 vi /etc/sysctl.conf</span></span><br><span class="line">vm.max_map_count=655360</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件  vi /etc/security/limits.d/90-nproc.conf(文件名称可能存在差异, 文件不存在则不用修改)</span></span><br><span class="line">找到如下内容：</span><br><span class="line">soft nproc 1024</span><br><span class="line">修改为</span><br><span class="line">soft nproc 2048</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件 vim /etc/security/limits.conf, 添加如下内容</span></span><br><span class="line">*                soft    nofile          65536</span><br><span class="line">*                hard    nofile          65536</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行命令使其生效</span></span><br><span class="line">sysctl -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看是否生效</span></span><br><span class="line"><span class="built_in">ulimit</span> -Hn <span class="comment"># 显示 65536 则表示修改成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 特别说明，已有用户必须重新登录，重新连接ssh, 避免不生效的情况</span></span><br></pre></td></tr></table></figure>
+<h4 id="简单部署"><a href="#简单部署" class="headerlink" title="简单部署"></a>简单部署</h4><p>解压即用，ES7.4 自带 java 环境，无需安装 java 环境。</p>
+<p>文件详见 <code>/03-常用工具/01-部署软件/es74.zip</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取 ES740 安装包</span></span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.0-linux-x86_64.tar.gz</span><br><span class="line"><span class="comment"># 安装 对应版本 拼音插件</span></span><br><span class="line"><span class="comment"># 安装 对应版本 分词插件</span></span><br></pre></td></tr></table></figure>
+<h4 id="服务启停"><a href="#服务启停" class="headerlink" title="服务启停"></a>服务启停</h4><p><code>ES740</code>的<code>restart.sh</code>软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&gt;&gt; Restart Elasticsearch74 starting..."</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&gt; Stop Es and Kibana ..."</span></span><br><span class="line">ps anx | grep cli | grep -v grep| awk <span class="string">'&#123;print $1&#125;'</span> | xargs <span class="built_in">kill</span> -15</span><br><span class="line">ps anx | grep elasticsearch | grep -v grep| awk <span class="string">'&#123;print $1&#125;'</span> | xargs <span class="built_in">kill</span> -15</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&gt; Start Es and Kibana ..."</span></span><br><span class="line">su - es -lc <span class="string">"cd /home/es/es/node_noly &amp;&amp; bin/elasticsearch -d"</span></span><br><span class="line">su - es -lc <span class="string">"cd /home/es/es/kibana &amp;&amp; nohup bin/kibana &amp;"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"&gt;&gt; Restart Elasticsearch74 end..."</span></span><br></pre></td></tr></table></figure>
+<p>可视化界面展示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES 界面</span></span><br><span class="line">http://0.0.0.0:9200</span><br><span class="line"><span class="comment"># Kibana 界面</span></span><br><span class="line">http://0.0.0.0:5601</span><br></pre></td></tr></table></figure>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>ES 的配置文件 <code>elasticsearch.yml</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bootstrap</span></span><br><span class="line">bootstrap.system_call_filter: <span class="literal">false</span></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">cluster.name: es74_cluste</span><br><span class="line">node.name: node-only</span><br><span class="line"><span class="comment"># node</span></span><br><span class="line">node.master: <span class="literal">true</span></span><br><span class="line">node.data: <span class="literal">true</span></span><br><span class="line">node.max_local_storage_nodes: 3</span><br><span class="line"><span class="comment">#node.zone: zone_one</span></span><br><span class="line"><span class="comment"># path</span></span><br><span class="line">path.data: /data/data</span><br><span class="line">path.logs: /data/logs</span><br><span class="line"><span class="comment"># host&amp;port</span></span><br><span class="line">network.host: 0.0.0.0</span><br><span class="line">http.port: 9200</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">'*'</span></span><br><span class="line"><span class="comment"># xpack</span></span><br><span class="line">xpack.security.enabled: <span class="literal">false</span></span><br><span class="line"><span class="comment"># cluster zone</span></span><br><span class="line">cluster.routing.allocation.awareness.attributes: zone</span><br><span class="line">node.attr.zone: zone_two</span><br><span class="line"><span class="comment">#discovery.zen.minimum_master_nodes: 2</span></span><br><span class="line"><span class="comment">#http.max_content_length: 500mb</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#thread_pool.bulk.queue_size: 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># discovery.seed_hosts: ["192.168.100.200"]</span></span><br><span class="line">discovery.seed_hosts: [<span class="string">"0.0.0.0"</span>]</span><br><span class="line">cluster.initial_master_nodes: [<span class="string">"node-only"</span>]</span><br></pre></td></tr></table></figure>
+<p>Kibana 的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.host: <span class="string">"0.0.0.0"</span></span><br><span class="line">server.port: 5601</span><br><span class="line">elasticsearch.hosts: [<span class="string">"http://0.0.0.0:9200"</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="564-部署文档"><a href="#564-部署文档" class="headerlink" title="564 部署文档"></a>564 部署文档</h3><p><strong>环境说明:</strong></p>
 <ul>
 <li>CentOS8.1.19</li>
 <li>version: ES7.4.0</li>
@@ -444,8 +463,11 @@
 <li>ES5.6.4 x-pack 收费,只能试用一个月</li>
 <li>ES5.6.4 和 Es7.4.0 存在较大语法差异，详见 <a href="B-ES版本差异对比.md">ES 版本差异对比</a></li>
 </ul>
-<h3 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a>系统依赖</h3><p>参考 <a href="B-ES740-部署文档.md#系统依赖">ES740-部署文档#系统依赖</a></p>
-<h3 id="详细部署"><a href="#详细部署" class="headerlink" title="详细部署"></a>详细部署</h3><p>整体流程，参考 <a href="B-ES740-部署文档.md#详细部署">ES740-部署文档#详细部署</a></p>
+<p>部署依赖</p>
+<ul>
+<li>系统参数依赖</li>
+<li>JDK1.8+依赖</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 5.6.4 文件</span></span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.4.tar.gz</span><br></pre></td></tr></table></figure>
 
       
@@ -497,7 +519,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/module/es/install/" title="Module-ES-564部署文档">https://fansichao.github.io/module/es/install/</a>
+    <a href="https://fansichao.github.io/module/es/install/" title="ES部署文档">https://fansichao.github.io/module/es/install/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -537,8 +559,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/module/es/docs/" rel="prev" title="Module-ES-使用文档">
-                Module-ES-使用文档 <i class="fa fa-chevron-right"></i>
+              <a href="/module/faker/" rel="prev" title="Faker-技术文档">
+                Faker-技术文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -623,7 +645,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -634,7 +656,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -688,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署文档"><span class="nav-number">1.</span> <span class="nav-text">部署文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统依赖"><span class="nav-number">1.1.</span> <span class="nav-text">系统依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细部署"><span class="nav-number">1.2.</span> <span class="nav-text">详细部署</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署文档"><span class="nav-number">1.</span> <span class="nav-text">部署文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES740"><span class="nav-number">1.1.</span> <span class="nav-text">ES740</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">系统依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单部署"><span class="nav-number">1.1.2.</span> <span class="nav-text">简单部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务启停"><span class="nav-number">1.1.3.</span> <span class="nav-text">服务启停</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件"><span class="nav-number">1.1.4.</span> <span class="nav-text">配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#564-部署文档"><span class="nav-number">1.2.</span> <span class="nav-text">564 部署文档</span></a></li></ol></li></ol></div>
             
 
           </div>

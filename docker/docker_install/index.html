@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker容器部署文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T13:05:19.321Z">
+<meta property="og:updated_time" content="2020-09-01T11:40:54.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker部署文档">
 <meta name="twitter:description" content="Docker容器部署文档">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-26T21:05:19+08:00">
-                2020-08-26
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T19:40:54+08:00">
+                2020-09-01
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  914
                 </span>
               
 
@@ -435,7 +435,35 @@
       
 
       
-        
+        <h2 id="Docker-Iinstall"><a href="#Docker-Iinstall" class="headerlink" title="Docker Iinstall"></a>Docker Iinstall</h2><h3 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h3><p><strong>安装说明:</strong></p>
+<ol>
+<li>CentOS6.10 环境，要求 6.8+</li>
+<li>Docker 版本 1.7.1</li>
+</ol>
+<p><strong>步骤 1:</strong> 配置下载镜像 <code>docker.repo</code> 文件</p>
+<p>CentOS6 安装方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@yinsho ~]<span class="comment"># cat /etc/yum.repos.d/docker.repo</span></span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/6</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br></pre></td></tr></table></figure>
+<p>CentOS7 安装方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@yinsho ~]<span class="comment"># cat /etc/yum.repos.d/docker.repo</span></span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/7</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 2:</strong> 重建元数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 3:</strong> 安装 docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-engine  -y</span><br></pre></td></tr></table></figure>
+<p>问题: docker-engine conflicts</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果执行报错 docker-engine conflicts with xxxxx</span></span><br><span class="line"><span class="comment"># 先卸载 docker，再安装 docker-engine</span></span><br><span class="line">yum remove docker -y</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 4:</strong> 启动 docker 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service docker start</span><br><span class="line">chkconfig docker on</span><br></pre></td></tr></table></figure>
+<p><strong>步骤 5:</strong> 非 root 用户使用 docker. 将用户添加到 docker 用户组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加用户组后 必须重启服务</span></span><br><span class="line"><span class="comment"># Centos7</span></span><br><span class="line">sudo systemctl restart docker</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br><span class="line"><span class="comment"># CentOS6</span></span><br><span class="line">sudo service restart docker</span><br><span class="line">sudo chkconfig on docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加用户组后 必须切换当前会话到新 group 或者重启 X 会话</span></span><br><span class="line">newgrp - docker 或  pkill X</span><br></pre></td></tr></table></figure>
+<p><strong>参考说明:</strong></p>
+<p><a href="https://blog.csdn.net/abcd_d_/article/details/53996791" target="_blank" rel="noopener">安装参考链接</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">如果报错 No module named yum</span><br><span class="line">参考: https://www.cnblogs.com/clover-siyecao/p/5650893.html</span><br><span class="line"></span><br><span class="line">rpm -Uvh http://ftp.riken.jp/Linux/fedora/epel/6Server/x86_64/epel-release-6-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">yum remove docker -y</span><br><span class="line">yum install -y docker-io</span><br></pre></td></tr></table></figure>
+<h2 id="Centos8-在线部署"><a href="#Centos8-在线部署" class="headerlink" title="Centos8-在线部署"></a>Centos8-在线部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">dnf repolist -v</span><br><span class="line"><span class="comment"># 列出当前支持的 docker-ce 版本</span></span><br><span class="line">dnf list docker-ce --showduplicates | sort -r</span><br><span class="line"><span class="comment"># 前置依赖</span></span><br><span class="line">dnf install containerd.io -y</span><br><span class="line">yum install podman-manpages -y</span><br><span class="line"></span><br><span class="line">dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm</span><br><span class="line">dnf install docker-ce -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启Docker服务</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="comment"># Docker开机自启</span></span><br><span class="line">/bin/systemctl <span class="built_in">enable</span> docker.service</span><br></pre></td></tr></table></figure>
+<h2 id="CentOS7-离线部署"><a href="#CentOS7-离线部署" class="headerlink" title="CentOS7-离线部署"></a>CentOS7-离线部署</h2><p>参考链接: <a href="https://blog.csdn.net/u013058742/article/details/80075633" target="_blank" rel="noopener">centos7-离线安装 docker</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">在 https://download.docker.com/linux/centos/7/x86_64/stable/Packages 下载docker-ce-17.12.0.ce-1.el7.centos.x86_64.rpm</span><br><span class="line"></span><br><span class="line">2.下载9个依赖</span><br><span class="line"></span><br><span class="line">在 http://mirrors.163.com/centos/7/os/x86_64/Packages 下载8个依赖</span><br><span class="line"></span><br><span class="line">audit-libs-python-2.7.6-3.el7.x86_64.rpm</span><br><span class="line">checkpolicy-2.5-4.el7.x86_64.rpm</span><br><span class="line">libcgroup-0.41-13.el7.x86_64.rpm</span><br><span class="line">libseccomp-2.3.1-3.el7.x86_64.rpm</span><br><span class="line">libsemanage-python-2.5-8.el7.x86_64.rpm</span><br><span class="line">policycoreutils-python-2.5-17.1.el7.x86_64.rpm</span><br><span class="line">python-IPy-0.75-6.el7.noarch.rpm</span><br><span class="line">setools-libs-3.3.8-1.1.el7.x86_64.rpm</span><br><span class="line"></span><br><span class="line">在http://rpm.pbone.net/index.php3?<span class="built_in">stat</span>=3&amp;<span class="built_in">limit</span>=1&amp;srodzaj=1&amp;dl=40&amp;search=container-selinux&amp;field[]=1&amp;field[]=2 下载container-selinux-2.9-4.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">下载链接：ftp://mirror.switch.ch/pool/4/mirror/scientificlinux/7x/external_products/extras/x86_64/container-selinux-2.9-4.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">3.安装</span><br><span class="line"></span><br><span class="line">将8个依赖复制到服务器上如：/root/docker/</span><br><span class="line"></span><br><span class="line">将docker-ce-17.12.0.ce-1.el7.centos.x86_64.rpm和container-selinux-2.9-4.el7.noarch.rpm复制到/root/docker/rpm/</span><br><span class="line"></span><br><span class="line">rpm -ivh /root/docker/*.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh /root/docker/rpm/container-selinux-2.9-4.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh/root/docker/rpm/docker-ce-17.12.0.ce-1.el7.centos.x86_64.rpm</span><br><span class="line"></span><br><span class="line">4.启动</span><br><span class="line"></span><br><span class="line">service docker start</span><br><span class="line"></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+<h2 id="CentOS8-离线部署"><a href="#CentOS8-离线部署" class="headerlink" title="CentOS8-离线部署"></a>CentOS8-离线部署</h2><p>参考链接: <a href="https://blog.csdn.net/haveqing/article/details/105277605" target="_blank" rel="noopener">CentOS8 离线安装 docker</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载文件 tgz</span></span><br><span class="line">https://download.docker.com/linux/static/stable/x86_64/</span><br><span class="line"><span class="comment"># 下载文件 rpm</span></span><br><span class="line">https://download.docker.com/linux/centos/7/x86_64/stable/Packages/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载冲突软件 podman(虚拟化软件)</span></span><br><span class="line">rpm -q podman</span><br><span class="line">yum remove podman</span><br><span class="line"><span class="comment"># 安装docker</span></span><br><span class="line">yum install containerd.io-1.2.6-3.3.el7.x86_64.rpm -y</span><br><span class="line">yum install docker-ce-cli-19.03.9-3.el7.x86_64.rpm -y</span><br><span class="line">yum install docker-ce-19.03.9-3.el7.x86_64.rpm -y</span><br><span class="line"><span class="comment"># 元数据检查</span></span><br><span class="line">yum module <span class="built_in">enable</span> perl:5.26</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -515,7 +543,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/undefined/" rel="next" title="001-之乐观锁与悲观锁">
+              <a href="/know/乐观锁与悲观锁/" rel="next" title="001-之乐观锁与悲观锁">
                 <i class="fa fa-chevron-left"></i> 001-之乐观锁与悲观锁
               </a>
             
@@ -584,8 +612,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -602,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +650,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -657,6 +694,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Iinstall"><span class="nav-number">1.</span> <span class="nav-text">Docker Iinstall</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6"><span class="nav-number">1.1.</span> <span class="nav-text">CentOS6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos8-在线部署"><span class="nav-number">2.</span> <span class="nav-text">Centos8-在线部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS7-离线部署"><span class="nav-number">3.</span> <span class="nav-text">CentOS7-离线部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS8-离线部署"><span class="nav-number">4.</span> <span class="nav-text">CentOS8-离线部署</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

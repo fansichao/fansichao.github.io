@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Docker常用配置，例如设置时区、systemctl命令设置等等，此处也会记录docker相关的问题记录">
+<meta name="description" content="....">
 <meta name="keywords" content="Module,Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Module-Docker-模块功能">
+<meta property="og:title" content="Module-Docker-使用文档">
 <meta property="og:url" content="https://fansichao.github.io/undefined/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="Docker常用配置，例如设置时区、systemctl命令设置等等，此处也会记录docker相关的问题记录">
+<meta property="og:description" content="....">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Module-Docker-模块功能">
-<meta name="twitter:description" content="Docker常用配置，例如设置时区、systemctl命令设置等等，此处也会记录docker相关的问题记录">
+<meta name="twitter:title" content="Module-Docker-使用文档">
+<meta name="twitter:description" content="....">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Module-Docker-模块功能 | 格物方能致知</title>
+  <title>Module-Docker-使用文档 | 格物方能致知</title>
   
 
 
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Module-Docker-模块功能</h2>
+          <h2 class="post-title" itemprop="name headline">Module-Docker-使用文档</h2>
         
 
         <div class="post-meta">
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  373
+                  976
                 </span>
               
 
@@ -418,7 +418,7 @@
 
           
               <div class="post-description">
-                  Docker常用配置，例如设置时区、systemctl命令设置等等，此处也会记录docker相关的问题记录
+                  ....
               </div>
           
 
@@ -435,19 +435,19 @@
       
 
       
-        <h2 id="Docker-常用配置"><a href="#Docker-常用配置" class="headerlink" title="Docker-常用配置"></a>Docker-常用配置</h2><p>可选配置/必需配置</p>
-<ul>
-<li>可选配置</li>
-<li>必需配置</li>
+        <h2 id="Docker-使用"><a href="#Docker-使用" class="headerlink" title="Docker 使用"></a>Docker 使用</h2><h2 id="Docker-功能"><a href="#Docker-功能" class="headerlink" title="Docker 功能"></a>Docker 功能</h2><h3 id="Docker-网络配置使用"><a href="#Docker-网络配置使用" class="headerlink" title="Docker 网络配置使用"></a>Docker 网络配置使用</h3><h3 id="Docker-性能监控"><a href="#Docker-性能监控" class="headerlink" title="Docker 性能监控"></a>Docker 性能监控</h3><h3 id="其他模块"><a href="#其他模块" class="headerlink" title="其他模块"></a>其他模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">其他模块</span><br><span class="line">使用xshell登录docker -- 方式1 进入docker虚拟机</span><br><span class="line">ssh 192.168.99.100 <span class="comment"># docker的IP ，通过查看docker虚拟机的ip登入docker界面</span></span><br><span class="line">用户名默认是: docker</span><br><span class="line">密码默认: tcuser</span><br><span class="line">端口: 22</span><br><span class="line"></span><br><span class="line"><span class="comment"># 涉及安装openssh-server</span></span><br><span class="line">http://blog.csdn.net/vincent2610/article/details/52490397</span><br><span class="line">yum install -y openssh-server</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">将PermitRootLogin的值从withoutPassword改为yes</span><br><span class="line">登出容器，并将容器保存为新的镜像。</span><br><span class="line">关闭原有容器，用新镜像生成新的容器</span><br><span class="line">使用xshell登录docker -- 方式2 docker进入容器</span><br><span class="line">1.安装配置好sshd，并进入后重启服务。</span><br><span class="line">2.docker run 通过 -p 50001:22，将22端口映射到50001</span><br><span class="line">3.打开cmd，查看windwosIP，例如 192.168.43.25</span><br><span class="line">4.ssh 192.168.43.25 50001</span><br><span class="line">或者 ssh 192.168.43.25 -p 50001</span><br><span class="line">即可登录进入容器中</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置容器系统参数 - 需要从docker上配置</span><br><span class="line"><span class="comment"># sysctl: setting key "vm.max_map_count": Read-only file system 问题</span></span><br><span class="line">参考链接: https://stackoverflow.com/questions/41064572/docker-elk-vm-max-map-count</span><br><span class="line">说明: 由于docker是最高层级，容器是最低层级，部分系统参数需要从docker中修改，否则权限不足</span><br><span class="line">解决方法:</span><br><span class="line">docker-machine create -d virtualbox default <span class="comment"># 创建默认虚拟机，涉及需要开启windows功能 Hyper-V</span></span><br><span class="line">docker-machine start 机器名称 <span class="comment"># 出现蓝屏问题，暂时未解决 PASS</span></span><br><span class="line">docker-machine ssh</span><br><span class="line">sudo sysctl -w vm.max_map_count=262144</span><br><span class="line">配置容器系统参数 - 需要从docker上配置  -- 问题1: 登陆docker界面，但是docker中virtualbox不存在。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已有的docker-machine机器名称</span></span><br><span class="line">docker-machine ls</span><br><span class="line"><span class="comment"># 进入docker</span></span><br><span class="line">docker-machine ssh 机器名称ID</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">错误: Error: No machine name(s) specified and no <span class="string">"default"</span> machine exists</span><br><span class="line">错误原因: 本机没有machine，需要创建</span><br><span class="line"><span class="comment"># 创建docker机器</span></span><br><span class="line">docker-machine create -d virtualbox default 机器名称</span><br><span class="line"></span><br><span class="line">错误: Error with pre-create check: <span class="string">"This computer is running Hyper-V. VirtualBox won't boot a 64bits VM when Hyper-V is activated. Either use Hyper-V as a driver, or disable the Hyper-V hypervisor. (To skip this check, use --virtualbox-no-vtx-check)</span></span><br><span class="line"><span class="string">错误原因: docker的virtualbox和已有的虚拟机VMware或virtualBox冲突</span></span><br><span class="line"><span class="string">参考链接: http://blog.csdn.net/qwsamxy/article/details/50533007/</span></span><br><span class="line"><span class="string">解决方法:</span></span><br><span class="line"><span class="string">bcdedit /set hypervisorlaunchtype off</span></span><br><span class="line"><span class="string">bcdedit /set hypervisorlaunchtype auto</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">bcdedit /copy &#123;current&#125; /d "</span>Windows 10 (开启 Hyper-V)<span class="string">"</span></span><br><span class="line"><span class="string">bcdedit /set &#123;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&#125; hypervisorlaunchtype auto</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">![ce8948b05eeb29c99a714e80749170f0.png](en-resource://database/14842:0)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">切换用户执行脚本</span></span><br><span class="line"><span class="string">su - test -c "</span><span class="built_in">pwd</span><span class="string">"</span></span><br><span class="line"><span class="string">删除images后，释放空间: （会删除未使用的的容器和已删除的镜像-慎重）</span></span><br><span class="line"><span class="string">docker system prune -a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## docker-ce容器管理页面</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">参考链接: https://www.cnblogs.com/myzony/p/9071210.html</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">pass</span></span><br><span class="line"><span class="string">CentOS7可用？</span></span><br></pre></td></tr></table></figure>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="docker-问题记录"><a href="#docker-问题记录" class="headerlink" title="docker 问题记录"></a>docker 问题记录</h3><h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="https://blog.csdn.net/sunzhiqiang6/article/details/80698436" target="_blank" rel="noopener">Docker 部分组成</a></li>
 </ul>
-<h3 id="docker-快速登录-可选"><a href="#docker-快速登录-可选" class="headerlink" title="docker-快速登录(可选)"></a>docker-快速登录(可选)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加入的.bash_profile</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">dockerlogin</span></span>()&#123;</span><br><span class="line">    docker <span class="built_in">exec</span> -it --env COLUMNS=`tput cols` --env LINES=`tput lines` <span class="variable">$1</span> /bin/bash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Docker-时区配置-可选-建议"><a href="#Docker-时区配置-可选-建议" class="headerlink" title="Docker-时区配置(可选-建议)"></a>Docker-时区配置(可选-建议)</h3><p>docker 时区问题，容器时间和宿主机时间不一致问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：容器外部配置 Docker时区设置</span></span><br><span class="line">docker cp /etc/localtime 容器id:/etc/localtime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2: 容器内部配置 容器外部配置报错，进入容器内部配置即可。</span></span><br><span class="line">[fdm@fdm2 fdm_server]$ docker cp /etc/localtime fdm_server:/etc/localtime</span><br><span class="line">Error response from daemon: Could not find the file /usr/share/zoneinfo/usr/share/zoneinfo/Asia <span class="keyword">in</span> container fdm_server</span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># echo "Asia/Shanghai" &gt; /etc/timezone</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># date</span></span><br><span class="line">Fri Jul 31 09:42:08 CST 2020</span><br></pre></td></tr></table></figure>
-<h2 id="Docker-问题记录"><a href="#Docker-问题记录" class="headerlink" title="Docker-问题记录"></a>Docker-问题记录</h2><h3 id="docker-systemctl-无法使用修复"><a href="#docker-systemctl-无法使用修复" class="headerlink" title="docker-systemctl 无法使用修复"></a>docker-systemctl 无法使用修复</h3><p>问题：容器中不能使用-systemctl</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在容器启动时增加 --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup 与 /user/bin/init 即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 样例</span></span><br><span class="line">docker run -itd --name xxxx --privileged=<span class="literal">true</span> -v /sys/fs/cgroup:/sys/fs/cgroup 与 /user/bin/init 即可</span><br></pre></td></tr></table></figure>
-<h3 id="docker-容器内部命令窗口大小设置"><a href="#docker-容器内部命令窗口大小设置" class="headerlink" title="docker-容器内部命令窗口大小设置"></a>docker-容器内部命令窗口大小设置</h3><p>问题：容器内部 vim/vi 只能查看屏幕一部分内容，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看宿主机屏幕大小</span></span><br><span class="line">[fdm@fdm2 nfs_data]$ stty size</span><br><span class="line">48 210</span><br><span class="line"><span class="comment"># 配置容器内部 stty 大小</span></span><br><span class="line">stty rows 48 columns 210</span><br><span class="line"><span class="comment"># 写入 /etc/profile</span></span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">"stty rows 48 columns 210"</span> &gt;&gt;  /etc/profile</span><br></pre></td></tr></table></figure>
-<p>TODO 当外部窗口变化时，容器内部需要对应修改。</p>
+<p><a href="https://www.google.com/search?source=hp&amp;ei=KNEnWqOFIIGu0gS2zZzYDQ&amp;q=docker%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" target="_blank" rel="noopener">https://www.google.com/search?source=hp&amp;ei=KNEnWqOFIIGu0gS2zZzYDQ&amp;q=docker%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4</a></p>
+<p>Docker 常用命令 待整理<br><a href="https://www.jianshu.com/p/adaa34795e64" target="_blank" rel="noopener">https://www.jianshu.com/p/adaa34795e64</a><br><a href="https://www.infoq.cn/article/KBTRC719-r6GHOPS3Cr8" target="_blank" rel="noopener">https://www.infoq.cn/article/KBTRC719-r6GHOPS3Cr8</a></p>
+<p>docker 基础命令: <a href="https://www.server110.com/docker/201411/11122.html" target="_blank" rel="noopener">https://www.server110.com/docker/201411/11122.html</a><br>docker run 参数: <a href="http://www.runoob.com/docker/docker-run-command.html" target="_blank" rel="noopener">http://www.runoob.com/docker/docker-run-command.html</a><br>docker 官方英文文档: <a href="https://docs.docker.com/" target="_blank" rel="noopener">https://docs.docker.com/</a><br>docker 中文文档网站: <a href="http://www.docker.org.cn/" target="_blank" rel="noopener">http://www.docker.org.cn/</a><br>第一本 docker 书籍: <a href="https://download.csdn.net/download/qq_21165007/10276074" target="_blank" rel="noopener">https://download.csdn.net/download/qq_21165007/10276074</a></p>
+<p>Docker 是一个开源的应用容器引擎，基于  Go 语言   并遵从 Apache2.0 协议开源。<br>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
+<ul>
+<li>Docker 官方中文网: <a href="http://www.docker.org.cn/" target="_blank" rel="noopener">http://www.docker.org.cn/</a></li>
+<li>Docker 官网: <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a></li>
+<li>Docker 菜鸟教程: <a href="http://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">http://www.runoob.com/docker/docker-tutorial.html</a></li>
+</ul>
 
       
     </div>
@@ -498,7 +498,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fansichao.github.io/undefined/" title="Module-Docker-模块功能">https://fansichao.github.io/undefined/</a>
+    <a href="https://fansichao.github.io/undefined/" title="Module-Docker-使用文档">https://fansichao.github.io/undefined/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -538,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/undefined/" rel="prev" title="Module-Docker-Docker File">
-                Module-Docker-Docker File <i class="fa fa-chevron-right"></i>
+              <a href="/undefined/" rel="prev" title="每日任务">
+                每日任务 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -624,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -635,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -689,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-常用配置"><span class="nav-number">1.</span> <span class="nav-text">Docker-常用配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-快速登录-可选"><span class="nav-number">1.1.</span> <span class="nav-text">docker-快速登录(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-时区配置-可选-建议"><span class="nav-number">1.2.</span> <span class="nav-text">Docker-时区配置(可选-建议)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-问题记录"><span class="nav-number">2.</span> <span class="nav-text">Docker-问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-systemctl-无法使用修复"><span class="nav-number">2.1.</span> <span class="nav-text">docker-systemctl 无法使用修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-容器内部命令窗口大小设置"><span class="nav-number">2.2.</span> <span class="nav-text">docker-容器内部命令窗口大小设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-使用"><span class="nav-number">1.</span> <span class="nav-text">Docker 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-功能"><span class="nav-number">2.</span> <span class="nav-text">Docker 功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-网络配置使用"><span class="nav-number">2.1.</span> <span class="nav-text">Docker 网络配置使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-性能监控"><span class="nav-number">2.2.</span> <span class="nav-text">Docker 性能监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他模块"><span class="nav-number">2.3.</span> <span class="nav-text">其他模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">3.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-问题记录"><span class="nav-number">3.1.</span> <span class="nav-text">docker 问题记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">3.2.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
             
 
           </div>

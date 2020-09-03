@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Linux-NFS配置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T14:21:11.692Z">
+<meta property="og:updated_time" content="2020-09-01T12:24:50.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux-NFS配置">
 <meta name="twitter:description" content="Linux-NFS配置">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-26T22:21:11+08:00">
-                2020-08-26
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T20:24:50+08:00">
+                2020-09-01
               </time>
             
           </span>
@@ -472,7 +472,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system.conf</span><br><span class="line">修改下面两个变量为： 生产服务器60s,开发服务器10s</span><br><span class="line">DefaultTimeoutStartSec=60s</span><br><span class="line">DefaultTimeoutStopSec=60s</span><br><span class="line">DefaultRestartSec=100ms</span><br><span class="line"><span class="comment"># 执行命令</span></span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
 <h2 id="可选配置"><a href="#可选配置" class="headerlink" title="可选配置"></a>可选配置</h2><h3 id="挂载优化"><a href="#挂载优化" class="headerlink" title="挂载优化"></a>挂载优化</h3><p>在企业工作场景，一般来说，NFS 服务器共享的只是普通静态数据（图片、附件、视频），不需要执行 suid、exec 等权限，挂载的这个文件系统只能作为数据存取之用，无法执行程序，对于客户端来讲增加了安全性，例如：很多木马篡改站点文件都是由上传入口上传的程序到存储目录，然后执行的。 因此在挂载的时候，用下面的命令很有必要：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安全挂载 只做数据存取 无法执行程序 根据需求使用</span></span><br><span class="line">mount -t nfs -o nosuid,noexec,nodev,rw 172.21.0.111:/data /nfs_data</span><br></pre></td></tr></table></figure>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><h4 id="reason-given-by-server-No-such-file-or-directory"><a href="#reason-given-by-server-No-such-file-or-directory" class="headerlink" title="reason given by server: No such file or directory"></a>reason given by server: No such file or directory</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 问题背景</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># mount -t nfs 172.16.2.4:/data_storage/fdm_neo4j/import /data/neo4j_import_data</span></span><br><span class="line">mount.nfs: mounting 172.16.2.4:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原有 /etc/exports 配置</span></span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决方案</span></span><br><span class="line">增加 fsid=0 参数后，重启服务</span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure,fsid=0)</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><h4 id="reason-given-by-server-No-such-file-or-directory"><a href="#reason-given-by-server-No-such-file-or-directory" class="headerlink" title="reason given by server: No such file or directory"></a>reason given by server: No such file or directory</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 问题背景</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># mount -t nfs 192.168.101.74:/data_storage/fdm_neo4j/import /data/neo4j_import_data</span></span><br><span class="line">mount.nfs: mounting 192.168.101.74:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原有 /etc/exports 配置</span></span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决方案</span></span><br><span class="line">增加 fsid=0 参数后，重启服务</span><br><span class="line">/data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure,fsid=0)</span><br><span class="line">systemctl restart nfs-server</span><br></pre></td></tr></table></figure>
 <h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
 <li><a href="https://www.jianshu.com/p/d1122d42d5cc" target="_blank" rel="noopener">Docker 下配置 nfs</a></li>
 <li><a href="https://www.jianshu.com/p/f85c4371a43d" target="_blank" rel="noopener">详见此文档：Linux 下的 NFS 系统简介</a></li>
@@ -651,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -662,7 +662,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

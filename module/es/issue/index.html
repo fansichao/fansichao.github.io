@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Module,Elasticsearch,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ES问题记录">
+<meta name="keywords" content="Module,Elasticsearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES问题记录">
+<meta property="og:url" content="https://fansichao.github.io/module/es/issue/index.html">
+<meta property="og:site_name" content="格物方能致知">
+<meta property="og:description" content="ES问题记录">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-03T01:29:16.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES问题记录">
+<meta name="twitter:description" content="ES问题记录">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/module/es/issue/">
+
+
+
+
+
+  <title>ES问题记录 | 格物方能致知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">格物方能致知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/module/es/issue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SuperScfan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物方能致知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ES问题记录</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-01T15:26:11+08:00">
+                2020-09-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-03T09:29:16+08:00">
+                2020-09-03
+              </time>
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">Elasticsearch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,030
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  ES问题记录
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="illegal-argument-exception-indices-admin-create"><a href="#illegal-argument-exception-indices-admin-create" class="headerlink" title="illegal_argument_exception [indices:admin/create]"></a>illegal_argument_exception [indices:admin/create]</h3><p>问题日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[2020-08-04 23:15:22,145] PID:7703-elasticsearch: [base.py-log_request_fail-244] WARNING: PUT http://192.168.101.73:9200/cust-daily-2010-08-06 [status:400 request:0.057s]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"tools.py"</span>, line 977, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    system_command()</span><br><span class="line">  File <span class="string">"tools.py"</span>, line 973, <span class="keyword">in</span> system_command</span><br><span class="line">    tools_dispatcher(*opt_parser.parse_args())</span><br><span class="line">  File <span class="string">"tools.py"</span>, line 832, <span class="keyword">in</span> tools_dispatcher</span><br><span class="line">    func(*opargs)</span><br><span class="line">  File <span class="string">"tools.py"</span>, line 329, <span class="keyword">in</span> make_mining_entity</span><br><span class="line">    main_processer(date2str(run_dt, <span class="string">'%Y%m%d'</span>), run_entity)</span><br><span class="line">  File <span class="string">"/data/trunk/src/server/fdm/mining/model_entity.py"</span>, line 194, <span class="keyword">in</span> main_processer</span><br><span class="line">    set_indice(index_prefix, index_columns, doc_type=<span class="string">'cust'</span>)</span><br><span class="line">  File <span class="string">"/data/trunk/src/server/fdm/mining/mining_tools.py"</span>, line 58, <span class="keyword">in</span> set_indice</span><br><span class="line">    _es.indices.create(index=index_name, body=&#123;<span class="string">"settings"</span>: &#123;<span class="string">"number_of_shards"</span>: Config.ES_NUMBER_OF_SHARDS, <span class="string">"number_of_replicas"</span>: Config.ES_NUMBER_OF_REPLICAS&#125;&#125;,</span><br><span class="line">  File <span class="string">"/data/trunk/src/server/fdm/database/es.py"</span>, line 76, <span class="keyword">in</span> create</span><br><span class="line">    <span class="built_in">return</span> self.indices.create(*args, **kwargs)</span><br><span class="line">  File <span class="string">"/home/fdm/env/lib/python3.8/site-packages/elasticsearch/client/utils.py"</span>, line 92, <span class="keyword">in</span> _wrapped</span><br><span class="line">    <span class="built_in">return</span> func(*args, params=params, headers=headers, **kwargs)</span><br><span class="line">  File <span class="string">"/home/fdm/env/lib/python3.8/site-packages/elasticsearch/client/indices.py"</span>, line 102, <span class="keyword">in</span> create</span><br><span class="line">    <span class="built_in">return</span> self.transport.perform_request(</span><br><span class="line">  File <span class="string">"/home/fdm/env/lib/python3.8/site-packages/elasticsearch/transport.py"</span>, line 355, <span class="keyword">in</span> perform_request</span><br><span class="line">    status, headers_response, data = connection.perform_request(</span><br><span class="line">  File <span class="string">"/home/fdm/env/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py"</span>, line 252, <span class="keyword">in</span> perform_request</span><br><span class="line">    self._raise_error(response.status, raw_data)</span><br><span class="line">  File <span class="string">"/home/fdm/env/lib/python3.8/site-packages/elasticsearch/connection/base.py"</span>, line 281, <span class="keyword">in</span> _raise_error</span><br><span class="line">    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(</span><br><span class="line">elasticsearch.exceptions.RequestError: RequestError(400, <span class="string">'illegal_argument_exception'</span>, <span class="string">'[22_es_master1][172.16.10.21:9300][indices:admin/create]'</span>)</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES数据清空后，此设置会丢失。</span></span><br><span class="line"></span><br><span class="line">默认分片数1000,太少，导致后续数据无法创建。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改最大分片数量</span></span><br><span class="line">curl -XPUT <span class="string">'http://xxx.xxx.xxx.xxx:9200/_cluster/settings'</span>  -H <span class="string">'Content-Type: application/json'</span> -d <span class="string">'</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">  "transient": &#123;</span></span><br><span class="line"><span class="string">    "cluster": &#123;</span></span><br><span class="line"><span class="string">      "max_shards_per_node": 100000000</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">'</span></span><br></pre></td></tr></table></figure>
+<h3 id="search-max-open-scroll-context"><a href="#search-max-open-scroll-context" class="headerlink" title="search.max_open_scroll_context"></a>search.max_open_scroll_context</h3><p>错误信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Trying to create too many scroll contexts. Must be less than or equal to: [500]. This <span class="built_in">limit</span> can be <span class="built_in">set</span> by changing the [search.max_open_scroll_context] setting</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ES数据清空后，此设置会丢失。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方案1 - 增加滚动设置()</span></span><br><span class="line">curl -X PUT http://192.168.101.71:9200/_cluster/settings -H <span class="string">'Content-Type: application/json'</span> -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">    "persistent" : &#123;</span></span><br><span class="line"><span class="string">        "search.max_open_scroll_context": 100000000</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    "transient": &#123;</span></span><br><span class="line"><span class="string">        "search.max_open_scroll_context": 100000000</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方案2 - 使用滚动后清除</span></span><br><span class="line">滚动超时后，会自动清理，不建议使用后清理。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前滚动数</span></span><br><span class="line">GET /_nodes/stats/indices/search</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.6/search-request-body.html#request-body-search-scroll" target="_blank" rel="noopener">request-body-search-scroll</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行样例</span></span><br><span class="line">[fdm@data1 ~]$ curl   -X PUT http://192.168.101.71:9200/_cluster/settings -H <span class="string">'Content-Type: application/json'</span> -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">&gt;     "persistent" : &#123;</span></span><br><span class="line"><span class="string">&gt;         "search.max_open_scroll_context": 10240</span></span><br><span class="line"><span class="string">&gt;     &#125;,</span></span><br><span class="line"><span class="string">&gt;     "transient": &#123;</span></span><br><span class="line"><span class="string">&gt;         "search.max_open_scroll_context": 10240</span></span><br><span class="line"><span class="string">&gt;     &#125;</span></span><br><span class="line"><span class="string">&gt; &#125;'</span></span><br><span class="line">&#123;<span class="string">"acknowledged"</span>:<span class="literal">true</span>,<span class="string">"persistent"</span>:&#123;<span class="string">"search"</span>:&#123;<span class="string">"max_open_scroll_context"</span>:<span class="string">"10240"</span>&#125;&#125;,<span class="string">"transient"</span>:&#123;<span class="string">"search"</span>:&#123;<span class="string">"max_open_scroll_context"</span>:<span class="string">"10240"</span>&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="driver-failed-programming-external-connectivity-on-endpoint"><a href="#driver-failed-programming-external-connectivity-on-endpoint" class="headerlink" title="driver failed programming external connectivity on endpoint"></a>driver failed programming external connectivity on endpoint</h3><p><a href="https://blog.csdn.net/whatday/article/details/86762264" target="_blank" rel="noopener">参考链接</a></p>
+<p>centos7.6，启动 docker 后，关闭防火墙，再开启容器导致此问题</p>
+<p>重启 docker 服务即可解决问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[fdm@data1 es]$ docker-compose -f 21-es-docker-compose.yml up -d</span><br><span class="line">Creating 21_es_master1 ...</span><br><span class="line">Creating 21_es_node1   ...</span><br><span class="line">Creating 21_es_node1   ... error</span><br><span class="line">WARNING: Host is already <span class="keyword">in</span> use by another container</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> 21_es_node1  Cannot start service es_node1: driver failed programming external connectivity on endpoint 21_es_node1 (e6225dd9ae28ab432bc89cc6c9db97a62045efbd0207a6a0d737181b4222782a):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat</span><br><span class="line">Creating 21_es_master1 ... error</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line">WARNING: Host is already <span class="keyword">in</span> use by another container</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> 21_es_master1  Cannot start service es_master1: driver failed programming external connectivity on endpoint 21_es_master1 (0d57a32139e6dc12a2e974ac98e23bd661fa6f8f72713dd6cc787d6d09319440):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat -A DOCKER -p tcp -d 192.168.101.71 --dport 9300 -j DNAT --to-destination 172.16.10.21:9300 ! -i br-728aec2b9277: iptables: No chain/target/match by that name.</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line">Creating 21_es_client1 ... error</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> 21_es_client1  Cannot start service es_client1: driver failed programming external connectivity on endpoint 21_es_client1 (cdc46a8f940337636e4baade076b41f78bc0527931268a02a4e1afd74343812c):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat -A DOCKER -p tcp -d 192.168.101.71 --dport 9301 -j DNAT --to-destination 172.16.10.31:9300 ! -i br-728aec2b9277: iptables: No chain/target/match by that name.</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> es_node1  Cannot start service es_node1: driver failed programming external connectivity on endpoint 21_es_node1 (e6225dd9ae28ab432bc89cc6c9db97a62045efbd0207a6a0d737181b4222782a):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat -A DOCKER -p tcp -d 192.168.101.71 --dport 9302 -j DNAT --to-destination 172.16.10.41:9300 ! -i br-728aec2b9277: iptables: No chain/target/match by that name.</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> es_master1  Cannot start service es_master1: driver failed programming external connectivity on endpoint 21_es_master1 (0d57a32139e6dc12a2e974ac98e23bd661fa6f8f72713dd6cc787d6d09319440):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat -A DOCKER -p tcp -d 192.168.101.71 --dport 9300 -j DNAT --to-destination 172.16.10.21:9300 ! -i br-728aec2b9277: iptables: No chain/target/match by that name.</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line"></span><br><span class="line">ERROR: <span class="keyword">for</span> es_client1  Cannot start service es_client1: driver failed programming external connectivity on endpoint 21_es_client1 (cdc46a8f940337636e4baade076b41f78bc0527931268a02a4e1afd74343812c):  (iptables failed: iptables --<span class="built_in">wait</span> -t nat -A DOCKER -p tcp -d 192.168.101.71 --dport 9301 -j DNAT --to-destination 172.16.10.31:9300 ! -i br-728aec2b9277: iptables: No chain/target/match by that name.</span><br><span class="line"> (<span class="built_in">exit</span> status 1))</span><br><span class="line">ERROR: Encountered errors <span class="keyword">while</span> bringing up the project.</span><br></pre></td></tr></table></figure>
+<h3 id="Elasticsearch-is-still-initializing-the-Monitoring-indices"><a href="#Elasticsearch-is-still-initializing-the-Monitoring-indices" class="headerlink" title="Elasticsearch is still initializing the Monitoring indices"></a>Elasticsearch is still initializing the Monitoring indices</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除监控索引， 重启 Kibana 即可</span></span><br><span class="line">DELETE .monitor*</span><br><span class="line">DELETE .kibana</span><br><span class="line">DELETE .watch*</span><br><span class="line">DELETE .triggered_watches</span><br></pre></td></tr></table></figure>
+<h3 id="Shard-UNASSIGNED-修复-常见问题"><a href="#Shard-UNASSIGNED-修复-常见问题" class="headerlink" title="Shard UNASSIGNED 修复(常见问题)"></a>Shard UNASSIGNED 修复(常见问题)</h3><p>背景介绍</p>
+<ul>
+<li>大数据量的 ES 集群中，对节点做配置更新或增减集群(未关闭节点自动均衡)，或者出现节点异常情况时，会发生此问题。</li>
+</ul>
+<p>获取集群状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[fdm@data1 ~]$ curl -XGET http://172.16.2.1:9200/_cluster/health\?pretty</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cluster_name"</span> : <span class="string">"es-docker-cluster2"</span>,</span><br><span class="line">  <span class="string">"status"</span> : <span class="string">"yellow"</span>,</span><br><span class="line">  <span class="string">"timed_out"</span> : <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"number_of_nodes"</span> : 9,</span><br><span class="line">  <span class="string">"number_of_data_nodes"</span> : 5,</span><br><span class="line">  <span class="string">"active_primary_shards"</span> : 13674,</span><br><span class="line">  <span class="string">"active_shards"</span> : 14936,</span><br><span class="line">  <span class="string">"relocating_shards"</span> : 0,</span><br><span class="line">  <span class="string">"initializing_shards"</span> : 0,</span><br><span class="line">  <span class="string">"unassigned_shards"</span> : 12412,</span><br><span class="line">  <span class="string">"delayed_unassigned_shards"</span> : 0,</span><br><span class="line">  <span class="string">"number_of_pending_tasks"</span> : 1,</span><br><span class="line">  <span class="string">"number_of_in_flight_fetch"</span> : 0,</span><br><span class="line">  <span class="string">"task_max_waiting_in_queue_millis"</span> : 0,</span><br><span class="line">  <span class="string">"active_shards_percent_as_number"</span> : 54.61459704548779</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看节点健康，可以看到 当前已分配的百分比</span></span><br><span class="line">curl 192.168.106.58:9200/_cat/nodes?v</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看所有分片情况</span></span><br><span class="line">curl 192.168.106.58:9200/_cat/shards?v</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1</span></span><br><span class="line">对于非必要的索引，或者需要重新跑批的索引，可以将其副本数设置为0，从而避免此部分索引的分配，可以极大减少 分配时间，</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2</span></span><br><span class="line">通过/_cat/shards接口看看具体是哪个primary shard没分配，通过reroute接口强制分配下去，就可以变成yellow了。</span><br><span class="line">Green：所有主分片和副本分片都可用；</span><br><span class="line">Yellow：所有主分片可用，但不是所有副本分片都可用；</span><br><span class="line">Red：不是所有的主分片都可用。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http://blog.csdn.net/hereiskxm/article/details/45717573</span><br></pre></td></tr></table></figure>
+<p>总结<br>在做集群更新时，务必先关闭集群的自动均衡</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 停止集群自动分配</span></span><br><span class="line">curl -XGET <span class="string">'http://192.168.17.201:9200/_cluster/settings'</span> -d <span class="string">'&#123;"transient" : &#123;"cluster.routing.allocation.enable" : "none"&#125;&#125;'</span>1 <span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-EsRejectedExecutionException"><a href="#1-EsRejectedExecutionException" class="headerlink" title="1.EsRejectedExecutionException"></a>1.EsRejectedExecutionException</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: failure <span class="keyword">in</span> bulk execution:[4]: index [teacher.tis1.teacher], <span class="built_in">type</span> [teacher_comment], id [1265687], message [RemoteTransportException[[node-1][192.168.4.30:9300][indices:data/write/bulk[s][p]]]; nested: EsRejectedExecutionException[rejected execution of org.elasticsearch.transport.TransportService<span class="variable">$7</span>@5f21ed47 on EsThreadPoolExecutor[bulk, queue capacity = 50, org.elasticsearch.common.util.concurrent.EsThreadPoolExecutor@18160e59[Running, pool size = 4, active threads = 4, queued tasks = 50, completed tasks = 6362]]];]</span><br></pre></td></tr></table></figure>
+<p>原因: 说明 ES 索引数据的速度已经跟不上 client 端发送 bulk 请求的速度，请求队列已满以致开始拒绝新的请求。 这是 ES 集群的自我保护机制。可以适当睡眠一段时间或者将队列设置大点。默认设置是 bulk thead pool set queue capacity =50 可以设置大点。</p>
+<p>解决办法：打开 elasticsearch.yml 在末尾加上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">threadpool:</span><br><span class="line">bulk:</span><br><span class="line"><span class="built_in">type</span>: fixed</span><br><span class="line">size: 60</span><br><span class="line">queue_size: 1000</span><br></pre></td></tr></table></figure></p>
+<p>重新启动服务即可</p>
+<h3 id="2-DocumentMissingException"><a href="#2-DocumentMissingException" class="headerlink" title="2.DocumentMissingException"></a>2.DocumentMissingException</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: [[teacher.tis1.teacher/YudbzduURsGhxHMRzyfNcA][teacher.tis1.teacher][1]] DocumentMissingException[[teacher][344]: document missing]]</span><br></pre></td></tr></table></figure>
+<p>原因: 找不到文档，可能是索引(index)或者类型(type)名称错误导致找不到文档，或者文档记录不存在时更新索引则报错。比如：更新 id 为 414 的记录，而此时 ES 中不存在 id 为 414 记录的数据，则抛出此异常<br>解决办法：</p>
+<p>1.检查索引(index)名称是否正确 2.检查类型(type)名称是否正确 3.记录不存在时更新索引则报错 可以在更新索引是使用 upsert 属性，如果不存在则进行创建。代码如下：<br>IndexRequest indexRequest = new IndexRequest(index, type, id).source(jsonSource);<br>UpdateRequest updateRequest = new UpdateRequest(index, type, id).doc(jsonSource).upsert(indexRequest);3.RemoteTransportException:<br>error: org.elasticsearch.transport.RemoteTransportException: Failed to deserialize exception response from stream<br>原因: es 节点之间的 JDK 版本不一样<br>解决办法：统一 JDK 环境 </p>
+<h3 id="4-NoNodeAvailableException"><a href="#4-NoNodeAvailableException" class="headerlink" title="4.NoNodeAvailableException:"></a>4.NoNodeAvailableException:</h3><p>error: org.elasticsearch.client.transport.NoNodeAvailableException: No node available</p>
+<p>原因: 节点不可用，<br>(1) es client 与 java client 的版本不一致<br>(2)端口号错误<br>(3)集群名字错误<br>(4)jar 包引用版本不匹配<br>解决办法：</p>
+<p>1.检查 es client 与 java client 的版本是否一致 目前我们项目中使用的是 java1.8 对应 es5.5.2 2.检查端口号是否正确 使用 client 连接应使用 es 的 transport 端口号 3.检查集群名称是否正确 4.检查 es 与 es client 的版本号是否一致 目前我们项目中使用的均为 5.5.2</p>
+<h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
+<li><a href="https://www.cnblogs.com/lwhctv/p/12327627.html" target="_blank" rel="noopener">ES 常见问题整理 - 蘇氏加多寶 - 博客园</a></li>
+<li><a href="https://app.yinxiang.com/shard/s66/nl/15497112/dbb8023a-f8ee-4670-8e7e-33ecc5dcfbae" target="_blank" rel="noopener">常见错误整理 - CSDN 博客</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="SuperScfan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SuperScfan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SuperScfan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/module/es/issue/" title="ES问题记录">https://fansichao.github.io/module/es/issue/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Module/" rel="tag"># Module</a>
+          
+            <a href="/tags/Elasticsearch/" rel="tag"># Elasticsearch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/module/es/config/" rel="next" title="ES配置文件">
+                <i class="fa fa-chevron-left"></i> ES配置文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/module/es/function/" rel="prev" title="ES功能模块">
+                ES功能模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="SuperScfan">
+            
+              <p class="site-author-name" itemprop="name">SuperScfan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">161</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题记录"><span class="nav-number">1.</span> <span class="nav-text">问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#illegal-argument-exception-indices-admin-create"><span class="nav-number">1.1.</span> <span class="nav-text">illegal_argument_exception [indices:admin/create]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search-max-open-scroll-context"><span class="nav-number">1.2.</span> <span class="nav-text">search.max_open_scroll_context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#driver-failed-programming-external-connectivity-on-endpoint"><span class="nav-number">1.3.</span> <span class="nav-text">driver failed programming external connectivity on endpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch-is-still-initializing-the-Monitoring-indices"><span class="nav-number">1.4.</span> <span class="nav-text">Elasticsearch is still initializing the Monitoring indices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shard-UNASSIGNED-修复-常见问题"><span class="nav-number">1.5.</span> <span class="nav-text">Shard UNASSIGNED 修复(常见问题)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-EsRejectedExecutionException"><span class="nav-number">1.6.</span> <span class="nav-text">1.EsRejectedExecutionException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DocumentMissingException"><span class="nav-number">1.7.</span> <span class="nav-text">2.DocumentMissingException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-NoNodeAvailableException"><span class="nav-number">1.8.</span> <span class="nav-text">4.NoNodeAvailableException:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关资源"><span class="nav-number">2.</span> <span class="nav-text">相关资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SuperScfan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '02c9633efd3ac5a7b389',
+          clientSecret: 'e0245151fec034c33e2c69c104c586538ccc71e3',
+          repo: 'fansichao.github.io',
+          owner: 'fansichao',
+          admin: ['fansichao'],
+          id:'_20200901152611',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

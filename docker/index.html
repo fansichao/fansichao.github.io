@@ -94,10 +94,12 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker-index 目录索引，Docker相关内容详见此文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T11:07:47.238Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2536979-89132b1352b2dbf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/719/format/webp">
+<meta property="og:updated_time" content="2020-09-02T12:14:06.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-index">
 <meta name="twitter:description" content="Docker-index 目录索引，Docker相关内容详见此文件。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2536979-89132b1352b2dbf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/719/format/webp">
 
 
 
@@ -350,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T19:07:47+08:00">
-                2020-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-02T20:14:06+08:00">
+                2020-09-02
               </time>
             
           </span>
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  63
+                  1,534
                 </span>
               
 
@@ -435,32 +437,86 @@
       
 
       
-        <h2 id="Docker-目录索引"><a href="#Docker-目录索引" class="headerlink" title="Docker-目录索引"></a>Docker-目录索引</h2><ul>
+        <h2 id="Docker-介绍"><a href="#Docker-介绍" class="headerlink" title="Docker 介绍"></a>Docker 介绍</h2><h3 id="Docker-的应用场景-Web"><a href="#Docker-的应用场景-Web" class="headerlink" title="Docker 的应用场景 Web"></a>Docker 的应用场景 Web</h3><ul>
+<li>应用的自动化打包和发布。</li>
+<li>自动化测试和持续集成、发布。</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用。</li>
+<li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li>
+</ul>
+<h3 id="Docker-的优点"><a href="#Docker-的优点" class="headerlink" title="Docker 的优点"></a>Docker 的优点</h3><ul>
+<li>持续部署与测试<ul>
+<li>Docker 可以确保从开发到产品发布整个过程环境的一致性。便于部署和开发测试。</li>
+</ul>
+</li>
+<li>多云平台<ul>
+<li>可移植性</li>
+</ul>
+</li>
+<li>环境标准化和版本控制<ul>
+<li>可以方便的进行版本管理</li>
+</ul>
+</li>
+<li>隔离性</li>
+<li><p>安全性</p>
+<p>1.优势</p>
+</li>
+</ul>
+<p>docker 启动快，开启一个 container 通常只需要几秒钟，而虚拟机开机至少几十秒；<br>docker 需要的资源更少， docker 在操作系统级别进行虚拟化， docker 容器和内核交互，几乎没有性能损耗，性能优于通过 Hypervisor 层与内核层的虚拟化；<br>docker 更轻量， docker 重装或者复制到其他机器比虚拟机快很多，重新安装 docker 容器只需要几十秒种，而虚拟机至少需要几分钟；并且 dockers 的 image 文件导出占用只有几百兆，但是虚拟机的镜像包往往有几个 G； 2.缺点</p>
+<p>docker 无法对外开放所有端口，docker 只能对宿主机和同宿主机的 docker 开放所有端口，其他机器访问 dockers 需要通过宿主机进行端口转发，而不能像虚拟机一样通过 IP 访问；<br>docker 默认安装系统包较少，默认安装的虚拟机往往字段一些常用的系统包，但是 docker 很多常用的包都没有（比如 docker 下 centos7 默认是没有 ip 命令的，也不支持 ssh 登陆）；</p>
+<h3 id="Docker-的主要用途"><a href="#Docker-的主要用途" class="headerlink" title="Docker 的主要用途"></a>Docker 的主要用途</h3><p>（1）提供一次性的环境。比如，本地测试他人的软件、持续集成的时候提供单元测试和构建的环境。<br>（2）提供弹性的云服务。因为 Docker 容器可以随开随关，很适合动态扩容和缩容。<br>（3）组建微服务架构。通过多个容器，一台机器可以跑多个服务，因此在本机就可以模拟出微服务架构</p>
+<p><a href="https://blog.csdn.net/u013007900/article/details/62219169" target="_blank" rel="noopener">https://blog.csdn.net/u013007900/article/details/62219169</a><br><a href="https://blog.csdn.net/xiangxizhishi/article/details/79441391" target="_blank" rel="noopener">https://blog.csdn.net/xiangxizhishi/article/details/79441391</a></p>
+<h2 id="Docker-架构"><a href="#Docker-架构" class="headerlink" title="Docker 架构"></a>Docker 架构</h2><ul>
+<li>Docker 基本概念<a href="https://blog.csdn.net/omnispace/article/details/79778544" target="_blank" rel="noopener">https://blog.csdn.net/omnispace/article/details/79778544</a></li>
+<li>Docker 介绍以及其相关术语、底层原理和技术:<a href="https://blog.csdn.net/zxygww/article/details/53709106" target="_blank" rel="noopener">https://blog.csdn.net/zxygww/article/details/53709106</a></li>
+</ul>
+<p>Docker 使用客户端-服务器 (C/S) 架构模式，使用远程 API 来管理和创建 Docker 容器。<br>Docker 容器通过 Docker 镜像来创建。容器与镜像的关系类似于面向对象编程中的对象与类</p>
+<h2 id="Docker-术语"><a href="#Docker-术语" class="headerlink" title="Docker 术语"></a>Docker 术语</h2><p><strong>集群</strong><br>一个集群指容器运行所需要的云资源组合，关联了若干服务器节点、负载均衡、专有网络等云资源。<br><strong>节点</strong><br>一台服务器（可以是虚拟机实例或者物理服务器）已经安装了 Docker Engine，可以用于部署和管理容器；容器服务的 Agent 程序会安装到节点上并注册到一个集群上。集群中的节点数量可以伸缩。<br><strong>容器</strong><br>一个通过 Docker 镜像创建的运行时实例，一个节点可运行多个容器。<br><strong>镜像</strong><br>Docker 镜像是容器应用打包的标准格式，在部署容器化应用时可以指定镜像，镜像可以来自于 Docker Hub，阿里云容器 Hub，或者用户的私有 Registry。镜像 ID 可以由镜像所在仓库 URI 和镜像 Tag（缺省为 latest）唯一确认。<br><strong>编排模板</strong><br>编排模板包含了一组容器服务的定义和其相互关联，可以用于多容器应用的部署和管理。容器服务支持 Docker Compose 模板规范并有所扩展。<br><strong>应用</strong><br>一个应用可通过单个镜像或一个编排模板创建，每个应用可包含 1 个或多个服务。<br><strong>服务</strong><br>一组基于相同镜像和配置定义的容器，作为一个可伸缩的微服务。<br><strong>关联关系</strong><br><img src="https://upload-images.jianshu.io/upload_images/2536979-89132b1352b2dbf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/719/format/webp" alt="关联关系"></p>
+<p>镜像：用来启动容器的只读模板，是容器启动所需的 rootfs，类似于虚拟机所使用的镜像。</p>
+<p>容器：Docker 容器是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+<p>镜像是容器的基础，可以简单的理解为镜像是我们启动虚拟机时需要的镜像，容器时虚拟机成功启动后，运行的服务。</p>
+<h3 id="docker-load-amp-docker-import-的区别"><a href="#docker-load-amp-docker-import-的区别" class="headerlink" title="docker load &amp; docker import 的区别"></a>docker load &amp; docker import 的区别</h3><ul>
+<li>docker save images_name：将一个镜像导出为文件，再使用 docker load 命令将文件导入为一个镜像，会保存该镜像的的所有历史记录。比 docker export 命令导出的文件大，很好理解，因为会保存镜像的所有历史记录。</li>
+<li>docker export container_id：将一个容器导出为文件，再使用 docker import 命令将容器导入成为一个新的镜像，但是相比 docker save 命令，容器文件会丢失所有元数据和历史记录，仅保存容器当时的状态，相当于虚拟机快照。</li>
+</ul>
+<p>docker save 对应 docker load</p>
+<p>docker export 对应 docker import</p>
+<h2 id="Docker-目录索引"><a href="#Docker-目录索引" class="headerlink" title="Docker-目录索引"></a>Docker-目录索引</h2><ul>
 <li>docker-部署<ul>
-<li><a href="http://www.superscfan.top/docker/docker_install" target="_blank" rel="noopener">Docker-安装部署</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_install" target="_blank" rel="noopener">Docker-安装部署</a></li>
 </ul>
 </li>
 <li>docker-使用<ul>
-<li><a href="http://www.superscfan.top/docker/docker_compose" target="_blank" rel="noopener">Docker-Compose</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_file" target="_blank" rel="noopener">Docker-File</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_issue" target="_blank" rel="noopener">Docker 常见问题</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_compose" target="_blank" rel="noopener">Docker-Compose</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_file" target="_blank" rel="noopener">Docker-File</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_issue" target="_blank" rel="noopener">Docker 常见问题</a></li>
 </ul>
 </li>
 <li>应用部署<ul>
-<li><a href="http://www.superscfan.top/docker/docker_cdh" target="_blank" rel="noopener">Docker-CDH</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_oracle" target="_blank" rel="noopener">Docker-Oracle</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_mysql" target="_blank" rel="noopener">Docker-Mysql</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_neo4j" target="_blank" rel="noopener">Docker-Neo4j</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_es" target="_blank" rel="noopener">Docker-ES</a></li>
-<li><a href="http://www.superscfan.top/docker/docker_doris" target="_blank" rel="noopener">Docker-Doris</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_cdh" target="_blank" rel="noopener">Docker-CDH</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_oracle" target="_blank" rel="noopener">Docker-Oracle</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_mysql" target="_blank" rel="noopener">Docker-Mysql</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_neo4j" target="_blank" rel="noopener">Docker-Neo4j</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_es" target="_blank" rel="noopener">Docker-ES</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_doris" target="_blank" rel="noopener">Docker-Doris</a></li>
 </ul>
 </li>
 <li>docker-管理<ul>
-<li><a href="http://www.superscfan.top/docker/docker_k8s" target="_blank" rel="noopener">Docker-K8S</a></li>
+<li><a href="https://www.superscfan.top/docker/docker_k8s" target="_blank" rel="noopener">Docker-K8S</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><p>TODO K8S(容器集群管理工具)的使用</p>
+<ul>
+<li>配置单向网关或防火墙策略时，外部网络变动时，容器内部不会变动，容器以及 docker 都需要重启才可以更新。</li>
+</ul>
+<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="https://juejin.im/post/5ce26cb9f265da1bcd37aa7c" target="_blank" rel="noopener">Docker 容器间通信方法</a></li>
+<li><a href="https://blog.csdn.net/huanongying123/article/details/73556634" target="_blank" rel="noopener">Docker 的四种网络模式</a></li>
+<li><a href="https://blog.csdn.net/ithaibiantingsong/article/details/81386307" target="_blank" rel="noopener">docker 跨服务器容器的网络配置</a></li>
+<li><a href="https://www.jianshu.com/p/477a62165376" target="_blank" rel="noopener">Docker 容器跨主机通信之：直接路由方式</a></li>
+<li><a href="https://www.jianshu.com/p/93518610eea1" target="_blank" rel="noopener">Docker 启动时的报错汇总</a></li>
+<li><a href="https://www.jianshu.com/p/c7c7dc24b9e3" target="_blank" rel="noopener">Docker 配置文件 daemon.json 解析</a></li>
+</ul>
 
       
     </div>
@@ -639,7 +695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -650,7 +706,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -704,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-目录索引"><span class="nav-number">1.</span> <span class="nav-text">Docker-目录索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关资源"><span class="nav-number">2.</span> <span class="nav-text">相关资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-介绍"><span class="nav-number">1.</span> <span class="nav-text">Docker 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-的应用场景-Web"><span class="nav-number">1.1.</span> <span class="nav-text">Docker 的应用场景 Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-的优点"><span class="nav-number">1.2.</span> <span class="nav-text">Docker 的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-的主要用途"><span class="nav-number">1.3.</span> <span class="nav-text">Docker 的主要用途</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-架构"><span class="nav-number">2.</span> <span class="nav-text">Docker 架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-术语"><span class="nav-number">3.</span> <span class="nav-text">Docker 术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-load-amp-docker-import-的区别"><span class="nav-number">3.1.</span> <span class="nav-text">docker load &amp; docker import 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-目录索引"><span class="nav-number">4.</span> <span class="nav-text">Docker-目录索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关资源"><span class="nav-number">5.</span> <span class="nav-text">相关资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">5.1.</span> <span class="nav-text">参考资源</span></a></li></ol></li></ol></div>
             
 
           </div>

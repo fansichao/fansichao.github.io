@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker-Oracle SQL常用数据库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T11:20:35.051Z">
+<meta property="og:updated_time" content="2020-09-02T12:14:16.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-Oracle 部署文档">
 <meta name="twitter:description" content="Docker-Oracle SQL常用数据库">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T19:20:35+08:00">
-                2020-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-02T20:14:16+08:00">
+                2020-09-02
               </time>
             
           </span>
@@ -438,7 +438,7 @@
         <h2 id="Docker-Oracle11g"><a href="#Docker-Oracle11g" class="headerlink" title="Docker-Oracle11g"></a>Docker-Oracle11g</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">前提最新版Docker安装好，配置阿里云镜像库</span><br><span class="line"><span class="comment"># 获取镜像</span></span><br><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/qida/oracle-xe-11g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行命令</span></span><br><span class="line">docker run --name oracle11g -d -p 1521:1521 -v /docker/oracle/v/oradata/:/u01/app/oracle/oradata/oracle11g-data/ -e ORACLE_ALLOW_REMOTE=<span class="literal">true</span> --restart=always registry.cn-hangzhou.aliyuncs.com/qida/oracle-xe-11g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入容器：</span></span><br><span class="line">docker <span class="built_in">exec</span> -it oracle11g bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装好的 Oracle 默认参数</span></span><br><span class="line">- 系统用户：root 密码：admin</span><br><span class="line">- 数据库链接</span><br><span class="line">    - hostname: localhost</span><br><span class="line">    - port: 1521</span><br><span class="line">    - sid: xe</span><br><span class="line">    - username: system</span><br><span class="line">    - password: oracle</span><br><span class="line"></span><br><span class="line">切换用户：su oracle</span><br><span class="line">进入SQL交互：sqlplus / as sysdba</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库用户</span></span><br><span class="line">create user fdm identified by qwe123;</span><br><span class="line"><span class="comment"># 授权给用户</span></span><br><span class="line">GRANT CREATE USER,DROP USER,ALTER USER ,CREATE ANY VIEW ,DROP ANY VIEW,EXP_FULL_DATABASE,IMP_FULL_DATABASE,DBA,CONNECT,RESOURCE,CREATE SESSION TO fdm;</span><br></pre></td></tr></table></figure>
 <h2 id="关联资源"><a href="#关联资源" class="headerlink" title="关联资源"></a>关联资源</h2><ul>
 <li>文内关联资源<ul>
-<li><a href="http://superscfan.top/module/oracle" target="_blank" rel="noopener">Oracle 使用文档</a></li>
+<li><a href="https://www.superscfan.top/module/oracle" target="_blank" rel="noopener">Oracle 使用文档</a></li>
 </ul>
 </li>
 <li>外部资源<ul>
@@ -622,7 +622,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +633,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

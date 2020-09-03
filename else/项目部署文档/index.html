@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="...">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T12:04:18.341Z">
+<meta property="og:updated_time" content="2020-09-01T12:25:13.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目部署文档">
 <meta name="twitter:description" content="...">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T20:04:18+08:00">
-                2020-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T20:25:13+08:00">
+                2020-09-01
               </time>
             
           </span>
@@ -443,7 +443,7 @@
 </ul>
 <h2 id="追加命令"><a href="#追加命令" class="headerlink" title="追加命令"></a>追加命令</h2><h3 id="防火墙策略"><a href="#防火墙策略" class="headerlink" title="防火墙策略"></a>防火墙策略</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 防火墙策略配置</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 防火墙增加 指定端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3000/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=443/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出防火墙开放的端口</span></span><br><span class="line">systemctl restart firewalld</span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际上不启用防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
 <h3 id="服务器参数"><a href="#服务器参数" class="headerlink" title="服务器参数"></a>服务器参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Neo4j数据导入并行化等性能增强参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查Doris参数合理性，并整理清单</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查ES参数合理性，并整理清单</span></span><br></pre></td></tr></table></figure>
-<h3 id="服务器用户密码配置"><a href="#服务器用户密码配置" class="headerlink" title="服务器用户密码配置"></a>服务器用户密码配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码</span></span><br><span class="line"></span><br><span class="line">服务器12</span><br><span class="line">  - Doris</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.2:8040</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - fdm qwe123</span><br><span class="line">      - root</span><br><span class="line">  - ES</span><br><span class="line">    - UI界面</span><br><span class="line">      -</span><br><span class="line">服务器13</span><br><span class="line">  - Neo4j</span><br><span class="line">    - UI界面</span><br><span class="line">      - 172.16.1.3:7474</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - neo4j qwe123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他扩展项</span></span><br><span class="line">es插件 es-head(TODO 仅支持5.x版本？)</span><br><span class="line">doris插件</span><br></pre></td></tr></table></figure>
+<h3 id="服务器用户密码配置"><a href="#服务器用户密码配置" class="headerlink" title="服务器用户密码配置"></a>服务器用户密码配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码</span></span><br><span class="line"></span><br><span class="line">服务器12</span><br><span class="line">  - Doris</span><br><span class="line">    - UI界面</span><br><span class="line">      - 192.168.100.71:8040</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - fdm qwe123</span><br><span class="line">      - root</span><br><span class="line">  - ES</span><br><span class="line">    - UI界面</span><br><span class="line">      -</span><br><span class="line">服务器13</span><br><span class="line">  - Neo4j</span><br><span class="line">    - UI界面</span><br><span class="line">      - 192.168.100.72:7474</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - neo4j qwe123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他扩展项</span></span><br><span class="line">es插件 es-head(TODO 仅支持5.x版本？)</span><br><span class="line">doris插件</span><br></pre></td></tr></table></figure>
 <h4 id="ES-用户管理"><a href="#ES-用户管理" class="headerlink" title="ES-用户管理"></a>ES-用户管理</h4><p>1.需要在配置文件中开启 x-pack 验证, 修改 config 目录下面的 elasticsearch.yml 文件，在里面添加如下内容,并重启</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xpack.security.enabled: <span class="literal">true</span></span><br><span class="line">xpack.license.self_generated.type: basic</span><br><span class="line">xpack.security.transport.ssl.enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>2.执行设置用户名和密码的命令,这里需要为 4 个用户分别设置密码，elastic, kibana, logstash_system,beats_system</p>
@@ -622,7 +622,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/else/开发方法论/" rel="prev" title="开发方法论-index">
+              <a href="/sumup/开发方法论/" rel="prev" title="开发方法论-index">
                 开发方法论-index <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -708,7 +708,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,7 +719,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

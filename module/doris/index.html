@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Doris">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-28T14:43:37.925Z">
+<meta property="og:updated_time" content="2020-09-01T12:24:36.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Doris-技术文档">
 <meta name="twitter:description" content="Doris">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-28T22:43:37+08:00">
-                2020-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T20:24:36+08:00">
+                2020-09-01
               </time>
             
           </span>
@@ -437,7 +437,7 @@
       
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 显示 docker 日志</span></span><br><span class="line">journalctl -fu docker</span><br></pre></td></tr></table></figure>
 <h2 id="Drois-问题记录"><a href="#Drois-问题记录" class="headerlink" title="Drois-问题记录"></a>Drois-问题记录</h2><h3 id="there-is-not-100-continue-header"><a href="#there-is-not-100-continue-header" class="headerlink" title="there is not 100-continue header"></a>there is not 100-continue header</h3><p>日志详情</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[2020-08-05 11:19:51,986] PID:40673-root: [utils.py-node_data_save-1256] INFO   : &gt;&gt; Loading Stream Data To Doris, By CMD [</span><br><span class="line">curl -s --location-trusted -u fdm:qwe123</span><br><span class="line">-H <span class="string">"column_separator:^A columns: id,CNT,SUBJECT,SUBJECT_CARD_NAME,SUBJECT_BANK_NAME,SUBJECT_IS_OUTLL</span></span><br><span class="line"><span class="string">ANDS,ACCOMPANY,ACCOMPANY_CARD_NAME,ACCOMPANY_BANK_NAME,ACCOMPANY_IS_OUTLANDS"</span></span><br><span class="line">-T /tmp/doris-loader-nodeid_15965975224629301272.csv</span><br><span class="line">-XPUT http://172.16.2.1:80030/api/fdmdb/nodeid_15965975224629301272/_stream_load</span><br><span class="line">]</span><br><span class="line">[2020-08-05 11:19:52,020] PID:40673-root: [utils.py-node_data_save-1258] INFO   : &gt;&gt; Get Responese Info [(0, <span class="string">'&#123;"status":"FAILED","msg":"errCode \\u003d 2, detailMessage \\u003d There is no</span></span><br><span class="line"><span class="string">100-continue header"&#125;'</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[2020-08-05 11:19:51,986] PID:40673-root: [utils.py-node_data_save-1256] INFO   : &gt;&gt; Loading Stream Data To Doris, By CMD [</span><br><span class="line">curl -s --location-trusted -u fdm:qwe123</span><br><span class="line">-H <span class="string">"column_separator:^A columns: id,CNT,SUBJECT,SUBJECT_CARD_NAME,SUBJECT_BANK_NAME,SUBJECT_IS_OUTLL</span></span><br><span class="line"><span class="string">ANDS,ACCOMPANY,ACCOMPANY_CARD_NAME,ACCOMPANY_BANK_NAME,ACCOMPANY_IS_OUTLANDS"</span></span><br><span class="line">-T /tmp/doris-loader-nodeid_15965975224629301272.csv</span><br><span class="line">-XPUT http://192.168.101.71:80030/api/fdmdb/nodeid_15965975224629301272/_stream_load</span><br><span class="line">]</span><br><span class="line">[2020-08-05 11:19:52,020] PID:40673-root: [utils.py-node_data_save-1258] INFO   : &gt;&gt; Get Responese Info [(0, <span class="string">'&#123;"status":"FAILED","msg":"errCode \\u003d 2, detailMessage \\u003d There is no</span></span><br><span class="line"><span class="string">100-continue header"&#125;'</span>)]</span><br></pre></td></tr></table></figure>
 <p>运行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -s --location-trusted \</span><br><span class="line">-u &#123;DORIS_USERNAME&#125;:&#123;DORIS_PASSWORD&#125;  \</span><br><span class="line">-H <span class="string">"column_separator:&#123;CSV_SEP&#125; columns: &#123;COLUMNS&#125;"</span> \</span><br><span class="line">-T &#123;DATA_FILEPATH&#125; \</span><br><span class="line">-XPUT http://&#123;DORIS_HOSTNAME&#125;:&#123;DORIS_HTTPPORT&#125;/api/&#123;DORIS_DATABASE&#125;/&#123;DORIS_TABLE&#125;/_stream_load</span><br></pre></td></tr></table></figure>
 <p>解决方案</p>
@@ -532,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/module/es/" rel="prev" title="ES-技术文档">
-                ES-技术文档 <i class="fa fa-chevron-right"></i>
+              <a href="/module/es/es_version/" rel="prev" title="Module-ES-版本差异对比">
+                Module-ES-版本差异对比 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -618,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">161</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
