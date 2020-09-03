@@ -1,10 +1,10 @@
 ---
 title: Markdown-使用文档
-url_path: win/markdown
+url_path: tools/markdown
 tags:
-  - win
+  - tools
 categories:
-  - win
+  - tools
 description: MarkDown-文本语言
 ---
 

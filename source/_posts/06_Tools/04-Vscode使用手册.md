@@ -1,11 +1,11 @@
 ---
 title: VScode-技术文档
-url_path: win/vscode
+url_path: tools/vscode
 tags:
-  - win
+  - tools
   - AAAAA
 categories:
-  - win
+  - tools
 description: VScode-IDE-Markdown等工具
 ---
 

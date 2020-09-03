@@ -14,6 +14,13 @@ description: Linux-常用命令大全
 
 ## 常用命令
 
+### rsync
+
+```bash
+# 目录同步
+rsync -avzP es@191.110.110.62:/ssd_data /esdata2/
+```
+
 ### split
 
 split 文件切割软件

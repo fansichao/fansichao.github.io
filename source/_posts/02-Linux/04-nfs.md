@@ -149,8 +149,8 @@ mount -t nfs -o nosuid,noexec,nodev,rw 172.21.0.111:/data /nfs_data
 
 ```bash
 # 问题背景
-[root@f3a3540cb8e5 ~]# mount -t nfs 172.16.2.4:/data_storage/fdm_neo4j/import /data/neo4j_import_data
-mount.nfs: mounting 172.16.2.4:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory
+[root@f3a3540cb8e5 ~]# mount -t nfs 192.168.101.74:/data_storage/fdm_neo4j/import /data/neo4j_import_data
+mount.nfs: mounting 192.168.101.74:/data_storage/fdm_neo4j/import failed, reason given by server: No such file or directory
 
 # 原有 /etc/exports 配置
 /data_storage/fdm_neo4j/import 172.16.2.0/24(rw,sync,no_root_squash,insecure)

@@ -12,28 +12,27 @@ description: Linux-index 目录索引，Linux相关内容详见此文件。
 
 ## Linux-目录索引
 
-- docker-部署
-  - [Docker-安装部署](http://www.superscfan.top/docker/docker_install)
-- docker-使用
-  - [Docker-Compose](http://www.superscfan.top/docker/docker_compose)
-  - [Docker-File](http://www.superscfan.top/docker/docker_file)
 - Linux 知识
-  - [Linux-常用命令](http://www.superscfan.top/linux/cmd)
-  - [Linux-功能模块](http://www.superscfan.top/linux/function)
-  - [Linux-术语介绍](http://www.superscfan.top/linux/term)
-  - [Linux-BashShell](http://www.superscfan.top/linux/bashshell)
+  - [Linux-常用命令](https://www.superscfan.top/linux/cmd)
+  - [Linux-功能模块](https://www.superscfan.top/linux/function)
+  - [Linux-术语介绍](https://www.superscfan.top/linux/term)
+  - [Linux-BashShell](https://www.superscfan.top/linux/bashshell)
 - Linux 功能模块
-  - [FTP 文件传输功能](http://www.superscfan.top/linux/ftp)
-  - [Locale 语言环境](http://www.superscfan.top/linux/locale)
-  - [Network 网络配置](http://www.superscfan.top/linux/network)
-  - [NFS](http://www.superscfan.top/linux/nfs)
-  - [Ntpd](http://www.superscfan.top/linux/network)
-  - [Raid](http://www.superscfan.top/linux/network)
-  - [SSH](http://www.superscfan.top/linux/network)
-  - [Network 网络配置](http://www.superscfan.top/linux/network)
-  - [Network 网络配置](http://www.superscfan.top/linux/network)
-  - [Network 网络配置](http://www.superscfan.top/linux/network)
-- Linux 脚本配置等
+  - [FTP 文件传输功能](https://www.superscfan.top/linux/ftp)
+  - [Locale 语言环境](https://www.superscfan.top/linux/locale)
+  - [Network 网络配置](https://www.superscfan.top/linux/network)
+  - [NFS](https://www.superscfan.top/linux/nfs)
+  - [Ntpd](https://www.superscfan.top/linux/network)
+  - [Raid](https://www.superscfan.top/linux/network)
+  - [SSH](https://www.superscfan.top/linux/network)
+  - [yum源配置](https://www.superscfan.top/linux/yum)
+  - [Centos8使用记录](https://www.superscfan.top/linux/centos8)
+  - [HTTPS证书配置](https://www.superscfan.top/linux/https)
+- Linux 工具脚本等
+  - [性能测试工具](https://www.superscfan.top/linux/cmdn_test)
+  - [性能监控工具](https://www.superscfan.top/linux/cmdn_tools)
+  - [关机前执行脚本](https://www.superscfan.top/linux/restart_scripts)
+
 
 Linux-功能模块清单
 

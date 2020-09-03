@@ -1,11 +1,11 @@
 ---
 title: Pycharm-技术文档
-url_path: win/pycharm
+url_path: tools/pycharm
 tags:
-  - win
+  - tools
   - AAAA
 categories:
-  - win
+  - tools
 description: Pycharm-IDE环境编辑器
 ---
 

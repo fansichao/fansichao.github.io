@@ -1,19 +1,183 @@
 ---
-title: Module-ES-使用文档
-url_path: module/es/docs
+title: ES配置文件
+url_path: module/es/config
 tags:
   - Module
   - Elasticsearch
 categories:
-  - Module
-description: ....
+  - Elasticsearch
+description: ES配置文件详解
 ---
 
 环境说明:
 
 - ES7.4.0 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/)
 
-## 参数配置
+## 系统配置项说明
+
+### Disable swap 以提升性能(可选)
+
+```bash
+# 方法1 临时禁用，无需重启ES节点, 永久禁用它，您将需要编辑/etc/fstab文件并注释掉所有包含单词的行swap
+sudo swapoff -a
+
+# 方法2 配置系统参数，减少了内核的交换
+vm.swappiness=1
+
+# 方法3 配置es参数，需要重启ES节点
+bootstrap.memory_lock: true
+```
+
+### 修改文件描述符数量(必选)
+
+```bash
+# 临时修改
+ulimit -n 65535
+
+# 永久修改
+/etc/security/limits.conf
+增加 nofile to 65535
+
+# 检查ES是否配置正常
+curl -X GET "localhost:9200/_nodes/stats/process?filter_path=**.max_file_descriptors&pretty"
+```
+
+### 虚拟内存数量(必选)
+
+```bash
+# 临时修改
+sysctl -w vm.max_map_count=262144
+
+# 永久修改
+/etc/sysctl.conf 中增加
+vm.max_map_count=262144
+sysctl -p 使其生效
+```
+
+### 线程数量(必选)
+
+```bash
+# 临时设置
+ulimit -u 4096
+
+# 永久设置
+/etc/security/limits.conf
+nproc to 4096 in /etc/security/limits.conf
+```
+
+### DNS 缓存设置(可选)
+
+```bash
+networkaddress.cache.ttl=<timeout>
+networkaddress.cache.negative.ttl=<timeout>
+```
+
+## ES 配置项说明
+
+### 增加分片数量(必选)
+
+ES740 必须配置分片数量，避免分片过少，导致项目程序运行报错。
+
+```bash
+# 直接更新
+curl -XPUT 'http://0.0.0.0:9200/_cluster/settings'  -H 'Content-Type: application/json' -d '
+{
+  "transient": {
+    "cluster": {
+      "max_shards_per_node": 50000
+    }
+  }
+}
+'
+```
+
+### 增加 scroll 数量(生产必选)
+
+```bash
+# scroll 使用 24小时后自动回收. 默认1000
+方案1 - 增加滚动设置()
+curl -X PUT http://192.168.101.71:9200/_cluster/settings -H 'Content-Type: application/json' -d '{
+    "persistent" : {
+        "search.max_open_scroll_context": 100000000
+    },
+    "transient": {
+        "search.max_open_scroll_context": 100000000
+    }
+}'
+
+```
+
+### 磁盘使用量在 95%以上时，索引会被标记为已读，无法写入数据(可选)
+
+```python
+flood stage disk watermark [95%] exceeded on [KeyWFmZzQdy101sSic1ilA][node-only][/ssd_datapath/data/nodes/0] free: 42.3gb[4.6%], all indices on this node will be marked read-only
+```
+
+**解决方法:** 通过 kibana 修改磁盘使用上限为 99%
+
+```python
+PUT _cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.disk.watermark.low": "99%",
+    "cluster.routing.allocation.disk.watermark.high": "99%",
+    "cluster.routing.allocation.disk.watermark.flood_stage": "99%",
+    "cluster.info.update.interval": "1m"
+  }
+}
+```
+
+### ES 进程数修改(必选)
+
+```bash
+# 默认 100
+- thread_pool.get.queue_size=1000
+- thread_pool.write.queue_size=1000
+- thread_pool.analyze.queue_size=1000
+- thread_pool.search.queue_size=1000
+- thread_pool.listener.queue_size=1000
+```
+
+### 待测试配置
+
+```bash
+# 任何的元数据变动都会涉及集群更新，设置该参数
+# 默认 30 s
+discovery.zen.commit_timeout
+
+# 集群健康的检查参数
+# default 3 s
+dicovery.zen.ping_timeout
+
+# 以下配置可以减少，当ES节点短时间重启或宕机导致的shards重新分配带来的IO浪费
+# ES-Version 5.6.4
+discovery.zen.fd.ping_timeout: 180s
+discovery.zen.fd.ping_retries: 6
+discovery.zen.fd.ping_interval: 30s
+discovery.zen.ping_timeout: 120s
+```
+
+### 修改 ES 内存大小(生产必选配置)
+
+修改 config/jvm.options 文件
+
+```python
+# 根据实际修改，默认1g 两个值必须相同, 不能超过32G
+-Xms2g
+-Xmx2g
+```
+
+建议的配置如下：
+
+将最小堆大小（Xms）和最大堆大小（Xmx）设置为彼此相等。
+
+Elasticsearch 可用的堆越多，它可用于缓存的内存就越多。但请注意，过多的堆可能会陷入长时间的垃圾收集暂停。所以设置的堆不能太大， 尽量设置到内存的 50%。
+
+将 Xmx 设置为不超过物理 RAM 的 50％，以确保有足够的物理内存给内核文件系统缓存。
+
+内存 heap size 配置不要超过 32G, 基本上大多数系统最多只配置到 26G.
+
+## ES 参数说明
 
 文件 `config/elasticsearch.yml` 参数配置说明
 
@@ -75,7 +239,6 @@ thread_pool.search.target_response_time: 6s
 #target_response_time是时间值设置，指示线程池队列中任务的目标平均响应时间。如果任务通常超过此时间，则将调低线程池队列以拒绝任务。
 
 
-
 # 增加以下内容
 # 集群名称必须相同
 cluster.name: es-test
@@ -117,14 +280,6 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-项目配置样例如下
-
-```bash
-
-```
-
-## 官网配置
-
 ### ES 配置文件
 
 [ES7.4 官网配置详细说明](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/settings.html)
@@ -157,65 +312,6 @@ discovery.seed_hosts: ["10.10.10.1","10.10.10.2","10.10.10.3"]
 cluster.initial_master_nodes:["10.10.10.1","10.10.10.2","10.10.10.3"]
 ```
 
-### 系统配置
-
-Disable swap 以提升性能
-
-```bash
-# 方法1 临时禁用，无需重启ES节点, 永久禁用它，您将需要编辑/etc/fstab文件并注释掉所有包含单词的行swap
-sudo swapoff -a
-
-# 方法2 配置系统参数，减少了内核的交换
-vm.swappiness=1
-
-# 方法3 配置es参数，需要重启ES节点
-bootstrap.memory_lock: true
-```
-
-修改文件描述符数量
-
-```bash
-# 临时修改
-ulimit -n 65535
-
-# 永久修改
-/etc/security/limits.conf
-增加 nofile to 65535
-
-# 检查ES是否配置正常
-curl -X GET "localhost:9200/_nodes/stats/process?filter_path=**.max_file_descriptors&pretty"
-```
-
-虚拟内存数量
-
-```bash
-# 临时修改
-sysctl -w vm.max_map_count=262144
-
-# 永久修改
-/etc/sysctl.conf 中增加
-vm.max_map_count=262144
-sysctl -p 使其生效
-```
-
-线程数量
-
-```bash
-# 临时设置
-ulimit -u 4096
-
-# 永久设置
-/etc/security/limits.conf
-nproc to 4096 in /etc/security/limits.conf
-```
-
-DNS 缓存设置
-
-```bash
-networkaddress.cache.ttl=<timeout>
-networkaddress.cache.negative.ttl=<timeout>
-```
-
 ## 附件
 
 ### ES 说明
@@ -225,88 +321,6 @@ networkaddress.cache.negative.ttl=<timeout>
 Elasticsearch保留端口9300-9400用于集群通信，而端口9200-9300保留用于访问Elasticsearch API
 
 出现master not discovered异常的根本原因是节点无法在端口9300上相互ping通。这需要同时进行。即node1应该能够在9300上ping node2，反之亦然
-
-
-```
-
-### 常用命令
-
-```bash
-# 查看API
-[root@540d820ba866 ~]# curl -XGET 'http://192.168.100.200:7403/_cat/'
-=^.^=
-/_cat/allocation
-/_cat/shards
-/_cat/shards/{index}
-/_cat/master
-/_cat/nodes
-/_cat/tasks
-/_cat/indices
-/_cat/indices/{index}
-/_cat/segments
-/_cat/segments/{index}
-/_cat/count
-/_cat/count/{index}
-/_cat/recovery
-/_cat/recovery/{index}
-/_cat/health
-/_cat/pending_tasks
-/_cat/aliases
-/_cat/aliases/{alias}
-/_cat/thread_pool
-/_cat/thread_pool/{thread_pools}
-/_cat/plugins
-/_cat/fielddata
-/_cat/fielddata/{fields}
-/_cat/nodeattrs
-/_cat/repositories
-/_cat/snapshots/{repository}
-/_cat/templates
-
-
-# 监听端口是否存活 yum install -y telnet
-[root@540d820ba866 ~]# telnet 192.168.100.200 7413
-Trying 192.168.100.200...
-Connected to 192.168.100.200.
-Escape character is '^]'.
-Connection closed by foreign host.
-
-# 查看集群状态
-[root@540d820ba866 ~]# curl -XGET 'http://192.168.100.200:7403/_cluster/state?pretty'
-{
-  "error" : {
-    "root_cause" : [
-      {
-        "type" : "master_not_discovered_exception",
-        "reason" : null
-      }
-    ],
-    "type" : "master_not_discovered_exception",
-    "reason" : null
-  },
-  "status" : 503
-}
-
-
-
-
-```
-
-### 问题
-
-#### master not discovered yet, this node has not previously joined a bootstrapped (v7+) cluster
-
-```bash
-# 问题背景
-启动多节点集群时，节点日志。kibana仅监控到一个节点，
-
-# 解决方案
-每个配置文件 增加一行
-network.publish_host: （内网ip）
-
-
-# 日志详情
-[2020-06-30T02:41:32,746][WARN ][o.e.c.c.ClusterFormationFailureHelper] [test2_node-only] master not discovered yet, this node has not previously joined a bootstrapped (v7+) cluster, and this node must discover master-eligible nodes [192.168.100.200:7403, 192.168.100.200:7405] to bootstrap a cluster: have discovered [{test2_node-only}{IM1O55JHTAqnN3UG9a9fCg}{BKCGZnsRS4-QLRq7CB46oQ}{172.21.0.100}{172.21.0.100:9300}{dilm}{ml.machine_memory=101101162496, xpack.installed=true, zone=zone_two, ml.max_open_jobs=20}]; discovery will continue using [192.168.100.200:7403, 192.168.100.200:7405] from hosts providers and [{test2_node-only}{IM1O55JHTAqnN3UG9a9fCg}{BKCGZnsRS4-QLRq7CB46oQ}{172.21.0.100}{172.21.0.100:9300}{dilm}{ml.machine_memory=101101162496, xpack.installed=true, zone=zone_two, ml.max_open_jobs=20}] from last-known cluster state; node term 0, last-accepted version 0 in term 0
 
 
 ```

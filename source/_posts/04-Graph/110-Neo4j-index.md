@@ -94,11 +94,11 @@ CQL 代表 Cypher 查询语言。 像 Oracle 数据库具有查询语言 SQL，N
 
 内部资源
 
-- [Neo4j 安装部署](http://www.suerpscfan.top/module/neo4j/install)
-- [Neo4j 配置详解](http://www.suerpscfan.top/module/neo4j/config)
-- [Neo4j 数据导入](http://www.suerpscfan.top/module/neo4j/load)
-- [Neo4j 功能模块](http://www.suerpscfan.top/module/neo4j/function)
-- [Neo4j 常用命令](http://www.suerpscfan.top/module/neo4j/cmd)
+- [Neo4j 安装部署](https://www.superscfan.top/module/neo4j/install)
+- [Neo4j 配置详解](https://www.superscfan.top/module/neo4j/config)
+- [Neo4j 数据导入](https://www.superscfan.top/module/neo4j/load)
+- [Neo4j 功能模块](https://www.superscfan.top/module/neo4j/function)
+- [Neo4j 常用命令](https://www.superscfan.top/module/neo4j/cmd)
 
 外部资源
 

@@ -403,20 +403,30 @@ gitment:
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
-# Gitalk
+
+# ---------------------------------------------------------------
+# Chat Services
+# See: https://theme-next.js.org/docs/third-party-services/chat-services
+# ---------------------------------------------------------------
+
+# 参考博客配置#
+# https://github.com/next-theme/hexo-theme-next/blob/master/_config.yml
+
+# Gitalk https://github.com/gitalk/gitalk/blob/master/readme-cn.md
 gitalk:
   enable: true
   ClientID: 02c9633efd3ac5a7b389
   ClientSecret: e0245151fec034c33e2c69c104c586538ccc71e3
   repo: fansichao.github.io
   owner: fansichao
-  adminUser: http://www.superscfan.top/
+  adminUser: fansichao
   IdPrefix: 
   labels: comments
   perPage: 10
   pagerDirection: last
   createIssueManually: false
   distractionFreeMode: false
+  enableHotKey: true
 
 # Baidu Share
 # Available value:
@@ -835,5 +845,3 @@ tidio:
 
 
 
-# 参考博客配置#
-# https://github.com/next-theme/hexo-theme-next/blob/master/_config.yml

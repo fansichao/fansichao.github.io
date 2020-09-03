@@ -1,10 +1,10 @@
 ---
 title: VNC-技术文档
-url_path: win/vnc
+url_path: tools/vnc
 tags:
-  - win
+  - tools
 categories:
-  - module
+  - tools
 description: VNC,远程登录图形化界面配置。
 ---
 

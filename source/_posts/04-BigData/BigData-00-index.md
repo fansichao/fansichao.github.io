@@ -12,9 +12,9 @@ description: 大数据
 ## BigData-index
 
 - 大数据平台
-  - [CDH 使用文档](http://www.superscfan.top/bigdata/cdh)
+  - [CDH 使用文档](https://www.superscfan.top/bigdata/cdh)
 - 大数据软件
-  - [Hadoop](http://www.superscfan.top/bigdata/hadoop)
-  - [Hbase](http://www.superscfan.top/bigdata/hbase)
-  - [scylladb](http://www.superscfan.top/bigdata/scylladb)
-  - [Spark](http://www.superscfan.top/bigdata/spark)
+  - [Hadoop](https://www.superscfan.top/bigdata/hadoop)
+  - [Hbase](https://www.superscfan.top/bigdata/hbase)
+  - [scylladb](https://www.superscfan.top/bigdata/scylladb)
+  - [Spark](https://www.superscfan.top/bigdata/spark)

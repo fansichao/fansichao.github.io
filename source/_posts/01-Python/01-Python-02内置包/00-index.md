@@ -12,10 +12,10 @@ description: 内置包
 ## Python-packages-目录索引
 
 - 内置包
-  - [logging-日志](http://www.superscfan.top/python/packages/logging)
-  - [os-文件目录](http://www.superscfan.top/python/packages/os)
-  - [sys-系统参数](http://www.superscfan.top/python/packages/sys)
-  - [time-时间处理](http://www.superscfan.top/python/packages/time)
+  - [logging-日志](https://www.superscfan.top/python/packages/logging)
+  - [os-文件目录](https://www.superscfan.top/python/packages/os)
+  - [sys-系统参数](https://www.superscfan.top/python/packages/sys)
+  - [time-时间处理](https://www.superscfan.top/python/packages/time)
 
 ## 相关资源
 

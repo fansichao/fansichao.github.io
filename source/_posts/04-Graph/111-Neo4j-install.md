@@ -18,7 +18,7 @@ description: Neo4j部署文档
 
 ### 容器部署
 
-参考 [Docker-Neo4j 安装文档](http://wwww.superscfan.top/docker/docker_neo4j)
+参考 [Docker-Neo4j 安装文档](https://www.superscfan.top/docker/docker_neo4j)
 
 ### 宿主机部署
 

@@ -27,7 +27,7 @@ curl -s --location-trusted -u fdm:qwe123
 -H "column_separator:^A columns: id,CNT,SUBJECT,SUBJECT_CARD_NAME,SUBJECT_BANK_NAME,SUBJECT_IS_OUTLL
 ANDS,ACCOMPANY,ACCOMPANY_CARD_NAME,ACCOMPANY_BANK_NAME,ACCOMPANY_IS_OUTLANDS"
 -T /tmp/doris-loader-nodeid_15965975224629301272.csv
--XPUT http://172.16.2.1:80030/api/fdmdb/nodeid_15965975224629301272/_stream_load
+-XPUT http://192.168.101.71:80030/api/fdmdb/nodeid_15965975224629301272/_stream_load
 ]
 [2020-08-05 11:19:52,020] PID:40673-root: [utils.py-node_data_save-1258] INFO   : >> Get Responese Info [(0, '{"status":"FAILED","msg":"errCode \\u003d 2, detailMessage \\u003d There is no
 100-continue header"}')]

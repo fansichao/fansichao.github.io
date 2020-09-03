@@ -137,3 +137,31 @@ permalink: :url_path/
 ### 个人博客绑定域名配置
 
 - [Hexo 个人博客绑定域名配置](https://blog.csdn.net/Wonz5130/article/details/82828761)
+
+### 博客评论配置
+
+```yml
+# themes\next\layout\_partials\comments.swig
+{% elseif theme.gitalk.enable %}
+  <div class="comments" id="comments">
+      <div id="gitalk-container"></div>
+  </div>
+
+# _config.yml
+gitalk:
+  enable: true
+  ClientID: xxxxx
+  ClientSecret: xxxxxx
+  repo: fansichao.github.io
+  owner: fansichao
+  adminUser: fansichao
+  IdPrefix:
+  labels: comments
+  perPage: 10
+  pagerDirection: last
+  createIssueManually: false
+  distractionFreeMode: false
+  enableHotKey: true
+```
+
+配置详见 [Gittalk-github 参考](https://github.com/gitalk/gitalk/blob/master/readme-cn.md)

@@ -43,6 +43,6 @@ GRANT CREATE USER,DROP USER,ALTER USER ,CREATE ANY VIEW ,DROP ANY VIEW,EXP_FULL_
 ## 关联资源
 
 - 文内关联资源
-  - [Oracle 使用文档](http://superscfan.top/module/oracle)
+  - [Oracle 使用文档](https://www.superscfan.top/module/oracle)
 - 外部资源
   - [Docker 安装 Oracle11g-超简单教程](https://www.jianshu.com/p/fc85bb7e2d90)

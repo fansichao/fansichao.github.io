@@ -6,7 +6,8 @@ tags:
   - Elasticsearch
 categories:
   - Module
-description: ....
+  - Elasticsearch
+description: ES564 & ES740 整理
 ---
 
 ES564 & ES740 差异对比分析
@@ -121,27 +122,7 @@ total = es_result['hits']['total']
 
 ## 问题记录
 
-### 测试时磁盘使用量在 95%以上时，索引会被标记为已读，无法写入数据
-
-```python
-flood stage disk watermark [95%] exceeded on [KeyWFmZzQdy101sSic1ilA][node-only][/ssd_datapath/data/nodes/0] free: 42.3gb[4.6%], all indices on this node will be marked read-only
-```
-
-**解决方法:** 通过 kibana 修改磁盘使用上限为 99%
-
-```python
-PUT _cluster/settings
-{
-  "transient": {
-    "cluster.routing.allocation.disk.watermark.low": "99%",
-    "cluster.routing.allocation.disk.watermark.high": "99%",
-    "cluster.routing.allocation.disk.watermark.flood_stage": "99%",
-    "cluster.info.update.interval": "1m"
-  }
-}
-```
-
-### 7 版本以上的 elasticsearch，默认只允许 1000 个分片
+### maximum shards open
 
 ```python
 elasticsearch.exceptions.RequestError: RequestError(400, u'validation_exception', u'Validation Failed: 1: this action would add [16] total shards, but this cluster currently has [995]/[1000] maximum shards open;')
@@ -179,30 +160,3 @@ PUT _cluster/settings
   }
 }
 ```
-
-### java.lang.OutOfMemoryError: Java heap space
-
-**解决方法:** 修改 config/jvm.options 文件
-默认值
-
-```python
--Xms1g
--Xmx1g
-```
-
-修改后的值
-
-```python
--Xms2g
--Xmx2g
-```
-
-**建议的配置如下：**
-
-将最小堆大小（Xms）和最大堆大小（Xmx）设置为彼此相等。
-
-Elasticsearch 可用的堆越多，它可用于缓存的内存就越多。但请注意，过多的堆可能会陷入长时间的垃圾收集暂停。所以设置的堆不能太大， 尽量设置到内存的 50%。
-
-将 Xmx 设置为不超过物理 RAM 的 50％，以确保有足够的物理内存给内核文件系统缓存。
-
-内存 heap size 配置不要超过 32G, 基本上大多数系统最多只配置到 26G.

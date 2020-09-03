@@ -1,11 +1,11 @@
 ---
 title: Virtualbox-技术文档
-url_path: win/virtualbox
+url_path: tools/virtualbox
 tags:
-  - win
+  - tools
   - AAAA
 categories:
-  - win
+  - tools
 description: virtualbox-虚拟机
 ---
 
