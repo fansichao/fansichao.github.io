@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Module,Database,">
+  <meta name="keywords" content="Database,Module,">
 
 
 
@@ -87,14 +87,14 @@
 
 
 <meta name="description" content="...">
-<meta name="keywords" content="Module,Database">
+<meta name="keywords" content="Database,Module">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Module-Database-DB2使用文档">
 <meta property="og:url" content="https://fansichao.github.io/module/db2/index.html">
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="...">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T11:18:32.328Z">
+<meta property="og:updated_time" content="2020-09-05T02:36:01.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Module-Database-DB2使用文档">
 <meta name="twitter:description" content="...">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T19:18:32+08:00">
-                2020-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-05T10:36:01+08:00">
+                2020-09-05
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  329
+                  342
                 </span>
               
 
@@ -435,9 +435,10 @@
       
 
       
-        <h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>参考链接： <a href="http://www.codeceo.com/article/linux-db2-setup.html" target="_blank" rel="noopener">Linux下DB2数据库安装过程详解</a></p>
+        <h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><h3 id="Docker-部署"><a href="#Docker-部署" class="headerlink" title="Docker 部署"></a>Docker 部署</h3><p>详见 <a href="https://www.superscfan.top/docker/docker_db2" target="_blank" rel="noopener">Docker-Db2</a></p>
+<h3 id="宿主机部署"><a href="#宿主机部署" class="headerlink" title="宿主机部署"></a>宿主机部署</h3><p>参考链接： <a href="http://www.codeceo.com/article/linux-db2-setup.html" target="_blank" rel="noopener">Linux 下 DB2 数据库安装过程详解</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">数据库配置</span><br><span class="line">创建数据库</span><br><span class="line"></span><br><span class="line">db2 create database 数据库名develop PAGESIZE 32 K <span class="comment">#建立数据库develop，32K,默认建立16k，32k空间大</span></span><br><span class="line">关闭防火墙</span><br><span class="line"></span><br><span class="line">systemctl stop firewalld.service <span class="comment"># 关闭 firewall  centos7的防火墙</span></span><br><span class="line">systemctl stop iptables.service  <span class="comment"># 关闭 iptables  centos6的防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment"># 禁止firewall开机启动</span></span><br><span class="line">systemctl <span class="built_in">disable</span> iptables.service  <span class="comment"># 禁止iptables 开机启动</span></span><br></pre></td></tr></table></figure>
-<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h3 id="安装Python-DB2驱动"><a href="#安装Python-DB2驱动" class="headerlink" title="安装Python-DB2驱动"></a>安装Python-DB2驱动</h3><p>若无DB2驱动，连接报错如下</p>
+<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h3 id="安装-Python-DB2-驱动"><a href="#安装-Python-DB2-驱动" class="headerlink" title="安装 Python-DB2 驱动"></a>安装 Python-DB2 驱动</h3><p>若无 DB2 驱动，连接报错如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import ibm_db</span><br><span class="line">&gt;&gt;&gt; connStr = <span class="string">"DATABASE=XCDW;HOSTNAME=192.168.100.167;PORT=50000;PROTOCOL=TCPIP;UID=xcdw;PWD=qwe123;"</span></span><br><span class="line">&gt;&gt;&gt; conn = ibm_db.connect(connStr, <span class="string">""</span>, <span class="string">""</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">SystemError: error <span class="built_in">return</span> without exception <span class="built_in">set</span></span><br></pre></td></tr></table></figure>
 <p>解决方案</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">步骤1:</span><br><span class="line"><span class="comment"># 数据库用户</span></span><br><span class="line">[db2inst1@localhost ~]$ ll</span><br><span class="line">total 8</span><br><span class="line">drwxrwxr-x.  3 db2inst1 db2iadm1 4096 Nov 13 19:10 db2inst1</span><br><span class="line">drwxrwsr-t. 25 db2inst1 db2iadm1 4096 Nov 13 19:10 sqllib</span><br><span class="line">[db2inst1@localhost ~]$ <span class="built_in">pwd</span></span><br><span class="line">/home/db2inst1</span><br><span class="line">[db2inst1@localhost ~]$</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将如下加入到数据库用户 .bash_profile 中. db2inst1为用户名称</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:.<span class="variable">$HOME</span>/bin:/home/db2inst1/sqllib/bin</span><br><span class="line"><span class="keyword">if</span> [ -f /home/db2inst1/sqllib/db2profile ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">source</span> /home/db2inst1/sqllib/db2profile</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">步骤2</span><br><span class="line"><span class="comment"># 解压得到 clidriver</span></span><br><span class="line">tar -zxvf linuxx64_odbc_cli.tar.gz</span><br><span class="line"><span class="comment"># 将 clidriver 复制到 ibm-db 下</span></span><br><span class="line">cp -r clidriver/ xcdw1_env/lib/python2.7/site-packages/ibm_db-2.0.7.dist-info/.</span><br></pre></td></tr></table></figure>
@@ -506,9 +507,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Module/" rel="tag"># Module</a>
-          
             <a href="/tags/Database/" rel="tag"># Database</a>
+          
+            <a href="/tags/Module/" rel="tag"># Module</a>
           
         </div>
       
@@ -617,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">161</span>
+                  <span class="site-state-item-count">164</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -682,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署"><span class="nav-number">1.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块"><span class="nav-number">2.</span> <span class="nav-text">功能模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Python-DB2驱动"><span class="nav-number">2.1.</span> <span class="nav-text">安装Python-DB2驱动</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署"><span class="nav-number">1.</span> <span class="nav-text">安装部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-部署"><span class="nav-number">1.1.</span> <span class="nav-text">Docker 部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宿主机部署"><span class="nav-number">1.2.</span> <span class="nav-text">宿主机部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能模块"><span class="nav-number">2.</span> <span class="nav-text">功能模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Python-DB2-驱动"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Python-DB2 驱动</span></a></li></ol></li></ol></div>
             
 
           </div>

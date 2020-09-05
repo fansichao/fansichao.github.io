@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker-Mysql 轻量数据库快速部署文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-26T12:58:02.090Z">
+<meta property="og:updated_time" content="2020-09-05T02:35:04.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-Mysql 部署文档">
 <meta name="twitter:description" content="Docker-Mysql 轻量数据库快速部署文档">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-26T20:58:02+08:00">
-                2020-08-26
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-05T10:35:04+08:00">
+                2020-09-05
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  180
                 </span>
               
 
@@ -435,7 +435,12 @@
       
 
       
-        
+        <h2 id="Docker-Mysql-未测试"><a href="#Docker-Mysql-未测试" class="headerlink" title="Docker-Mysql(未测试)"></a>Docker-Mysql(未测试)</h2><p>容器配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull mysql</span><br><span class="line"><span class="comment"># 检查镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment"># 创建容器</span></span><br><span class="line">sudo docker run -p 3306:3306 --name mysql \</span><br><span class="line">-v /usr/<span class="built_in">local</span>/docker/mysql/conf:/etc/mysql \</span><br><span class="line">-v /usr/<span class="built_in">local</span>/docker/mysql/logs:/var/<span class="built_in">log</span>/mysql \</span><br><span class="line">-v /usr/<span class="built_in">local</span>/docker/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-d mysql:5.7</span><br><span class="line"><span class="comment"># 检查容器是否正确运行</span></span><br><span class="line">docker container ls</span><br></pre></td></tr></table></figure>
+<p>mysql 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Mysql 默认配置</span></span><br><span class="line">host: 127.0.0.1</span><br><span class="line">port: 3306</span><br><span class="line">user: root</span><br><span class="line">password: 123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># sudo docker exec -it mysql bash</span></span><br><span class="line"><span class="comment"># 设置远程访问权限</span></span><br><span class="line">mysql -uroot -p123456</span><br><span class="line">use mysql;</span><br><span class="line">select host,user,password from user;</span><br><span class="line">grant all privileges  on *.* to root@<span class="string">'%'</span> identified by <span class="string">"password"</span>;</span><br><span class="line">flush privileges;</span><br><span class="line">select host,user,password from user;</span><br></pre></td></tr></table></figure>
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><p><a href="https://www.cnblogs.com/sablier/p/11605606.html" target="_blank" rel="noopener">使用 Docker 搭建 MySQL 服务</a></p>
+
       
     </div>
     
@@ -584,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -602,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">161</span>
+                  <span class="site-state-item-count">164</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +638,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -657,6 +671,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Mysql-未测试"><span class="nav-number">1.</span> <span class="nav-text">Docker-Mysql(未测试)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资源"><span class="nav-number">2.</span> <span class="nav-text">参考资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Module,Database,">
+  <meta name="keywords" content="Database,Module,">
 
 
 
@@ -87,14 +87,14 @@
 
 
 <meta name="description" content="...">
-<meta name="keywords" content="Module,Database">
+<meta name="keywords" content="Database,Module">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Module-Database-Mysql部署文档">
 <meta property="og:url" content="https://fansichao.github.io/module/mysql/index.html">
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="...">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T11:18:35.919Z">
+<meta property="og:updated_time" content="2020-09-05T02:44:18.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Module-Database-Mysql部署文档">
 <meta name="twitter:description" content="...">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-31T19:18:35+08:00">
-                2020-08-31
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-05T10:44:18+08:00">
+                2020-09-05
               </time>
             
           </span>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,553
+                  1,559
                 </span>
               
 
@@ -440,6 +440,7 @@
 <li>Mysql</li>
 <li>CentOS6.10</li>
 </ul>
+<h2 id="Docker-Mysql"><a href="#Docker-Mysql" class="headerlink" title="Docker-Mysql"></a>Docker-Mysql</h2><p>详见 <a href="https://superscfan.top/docker/docker_mysql" target="_blank" rel="noopener">Docker-Mysql</a></p>
 <h2 id="CentOS8-1-19"><a href="#CentOS8-1-19" class="headerlink" title="CentOS8.1.19"></a>CentOS8.1.19</h2><h3 id="CentOS8-安装-Mysql"><a href="#CentOS8-安装-Mysql" class="headerlink" title="CentOS8 安装 Mysql"></a>CentOS8 安装 Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 mysql-python 驱动前置依赖， Python3连接Mysql使用PyMySQL</span></span><br><span class="line">sudo yum install mysql-devel -y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 Mysql</span></span><br><span class="line">sudo dnf install @mysql -y</span><br><span class="line"><span class="comment"># 加入 开机自启</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now mysqld</span><br><span class="line"><span class="comment"># 检查运行状态</span></span><br><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure>
 <h3 id="CentOS8-配置-Mysql"><a href="#CentOS8-配置-Mysql" class="headerlink" title="CentOS8 配置 Mysql"></a>CentOS8 配置 Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 脚本执行一些与安全性相关的操作并设置MySQL根密码</span></span><br><span class="line">[root@fdm ~]<span class="comment"># sudo mysql_secure_installation</span></span><br><span class="line"></span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"></span><br><span class="line">VALIDATE PASSWORD COMPONENT can be used to <span class="built_in">test</span> passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to <span class="built_in">set</span> only those passwords <span class="built_in">which</span> are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD component?</span><br><span class="line"></span><br><span class="line">Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No:</span><br><span class="line">Please <span class="built_in">set</span> the password <span class="keyword">for</span> root here.</span><br><span class="line"></span><br><span class="line">New password:   <span class="comment"># 配置 Mysql-root 密码, 此处配置为 qwe123</span></span><br><span class="line"></span><br><span class="line">Re-enter new password:</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to <span class="built_in">log</span> into MySQL without having to have</span><br><span class="line">a user account created <span class="keyword">for</span> them. This is intended only <span class="keyword">for</span></span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) :</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line"><span class="string">'localhost'</span>. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) :</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line">By default, MySQL comes with a database named <span class="string">'test'</span> that</span><br><span class="line">anyone can access. This is also intended only <span class="keyword">for</span> testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove <span class="built_in">test</span> database and access to it? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) :</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) :</span><br><span class="line"></span><br><span class="line"> ... skipping.</span><br><span class="line">All <span class="keyword">done</span>!</span><br></pre></td></tr></table></figure>
 <h3 id="CentOS8-配置-Mysql-用户"><a href="#CentOS8-配置-Mysql-用户" class="headerlink" title="CentOS8 配置 Mysql 用户"></a>CentOS8 配置 Mysql 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">qwe123 为密码</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入交互界面</span></span><br><span class="line">mysql -uroot -pqwe123</span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">CREATE DATABASE fdm DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;</span><br><span class="line"><span class="comment"># 创建用户 可以远程访问</span></span><br><span class="line">create user <span class="string">'fdm'</span>@<span class="string">'%'</span> identified by <span class="string">'qwe123'</span>;</span><br><span class="line"><span class="comment"># 远程连接授权</span></span><br><span class="line">GRANT ALL ON fdm.* TO <span class="string">'fdm'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="comment"># 删除用户名为空的数据</span></span><br><span class="line">delete from mysql.user <span class="built_in">where</span> user=<span class="string">''</span>;</span><br><span class="line"><span class="comment"># 刷新权限，运行命令最后执行</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
@@ -526,9 +527,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Module/" rel="tag"># Module</a>
-          
             <a href="/tags/Database/" rel="tag"># Database</a>
+          
+            <a href="/tags/Module/" rel="tag"># Module</a>
           
         </div>
       
@@ -541,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/module/apache/" rel="next" title="Apache">
-                <i class="fa fa-chevron-left"></i> Apache
+              <a href="/module/dask/" rel="next" title="Dask并行任务调度">
+                <i class="fa fa-chevron-left"></i> Dask并行任务调度
               </a>
             
           </div>
@@ -637,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">161</span>
+                  <span class="site-state-item-count">164</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -659,7 +660,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -702,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS8-1-19"><span class="nav-number">1.</span> <span class="nav-text">CentOS8.1.19</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-安装-Mysql"><span class="nav-number">1.1.</span> <span class="nav-text">CentOS8 安装 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-配置-Mysql"><span class="nav-number">1.2.</span> <span class="nav-text">CentOS8 配置 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-配置-Mysql-用户"><span class="nav-number">1.3.</span> <span class="nav-text">CentOS8 配置 Mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS6-10"><span class="nav-number">2.</span> <span class="nav-text">CentOS6.10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-安装-Mysql"><span class="nav-number">2.1.</span> <span class="nav-text">CentOS6 安装 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-配置-Mysql-系统参数"><span class="nav-number">2.2.</span> <span class="nav-text">CentOS6 配置 Mysql 系统参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-配置-Mysql-用户"><span class="nav-number">2.3.</span> <span class="nav-text">CentOS6 配置 Mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">3.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-连接说明"><span class="nav-number">3.1.</span> <span class="nav-text">Mysql 连接说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">3.2.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Mysql"><span class="nav-number">1.</span> <span class="nav-text">Docker-Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS8-1-19"><span class="nav-number">2.</span> <span class="nav-text">CentOS8.1.19</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-安装-Mysql"><span class="nav-number">2.1.</span> <span class="nav-text">CentOS8 安装 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-配置-Mysql"><span class="nav-number">2.2.</span> <span class="nav-text">CentOS8 配置 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS8-配置-Mysql-用户"><span class="nav-number">2.3.</span> <span class="nav-text">CentOS8 配置 Mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS6-10"><span class="nav-number">3.</span> <span class="nav-text">CentOS6.10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-安装-Mysql"><span class="nav-number">3.1.</span> <span class="nav-text">CentOS6 安装 Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-配置-Mysql-系统参数"><span class="nav-number">3.2.</span> <span class="nav-text">CentOS6 配置 Mysql 系统参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6-配置-Mysql-用户"><span class="nav-number">3.3.</span> <span class="nav-text">CentOS6 配置 Mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">4.</span> <span class="nav-text">附件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-连接说明"><span class="nav-number">4.1.</span> <span class="nav-text">Mysql 连接说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">4.2.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
             
 
           </div>
