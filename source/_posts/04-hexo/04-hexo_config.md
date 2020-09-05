@@ -9,7 +9,26 @@ categories:
 description: Hexo静态博客使用文档
 ---
 
+<!-- TOC -->
+
+- [Hexo简介](#hexo简介)
+- [Hexo 博客配置](#hexo-博客配置)
+    - [折叠隐藏部分文字](#折叠隐藏部分文字)
+    - [添加文章创建时间和更新时间](#添加文章创建时间和更新时间)
+    - [修改文章 URL 生成方式](#修改文章-url-生成方式)
+    - [个人博客绑定域名配置](#个人博客绑定域名配置)
+    - [博客评论配置](#博客评论配置)
+    - [设置博客置顶](#设置博客置顶)
+
+<!-- /TOC -->
+## Hexo简介
+
+
+[hexo原理分析](https://blog.csdn.net/sinat_17775997/article/details/83821027)
+
 ## Hexo 博客配置
+
+- [Hexo 官方插件网](https://hexo.io/plugins/)
 
 ### 折叠隐藏部分文字
 
@@ -165,3 +184,19 @@ gitalk:
 ```
 
 配置详见 [Gittalk-github 参考](https://github.com/gitalk/gitalk/blob/master/readme-cn.md)
+
+### 设置博客置顶
+
+````bash
+# 文章中配置 top: true 即可
+top: true
+```
+````
+
+### 配置私密博客 hexo-hide-posts
+
+[hexo-hide-posts](https://github.com/printempw/hexo-hide-posts/blob/master/README_ZH.md)
+
+### 配置 live2d hexo-helper-live2d
+
+[Hexo 插件地址](https://hexo.io/plugins/)
