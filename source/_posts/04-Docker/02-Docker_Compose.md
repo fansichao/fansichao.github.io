@@ -69,7 +69,7 @@ docker-compose down
 docker-compose -f 21-es-docker-compose.yml start
 
 # 查看最新日志  配置文件 service 名称
-docker-compose -f 21-es-docker-compose.yml logs -t -f es_client1  
+docker-compose -f 21-es-docker-compose.yml logs -t -f es_client1 
 
 # 运行命令
 docker-compose -f es-docker-compose.yml up -d

@@ -1,6 +1,6 @@
 ---
 title: SQLAlchemy-技术文档
-url_path: module/svn
+url_path: module/sqlalchemy
 tags:
   - module
 categories:

@@ -2,12 +2,16 @@
 title: IT知识大全
 url_path: know/
 tags:
-  - knows
-  - blog
+  - know
+  - todo
 categories:
   - knows
 description: IT知识大全
 ---
+
+## 资源索引
+
+- [IT 术语知识](https://www.superscfan.top/know/term)
 
 IT 知识大全
 

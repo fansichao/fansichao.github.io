@@ -50,7 +50,7 @@ TODO 未来主要补全 Spark、Hive 大数据方向知识
   - [Docker 容器](https://www.superscfan.top/docker/)
   - [Neo4j 图库](https://www.superscfan.top/module/neo4j)
   - [HugeGraph 图库](https://www.superscfan.top/module/hugegraph)
-  - [Es](https://www.superscfan.top/module/elasticsearch)
+  - [Es](https://www.superscfan.top/module/es)
   - [Oracle 数据库](https://www.superscfan.top/module/oracle)
 - 05-模块知识
   - [模块知识集合](https://www.superscfan.top/module)

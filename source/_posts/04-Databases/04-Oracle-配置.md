@@ -9,8 +9,6 @@ categories:
 description: Oracle常用配置项. 可选 必选配置等
 ---
 
-## Oracle-常用配置
-
 <!-- TOC -->
 
 - [Oracle-常用配置](#oracle-常用配置)
@@ -22,8 +20,12 @@ description: Oracle常用配置项. 可选 必选配置等
   - [修改数据库进程数为 500](#修改数据库进程数为-500)
   - [Oracle 配置上下左右退格键](#oracle-配置上下左右退格键)
   - [Oracle 显示乱码](#oracle-显示乱码)
+- [Oracle-知识概念](#oracle-知识概念)
+  - [临时表](#临时表)
 
 <!-- /TOC -->
+
+## Oracle-常用配置
 
 ### 数据库自启动
 
@@ -309,3 +311,9 @@ sqlplus / as sysdba
 shartup;
 
 ```
+
+## Oracle-知识概念
+
+TODO Oracle 的深度使用
+
+### 临时表

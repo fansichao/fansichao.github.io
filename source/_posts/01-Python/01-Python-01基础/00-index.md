@@ -25,5 +25,6 @@ description: Python基础知识，入门知识等
   - [类](https://www.superscfan.top/python/base/类)
   - [模块](https://www.superscfan.top/python/base/模块)
   - [数据类型](https://www.superscfan.top/python/base/数据类型)
+  - [异常处理](https://www.superscfan.top/python/base/异常处理)
 
 ## 相关资源

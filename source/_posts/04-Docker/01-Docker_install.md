@@ -9,7 +9,7 @@ categories:
 description: Docker容器部署文档
 ---
 
-## Docker Iinstall
+## Docker Install
 
 ### CentOS6
 

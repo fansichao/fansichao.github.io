@@ -11,15 +11,24 @@ description: Docker-Elasticsearch 部署文档. 分布式数据库
 
 ## Docker-ES 部署
 
+### 宿主机部署
+
+解压即用
+
 ### 使用 Docker-Compose 部署配置样例
 
-服务器 1: 192.168.100.71
-服务器 2: 192.168.100.72
+创建网络
 
 ```bash
+docker network create --subnet=172.19.0.0/16 esnetwork
+```
+
+`es-docker-compose.yml` 文件内容
+
+```yml
 # 部分ES环境变量类型的参数需要使用双引号, 其他参数均可在此处映射，同时注意外部映射
 # 存储目录只能是data，且需要预先创建. 若映射其他目录启动将出错.
-version: '2.2'
+version: "2.2"
 services:
   es_master:
     image: elasticsearch:7.4.2
@@ -30,18 +39,19 @@ services:
       - node.master=true
       - node.data=false
       - cluster.name=es-docker-cluster1
-      - discovery.seed_hosts=192.168.100.71,192.168.100.71:9301,192.168.100.72:9300,192.168.100.72:9301,192.168.100.72:9302
-      - transport.publish_host=192.168.100.71
+      #- discovery.seed_hosts=192.168.172.73:9300,192.168.172.73:9301,172.16.1.3:9300,172.16.1.3:9301,172.16.1.3:9302
+      - discovery.seed_hosts=192.168.172.73
+      - transport.publish_host=192.168.172.73
       - transport.publish_port=9300
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms16g -Xmx16g"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - cluster.initial_master_nodes=12_es_master1
       - Des.discovery.zen.minimum_master_nodes=1
       - "network.host:0.0.0.0"
       - http.port=9200
       - http.cors.enabled=true
       - http.cors.allow-origin="*"
-      - http.publish_host=192.168.100.71
+      - http.publish_host=192.168.172.73
       - http.publish_port=9200
       - xpack.security.enabled:false
       - thread_pool.get.queue_size=1000
@@ -58,11 +68,11 @@ services:
       - "/data_storage/12_es_master1:/usr/share/elasticsearch/data"
       - "/data_storage/es_plugins:/usr/share/elasticsearch/plugins"
     ports:
-      - 192.168.100.71:9200:9200
-      - 192.168.100.71:9300:9300
+      - 192.168.172.73:9200:9200
+      - 192.168.172.73:9300:9300
     networks:
       es_network:
-          ipv4_address: 172.16.10.21
+        ipv4_address: 172.19.10.21
     # deploy:
     #   resources:
     #     limits:
@@ -78,18 +88,19 @@ services:
       - node.master=false
       - node.data=true
       - cluster.name=es-docker-cluster1
-      - discovery.seed_hosts=192.168.100.71:9300,192.168.100.71:9301,192.168.100.72:9300,192.168.100.72:9301,192.168.100.72:9302
-      - transport.publish_host=192.168.100.71
+      #- discovery.seed_hosts=192.168.172.73:9300,192.168.172.73:9301,172.16.1.3:9300,172.16.1.3:9301,172.16.1.3:9302
+      - discovery.seed_hosts=192.168.172.73
+      - transport.publish_host=192.168.172.73
       - transport.publish_port=9301
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms16g -Xmx16g"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - cluster.initial_master_nodes=12_es_master1
       - Des.discovery.zen.minimum_master_nodes=1
       - "network.host:0.0.0.0"
       - http.port=9200
       - http.cors.enabled=true
       - http.cors.allow-origin="*"
-      - http.publish_host=192.168.100.71
+      - http.publish_host=192.168.172.73
       - http.publish_port=9201
       - xpack.security.enabled:false
       - thread_pool.get.queue_size=1000
@@ -106,11 +117,11 @@ services:
       - "/data_storage/12_es_node1:/usr/share/elasticsearch/data"
       - "/data_storage/es_plugins:/usr/share/elasticsearch/plugins"
     ports:
-      - 192.168.100.71:9201:9200
-      - 192.168.100.71:9301:9300
+      - 192.168.172.73:9201:9200
+      - 192.168.172.73:9301:9300
     networks:
       es_network:
-        ipv4_address: 172.16.10.41
+        ipv4_address: 172.19.10.41
     # deploy:
     #   resources:
     #     limits:
@@ -120,8 +131,17 @@ services:
 
 # 使用现成的桥接网络，指定名称即可
 networks:
-    es_network:
-      external:
-        name: extnetwork10
-
+  es_network:
+    external:
+      name: esnetwork
 ```
+
+更新容器
+
+```bash
+docker-compose  -f es-docker-compose.yml up -d
+```
+
+## ES-配置
+
+详见 [Es-配置](https://superscfan.top/module/es/config)
