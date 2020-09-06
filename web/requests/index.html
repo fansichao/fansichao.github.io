@@ -157,7 +157,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -234,6 +234,26 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
           </a>
         </li>
       
@@ -334,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T18:43:15+08:00">
-                2020-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T20:44:15+08:00">
+                2020-09-05
               </time>
             
 
@@ -397,8 +417,6 @@
             <div class="post-wordcount">
               
                 
-                  <span class="post-meta-divider">|</span>
-                
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
@@ -411,7 +429,19 @@
               
 
               
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
               
             </div>
           
@@ -441,7 +471,7 @@
 </ul>
 <p><a href="https://blog.csdn.net/zhangqi_gsts/article/details/52823704" target="_blank" rel="noopener">python 用 GET,POST,PUT,DELETE 方式向 HTTP 提交数据</a></p>
 <p><a href="https://blog.csdn.net/heise668/article/details/51725228" target="_blank" rel="noopener">浅谈 HTTP 中 Get 与 Post 的区别-表格对比</a><br><a href="https://blog.csdn.net/LeeSirbupt/article/details/80778474" target="_blank" rel="noopener">GET 和 POST 究竟有什么区别</a></p>
-<h3 id="Header-详解"><a href="#Header-详解" class="headerlink" title="Header 详解"></a>Header 详解</h3><h2 id="Requests-模块使用"><a href="#Requests-模块使用" class="headerlink" title="Requests 模块使用"></a>Requests 模块使用</h2><h3 id="完整样例封装代码"><a href="#完整样例封装代码" class="headerlink" title="完整样例封装代码"></a>完整样例封装代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">http_request</span><span class="params">(url, msg=<span class="string">""</span>, method=<span class="string">"GET"</span>, is_logging=False, **kwargs)</span>:</span></span><br><span class="line">    <span class="string">u""" 执行需要的 HTTP 请求命令</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    功能:</span></span><br><span class="line"><span class="string">        整合了所有 HTTP 参数请求</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param str url: 链接</span></span><br><span class="line"><span class="string">    :param str msg: 信息</span></span><br><span class="line"><span class="string">    :param str method: 请求方式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    get - params=data</span></span><br><span class="line"><span class="string">    post - data=data headers=headers</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># TODO GET params 不支持循环嵌套的数据. 例如&#123;'properties': &#123;'data_mark': '20191119064014'&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        method_lis = [<span class="string">'GET'</span>, <span class="string">'POST'</span>, <span class="string">'HEAD'</span>, <span class="string">'OPTIONS'</span>, <span class="string">'PUT'</span>, <span class="string">'DELETE'</span>, <span class="string">'TRACE'</span>, <span class="string">'CONNECT'</span>]</span><br><span class="line">        method = method <span class="keyword">if</span> method.upper() <span class="keyword">in</span> method_lis <span class="keyword">else</span> method_lis[<span class="number">0</span>]</span><br><span class="line">        r = getattr(requests, method.lower(), <span class="keyword">None</span>)(url, **kwargs)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            logging.info(<span class="string">'&gt;&gt; %s \n[%s][URL]: %s'</span> % (msg, method, urlparse.unquote(r.url)))</span><br><span class="line">            ret = r.json()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">if</span> is_logging:</span><br><span class="line">                logging.error(traceback.print_exc())</span><br><span class="line">                logging.error(r.status_code)</span><br><span class="line">                logging.error(r.reason)</span><br><span class="line">            ret = <span class="string">""</span></span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(traceback.print_exc())</span><br><span class="line">        logging.error(e)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<h3 id="Header-详解"><a href="#Header-详解" class="headerlink" title="Header 详解"></a>Header 详解</h3><h2 id="Requests-模块使用"><a href="#Requests-模块使用" class="headerlink" title="Requests 模块使用"></a>Requests 模块使用</h2><h3 id="完整样例封装代码"><a href="#完整样例封装代码" class="headerlink" title="完整样例封装代码"></a>完整样例封装代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">http_request</span><span class="params">(url, msg=<span class="string">""</span>, method=<span class="string">"GET"</span>, is_logging=False, **kwargs)</span>:</span></span><br><span class="line">    <span class="string">u""" 执行需要的 HTTP 请求命令</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    功能:</span></span><br><span class="line"><span class="string">        整合了所有 HTTP 参数请求</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param str url: 链接</span></span><br><span class="line"><span class="string">    :param str msg: 信息</span></span><br><span class="line"><span class="string">    :param str method: 请求方式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    get - params=data</span></span><br><span class="line"><span class="string">    post - data=data headers=headers</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># TODO GET params 不支持循环嵌套的数据. 例如&#123;'properties': &#123;'data_mark': '20191119064014'&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        method_lis = [<span class="string">'GET'</span>, <span class="string">'POST'</span>, <span class="string">'HEAD'</span>, <span class="string">'OPTIONS'</span>, <span class="string">'PUT'</span>, <span class="string">'DELETE'</span>, <span class="string">'TRACE'</span>, <span class="string">'CONNECT'</span>]</span><br><span class="line">        method = method <span class="keyword">if</span> method.upper() <span class="keyword">in</span> method_lis <span class="keyword">else</span> method_lis[<span class="number">0</span>]</span><br><span class="line">        r = getattr(requests, method.lower(), <span class="literal">None</span>)(url, **kwargs)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            logging.info(<span class="string">'&gt;&gt; %s \n[%s][URL]: %s'</span> % (msg, method, urlparse.unquote(r.url)))</span><br><span class="line">            ret = r.json()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">if</span> is_logging:</span><br><span class="line">                logging.error(traceback.print_exc())</span><br><span class="line">                logging.error(r.status_code)</span><br><span class="line">                logging.error(r.reason)</span><br><span class="line">            ret = <span class="string">""</span></span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logging.error(traceback.print_exc())</span><br><span class="line">        logging.error(e)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,7 +485,7 @@
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 643566992@qq.com</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>鼓励</span>
   </button>
@@ -516,12 +546,13 @@
       
       
 
+
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/web/angularjs/" rel="next" title="Web-AngularJS使用手册">
-                <i class="fa fa-chevron-left"></i> Web-AngularJS使用手册
+              <a href="/web/resource/" rel="next" title="Web-前端资源">
+                <i class="fa fa-chevron-left"></i> Web-前端资源
               </a>
             
           </div>
@@ -530,8 +561,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/web/resource/" rel="prev" title="Web-前端资源">
-                Web-前端资源 <i class="fa fa-chevron-right"></i>
+              <a href="/web/echarts/" rel="prev" title="Web-Echarts">
+                Web-Echarts <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,8 +571,24 @@
 
       
       
+
+
+      <!-- hexo-related-popular-posts -->
+        
+        <h3>相关文章</h3>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\gis\" title="Web-Gis 地图插件" rel="bookmark">Web-Gis 地图插件</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\echarts\" title="Web-Echarts" rel="bookmark">Web-Echarts</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\resource\" title="Web-前端资源" rel="bookmark">Web-前端资源</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\js\" title="Web-JS常用命令" rel="bookmark">Web-JS常用命令</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\html\" title="Web-HTML技术文档" rel="bookmark">Web-HTML技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\angularjs\" title="Web-AngularJS使用手册" rel="bookmark">Web-AngularJS使用手册</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\web\" title="Web-index" rel="bookmark">Web-index</a></h3></div></li></ul>
+      
     </footer>
   </div>
+
+
+
+
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
   
   
   
@@ -616,7 +663,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">164</span>
+                  <span class="site-state-item-count">165</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +685,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -701,12 +748,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SuperScfan</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">246.1k</span>
   
 </div>
 
@@ -904,7 +960,7 @@
           repo: 'fansichao.github.io',
           owner: 'fansichao',
           admin: ['fansichao'],
-          id:'_20200725184315',
+          id:'_20200905204415',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',

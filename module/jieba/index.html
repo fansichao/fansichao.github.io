@@ -157,7 +157,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -234,6 +234,26 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
           </a>
         </li>
       
@@ -334,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-25T18:43:15+08:00">
-                2020-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T20:44:15+08:00">
+                2020-09-05
               </time>
             
 
@@ -397,8 +417,6 @@
             <div class="post-wordcount">
               
                 
-                  <span class="post-meta-divider">|</span>
-                
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
@@ -411,7 +429,19 @@
               
 
               
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
               
             </div>
           
@@ -436,10 +466,10 @@
 
       
         <h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h3 id="jieba-分词"><a href="#jieba-分词" class="headerlink" title="jieba 分词"></a>jieba 分词</h3><p>date: 2017-11-01</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="comment"># encoding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="keyword">True</span>)</span><br><span class="line">print(<span class="string">"Full Mode: "</span> + <span class="string">"/ "</span>.join(seg_list))  <span class="comment"># 全模式</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="keyword">False</span>)</span><br><span class="line">print(<span class="string">"Default Mode: "</span> + <span class="string">"/ "</span>.join(seg_list))  <span class="comment"># 精确模式</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">"他来到了网易杭研大厦"</span>)  <span class="comment"># 默认是精确模式</span></span><br><span class="line">print(<span class="string">", "</span>.join(seg_list))</span><br><span class="line">seg_list = jieba.cut_for_search(<span class="string">"小明硕士毕业于中国科学院计算所，后在日本京都大学深造"</span>)  <span class="comment"># 搜索引擎模式</span></span><br><span class="line">print(<span class="string">", "</span>.join(seg_list))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""https://github.com/fxsjy/jieba/blob/master/test/test_userdict.py"""</span>;</span><br><span class="line"><span class="string">u"""test_userdict.py"""</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"../"</span>)</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">#input_file = "Z:\华润公司 整理\代码样例\jieba分词\userdict.txt"</span></span><br><span class="line">input_file = <span class="string">"Z:\\userdict.txt"</span></span><br><span class="line">jieba.load_userdict(input_file)</span><br><span class="line"><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg</span><br><span class="line">jieba.add_word(<span class="string">'石墨烯'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'凱特琳'</span>)</span><br><span class="line">jieba.del_word(<span class="string">'自定义词'</span>)</span><br><span class="line">test_sent = (</span><br><span class="line"><span class="string">"李小福是创新办主任也是云计算方面的专家; 什么是八一双鹿\n"</span></span><br><span class="line"><span class="string">"例如我输入一个带“韩玉赏鉴”的标题，在自定义词库中也增加了此词为N类\n"</span></span><br><span class="line"><span class="string">"「台中」正確應該不會被切開。mac上可分出「石墨烯」；此時又可以分出來凱特琳了。"</span></span><br><span class="line">)</span><br><span class="line">words = jieba.cut(test_sent)</span><br><span class="line">print(<span class="string">'/'</span>.join(words))</span><br><span class="line">print(<span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line">result = pseg.cut(test_sent)</span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> result:</span><br><span class="line">    print(w.word, <span class="string">"/"</span>, w.flag, <span class="string">", "</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">"\n"</span> + <span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line">terms = jieba.cut(<span class="string">'easy_install is great'</span>)</span><br><span class="line">print(<span class="string">'/'</span>.join(terms))</span><br><span class="line">terms = jieba.cut(<span class="string">'python 的正则表达式是好用的'</span>)</span><br><span class="line">print(<span class="string">'/'</span>.join(terms))</span><br><span class="line">print(<span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line"><span class="comment"># test frequency tune</span></span><br><span class="line">testlist = [</span><br><span class="line">(<span class="string">'今天天气不错'</span>, (<span class="string">'今天'</span>, <span class="string">'天气'</span>)),</span><br><span class="line">(<span class="string">'如果放到post中将出错。'</span>, (<span class="string">'中'</span>, <span class="string">'将'</span>)),</span><br><span class="line">(<span class="string">'我们中出了一个叛徒'</span>, (<span class="string">'中'</span>, <span class="string">'出'</span>)),</span><br><span class="line">]</span><br><span class="line"><span class="keyword">for</span> sent, seg <span class="keyword">in</span> testlist:</span><br><span class="line">    print(<span class="string">'/'</span>.join(jieba.cut(sent, HMM=<span class="keyword">False</span>)))</span><br><span class="line">    word = <span class="string">''</span>.join(seg)</span><br><span class="line">    print(<span class="string">'%s Before: %s, After: %s'</span> % (word, jieba.get_FREQ(word), jieba.suggest_freq(seg, <span class="keyword">True</span>)))</span><br><span class="line">    print(<span class="string">'/'</span>.join(jieba.cut(sent, HMM=<span class="keyword">False</span>)))</span><br><span class="line">    print(<span class="string">"-"</span>*<span class="number">40</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="comment"># encoding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">"Full Mode: "</span> + <span class="string">"/ "</span>.join(seg_list))  <span class="comment"># 全模式</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="literal">False</span>)</span><br><span class="line">print(<span class="string">"Default Mode: "</span> + <span class="string">"/ "</span>.join(seg_list))  <span class="comment"># 精确模式</span></span><br><span class="line">seg_list = jieba.cut(<span class="string">"他来到了网易杭研大厦"</span>)  <span class="comment"># 默认是精确模式</span></span><br><span class="line">print(<span class="string">", "</span>.join(seg_list))</span><br><span class="line">seg_list = jieba.cut_for_search(<span class="string">"小明硕士毕业于中国科学院计算所，后在日本京都大学深造"</span>)  <span class="comment"># 搜索引擎模式</span></span><br><span class="line">print(<span class="string">", "</span>.join(seg_list))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""https://github.com/fxsjy/jieba/blob/master/test/test_userdict.py"""</span>;</span><br><span class="line"><span class="string">u"""test_userdict.py"""</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"../"</span>)</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">#input_file = "Z:\华润公司 整理\代码样例\jieba分词\userdict.txt"</span></span><br><span class="line">input_file = <span class="string">"Z:\\userdict.txt"</span></span><br><span class="line">jieba.load_userdict(input_file)</span><br><span class="line"><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg</span><br><span class="line">jieba.add_word(<span class="string">'石墨烯'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'凱特琳'</span>)</span><br><span class="line">jieba.del_word(<span class="string">'自定义词'</span>)</span><br><span class="line">test_sent = (</span><br><span class="line"><span class="string">"李小福是创新办主任也是云计算方面的专家; 什么是八一双鹿\n"</span></span><br><span class="line"><span class="string">"例如我输入一个带“韩玉赏鉴”的标题，在自定义词库中也增加了此词为N类\n"</span></span><br><span class="line"><span class="string">"「台中」正確應該不會被切開。mac上可分出「石墨烯」；此時又可以分出來凱特琳了。"</span></span><br><span class="line">)</span><br><span class="line">words = jieba.cut(test_sent)</span><br><span class="line">print(<span class="string">'/'</span>.join(words))</span><br><span class="line">print(<span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line">result = pseg.cut(test_sent)</span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> result:</span><br><span class="line">    print(w.word, <span class="string">"/"</span>, w.flag, <span class="string">", "</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">"\n"</span> + <span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line">terms = jieba.cut(<span class="string">'easy_install is great'</span>)</span><br><span class="line">print(<span class="string">'/'</span>.join(terms))</span><br><span class="line">terms = jieba.cut(<span class="string">'python 的正则表达式是好用的'</span>)</span><br><span class="line">print(<span class="string">'/'</span>.join(terms))</span><br><span class="line">print(<span class="string">"="</span>*<span class="number">40</span>)</span><br><span class="line"><span class="comment"># test frequency tune</span></span><br><span class="line">testlist = [</span><br><span class="line">(<span class="string">'今天天气不错'</span>, (<span class="string">'今天'</span>, <span class="string">'天气'</span>)),</span><br><span class="line">(<span class="string">'如果放到post中将出错。'</span>, (<span class="string">'中'</span>, <span class="string">'将'</span>)),</span><br><span class="line">(<span class="string">'我们中出了一个叛徒'</span>, (<span class="string">'中'</span>, <span class="string">'出'</span>)),</span><br><span class="line">]</span><br><span class="line"><span class="keyword">for</span> sent, seg <span class="keyword">in</span> testlist:</span><br><span class="line">    print(<span class="string">'/'</span>.join(jieba.cut(sent, HMM=<span class="literal">False</span>)))</span><br><span class="line">    word = <span class="string">''</span>.join(seg)</span><br><span class="line">    print(<span class="string">'%s Before: %s, After: %s'</span> % (word, jieba.get_FREQ(word), jieba.suggest_freq(seg, <span class="literal">True</span>)))</span><br><span class="line">    print(<span class="string">'/'</span>.join(jieba.cut(sent, HMM=<span class="literal">False</span>)))</span><br><span class="line">    print(<span class="string">"-"</span>*<span class="number">40</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">u"""配置文件"""</span></span><br><span class="line"><span class="comment"># jieba默认字典路径，可以替换</span></span><br><span class="line">file_path = <span class="string">"C:\Users\scfan\Anaconda2\Lib\site-packages\jieba\dict.txt"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">u"""利用jieba分词达到模糊匹配的效果 分词+人工 从而达到找到不同机构下的同一个客户"""</span></span><br><span class="line"><span class="string">u"""</span></span><br><span class="line"><span class="string">分词的目的：</span></span><br><span class="line"><span class="string">1.根据地址划分得到行政区划、行业等。</span></span><br><span class="line"><span class="string">2.根据客户名称匹配不同BU机构，统一客户（必需）。</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">20</span>)</span><br><span class="line"><span class="comment">#### 头部</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"../"</span>)</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg</span><br><span class="line"><span class="comment">### 样例数据</span></span><br><span class="line">d1= [<span class="string">"中国石油化工集团公司"</span>,<span class="string">"上海汽车集团股份有限公司"</span>,</span><br><span class="line">          <span class="string">"英国法通保险公司"</span>,<span class="string">"日本丰田汽车公司"</span>]</span><br><span class="line">d2 = [<span class="string">"中国石油化工公司"</span>,<span class="string">"上海汽车公司"</span>,</span><br><span class="line">          <span class="string">"英国法通"</span>,<span class="string">"日本丰田公司"</span>]</span><br><span class="line">d3 = [<span class="string">"中国石油化工"</span>,<span class="string">"上海汽车"</span>,<span class="string">"法通保险"</span>,<span class="string">"日本丰田"</span>]</span><br><span class="line">d4 = [<span class="string">"中国石油化工集团公司"</span>,<span class="string">"上海汽车集团股份有限公司"</span>,</span><br><span class="line">          <span class="string">"英国法通保险公司"</span>,<span class="string">"日本丰田汽车公司"</span>]</span><br><span class="line"><span class="comment"># 【Tips】设定关键字词典</span></span><br><span class="line">input_file = <span class="string">"Z:\\华润公司 整理\\代码样例\\jieba分词\\dict.crc.txt"</span></span><br><span class="line">jieba.load_userdict(input_file)</span><br><span class="line"><span class="comment"># 【Tips】指定添加关键词</span></span><br><span class="line">jieba.add_word(<span class="string">'公司'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'有限公司'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'英国'</span>)</span><br><span class="line"><span class="comment"># 【Tips】指定删除关键词</span></span><br><span class="line">jieba.del_word(<span class="string">'自定义词'</span>)</span><br><span class="line"><span class="comment">#【Tips】 今天天气 -&gt; 今天+天气，而不是 今天天气</span></span><br><span class="line">jieba.suggest_freq((<span class="string">'英国'</span>, <span class="string">'法通'</span>), <span class="keyword">True</span>)</span><br><span class="line">jieba.del_word(<span class="string">'英国法'</span>)</span><br><span class="line"><span class="comment">#【Tips】 台中 -&gt; 台中 ，而不是 台+中</span></span><br><span class="line"><span class="comment">#jieba.add_word('台中')</span></span><br><span class="line">jieba.suggest_freq(<span class="string">'台中'</span>, <span class="keyword">True</span>)</span><br><span class="line">c1 = []</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> d1:</span><br><span class="line">    result = pseg.cut(d)</span><br><span class="line">    <span class="comment">#for w in result:</span></span><br><span class="line">    <span class="comment">#      print(w.word, "/", w.flag, ", ", end=' ') # 显示详细的词性</span></span><br><span class="line">    words = jieba.cut(d)</span><br><span class="line">    print(<span class="string">'/'</span>.join(words))</span><br><span class="line">    x = <span class="string">'/'</span>.join(words)</span><br><span class="line">    m = list(x)</span><br><span class="line">    print(m)</span><br><span class="line">    print(x)</span><br><span class="line">    c1.append(<span class="string">'/'</span>.join(words))</span><br><span class="line"></span><br><span class="line">print(c1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">u"""利用jieba分词达到模糊匹配的效果 分词+人工 从而达到找到不同机构下的同一个客户"""</span></span><br><span class="line"><span class="string">u"""</span></span><br><span class="line"><span class="string">分词的目的：</span></span><br><span class="line"><span class="string">1.根据地址划分得到行政区划、行业等。</span></span><br><span class="line"><span class="string">2.根据客户名称匹配不同BU机构，统一客户（必需）。</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">20</span>)</span><br><span class="line"><span class="comment">#### 头部</span></span><br><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"../"</span>)</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg</span><br><span class="line"><span class="comment">### 样例数据</span></span><br><span class="line">d1= [<span class="string">"中国石油化工集团公司"</span>,<span class="string">"上海汽车集团股份有限公司"</span>,</span><br><span class="line">          <span class="string">"英国法通保险公司"</span>,<span class="string">"日本丰田汽车公司"</span>]</span><br><span class="line">d2 = [<span class="string">"中国石油化工公司"</span>,<span class="string">"上海汽车公司"</span>,</span><br><span class="line">          <span class="string">"英国法通"</span>,<span class="string">"日本丰田公司"</span>]</span><br><span class="line">d3 = [<span class="string">"中国石油化工"</span>,<span class="string">"上海汽车"</span>,<span class="string">"法通保险"</span>,<span class="string">"日本丰田"</span>]</span><br><span class="line">d4 = [<span class="string">"中国石油化工集团公司"</span>,<span class="string">"上海汽车集团股份有限公司"</span>,</span><br><span class="line">          <span class="string">"英国法通保险公司"</span>,<span class="string">"日本丰田汽车公司"</span>]</span><br><span class="line"><span class="comment"># 【Tips】设定关键字词典</span></span><br><span class="line">input_file = <span class="string">"Z:\\华润公司 整理\\代码样例\\jieba分词\\dict.crc.txt"</span></span><br><span class="line">jieba.load_userdict(input_file)</span><br><span class="line"><span class="comment"># 【Tips】指定添加关键词</span></span><br><span class="line">jieba.add_word(<span class="string">'公司'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'有限公司'</span>)</span><br><span class="line">jieba.add_word(<span class="string">'英国'</span>)</span><br><span class="line"><span class="comment"># 【Tips】指定删除关键词</span></span><br><span class="line">jieba.del_word(<span class="string">'自定义词'</span>)</span><br><span class="line"><span class="comment">#【Tips】 今天天气 -&gt; 今天+天气，而不是 今天天气</span></span><br><span class="line">jieba.suggest_freq((<span class="string">'英国'</span>, <span class="string">'法通'</span>), <span class="literal">True</span>)</span><br><span class="line">jieba.del_word(<span class="string">'英国法'</span>)</span><br><span class="line"><span class="comment">#【Tips】 台中 -&gt; 台中 ，而不是 台+中</span></span><br><span class="line"><span class="comment">#jieba.add_word('台中')</span></span><br><span class="line">jieba.suggest_freq(<span class="string">'台中'</span>, <span class="literal">True</span>)</span><br><span class="line">c1 = []</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> d1:</span><br><span class="line">    result = pseg.cut(d)</span><br><span class="line">    <span class="comment">#for w in result:</span></span><br><span class="line">    <span class="comment">#      print(w.word, "/", w.flag, ", ", end=' ') # 显示详细的词性</span></span><br><span class="line">    words = jieba.cut(d)</span><br><span class="line">    print(<span class="string">'/'</span>.join(words))</span><br><span class="line">    x = <span class="string">'/'</span>.join(words)</span><br><span class="line">    m = list(x)</span><br><span class="line">    print(m)</span><br><span class="line">    print(x)</span><br><span class="line">    c1.append(<span class="string">'/'</span>.join(words))</span><br><span class="line"></span><br><span class="line">print(c1)</span><br></pre></td></tr></table></figure>
 <h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3>
       
     </div>
@@ -453,7 +483,7 @@
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 643566992@qq.com</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>鼓励</span>
   </button>
@@ -514,12 +544,13 @@
       
       
 
+
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/web/resource/" rel="next" title="Web-前端资源">
-                <i class="fa fa-chevron-left"></i> Web-前端资源
+              <a href="/module/ipython/" rel="next" title="Ipython-技术文档">
+                <i class="fa fa-chevron-left"></i> Ipython-技术文档
               </a>
             
           </div>
@@ -528,8 +559,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/module/dask/" rel="prev" title="Dask并行任务调度">
-                Dask并行任务调度 <i class="fa fa-chevron-right"></i>
+              <a href="/module/nosetests/" rel="prev" title="Nosetests-技术文档">
+                Nosetests-技术文档 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,8 +569,24 @@
 
       
       
+
+
+      <!-- hexo-related-popular-posts -->
+        
+        <h3>相关文章</h3>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\svn\" title="SVN-技术文档" rel="bookmark">SVN-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\sqlalchemy\" title="SQLAlchemy-技术文档" rel="bookmark">SQLAlchemy-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\selenium\" title="Selenium-技术文档" rel="bookmark">Selenium-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\redis\" title="Redis-技术文档" rel="bookmark">Redis-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\pandas\" title="Pandas-技术文档" rel="bookmark">Pandas-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\nosetests\" title="Nosetests-技术文档" rel="bookmark">Nosetests-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\ipython\" title="Ipython-技术文档" rel="bookmark">Ipython-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\huey\" title="Huey-技术文档" rel="bookmark">Huey-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\gitbook\" title="Gitbook-技术文档" rel="bookmark">Gitbook-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\git\" title="Git-技术文档" rel="bookmark">Git-技术文档</a></h3></div></li></ul>
+      
     </footer>
   </div>
+
+
+
+
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
   
   
   
@@ -614,7 +661,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">164</span>
+                  <span class="site-state-item-count">165</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +683,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -699,12 +746,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SuperScfan</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">246.1k</span>
   
 </div>
 
@@ -902,7 +958,7 @@
           repo: 'fansichao.github.io',
           owner: 'fansichao',
           admin: ['fansichao'],
-          id:'_20200725184315',
+          id:'_20200905204415',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',

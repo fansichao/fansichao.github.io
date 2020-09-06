@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="部署,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="...">
+<meta name="keywords" content="部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目部署文档">
+<meta property="og:url" content="https://fansichao.github.io/else/xiang-mu-bu-shu-wen-dang/index.html">
+<meta property="og:site_name" content="格物方能致知">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-01T12:25:13.728Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目部署文档">
+<meta name="twitter:description" content="...">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fansichao.github.io/else/xiang-mu-bu-shu-wen-dang/">
+
+
+
+
+
+  <title>项目部署文档 | 格物方能致知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">格物方能致知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">程序改变世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fansichao.github.io/else/xiang-mu-bu-shu-wen-dang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SuperScfan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物方能致知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">项目部署文档</h2>
+        
+
+        <div class="post-meta">
+        
+         
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T20:44:15+08:00">
+                2020-09-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T20:25:13+08:00">
+                2020-09-01
+              </time>
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Document/" itemprop="url" rel="index">
+                    <span itemprop="name">Document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,475
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  ...
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>tags: <code>2020年</code> <code>05月</code> <code>CentOS8</code></p>
+<p>环境说明:</p>
+<ul>
+<li>CentOS8.1.19/Centos7</li>
+<li>Python3.8.3</li>
+</ul>
+<h2 id="追加命令"><a href="#追加命令" class="headerlink" title="追加命令"></a>追加命令</h2><h3 id="防火墙策略"><a href="#防火墙策略" class="headerlink" title="防火墙策略"></a>防火墙策略</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 防火墙策略配置</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 防火墙增加 指定端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3000/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=443/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出防火墙开放的端口</span></span><br><span class="line">systemctl restart firewalld</span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际上不启用防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="服务器参数"><a href="#服务器参数" class="headerlink" title="服务器参数"></a>服务器参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Neo4j数据导入并行化等性能增强参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查Doris参数合理性，并整理清单</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查ES参数合理性，并整理清单</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务器用户密码配置"><a href="#服务器用户密码配置" class="headerlink" title="服务器用户密码配置"></a>服务器用户密码配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各应用若存在UI界面需配置登录密码，并修改其他默认qwe123的密码</span></span><br><span class="line"></span><br><span class="line">服务器12</span><br><span class="line">  - Doris</span><br><span class="line">    - UI界面</span><br><span class="line">      - 192.168.100.71:8040</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - fdm qwe123</span><br><span class="line">      - root</span><br><span class="line">  - ES</span><br><span class="line">    - UI界面</span><br><span class="line">      -</span><br><span class="line">服务器13</span><br><span class="line">  - Neo4j</span><br><span class="line">    - UI界面</span><br><span class="line">      - 192.168.100.72:7474</span><br><span class="line">    - 用户&amp;密码</span><br><span class="line">      - neo4j qwe123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他扩展项</span></span><br><span class="line">es插件 es-head(TODO 仅支持5.x版本？)</span><br><span class="line">doris插件</span><br></pre></td></tr></table></figure>
+<h4 id="ES-用户管理"><a href="#ES-用户管理" class="headerlink" title="ES-用户管理"></a>ES-用户管理</h4><p>1.需要在配置文件中开启 x-pack 验证, 修改 config 目录下面的 elasticsearch.yml 文件，在里面添加如下内容,并重启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xpack.security.enabled: <span class="literal">true</span></span><br><span class="line">xpack.license.self_generated.type: basic</span><br><span class="line">xpack.security.transport.ssl.enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>2.执行设置用户名和密码的命令,这里需要为 4 个用户分别设置密码，elastic, kibana, logstash_system,beats_system</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch-setup-passwords interactive</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Initiating the setup of passwords <span class="keyword">for</span> reserved users elastic,kibana,logstash_system,beats_system.</span><br><span class="line">You will be prompted to enter passwords as the process progresses.</span><br><span class="line">Please confirm that you would like to <span class="built_in">continue</span> [y/N]y</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">passwords must be at least [6] characters long</span><br><span class="line">Try again.</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Passwords <span class="keyword">do</span> not match.</span><br><span class="line">Try again.</span><br><span class="line">Enter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [elastic]:</span><br><span class="line">Enter password <span class="keyword">for</span> [kibana]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [kibana]:</span><br><span class="line">Enter password <span class="keyword">for</span> [logstash_system]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [logstash_system]:</span><br><span class="line">Enter password <span class="keyword">for</span> [beats_system]:</span><br><span class="line">Reenter password <span class="keyword">for</span> [beats_system]:</span><br><span class="line">Changed password <span class="keyword">for</span> user [kibana]</span><br><span class="line">Changed password <span class="keyword">for</span> user [logstash_system]</span><br><span class="line">Changed password <span class="keyword">for</span> user [beats_system]</span><br><span class="line">Changed password <span class="keyword">for</span> user [elastic]</span><br></pre></td></tr></table></figure>
+<p>3.修改密码命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">"Content-Type:application/json"</span> -XPOST -u elastic <span class="string">'http://127.0.0.1:9200/_xpack/security/user/elastic/_password'</span> -d <span class="string">'&#123; "password" : "123456" &#125;'</span></span><br></pre></td></tr></table></figure>
+<p>TODO es 增加用户</p>
+<p><a href="https://blog.csdn.net/weixin_43931625/article/details/104055758" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43931625/article/details/104055758</a></p>
+<p>参考链接：<a href="https://www.cnblogs.com/snail90/p/11444393.html" target="_blank" rel="noopener">ES 配置用户密码</a></p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api.html" target="_blank" rel="noopener">官网链接</a></p>
+<h4 id="Doris-用户管理"><a href="#Doris-用户管理" class="headerlink" title="Doris-用户管理"></a>Doris-用户管理</h4><p>Doris 用户管理(类似于 mysql 用户管理)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 无密码时登录</span></span><br><span class="line">[root@b88a32bec16f /]<span class="comment"># mysql -h 172.20.0.160 -P 9030 -u root</span></span><br><span class="line"><span class="comment"># 使用 -p密码登录</span></span><br><span class="line">[root@b88a32bec16f /]<span class="comment"># mysql -h 172.20.0.160 -P 9030 -u root -pqwe123</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置root用户密码</span></span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> <span class="string">'root'</span> = PASSWORD(<span class="string">'qwe123'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户 fdm</span></span><br><span class="line">MySQL [(none)]&gt; CREATE USER <span class="string">'fdm'</span> IDENTIFIED BY <span class="string">'qwe123'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"><span class="comment"># 用户授权</span></span><br><span class="line">MySQL [(none)]&gt; GRANT ALL ON fdmdb TO fdm;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户 -- user_name 为用户名称</span></span><br><span class="line">drop user user_name@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="常用命令说明-建议"><a href="#常用命令说明-建议" class="headerlink" title="常用命令说明(建议)"></a>常用命令说明(建议)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum 命令变更</span></span><br><span class="line">dnf 代替 yum</span><br></pre></td></tr></table></figure>
+<h2 id="CentOS-系统安装"><a href="#CentOS-系统安装" class="headerlink" title="CentOS 系统安装"></a>CentOS 系统安装</h2><p>安装 GUI 图形界面</p>
+<p>详见 <a href="B-CentOS-部署文档.md">CentOS-部署文档</a></p>
+<h2 id="系统基础环境"><a href="#系统基础环境" class="headerlink" title="系统基础环境"></a>系统基础环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc automake autoconf libtool make</span><br><span class="line">yum install -y libnsl</span><br></pre></td></tr></table></figure>
+<h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h3><p>详见 <a href="02-Linux/../../02-Linux/Linux99-网络配置.md">网络配置</a></p>
+<h3 id="配置本地-yum"><a href="#配置本地-yum" class="headerlink" title="配置本地 yum"></a>配置本地 yum</h3><p>详见 <a href="02-Linux/../../02-Linux/Linux99-yum配置.md">网络配置</a></p>
+<h3 id="关闭-selinux"><a href="#关闭-selinux" class="headerlink" title="关闭 selinux"></a>关闭 selinux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭selinux ，selinux不关闭，会容易导致各种情况不允许导致安装配置等报错。</span></span><br><span class="line">sed -i <span class="string">"s/SELINUX=enforcing/SELINUX=disabled/"</span> /etc/selinux/config</span><br><span class="line"><span class="comment"># 关闭selinux防火墙</span></span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+<h3 id="关闭-防火墙"><a href="#关闭-防火墙" class="headerlink" title="关闭 防火墙"></a>关闭 防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="升级到-Python3-8"><a href="#升级到-Python3-8" class="headerlink" title="升级到 Python3.8"></a>升级到 Python3.8</h3><p>详见 <a href="B-Python38-部署文档.md">Python38-部署文档</a></p>
+<h3 id="配置-pip-源-可选"><a href="#配置-pip-源-可选" class="headerlink" title="配置 pip 源(可选)"></a>配置 pip 源(可选)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br><span class="line"><span class="comment"># 添加如下内容</span></span><br><span class="line">[global]</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 virtualenv</span></span><br><span class="line">pip3 install virtualenv</span><br></pre></td></tr></table></figure>
+<h3 id="配置-Apache"><a href="#配置-Apache" class="headerlink" title="配置-Apache"></a>配置-Apache</h3><p>详见 <a href="B-Apache-部署文档.md">Apache-部署文档</a></p>
+<h3 id="安装-java-jdk-环境"><a href="#安装-java-jdk-环境" class="headerlink" title="安装 java-jdk 环境"></a>安装 java-jdk 环境</h3><p>ES5.6.4 &amp; Neo4j &amp; Hugegraph 需要<code>jdk1.8+</code>依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入软件包目录, 找到 java_install 目录</span></span><br><span class="line"><span class="built_in">cd</span> java_install</span><br><span class="line">sh install.sh <span class="comment"># 即可成功安装</span></span><br><span class="line"><span class="comment"># 其他已打开界面需要 source /etc/profile 方可生效</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置-ntpd-服务器时间同步-可选"><a href="#配置-ntpd-服务器时间同步-可选" class="headerlink" title="配置 ntpd 服务器时间同步(可选)"></a>配置 ntpd 服务器时间同步(可选)</h3><p>多服务器时，需要此配置，单服务器无需配置。</p>
+<p>参考 <a href="B-服务器时间同步-部署文档.md">服务器时间同步配置</a></p>
+<h3 id="安装性能测试软件-可选"><a href="#安装性能测试软件-可选" class="headerlink" title="安装性能测试软件(可选)"></a>安装性能测试软件(可选)</h3><p>需要对服务器进行性能测试可以进行此步骤</p>
+<p>参考 <a href="B-服务器性能测试-部署文档.md">服务器性能测试</a></p>
+<h3 id="Docker-部署-可选"><a href="#Docker-部署-可选" class="headerlink" title="Docker 部署(可选)"></a>Docker 部署(可选)</h3><p>快速容器环境部署时，需要此步骤。</p>
+<p>参考 <a href="B-Docker-部署文档.md">Docker 部署文档</a></p>
+<h2 id="数据库部署"><a href="#数据库部署" class="headerlink" title="数据库部署"></a>数据库部署</h2><ul>
+<li>Oracle 数据库部署<ul>
+<li>参考 <a href="B-Oracle-部署文档.md">Oracle 部署文档</a></li>
+</ul>
+</li>
+<li>Mysql 数据库部署<ul>
+<li>参考 <a href="B-Mysql-部署文档.md">Mysql 部署文档</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="图库部署"><a href="#图库部署" class="headerlink" title="图库部署"></a>图库部署</h2><ul>
+<li>HugeGraph 图库部署<ul>
+<li>参考 <a href="B-HugeGraph-部署文档.md">HugeGraph-部署文档</a></li>
+</ul>
+</li>
+<li>Neo4j 图库部署<ul>
+<li>参考 <a href="B-Neo4j-部署文档.md">Neo4j-部署文档</a></li>
+</ul>
+</li>
+</ul>
+<p>第一次使用 HugeGraph 时，需要进行初始化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it fdm_graph /bin/bash</span><br><span class="line"><span class="comment"># 创建所需目录</span></span><br><span class="line">mkdir -p /data/hugegraph/rocksdb_data</span><br><span class="line"><span class="comment"># 目录授权</span></span><br><span class="line">chmod 777 -R /data/hugegraph</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换用户</span></span><br><span class="line">su - fdm</span><br><span class="line"><span class="comment"># 切换目录</span></span><br><span class="line"><span class="built_in">cd</span> /home/fdm/hugegraph/hugegraph-0.9.2</span><br><span class="line"><span class="comment"># 初始化数据库</span></span><br><span class="line">bin/init-store.sh</span><br></pre></td></tr></table></figure>
+<p>使用 Neo4j 时，需要配置在 data 目录下 java 环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 容器内部</span></span><br><span class="line">cp -r jdk1.8.0_171 /data/.</span><br><span class="line">mkdir -p /data/neo4j/import /data/neo4j/databases/</span><br><span class="line">chmod 777 -R /data/</span><br></pre></td></tr></table></figure>
+<h2 id="ES-部署"><a href="#ES-部署" class="headerlink" title="ES 部署"></a>ES 部署</h2><ul>
+<li>ES7.4.0 部署<ul>
+<li>参考 <a href="B-ES740-部署文档.md">ES740-部署文档</a></li>
+</ul>
+</li>
+<li>ES5.6.4 部署<ul>
+<li>参考 <a href="B-ES564-部署文档.md">ES564-部署文档</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">特殊说明</span><br><span class="line"></span><br><span class="line">第一次使用时，需要在容器内部建目录</span><br><span class="line"></span><br><span class="line">mkdir -p /data/data</span><br><span class="line">mkdir -p /data/logs</span><br><span class="line">chmod 777 -R /data</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ======================== Elasticsearch Configuration =========================</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> Elasticsearch comes with reasonable defaults for most settings.</span></span><br><span class="line"><span class="comment">#       Before you set out to tweak and tune the configuration, make sure you</span></span><br><span class="line"><span class="comment">#       understand what are you trying to accomplish and the consequences.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The primary way of configuring a node is via this file. This template lists</span></span><br><span class="line"><span class="comment"># the most important settings you may want to configure for a production cluster.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Please consult the documentation for further information on configuration options:</span></span><br><span class="line"><span class="comment"># https://www.elastic.co/guide/en/elasticsearch/reference/index.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ---------------------------------- Cluster -----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use a descriptive name for your cluster:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#cluster.name: my-application</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ------------------------------------ Node ------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use a descriptive name for the node:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#node.name: node-1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Add custom attributes to the node:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#node.attr.rack: r1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ----------------------------------- Paths ------------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Path to directory where to store the data (separate multiple locations by comma):</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#path.data: /path/to/data</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Path to log files:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#path.logs: /path/to/logs</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ----------------------------------- Memory -----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Lock the memory on startup:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#bootstrap.memory_lock: true</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Make sure that the heap size is set to about half the memory available</span></span><br><span class="line"><span class="comment"># on the system and that the owner of the process is allowed to use this</span></span><br><span class="line"><span class="comment"># limit.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Elasticsearch performs poorly when the system is swapping the memory.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ---------------------------------- Network -----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Set the bind address to a specific IP (IPv4 or IPv6):</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#network.host: 192.168.0.1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Set a custom port for HTTP:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#http.port: 9200</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more information, consult the network module documentation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># --------------------------------- Discovery ----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Pass an initial list of hosts to perform discovery when this node is started:</span></span><br><span class="line"><span class="comment"># The default list of hosts is ["127.0.0.1", "[::1]"]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#discovery.seed_hosts: ["host1", "host2"]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Bootstrap the cluster using an initial set of master-eligible nodes:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#cluster.initial_master_nodes: ["node-1", "node-2"]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more information, consult the discovery and cluster formation module documentation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ---------------------------------- Gateway -----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Block initial recovery after a full cluster restart until N nodes are started:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#gateway.recover_after_nodes: 3</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more information, consult the gateway module documentation.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ---------------------------------- Various -----------------------------------</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Require explicit names when deleting indices:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#action.destructive_requires_name: true</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bootstrap</span></span><br><span class="line">bootstrap.system_call_filter: <span class="literal">false</span></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">cluster.name: es74_cluste_one</span><br><span class="line">node.name: test1_node-only</span><br><span class="line"><span class="comment"># node</span></span><br><span class="line">node.master: <span class="literal">true</span></span><br><span class="line">node.data: <span class="literal">true</span></span><br><span class="line">node.max_local_storage_nodes: 3</span><br><span class="line"><span class="comment">#node.zone: zone_one</span></span><br><span class="line"><span class="comment"># path</span></span><br><span class="line">path.data: /data/data</span><br><span class="line">path.logs: /data/logs</span><br><span class="line"><span class="comment"># host&amp;port</span></span><br><span class="line">network.host: 0.0.0.0</span><br><span class="line">http.port: 7401</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">'*'</span></span><br><span class="line"><span class="comment"># xpack</span></span><br><span class="line">xpack.security.enabled: <span class="literal">false</span></span><br><span class="line"><span class="comment"># cluster zone</span></span><br><span class="line">cluster.routing.allocation.awareness.attributes: zone</span><br><span class="line">node.attr.zone: zone_two</span><br><span class="line"><span class="comment">#discovery.zen.minimum_master_nodes: 2</span></span><br><span class="line"><span class="comment">#http.max_content_length: 500mb</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#thread_pool.bulk.queue_size: 5000</span></span><br><span class="line"></span><br><span class="line">transport.tcp.port: 9300</span><br><span class="line">discovery.seed_hosts: [<span class="string">"192.168.100.200:9301"</span>, <span class="string">"192.168.100.200:9302"</span>]</span><br><span class="line">cluster.initial_master_nodes: [<span class="string">"test2_node-only"</span>, <span class="string">"test1_node-only"</span>]</span><br></pre></td></tr></table></figure>
+<p>常用参数说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 集群名称</span></span><br><span class="line">cluster.name: es74_cluste_one</span><br><span class="line"><span class="comment"># 节点名称</span></span><br><span class="line">node.name: test1_node-only</span><br><span class="line"><span class="comment"># 节点属性</span></span><br><span class="line">node.master: <span class="literal">true</span></span><br><span class="line">node.data: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据日志路径</span></span><br><span class="line">path.data: /data/data</span><br><span class="line">path.logs: /data/logs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集群内部通信所需</span></span><br><span class="line">transport.tcp.port: 9300</span><br><span class="line">discovery.seed_hosts: [<span class="string">"192.168.100.200:9301"</span>, <span class="string">"192.168.100.200:9302"</span>]</span><br><span class="line">cluster.initial_master_nodes: [<span class="string">"test2_node-only"</span>, <span class="string">"test1_node-only"</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Doris-部署"><a href="#Doris-部署" class="headerlink" title="Doris 部署"></a>Doris 部署</h2><p>参考 <a href="B-Doris-部署文档.md">Doris-部署文档</a></p>
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>分支名称，自定义对应修改，建议采用 <code>FISAMS/trunk</code> 分支，此处采用 <code>FISAMS/branches/trunk_py3</code> 作为演示</p>
+<h3 id="安装-SVN"><a href="#安装-SVN" class="headerlink" title="安装 SVN"></a>安装 SVN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 SVN root用户</span></span><br><span class="line">yum install subversion -y</span><br></pre></td></tr></table></figure>
+<h3 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载分支 fdm用户</span></span><br><span class="line">svn co https://www.yinsho.com/svns/FISAMS/branches/trunk_py3</span><br></pre></td></tr></table></figure>
+<h3 id="安装-env-环境"><a href="#安装-env-环境" class="headerlink" title="安装 env 环境"></a>安装 env 环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/fdm/trunk_py3/deployment &amp; pip install -r requirement.txt</span><br><span class="line"><span class="comment"># 详情见 /home/fdm/trunk_py3/deployment/install.sh</span></span><br></pre></td></tr></table></figure>
+<p>TODO Oracle/Mysql 驱动包部署配置</p>
+<h3 id="FDM-容器配置"><a href="#FDM-容器配置" class="headerlink" title="FDM 容器配置"></a>FDM 容器配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建FDM容器</span></span><br><span class="line">docker run --privileged=<span class="literal">true</span> -m 8000M --cpus=2 -itd --name test1_fdm_server_01 --net extnetwork21 --ip 172.21.0.110 -p 83:80 -p 3003:3000 -p 444:443  -p 121:21 -v /data_storage/test1_fdm_server_01:/data img_fdm_server_centos8 /usr/sbin/init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">mkdir -p /data/fdm_data /data/ods_path /data/server_logs /data/server_static</span><br><span class="line"><span class="comment"># 目录授权</span></span><br><span class="line">chmod 777 -R /data</span><br><span class="line"><span class="comment"># 目录链接</span></span><br><span class="line">ln -s /data/fdm_data /home/fdm/fdm_data</span><br><span class="line">ln -s /data/ods_path /home/fdm/ods_path</span><br><span class="line">ln -s /data/server_logs /home/fdm/server_logs</span><br><span class="line">ln -s /data/server_static /home/fdm/server_static</span><br></pre></td></tr></table></figure>
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="系统环境配置问题"><a href="#系统环境配置问题" class="headerlink" title="系统环境配置问题"></a>系统环境配置问题</h3><h4 id="Cannot-update-read-only-repo"><a href="#Cannot-update-read-only-repo" class="headerlink" title="Cannot update read-only repo"></a>Cannot update read-only repo</h4><p>参考链接: <a href="https://blog.csdn.net/hm0406120201/article/details/104553205" target="_blank" rel="noopener">Cannot update read-only repo</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># python</span></span><br><span class="line">bash: python: <span class="built_in">command</span> not found...</span><br><span class="line">Failed to search <span class="keyword">for</span> file: Cannot update <span class="built_in">read</span>-only repo</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<ul>
+<li>dnf install -y centos-release-stream</li>
+<li>dnf update</li>
+<li>重启 CentOS8</li>
+</ul>
+<h4 id="no-acceptable-C-compiler-found-in-PATH"><a href="#no-acceptable-C-compiler-found-in-PATH" class="headerlink" title="no acceptable C compiler found in \$PATH"></a>no acceptable C compiler found in \$PATH</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Python3.8.3 编译时报错</span></span><br><span class="line">[root@fdm Python-3.8.3]<span class="comment"># ./configure prefix=/usr/local/python383</span></span><br><span class="line">checking build system <span class="built_in">type</span>... x86_64-pc-linux-gnu</span><br><span class="line">checking host system <span class="built_in">type</span>... x86_64-pc-linux-gnu</span><br><span class="line">checking <span class="keyword">for</span> python3.8... no</span><br><span class="line">checking <span class="keyword">for</span> python3... python3</span><br><span class="line">checking <span class="keyword">for</span> --<span class="built_in">enable</span>-universalsdk... no</span><br><span class="line">checking <span class="keyword">for</span> --with-universal-archs... no</span><br><span class="line">checking MACHDEP... <span class="string">"linux"</span></span><br><span class="line">checking <span class="keyword">for</span> gcc... no</span><br><span class="line">checking <span class="keyword">for</span> cc... no</span><br><span class="line">checking <span class="keyword">for</span> cl.exe... no</span><br><span class="line">configure: error: <span class="keyword">in</span> `/root/Python-3.8.3<span class="string">':</span></span><br><span class="line"><span class="string">configure: error: no acceptable C compiler found in $PATH</span></span><br><span class="line"><span class="string">See `config.log'</span> <span class="keyword">for</span> more details</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc -y</span><br></pre></td></tr></table></figure>
+<h4 id="AH00112-Warning-DocumentRoot-home-fdm-quick-web-fdm-does-not-exist"><a href="#AH00112-Warning-DocumentRoot-home-fdm-quick-web-fdm-does-not-exist" class="headerlink" title="AH00112: Warning: DocumentRoot [/home/fdm/quick/web/fdm] does not exist"></a>AH00112: Warning: DocumentRoot [/home/fdm/quick/web/fdm] does not exist</h4><p>Apache 服务启动时，显示 DocumentRoot [xxx] dose not exist</p>
+<p>解决方案: 关闭 selinux, 参考 <a href="#关闭\ selinux">关闭 selinux</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 643566992@qq.com</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>鼓励</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="SuperScfan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SuperScfan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    SuperScfan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://fansichao.github.io/else/xiang-mu-bu-shu-wen-dang/" title="项目部署文档">https://fansichao.github.io/else/xiang-mu-bu-shu-wen-dang/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/部署/" rel="tag"># 部署</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/book/li-ji-zhi-xing-zhu/" rel="next" title="读书笔记-立即执行术">
+                <i class="fa fa-chevron-left"></i> 读书笔记-立即执行术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/sumup/" rel="prev" title="总结类文章">
+                总结类文章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+
+      <!-- hexo-related-popular-posts -->
+        
+        <h3>相关文章</h3>
+        
+      
+    </footer>
+  </div>
+
+
+
+
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+        <div id="gitalk-container"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="SuperScfan">
+            
+              <p class="site-author-name" itemprop="name">SuperScfan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">165</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/fansichao" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#追加命令"><span class="nav-number">1.</span> <span class="nav-text">追加命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙策略"><span class="nav-number">1.1.</span> <span class="nav-text">防火墙策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器参数"><span class="nav-number">1.2.</span> <span class="nav-text">服务器参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器用户密码配置"><span class="nav-number">1.3.</span> <span class="nav-text">服务器用户密码配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES-用户管理"><span class="nav-number">1.3.1.</span> <span class="nav-text">ES-用户管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Doris-用户管理"><span class="nav-number">1.3.2.</span> <span class="nav-text">Doris-用户管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令说明-建议"><span class="nav-number">2.</span> <span class="nav-text">常用命令说明(建议)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-系统安装"><span class="nav-number">3.</span> <span class="nav-text">CentOS 系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统基础环境"><span class="nav-number">4.</span> <span class="nav-text">系统基础环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置网络"><span class="nav-number">4.1.</span> <span class="nav-text">配置网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置本地-yum"><span class="nav-number">4.2.</span> <span class="nav-text">配置本地 yum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭-selinux"><span class="nav-number">4.3.</span> <span class="nav-text">关闭 selinux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭-防火墙"><span class="nav-number">4.4.</span> <span class="nav-text">关闭 防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级到-Python3-8"><span class="nav-number">4.5.</span> <span class="nav-text">升级到 Python3.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-pip-源-可选"><span class="nav-number">4.6.</span> <span class="nav-text">配置 pip 源(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Apache"><span class="nav-number">4.7.</span> <span class="nav-text">配置-Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-java-jdk-环境"><span class="nav-number">4.8.</span> <span class="nav-text">安装 java-jdk 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-ntpd-服务器时间同步-可选"><span class="nav-number">4.9.</span> <span class="nav-text">配置 ntpd 服务器时间同步(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装性能测试软件-可选"><span class="nav-number">4.10.</span> <span class="nav-text">安装性能测试软件(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-部署-可选"><span class="nav-number">4.11.</span> <span class="nav-text">Docker 部署(可选)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库部署"><span class="nav-number">5.</span> <span class="nav-text">数据库部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图库部署"><span class="nav-number">6.</span> <span class="nav-text">图库部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES-部署"><span class="nav-number">7.</span> <span class="nav-text">ES 部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doris-部署"><span class="nav-number">8.</span> <span class="nav-text">Doris 部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目部署"><span class="nav-number">9.</span> <span class="nav-text">项目部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-SVN"><span class="nav-number">9.1.</span> <span class="nav-text">安装 SVN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载代码"><span class="nav-number">9.2.</span> <span class="nav-text">下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-env-环境"><span class="nav-number">9.3.</span> <span class="nav-text">安装 env 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FDM-容器配置"><span class="nav-number">9.4.</span> <span class="nav-text">FDM 容器配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题记录"><span class="nav-number">10.</span> <span class="nav-text">问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统环境配置问题"><span class="nav-number">10.1.</span> <span class="nav-text">系统环境配置问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cannot-update-read-only-repo"><span class="nav-number">10.1.1.</span> <span class="nav-text">Cannot update read-only repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#no-acceptable-C-compiler-found-in-PATH"><span class="nav-number">10.1.2.</span> <span class="nav-text">no acceptable C compiler found in \$PATH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AH00112-Warning-DocumentRoot-home-fdm-quick-web-fdm-does-not-exist"><span class="nav-number">10.1.3.</span> <span class="nav-text">AH00112: Warning: DocumentRoot [/home/fdm/quick/web/fdm] does not exist</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SuperScfan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">246.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58685295";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '02c9633efd3ac5a7b389',
+          clientSecret: 'e0245151fec034c33e2c69c104c586538ccc71e3',
+          repo: 'fansichao.github.io',
+          owner: 'fansichao',
+          admin: ['fansichao'],
+          id:'_20200905204415',
+          labels: 'comments'.split(',').filter(l => l),
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: false,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
+
+  
+
+</body>
+</html>

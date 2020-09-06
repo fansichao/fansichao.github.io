@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="hexo,blog,">
+  <meta name="keywords" content="module,hexo,blog,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Hexo静态博客使用文档">
-<meta name="keywords" content="hexo,blog">
+<meta name="description" content="Hexo静态博客使用文档。Hexo + GithubgPages">
+<meta name="keywords" content="module,hexo,blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo静态博客使用文档">
 <meta property="og:url" content="https://fansichao.github.io/hexo/config/index.html">
 <meta property="og:site_name" content="格物方能致知">
-<meta property="og:description" content="Hexo静态博客使用文档">
+<meta property="og:description" content="Hexo静态博客使用文档。Hexo + GithubgPages">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-01T00:19:45.072Z">
+<meta property="og:updated_time" content="2020-09-06T06:43:36.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo静态博客使用文档">
-<meta name="twitter:description" content="Hexo静态博客使用文档">
+<meta name="twitter:description" content="Hexo静态博客使用文档。Hexo + GithubgPages">
 
 
 
@@ -157,7 +157,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
@@ -234,6 +234,26 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
           </a>
         </li>
       
@@ -334,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-25T17:45:53+08:00">
-                2020-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T20:44:15+08:00">
+                2020-09-05
               </time>
             
 
@@ -350,8 +370,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-01T08:19:45+08:00">
-                2020-09-01
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-06T14:43:36+08:00">
+                2020-09-06
               </time>
             
           </span>
@@ -397,8 +417,6 @@
             <div class="post-wordcount">
               
                 
-                  <span class="post-meta-divider">|</span>
-                
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
@@ -406,19 +424,31 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  599
+                  1,160
                 </span>
               
 
               
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
               
             </div>
           
 
           
               <div class="post-description">
-                  Hexo静态博客使用文档
+                  Hexo静态博客使用文档。Hexo + GithubgPages
               </div>
           
 
@@ -435,7 +465,36 @@
       
 
       
-        <h2 id="Hexo-博客配置"><a href="#Hexo-博客配置" class="headerlink" title="Hexo 博客配置"></a>Hexo 博客配置</h2><h3 id="折叠隐藏部分文字"><a href="#折叠隐藏部分文字" class="headerlink" title="折叠隐藏部分文字"></a>折叠隐藏部分文字</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">  &lt;summary&gt;隐藏内容的标题&lt;/summary&gt;</span><br><span class="line"></span><br><span class="line">- 支持MarkDown语法</span><br><span class="line">- 支持代码块等等</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  import os</span><br><span class="line">  ``` // 防止排版错误：因为这是代码块内的代码。使用时可删除</span><br><span class="line"></span><br><span class="line">- 支持表格</span><br><span class="line"></span><br><span class="line">    |文字|文字|</span><br><span class="line">    |-|-|</span><br><span class="line">    |文字|文字|</span><br><span class="line"></span><br><span class="line">&lt;/details&gt;</span><br></pre></td></tr></table></figure>
+        <!-- TOC -->
+<ul>
+<li><a href="#hexo-简介">Hexo 简介</a></li>
+<li><a href="#hexo-基础配置">Hexo 基础配置</a></li>
+<li><a href="#hexo-博客配置">Hexo 博客配置</a><ul>
+<li><a href="#折叠隐藏部分文字">折叠隐藏部分文字</a></li>
+<li><a href="#添加文章创建时间和更新时间">添加文章创建时间和更新时间</a></li>
+<li><a href="#修改文章-url-生成方式">修改文章 URL 生成方式</a></li>
+<li><a href="#个人博客绑定域名配置">个人博客绑定域名配置</a></li>
+<li><a href="#博客评论配置">博客评论配置</a></li>
+<li><a href="#设置博客置顶">设置博客置顶</a></li>
+<li><a href="#配置私密博客-hexo-hide-posts">配置私密博客 hexo-hide-posts</a></li>
+<li><a href="#配置-看板娘">配置 看板娘</a></li>
+<li><a href="#配置-hexo-related-popular-posts">配置 hexo-related-popular-posts</a></li>
+<li><a href="#hexo-easy-tags-plugin">hexo-easy-tags-plugin</a></li>
+<li><a href="#hexo-permalink-pinyin">hexo-permalink-pinyin</a></li>
+<li><a href="#hexo-notify">hexo-notify</a></li>
+<li><a href="#hexo-seo-link-visualizer">hexo-seo-link-visualizer</a></li>
+<li><a href="#hexo-encrypt">hexo-encrypt</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo 官网</a><br><a href="https://blog.csdn.net/sinat_17775997/article/details/83821027" target="_blank" rel="noopener">hexo 原理分析</a></p>
+<h2 id="Hexo-基础配置"><a href="#Hexo-基础配置" class="headerlink" title="Hexo 基础配置"></a>Hexo 基础配置</h2><p><a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">node.js 下载</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 node.js 并安装</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo</span><br><span class="line"><span class="comment"># 配置 hexo 的 环境变量</span></span><br><span class="line">C:\Users\scfan\AppData\Roaming\npm\node_modules\hexo\bin</span><br><span class="line"></span><br><span class="line">配置之后重新打开 gitbash, 则会有 hexo 命令</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo-博客配置"><a href="#Hexo-博客配置" class="headerlink" title="Hexo 博客配置"></a>Hexo 博客配置</h2><ul>
+<li><a href="https://hexo.io/plugins/" target="_blank" rel="noopener">Hexo 官方插件网</a></li>
+</ul>
+<h3 id="折叠隐藏部分文字"><a href="#折叠隐藏部分文字" class="headerlink" title="折叠隐藏部分文字"></a>折叠隐藏部分文字</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">  &lt;summary&gt;隐藏内容的标题&lt;/summary&gt;</span><br><span class="line"></span><br><span class="line">- 支持MarkDown语法</span><br><span class="line">- 支持代码块等等</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  import os</span><br><span class="line">  ``` // 防止排版错误：因为这是代码块内的代码。使用时可删除</span><br><span class="line"></span><br><span class="line">- 支持表格</span><br><span class="line"></span><br><span class="line">    |文字|文字|</span><br><span class="line">    |-|-|</span><br><span class="line">    |文字|文字|</span><br><span class="line"></span><br><span class="line">&lt;/details&gt;</span><br></pre></td></tr></table></figure>
 <details><br>  <summary>隐藏内容的标题</summary><br><br>- 支持 MarkDown 语法<br>- 支持代码块等等<br><br>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure><br><br>- 支持表格<br><br>  | 文字 | 文字 |<br>  | —- | —- |<br>  | 文字 | 文字 |<br><br></details>
 
 <p><a href="https://www.faker.top/2020/02/14/Hexo/h6-%E6%8A%98%E5%8F%A0%E6%96%87%E5%AD%97/" target="_blank" rel="noopener">Hexo 博客如何折叠(显示/隐藏)部分文字</a></p>
@@ -444,9 +503,9 @@
 <p>配置自动更新时间 <code>themes\next\layout\_macro\post.swig</code></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">if</span> <span class="string">post.top</span> <span class="string">%&#125;</span></span><br><span class="line">   <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-thumb-tack"&gt;&lt;/i&gt;</span></span><br><span class="line">   <span class="string">&lt;font</span> <span class="string">color="#F05050"&gt;[置顶]&lt;/font&gt;</span></span><br><span class="line">   <span class="string">&lt;span</span> <span class="string">class="post-meta-divider"&gt;|&lt;/span&gt;</span></span><br><span class="line"> <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line"> <span class="comment"># 添加如下内容 !!! 去除此注释.</span></span><br><span class="line"> <span class="string">&lt;span</span> <span class="string">class="post-time"&gt;</span></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">if</span> <span class="string">theme.post_meta.created_at</span> <span class="string">%&#125;</span></span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class="post-meta-item-icon"&gt;</span></span><br><span class="line">       <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-calendar-o"&gt;&lt;/i&gt;</span></span><br><span class="line">     <span class="string">&lt;/span&gt;</span></span><br><span class="line">     <span class="string">&#123;%</span> <span class="string">if</span> <span class="string">theme.post_meta.item_text</span> <span class="string">%&#125;</span></span><br><span class="line">       <span class="string">&lt;span</span> <span class="string">class="post-meta-item-text"&gt;&#123;&#123;</span> <span class="string">__('post.posted')</span> <span class="string">&#125;&#125;&lt;/span&gt;</span></span><br><span class="line">     <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line">     <span class="string">&lt;time</span> <span class="string">title="&#123;&#123;</span> <span class="string">__('post.created')</span> <span class="string">&#125;&#125;"</span> <span class="string">itemprop="dateCreated</span> <span class="string">datePublished"</span> <span class="string">datetime="&#123;&#123;</span> <span class="string">moment(post.date).format()</span> <span class="string">&#125;&#125;"&gt;</span></span><br><span class="line">       <span class="string">&#123;&#123;</span> <span class="string">date(post.date,</span> <span class="string">config.date_format)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">     <span class="string">&lt;/time&gt;</span></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line"></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">if</span> <span class="string">theme.post_meta.created_at</span> <span class="string">and</span> <span class="string">theme.post_meta.updated_at</span> <span class="string">%&#125;</span></span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class="post-meta-divider"&gt;|&lt;/span&gt;</span></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line"></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">if</span> <span class="string">theme.post_meta.updated_at</span> <span class="string">%&#125;</span></span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class="post-meta-item-icon"&gt;</span></span><br><span class="line">       <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-calendar-check-o"&gt;&lt;/i&gt;</span></span><br><span class="line">     <span class="string">&lt;/span&gt;</span></span><br><span class="line">     <span class="string">&#123;%</span> <span class="string">if</span> <span class="string">theme.post_meta.item_text</span> <span class="string">%&#125;</span></span><br><span class="line">       <span class="string">&lt;span</span> <span class="string">class="post-meta-item-text"&gt;&#123;&#123;</span> <span class="string">__('post.modified')</span> <span class="string">&#125;&#125;&amp;#58;&lt;/span&gt;</span></span><br><span class="line">     <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line">     <span class="string">&lt;time</span> <span class="string">title="&#123;&#123;</span> <span class="string">__('post.modified')</span> <span class="string">&#125;&#125;"</span> <span class="string">itemprop="dateModified"</span> <span class="string">datetime="&#123;&#123;</span> <span class="string">moment(post.updated).format()</span> <span class="string">&#125;&#125;"&gt;</span></span><br><span class="line">       <span class="string">&#123;&#123;</span> <span class="string">date(post.updated,</span> <span class="string">config.date_format)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">     <span class="string">&lt;/time&gt;</span></span><br><span class="line">   <span class="string">&#123;%</span> <span class="string">endif</span> <span class="string">%&#125;</span></span><br><span class="line"> <span class="string">&lt;/span&gt;</span></span><br></pre></td></tr></table></figure>
 <p>配置文章展示项 <code>themes\next\_config.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  created_at:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  updated_at:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line">  <span class="attr">item_text:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">created_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">updated_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>配置展示的名称 <code>themes\next\languages\zh-Hans.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line"><span class="attr">  created:</span> <span class="string">创建于</span></span><br><span class="line"><span class="attr">  modified:</span> <span class="string">更新于</span></span><br><span class="line"><span class="attr">  sticky:</span> <span class="string">置顶</span></span><br><span class="line"><span class="attr">  posted:</span> <span class="string">发表于</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line">  <span class="attr">created:</span> <span class="string">创建于</span></span><br><span class="line">  <span class="attr">modified:</span> <span class="string">更新于</span></span><br><span class="line">  <span class="attr">sticky:</span> <span class="string">置顶</span></span><br><span class="line">  <span class="attr">posted:</span> <span class="string">发表于</span></span><br></pre></td></tr></table></figure>
 <p>参考链接</p>
 <ul>
 <li><a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo 官方文档</a></li>
@@ -456,8 +515,27 @@
 <h3 id="个人博客绑定域名配置"><a href="#个人博客绑定域名配置" class="headerlink" title="个人博客绑定域名配置"></a>个人博客绑定域名配置</h3><ul>
 <li><a href="https://blog.csdn.net/Wonz5130/article/details/82828761" target="_blank" rel="noopener">Hexo 个人博客绑定域名配置</a></li>
 </ul>
-<h3 id="博客评论配置"><a href="#博客评论配置" class="headerlink" title="博客评论配置"></a>博客评论配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># themes\next\layout\_partials\comments.swig</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">elseif</span> <span class="string">theme.gitalk.enable</span> <span class="string">%&#125;</span></span><br><span class="line">  <span class="string">&lt;div</span> <span class="string">class="comments"</span> <span class="string">id="comments"&gt;</span></span><br><span class="line">      <span class="string">&lt;div</span> <span class="string">id="gitalk-container"&gt;&lt;/div&gt;</span></span><br><span class="line">  <span class="string">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  ClientID:</span> <span class="string">xxxxx</span></span><br><span class="line"><span class="attr">  ClientSecret:</span> <span class="string">xxxxxx</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">fansichao.github.io</span></span><br><span class="line"><span class="attr">  owner:</span> <span class="string">fansichao</span></span><br><span class="line"><span class="attr">  adminUser:</span> <span class="string">fansichao</span></span><br><span class="line"><span class="attr">  IdPrefix:</span></span><br><span class="line"><span class="attr">  labels:</span> <span class="string">comments</span></span><br><span class="line"><span class="attr">  perPage:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">  pagerDirection:</span> <span class="string">last</span></span><br><span class="line"><span class="attr">  createIssueManually:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  distractionFreeMode:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  enableHotKey:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="博客评论配置"><a href="#博客评论配置" class="headerlink" title="博客评论配置"></a>博客评论配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># themes\next\layout\_partials\comments.swig</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">elseif</span> <span class="string">theme.gitalk.enable</span> <span class="string">%&#125;</span></span><br><span class="line">  <span class="string">&lt;div</span> <span class="string">class="comments"</span> <span class="string">id="comments"&gt;</span></span><br><span class="line">      <span class="string">&lt;div</span> <span class="string">id="gitalk-container"&gt;&lt;/div&gt;</span></span><br><span class="line">  <span class="string">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">ClientID:</span> <span class="string">xxxxx</span></span><br><span class="line">  <span class="attr">ClientSecret:</span> <span class="string">xxxxxx</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">fansichao.github.io</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">fansichao</span></span><br><span class="line">  <span class="attr">adminUser:</span> <span class="string">fansichao</span></span><br><span class="line">  <span class="attr">IdPrefix:</span></span><br><span class="line">  <span class="attr">labels:</span> <span class="string">comments</span></span><br><span class="line">  <span class="attr">perPage:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">pagerDirection:</span> <span class="string">last</span></span><br><span class="line">  <span class="attr">createIssueManually:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">distractionFreeMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">enableHotKey:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>配置详见 <a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gittalk-github 参考</a></p>
+<h3 id="设置博客置顶"><a href="#设置博客置顶" class="headerlink" title="设置博客置顶"></a>设置博客置顶</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章中配置 top: true 即可</span></span><br><span class="line">top: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置私密博客-hexo-hide-posts"><a href="#配置私密博客-hexo-hide-posts" class="headerlink" title="配置私密博客 hexo-hide-posts"></a>配置私密博客 hexo-hide-posts</h3><p>效果：博客在首页会被隐藏，实际通过链接仍可以访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1：_config.yml 配置</span></span><br><span class="line"><span class="comment"># 隐藏文章 hexo-hide-posts</span></span><br><span class="line">hide_posts:</span><br><span class="line">  <span class="comment"># 可以改成其他你喜欢的名字</span></span><br><span class="line">  filter: hidden</span><br><span class="line">  <span class="comment"># 指定你想要传递隐藏文章的 generator，比如让所有隐藏文章在存档页面可见</span></span><br><span class="line">  <span class="comment"># 常见的 generators 有：index, tag, category, archive, sitemap, feed, etc.</span></span><br><span class="line">  public_generators: []</span><br><span class="line">  <span class="comment"># 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录</span></span><br><span class="line">  noindex: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2：博客配置</span></span><br><span class="line">hidden: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看隐藏的文章列表</span></span><br><span class="line">hexo hidden:list</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/printempw/hexo-hide-posts/blob/master/README_ZH.md" target="_blank" rel="noopener">hexo-hide-posts</a></p>
+<h3 id="配置-看板娘"><a href="#配置-看板娘" class="headerlink" title="配置 看板娘"></a>配置 看板娘</h3><p><a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">看板娘 hexo-helper-live2d</a></p>
+<p><a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">华丽的看板娘 live2d-widget</a></p>
+<h3 id="配置-hexo-related-popular-posts"><a href="#配置-hexo-related-popular-posts" class="headerlink" title="配置 hexo-related-popular-posts"></a>配置 hexo-related-popular-posts</h3><p>生成到相关帖子或热门帖子的链接列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- hexo-related-popular-posts --&gt;</span><br><span class="line">&#123;% if not is_index %&#125;</span><br><span class="line">  &lt;h3&gt;相关文章&lt;/h3&gt;</span><br><span class="line">  &#123;&#123;</span><br><span class="line">    popular_posts(&#123; maxCount: 10 , ulClass: &apos;popular-posts&apos; , PPMixingRate: 0.0 ,</span><br><span class="line">      isImage: false, isDate: false, isExcerpt: false&#125; , post)</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">https://github.com/tea3/hexo-related-popular-posts/issues/4</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/tea3/hexo-related-popular-posts" target="_blank" rel="noopener">hexo-related-popular-posts</a></p>
+<h3 id="hexo-easy-tags-plugin"><a href="#hexo-easy-tags-plugin" class="headerlink" title="hexo-easy-tags-plugin"></a>hexo-easy-tags-plugin</h3><p>支持 标签的大小写、空格、下划线等统一<br><a href="https://github.com/dailyrandomphoto/hexo-easy-tags-plugin" target="_blank" rel="noopener">hexo-easy-tags-plugin</a></p>
+<h3 id="hexo-permalink-pinyin"><a href="#hexo-permalink-pinyin" class="headerlink" title="hexo-permalink-pinyin"></a>hexo-permalink-pinyin</h3><p>可将中文标题转换为音译的永久链接。</p>
+<p><a href="https://github.com/viko16/hexo-permalink-pinyin" target="_blank" rel="noopener">hexo-permalink-pinyin</a></p>
+<h3 id="hexo-notify"><a href="#hexo-notify" class="headerlink" title="hexo-notify"></a>hexo-notify</h3><p>Hexo 的通知插件。</p>
+<p><a href="https://github.com/hexojs/hexo-notify" target="_blank" rel="noopener">hexo-notify</a></p>
+<h3 id="hexo-seo-link-visualizer"><a href="#hexo-seo-link-visualizer" class="headerlink" title="hexo-seo-link-visualizer"></a>hexo-seo-link-visualizer</h3><p>TODO 未成功</p>
+<p>分析链接并可视化 Hexo 的站点结构。<br><a href="https://github.com/tea3/hexo-seo-link-visualizer" target="_blank" rel="noopener">hexo-seo-link-visualizer</a></p>
+<h3 id="hexo-encrypt"><a href="#hexo-encrypt" class="headerlink" title="hexo-encrypt"></a>hexo-encrypt</h3><p>文章加密</p>
+<p>TODO 可用, 但是未显示加密页面</p>
+<p><a href="https://github.com/edolphin-ydf/hexo-encrypt" target="_blank" rel="noopener">hexo-encrypt</a></p>
 
       
     </div>
@@ -471,7 +549,7 @@
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-  <div>如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc</div>
+  <div>如有疑问或需要技术讨论，请留言或发邮件到 643566992@qq.com</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>鼓励</span>
   </button>
@@ -523,6 +601,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/module/" rel="tag"># module</a>
+          
             <a href="/tags/hexo/" rel="tag"># hexo</a>
           
             <a href="/tags/blog/" rel="tag"># blog</a>
@@ -534,12 +614,13 @@
       
       
 
+
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bigdata/cdh/" rel="next" title="CDH使用文档">
-                <i class="fa fa-chevron-left"></i> CDH使用文档
+              <a href="/hexo/" rel="next" title="Hexo博客配置">
+                <i class="fa fa-chevron-left"></i> Hexo博客配置
               </a>
             
           </div>
@@ -548,8 +629,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/readme/" rel="prev" title="本博客使用文档">
-                本博客使用文档 <i class="fa fa-chevron-right"></i>
+              <a href="/module/" rel="prev" title="Module-index">
+                Module-index <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,8 +639,24 @@
 
       
       
+
+
+      <!-- hexo-related-popular-posts -->
+        
+        <h3>相关文章</h3>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\" title="Hexo博客配置" rel="bookmark">Hexo博客配置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\svn\" title="SVN-技术文档" rel="bookmark">SVN-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\sqlalchemy\" title="SQLAlchemy-技术文档" rel="bookmark">SQLAlchemy-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\selenium\" title="Selenium-技术文档" rel="bookmark">Selenium-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\redis\" title="Redis-技术文档" rel="bookmark">Redis-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\pandas\" title="Pandas-技术文档" rel="bookmark">Pandas-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\nosetests\" title="Nosetests-技术文档" rel="bookmark">Nosetests-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\jieba\" title="jieba-技术文档" rel="bookmark">jieba-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\ipython\" title="Ipython-技术文档" rel="bookmark">Ipython-技术文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\module\huey\" title="Huey-技术文档" rel="bookmark">Huey-技术文档</a></h3></div></li></ul>
+      
     </footer>
   </div>
+
+
+
+
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
   
   
   
@@ -634,7 +731,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">164</span>
+                  <span class="site-state-item-count">165</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -656,7 +753,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -699,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-博客配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠隐藏部分文字"><span class="nav-number">1.1.</span> <span class="nav-text">折叠隐藏部分文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章创建时间和更新时间"><span class="nav-number">1.2.</span> <span class="nav-text">添加文章创建时间和更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章-URL-生成方式"><span class="nav-number">1.3.</span> <span class="nav-text">修改文章 URL 生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人博客绑定域名配置"><span class="nav-number">1.4.</span> <span class="nav-text">个人博客绑定域名配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客评论配置"><span class="nav-number">1.5.</span> <span class="nav-text">博客评论配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-基础配置"><span class="nav-number">2.</span> <span class="nav-text">Hexo 基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-博客配置"><span class="nav-number">3.</span> <span class="nav-text">Hexo 博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠隐藏部分文字"><span class="nav-number">3.1.</span> <span class="nav-text">折叠隐藏部分文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文章创建时间和更新时间"><span class="nav-number">3.2.</span> <span class="nav-text">添加文章创建时间和更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章-URL-生成方式"><span class="nav-number">3.3.</span> <span class="nav-text">修改文章 URL 生成方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人博客绑定域名配置"><span class="nav-number">3.4.</span> <span class="nav-text">个人博客绑定域名配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客评论配置"><span class="nav-number">3.5.</span> <span class="nav-text">博客评论配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置博客置顶"><span class="nav-number">3.6.</span> <span class="nav-text">设置博客置顶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置私密博客-hexo-hide-posts"><span class="nav-number">3.7.</span> <span class="nav-text">配置私密博客 hexo-hide-posts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-看板娘"><span class="nav-number">3.8.</span> <span class="nav-text">配置 看板娘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-hexo-related-popular-posts"><span class="nav-number">3.9.</span> <span class="nav-text">配置 hexo-related-popular-posts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-easy-tags-plugin"><span class="nav-number">3.10.</span> <span class="nav-text">hexo-easy-tags-plugin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-permalink-pinyin"><span class="nav-number">3.11.</span> <span class="nav-text">hexo-permalink-pinyin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-notify"><span class="nav-number">3.12.</span> <span class="nav-text">hexo-notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-seo-link-visualizer"><span class="nav-number">3.13.</span> <span class="nav-text">hexo-seo-link-visualizer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-encrypt"><span class="nav-number">3.14.</span> <span class="nav-text">hexo-encrypt</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -719,12 +816,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SuperScfan</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">246.1k</span>
   
 </div>
 
@@ -922,7 +1028,7 @@
           repo: 'fansichao.github.io',
           owner: 'fansichao',
           admin: ['fansichao'],
-          id:'_20200825174553',
+          id:'_20200905204415',
           labels: 'comments'.split(',').filter(l => l),
           perPage: 10,
           pagerDirection: 'last',
