@@ -107,3 +107,76 @@ chatra:
 tidio:
   enable: false
   key: # Public Key, get it from dashboard. See: https://www.tidiochat.com/panel/settings/developer  
+
+# 隐藏文章 hexo-hide-posts
+hide_posts:
+  # 可以改成其他你喜欢的名字
+  filter: hidden
+  # 指定你想要传递隐藏文章的 generator，比如让所有隐藏文章在存档页面可见
+  # 常见的 generators 有：index, tag, category, archive, sitemap, feed, etc.
+  public_generators: []
+  # 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录
+  noindex: true
+
+# live2d hexo-helper-live2d
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    # use: live2d-widget-model-wanko
+    use: live2d-widget-model-nico
+    # use: live2d-widget-model-miku
+    # use: live2d-widget-model-nietzsche
+  display:
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: false
+  react:
+    opacity: 0.7
+
+# 标签 统一大小写去空格等 hexo-easy-tags-plugin
+easy_tags_plugin:
+  enable: true
+  tag_name_case: 1
+  sort_ignore_case: true
+
+# 可将中文标题转换为音译的永久链接。 
+# https://github.com/viko16/hexo-permalink-pinyin
+permalink_pinyin:
+  enable: true             # Enable this plugin
+  separator: '-'           # Separator of the slug, default: '-'
+  exclude: /ignore_post/   # Regex for which post should skip
+
+# 文章加密 hexo-encrypt
+encrypt:
+  pwdfile: encrypt_password		# this store the password in a file, the whole content of this file will be regarded as the password
+  password: 123456 # this set password here
+  replace_all_url: false # this will replace img url in all posts
+  base_url: http://you img base url/	# this will connect with you img url in you post, except full url(start with http://)
+  qiniu_ak: your qiniu access key 
+  qiniu_sk: your qiniu secrect key 
+  img_url_ttl: 3600  # 3600 second, the ttl for qiniu img url
+  type: qiniu # or base64, if base64, the base_url, qiniu_ak, qiniu_sk and img_url_ttl is unnecessary
+  template: ' <input type="text" style=" border-radius: 5px; border-style: groove; height: 30px; width: 50%; cursor: auto; font-size: 102%; color: currentColor; outline: none; text-overflow: initial; padding-left: 5px;">  
+  <input type="submit" value="decrypt" onclick="decrypt()" style=" width: 58px; height: 34px; border-radius: 5px; background-color: white; border-style: solid; color: currentColor; "> 
+<div id="enc_error" style=" display: inline-block; color: #d84527; font: large; "></div>
+  <script> 
+var onError = function(error) { 
+$("#enc_error")[0].innerHTML = "password error!"; 
+}; 
+    function decrypt() { 
+        var passwd = $("#enc_passwd input")[0].value; 
+        console.log(passwd); 
+        doDecrypt(passwd, onError); 
+    } 
+  </script>' 
+
+
+ 

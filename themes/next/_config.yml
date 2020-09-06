@@ -37,7 +37,7 @@ rss:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  since: 2016
+  since: 2020
 
   # Icon between year and copyright info.
   icon: user
@@ -89,8 +89,8 @@ menu:
   tags: /tags/ || tags
   archives: /archives/ || archive
   about: /about/ || user
-  # schedule: /schedule/ || calendar
-  # sitemap: /sitemap.xml || sitemap
+  schedule: /schedule/ || calendar
+  sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
@@ -224,9 +224,9 @@ post_meta:
 post_wordcount:
   item_text: true
   wordcount: true
-  min2read: false
-  totalcount: false
-  separated_meta: false
+  min2read: true
+  totalcount: true
+  separated_meta: true
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -236,7 +236,7 @@ post_wordcount:
 
 # Reward 打赏功能
 reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
-reward_comment2: 如有疑问或需要技术讨论，请留言或发邮件到 service@itfanr.cc
+reward_comment2: 如有疑问或需要技术讨论，请留言或发邮件到 643566992@qq.com
 wechatpay: /images/wechat-reward-image.jpg
 alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png
@@ -264,7 +264,7 @@ android_chrome_color: "#222"
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: false
+  enabled: true
   image:
 
 # Code Highlight theme

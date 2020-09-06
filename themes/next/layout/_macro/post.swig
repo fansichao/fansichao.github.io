@@ -396,6 +396,7 @@
       {% endif %}
       {% endif %}
 
+
       {% if not is_index and (post.prev or post.next) %}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
@@ -422,8 +423,27 @@
       {% if is_index and not isLast %}
         <div class="post-eof"></div>
       {% endif %}
+
+
+      <!-- hexo-related-popular-posts -->
+      {% if not is_index %}  
+        <h3>相关文章</h3>
+        {{
+          popular_posts({ maxCount: 10 , ulClass: 'popular-posts' , PPMixingRate: 0.0 , 
+            isImage: false, isDate: false, isExcerpt: false} , post)
+        }}
+      {% endif %}
     </footer>
   </div>
+
+
+
+
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+
   {######################}
   {### END POST BLOCK ###}
   {######################}

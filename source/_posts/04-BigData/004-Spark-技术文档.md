@@ -2,7 +2,7 @@
 title: Spark-使用文档
 url_path: bigdata/spark
 tags:
-  - index
+  - spark
   - bigdata
 categories:
   - bigdata

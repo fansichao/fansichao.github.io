@@ -1,7 +1,6 @@
 ---
 title: 趣味Python
-date: 2020-07-30 15:38:13
-updated: 2020-07-30 15:38:13
+url_path: tmp4
 tags:
   - Python
 categories:

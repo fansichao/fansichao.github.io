@@ -28,6 +28,8 @@
         <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
       <% } %>
       <%- partial('post/tag') %>
+      <!-- hexo-related-popular-posts -->
+      <%- popular_posts( {} , post ) %>
     </footer>
   </div>
   <% if (!index){ %>

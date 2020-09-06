@@ -2,7 +2,7 @@
 title: hbase-使用文档
 url_path: bigdata/hbase
 tags:
-  - index
+  - hbase
   - bigdata
 categories:
   - bigdata

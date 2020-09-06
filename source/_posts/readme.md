@@ -3,10 +3,9 @@ title: 本博客使用文档
 url_path: readme
 top: true
 tags:
-  - hexo
-  - blog
+  - index
 categories:
-  - blog
+  - index
 description: 博客食用文档。食用博客前，先食用此文档，可以更好更优雅的食用此博客。<br> 含博客内容、博客结构、博客功能等。含文章内容、文章链接等
 ---
 

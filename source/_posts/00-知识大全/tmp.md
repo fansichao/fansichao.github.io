@@ -5,7 +5,7 @@ tags:
   - 知识大全
 categories:
   - 知识大全
-description:
+description: ....
 ---
 
 ### 1. http 状态码/header/请求方法, 哪些请求方法是幂等的

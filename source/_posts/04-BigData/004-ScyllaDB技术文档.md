@@ -2,7 +2,7 @@
 title: ScyllaDB-使用文档
 url_path: bigdata/scylladb
 tags:
-  - index
+  - scylladb
   - bigdata
 categories:
   - bigdata

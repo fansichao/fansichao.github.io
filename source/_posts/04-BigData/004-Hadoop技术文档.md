@@ -2,7 +2,7 @@
 title: hadoop-使用文档
 url_path: bigdata/hadoop
 tags:
-  - index
+  - hadoop
   - bigdata
 categories:
   - bigdata

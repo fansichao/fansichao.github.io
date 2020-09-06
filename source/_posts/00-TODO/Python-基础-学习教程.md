@@ -1,7 +1,6 @@
 ---
 title: Python-学习教程
-date: 2020-07-12 15:38:13
-updated: 2020-07-19 15:38:13
+url_path: tmp3
 tags:
   - Python
   - 学习教程
