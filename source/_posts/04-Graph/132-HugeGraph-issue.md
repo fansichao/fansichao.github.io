@@ -5,6 +5,7 @@ tags:
   - module
   - hugegraph
 categories:
+  - module
   - graph
 description: HugeGraph 问题记录
 ---

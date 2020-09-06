@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Oracle SQL常用数据库
 ---

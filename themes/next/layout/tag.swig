@@ -23,12 +23,10 @@
         {{ post_template.render(post) }}
       {% endfor %}
     </div>
-
   </div>
   {#####################}
   {### END TAG BLOCK ###}
   {#####################}
-
   {% include '_partials/pagination.swig' %}
 {% endblock %}
 

@@ -5,6 +5,7 @@ tags:
   - tools
 categories:
   - tools
+  - vnc
 description: VNC,远程登录图形化界面配置。
 ---
 

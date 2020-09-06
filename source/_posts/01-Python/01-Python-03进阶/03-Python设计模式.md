@@ -5,6 +5,7 @@ tags:
   - python
   - python-进阶
 categories:
+  - python
   - python-进阶
 description: Python7 大原则与 24 种设计模式
 ---

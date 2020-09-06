@@ -6,6 +6,7 @@ tags:
   - blog
   - module
 categories:
+  - module
   - hexo
 description: Hexo静态博客使用文档。Hexo + GithubgPages
 ---

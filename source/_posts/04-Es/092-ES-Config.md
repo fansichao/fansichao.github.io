@@ -2,10 +2,11 @@
 title: ES配置文件
 url_path: module/es/config
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Elasticsearch
+  - module
+  - es
 description: ES配置文件详解
 ---
 

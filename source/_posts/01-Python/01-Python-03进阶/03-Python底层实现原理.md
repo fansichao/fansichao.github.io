@@ -5,6 +5,7 @@ tags:
   - python
   - python-进阶
 categories:
+  - python
   - python-进阶
 description: 从底层了解 Python 实现，从深度层面探索 Python 方法
 ---

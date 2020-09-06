@@ -2,10 +2,11 @@
 title: ES功能模块
 url_path: module/es/function
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Elasticsearch
+  - module
+  - es
 description: ES功能模块
 ---
 

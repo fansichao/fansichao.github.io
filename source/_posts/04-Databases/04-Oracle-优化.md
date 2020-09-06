@@ -2,10 +2,10 @@
 title: Module-Database-Oracle模块功能
 url_path: module/oracle/good
 tags:
-  - Module
+  - module
   - Database
 categories:
-  - Module
+  - module
 description: Oracle参数配置，性能优化等
 ---
 

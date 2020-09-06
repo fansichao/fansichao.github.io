@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: CDH大数据平台部署，Spark、HDFS、Hive等等一键部署。
 ---

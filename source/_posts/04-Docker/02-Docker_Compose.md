@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Compose 使用文档。容器快速部署。
 ---

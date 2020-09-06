@@ -6,6 +6,7 @@ tags:
   - AAAA
 categories:
   - tools
+  - pycharm
 description: Pycharm-IDE环境编辑器
 ---
 

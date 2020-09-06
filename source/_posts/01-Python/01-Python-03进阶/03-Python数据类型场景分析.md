@@ -5,6 +5,7 @@ tags:
   - python
   - python-进阶
 categories:
+  - python
   - python-进阶
 description: Python 数据类型场景分析
 ---

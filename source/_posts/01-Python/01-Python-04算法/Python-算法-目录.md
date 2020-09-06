@@ -6,6 +6,7 @@ tags:
   - python-algorithm
   - index
 categories:
+  - python
   - python-algorithm
 description: ....
 ---

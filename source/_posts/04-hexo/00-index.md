@@ -5,6 +5,7 @@ tags:
   - hexo
   - blog
 categories:
+  - module
   - hexo
 description: Hexo博客配置
 ---

@@ -25,12 +25,11 @@
     </div>
 
   </div>
+
   {##########################}
   {### END CATEGORY BLOCK ###}
   {##########################}
-
   {% include '_partials/pagination.swig' %}
-
 {% endblock %}
 
 {% block sidebar %}

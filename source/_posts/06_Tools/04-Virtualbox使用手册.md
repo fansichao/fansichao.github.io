@@ -6,6 +6,7 @@ tags:
   - AAAA
 categories:
   - tools
+  - virtualbox
 description: virtualbox-虚拟机
 ---
 

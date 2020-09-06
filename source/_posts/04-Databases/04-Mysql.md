@@ -2,10 +2,10 @@
 title: Module-Database-Mysql部署文档
 url_path: module/mysql
 tags:
-  - Module
+  - module
   - Database
 categories:
-  - Module
+  - module
 description: ...
 ---
 

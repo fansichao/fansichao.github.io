@@ -6,6 +6,7 @@ tags:
   - module
   - todo
 categories:
+  - module
   - docker
 description: Docker-Doris 部署文档, Doris-On-Es 基于 ES 的快速运算工具，支持Mysql语法。
 ---

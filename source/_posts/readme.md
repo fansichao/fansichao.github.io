@@ -5,7 +5,7 @@ top: true
 tags:
   - index
 categories:
-  - index
+  - 使用必读
 description: 博客食用文档。食用博客前，先食用此文档，可以更好更优雅的食用此博客。<br> 含博客内容、博客结构、博客功能等。含文章内容、文章链接等
 ---
 

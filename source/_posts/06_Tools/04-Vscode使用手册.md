@@ -6,6 +6,7 @@ tags:
   - AAAAA
 categories:
   - tools
+  - vscode
 description: VScode-IDE-Markdown等工具
 ---
 

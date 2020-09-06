@@ -3,9 +3,10 @@ title: Python-基础-index
 url_path: python/base
 tags:
   - python
-  - python基础
+  - python-基础
 categories:
-  - python基础
+  - python
+  - python-基础
 description: Python基础知识，入门知识等
 ---
 

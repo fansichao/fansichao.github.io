@@ -2,9 +2,9 @@
 title: 总结类文章
 url_path: sumup
 tags:
-  - sumup
+  - 小结
 categories:
-  - sumup
+  - 小结
 description: 总结类文档，感言总结等等
 ---
 

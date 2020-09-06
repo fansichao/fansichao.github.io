@@ -5,6 +5,7 @@ tags:
   - python
   - python-进阶
 categories:
+  - python
   - python-进阶
 description: 读写Conf配置文件
 ---

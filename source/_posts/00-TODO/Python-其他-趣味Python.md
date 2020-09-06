@@ -2,9 +2,10 @@
 title: 趣味Python
 url_path: tmp4
 tags:
-  - Python
+  - python
 categories:
-  - Python-其他
+  - python
+  - python-其他
 description: 趣味Python
 ---
 

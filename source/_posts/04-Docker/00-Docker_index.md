@@ -6,6 +6,7 @@ tags:
   - index
   - module
 categories:
+  - module
   - docker
 description: Docker-index 目录索引，Docker相关内容详见此文件。
 ---

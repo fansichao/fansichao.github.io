@@ -5,6 +5,7 @@ tags:
   - python
   - python-内置包
 categories:
+  - python
   - python-内置包
 description: 内置包
 ---

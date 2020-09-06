@@ -3,9 +3,10 @@ title: python简介
 url_path: python/base/python简介
 tags:
   - python
-  - python基础
+  - python-基础
 categories:
-  - python基础
+  - python
+  - python-基础
 description: python简介
 ---
 

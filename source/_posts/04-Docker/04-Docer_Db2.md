@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Db2 数据库 容器部署
 ---

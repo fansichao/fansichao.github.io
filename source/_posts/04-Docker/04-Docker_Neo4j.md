@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Neo4j 图库技术部署文档
 ---

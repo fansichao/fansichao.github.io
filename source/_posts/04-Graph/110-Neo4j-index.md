@@ -2,7 +2,7 @@
 title: Neo4j图库目录
 url_path: module/neo4j
 tags:
-  - Module
+  - module
   - Neo4j
   - index
 categories:

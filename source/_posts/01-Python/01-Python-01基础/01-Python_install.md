@@ -3,9 +3,10 @@ title: Python安装升级
 url_path: python/base/python_install
 tags:
   - python
-  - python基础
+  - python-基础
 categories:
-  - python基础
+  - python
+  - python-基础
 description: Python3安装升级文档
 ---
 

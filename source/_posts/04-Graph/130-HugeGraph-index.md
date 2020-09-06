@@ -6,6 +6,7 @@ tags:
   - Graph
 categories:
   - module
+  - graph
 description: hugegraph
 ---
 

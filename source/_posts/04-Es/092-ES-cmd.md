@@ -2,10 +2,11 @@
 title: ES 常用命令
 url_path: module/es/cmd
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Module
+  - module
+  - es
 description: ES 常用命令
 ---
 

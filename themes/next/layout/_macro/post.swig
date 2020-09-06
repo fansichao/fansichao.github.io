@@ -435,18 +435,11 @@
       {% endif %}
     </footer>
   </div>
-
-
-
-
-  <!-- live2d-widget -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-
-
   {######################}
   {### END POST BLOCK ###}
   {######################}
   </article>
-
+  <!-- live2d-widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 {% endmacro %}

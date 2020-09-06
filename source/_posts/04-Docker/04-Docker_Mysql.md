@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Mysql 轻量数据库快速部署文档
 ---

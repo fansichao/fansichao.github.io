@@ -5,6 +5,7 @@ tags:
   - docker
   - module
 categories:
+  - module
   - docker
 description: Docker-Elasticsearch 部署文档. 分布式数据库
 ---

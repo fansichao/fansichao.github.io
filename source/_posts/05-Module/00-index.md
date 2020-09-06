@@ -3,9 +3,9 @@ title: Module-index
 url_path: module/
 tags:
   - index
-  - Module
+  - module
 categories:
-  - Module
+  - module
 description: 模块目录索引
 ---
 

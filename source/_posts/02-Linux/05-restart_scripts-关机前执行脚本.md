@@ -4,7 +4,7 @@ url_path: linux/restart_scripts
 tags:
   - linux
 categories:
-  - linux-功能模块
+  - linux
 description: 关机和重启前执行自定义脚本
 ---
 

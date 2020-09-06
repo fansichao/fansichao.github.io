@@ -2,10 +2,11 @@
 title: ES部署文档
 url_path: module/es/install
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Module
+  - module
+  - es
 description: ES部署文档
 ---
 

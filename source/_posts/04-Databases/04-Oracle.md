@@ -2,10 +2,10 @@
 title: Module-Database-Oracle使用文档
 url_path: module/oracle
 tags:
-  - Module
+  - module
   - Database
 categories:
-  - Module
+  - module
 description: ...
 ---
 

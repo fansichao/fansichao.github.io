@@ -3,9 +3,10 @@ title: Python23项目切换
 url_path: python/advance/Python23项目切换
 tags:
   - python
-  - python进阶
+  - python-进阶
 categories:
-  - python进阶
+  - python
+  - python-进阶
 description: Python23项目切换
 ---
 

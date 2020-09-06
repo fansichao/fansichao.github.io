@@ -2,10 +2,11 @@
 title: ES问题记录
 url_path: module/es/issue
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Elasticsearch
+  - module
+  - es
 description: ES问题记录
 ---
 

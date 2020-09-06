@@ -2,10 +2,11 @@
 title: Elasticsearch
 url_path: module/es
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Module
+  - module
+  - es
 description: ES技术文档
 ---
 

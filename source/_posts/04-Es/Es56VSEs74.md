@@ -2,11 +2,11 @@
 title: Module-ES-版本差异对比
 url_path: module/es/es_version
 tags:
-  - Module
+  - module
   - Elasticsearch
 categories:
-  - Module
-  - Elasticsearch
+  - module
+  - es
 description: ES564 & ES740 整理
 ---
 
