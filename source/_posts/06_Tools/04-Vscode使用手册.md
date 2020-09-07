@@ -3,7 +3,7 @@ title: VScode-技术文档
 url_path: tools/vscode
 tags:
   - tools
-  - AAAAA
+  - ★★★★★
 categories:
   - tools
   - vscode

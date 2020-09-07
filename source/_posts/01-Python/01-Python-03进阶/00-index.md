@@ -4,6 +4,7 @@ url_path: python/advance
 tags:
   - python
   - python-进阶
+  - ★★★★★
 categories:
   - python
   - python-进阶
@@ -12,6 +13,8 @@ description: 进阶
 
 ## Python-packages-目录索引
 
+- Python 进阶知识点大全
+  - [Python 进阶知识点大全](https://www.superscfan.top/python/advance/all)
 - Python 进阶知识
   - [代码优化工具](https://www.superscfan.top/python/advance/代码优化工具)
   - [代码优化技巧](https://www.superscfan.top/python/advance/代码优化技巧)
@@ -32,3 +35,10 @@ description: 进阶
   - [知识整理](https://www.superscfan.top/python/advance/知识整理)
   - [Python23 差异对比 02](https://www.superscfan.top/python/advance/Python23差异对比02)
   - [Python23 项目切换](https://www.superscfan.top/python/advance/Python23项目切换)
+
+## 参考资源
+
+- [python 进阶到高阶大全（强烈推荐）](https://blog.csdn.net/qq_41853758/article/details/82853811)
+- [python 进阶知识点](https://blog.csdn.net/weixin_37699212/article/details/73735258)
+- [python 程序员进阶之路：从新手到高手的 100 个模块](https://blog.csdn.net/xufive/article/details/102676755)
+- [Python 进阶](https://blog.csdn.net/herogxw4/article/details/89469986)

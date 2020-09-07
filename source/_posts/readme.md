@@ -111,10 +111,12 @@ url_path: docker/docker_install
 
 星级分级根据和技术的相关度和实用度进行区分, 星级评定仅供参考.
 
+★★★★★ ★★★★☆
+
 - 技术类
-  - [AAAAA Python-资料大全-awesome-python](https://github.com/vinta/awesome-python)
-  - [AAAAA awesome 库集合](https://github.com/search?q=awesome)
+  - [★★★★★ Python-资料大全-awesome-python](https://github.com/vinta/awesome-python)
+  - [★★★★★ awesome 库集合](https://github.com/search?q=awesome)
 - 工具类
-  - [AAAAA 浏览器插件大全](https://greasyfork.org/zh-CN)
+  - [★★★★★ 浏览器插件大全](https://greasyfork.org/zh-CN)
 - 其他
-  - [破解网站大全](https://www.jianshu.com/p/52fef7eed346)
+  - [★☆☆☆☆ 破解网站大全](https://www.jianshu.com/p/52fef7eed346)

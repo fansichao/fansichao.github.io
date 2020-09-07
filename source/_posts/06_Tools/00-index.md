@@ -4,7 +4,7 @@ url_path: tools/
 tags:
   - tools
   - index
-  - AAAAA
+  - ★★★★★
 categories:
   - tools
 description: 常用软件工具清单大全. MarkDown、Vscode、Pytcharm等等
