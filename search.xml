@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python进阶知识百份文章汇总]]></title>
+    <url>%2Fpython%2Fadvance%2Fall%2F</url>
+    <content type="text"><![CDATA[进阶知识大全编码规范参考资源https://blog.csdn.net/weixin_37699212/article/details/73735258https://blog.csdn.net/qq_29611345/article/details/78765125https://www.iplaypy.com/jinjie/ Python 进阶]]></content>
+      <categories>
+        <category>python</category>
+        <category>python-进阶</category>
+      </categories>
+      <tags>
+        <tag>index</tag>
+        <tag>python</tag>
+        <tag>★★★★★</tag>
+        <tag>python-进阶</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python魔法函数]]></title>
+    <url>%2Fpython%2Fbase%2Fmo-fa-han-shu%2F</url>
+    <content type="text"><![CDATA[魔法函数 魔法函数实例说明 参考资源 魔法函数Python 内置函数，又叫魔法函数、魔术函数等等 魔法函数实例说明123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178import sysclass MagicClass(object): """ 魔法方法类 参考链接： - https://www.cnblogs.com/small-office/p/9337297.html - https://www.bbsmax.com/A/MyJxxLyaJn/ """ # 隐式声明的属性 attr = 'testA' # 是否实例化 __isinstance = False # 是否打印信息 is_print = False def __init__(self, params=None, *args, **kwargs): """ 初始化函数 函数说明 1. 在对象初始化的时候调用 2. 初始化对象属性 """ self.init_params = params self.int_p = 100 self.str_p = 'testA' self.dic = dict() self.iter_p = range(1, 10) def __str__(self): """ 打印对象 函数说明: 1. 以字符串的形式表示的对象，可以通过 __str__ 直接打印 2. 函数返回值必须为 str 类型 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return "__str__ + %s" % self.init_params def __new__(cls, *args, **kwargs): """ 函数说明: 1. 必须有返回值，返回是被实例化的实例。 2. 调用 __new__ 之后，会将其结果传递给 __init__ """ if cls.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) # 单例模式 if not cls.__isinstance: cls.__isinstance = object.__new__(cls) return cls.__isinstance def __call__(self, *args, **kwargs): """ 模拟函数的行为 函数说明 1. 模拟函数的行为, 可以将类当成函数使用 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return sys._getframe().f_code.co_name + str(args) + str(kwargs) def __len__(self, val=None): """ 定制 len() 输出的结果 函数说明: 1. 定制 len() 输出的结果 2. 返回对象必须为整数 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return len(val) if val else 0 def __repr__(self): """ 转化为供解释器读取的形式 repr()函数 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return repr(self.str_p) def __setattr__(self, name, value): """ 设置对象属性 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return super().__setattr__(name, value) def __getattr__(self, name): """ 获取对象属性，只有在属性没有找到的时候调用 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return super().__getattribute__(name) def __getattribute__(self, name): """ 获取对象属性 __getattr__是在属性不存在时被调用，而__getattribute__是无条件被调用 一旦定义了__getattribute__，则__getattr__不再会被调用，除非显式调用 """ #if self.is_print: # print('&gt; 函数名称' + sys._getframe().f_code.co_name) return super().__getattribute__(name) def __delattr__(self, name): """ 删除属性 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return super().__delattr__(name) def __setitem__(self, name, value): """ 给对象赋值，我们可以以下标的方式对其进行操作 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) self.dic.update(&#123;name: value&#125;) def __getitem__(self, name): """ 支持已下标的方式获取值 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return self.dic[name] def __delitem__(self, name): """ 以下标方式删除对象数据 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) del self.dic[name] def __iter__(self): """ 只要定义了__iter__()方法对象，就可以使用迭代器访问 可以迭代我们自己定义的对象 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) return iter(self.iter_p) def __del__(self): """ 析构器，或者回收器，在对象引用数降到0时执行。不推荐使用。 """ if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name) def func(self): # 隐式声明的属性 self.func_a = 'test2' if self.is_print: print('&gt; 函数名称' + sys._getframe().f_code.co_name)if __name__ == '__main__': magic = MagicClass(params='test') # vars 获得 显示声明的属性 # print(vars(magic)) # print(magic) # print(dir(magic)) # print(magic.iter_p) # __call__ print(magic('123123')) print(len(magic())) print(dir(magic())) 参考资源 语法糖和内置函数触发魔法方法]]></content>
+      <categories>
+        <category>python</category>
+        <category>python-基础</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>todo</tag>
+        <tag>python-基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[文件附录]]></title>
     <url>%2Ffile%2F</url>
     <content type="text"><![CDATA[文件下载说明 文件托管于 github TODO 或新建 github 库/百度云，存放所有软件包, 待定 文件清单详见 github-文件清单]]></content>
@@ -97,7 +126,7 @@
       </categories>
       <tags>
         <tag>todo</tag>
-        <tag>aaaaa</tag>
+        <tag>★★★★★</tag>
         <tag>book</tag>
       </tags>
   </entry>
@@ -178,7 +207,7 @@
         <category>sourcecount</category>
       </categories>
       <tags>
-        <tag>aaaaa</tag>
+        <tag>★★★★★</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -191,7 +220,7 @@
         <category>vscode</category>
       </categories>
       <tags>
-        <tag>aaaaa</tag>
+        <tag>★★★★★</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -254,7 +283,7 @@
       </categories>
       <tags>
         <tag>index</tag>
-        <tag>aaaaa</tag>
+        <tag>★★★★★</tag>
         <tag>tools</tag>
       </tags>
   </entry>
@@ -1655,13 +1684,14 @@
   <entry>
     <title><![CDATA[Python-进阶-index]]></title>
     <url>%2Fpython%2Fadvance%2F</url>
-    <content type="text"><![CDATA[Python-packages-目录索引 Python 进阶知识 代码优化工具 代码优化技巧 高级特性大全 进程线程协程 生成器 异步编程 正则表达式 装饰器 编码规范 底层原理 垃圾回收机制 设计模式 数据类型场景分析 Python 优缺点 Python23 差异对比 读写 Conf 配置文件 知识整理 Python23 差异对比 02 Python23 项目切换]]></content>
+    <content type="text"><![CDATA[Python-packages-目录索引 Python 进阶知识点大全 Python 进阶知识点大全 Python 进阶知识 代码优化工具 代码优化技巧 高级特性大全 进程线程协程 生成器 异步编程 正则表达式 装饰器 编码规范 底层原理 垃圾回收机制 设计模式 数据类型场景分析 Python 优缺点 Python23 差异对比 读写 Conf 配置文件 知识整理 Python23 差异对比 02 Python23 项目切换 参考资源 python 进阶到高阶大全（强烈推荐） python 进阶知识点 python 程序员进阶之路：从新手到高手的 100 个模块 Python 进阶]]></content>
       <categories>
         <category>python</category>
         <category>python-进阶</category>
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>★★★★★</tag>
         <tag>python-进阶</tag>
       </tags>
   </entry>
@@ -1889,7 +1919,7 @@
   <entry>
     <title><![CDATA[Python-基础-index]]></title>
     <url>%2Fpython%2Fbase%2F</url>
-    <content type="text"><![CDATA[Python-Base-目录索引 基础使用 Python 安装升级 简介介绍 python 简介 菜鸟驿站 常用命令 功能模块 基础知识 术语大全 基础知识 函数 类 模块 数据类型 异常处理 相关资源]]></content>
+    <content type="text"><![CDATA[Python-Base-目录索引 基础使用 Python 安装升级 简介介绍 python 简介 菜鸟驿站 常用命令 功能模块 基础知识 术语大全 基础知识 函数 类 模块 数据类型 异常处理 魔法函数相关资源]]></content>
       <categories>
         <category>python</category>
         <category>python-基础</category>
@@ -1944,7 +1974,7 @@
       <tags>
         <tag>know</tag>
         <tag>todo</tag>
-        <tag>aaaaa</tag>
+        <tag>★★★★★</tag>
       </tags>
   </entry>
   <entry>
@@ -2009,7 +2039,7 @@
   <entry>
     <title><![CDATA[本博客使用文档]]></title>
     <url>%2Freadme%2F</url>
-    <content type="text"><![CDATA[TODO 未来主要补全 Spark、Hive 大数据方向知识 github 博客内容说明此处目录结构不定期更新，详细见内部目录结果, exp https://www.superscfan.top/python/ 01-Python-知识 Python-基础 Python-内置包 Python-进阶 Python-算法 02-Linux-知识 Linux 知识 Linux-常用命令 Linux-功能模块 Linux-术语介绍 Linux-BashShell Linux 功能模块 FTP 文件传输功能 Locale 语言环境 Network 网络配置 NFS Ntpd Raid SSH yum 源配置 Centos8 使用记录 HTTPS 证书配置 Linux 工具脚本等 性能测试工具 性能监控工具 关机前执行脚本 03-前端知识 Web 04-常用模块知识 Docker 容器 Neo4j 图库 HugeGraph 图库 Es Oracle 数据库 05-模块知识 模块知识集合 Python 三方包 Dask Faker 虚造数据 Huey 任务队列 Jieba 分词 Nosetests 单元测试 Pandas 数据处理 Selenium 爬虫相关 Sqlalchemy-FlaskORM 架构 Linux 相关软件 Apache Doris Git GitBook IPython 交互解释器 Redis 内存管理 SVN 版本管理 06-Win-常用工具 常用软件工具 MarkDown 使用手册 Pycharm 使用手册 Virtualbox 使用手册 Vscode 使用手册 项目工具 项目代码行数统计工具 07-读书笔记 09-总结类文章 99-附录文件清单 博客功能博客常用功能 文章使用规则说明1234567# 查找所有 Docker 文章# readme 可以获取此版块下所有文章# 浏览器中输入如下 docker/https://www.superscfan.top/docker/# 查找指定 Docker 安装文档 docker/docker_installhttps://www.superscfan.top/docker/docker_install 文章编写规则说明12# url_path 指定文章访问链接url_path: docker/docker_install 优质外链资源星级分级根据和技术的相关度和实用度进行区分, 星级评定仅供参考. 技术类 AAAAA Python-资料大全-awesome-python AAAAA awesome 库集合 工具类 AAAAA 浏览器插件大全 其他 破解网站大全]]></content>
+    <content type="text"><![CDATA[TODO 未来主要补全 Spark、Hive 大数据方向知识 github 博客内容说明此处目录结构不定期更新，详细见内部目录结果, exp https://www.superscfan.top/python/ 01-Python-知识 Python-基础 Python-内置包 Python-进阶 Python-算法 02-Linux-知识 Linux 知识 Linux-常用命令 Linux-功能模块 Linux-术语介绍 Linux-BashShell Linux 功能模块 FTP 文件传输功能 Locale 语言环境 Network 网络配置 NFS Ntpd Raid SSH yum 源配置 Centos8 使用记录 HTTPS 证书配置 Linux 工具脚本等 性能测试工具 性能监控工具 关机前执行脚本 03-前端知识 Web 04-常用模块知识 Docker 容器 Neo4j 图库 HugeGraph 图库 Es Oracle 数据库 05-模块知识 模块知识集合 Python 三方包 Dask Faker 虚造数据 Huey 任务队列 Jieba 分词 Nosetests 单元测试 Pandas 数据处理 Selenium 爬虫相关 Sqlalchemy-FlaskORM 架构 Linux 相关软件 Apache Doris Git GitBook IPython 交互解释器 Redis 内存管理 SVN 版本管理 06-Win-常用工具 常用软件工具 MarkDown 使用手册 Pycharm 使用手册 Virtualbox 使用手册 Vscode 使用手册 项目工具 项目代码行数统计工具 07-读书笔记 09-总结类文章 99-附录文件清单 博客功能博客常用功能 文章使用规则说明1234567# 查找所有 Docker 文章# readme 可以获取此版块下所有文章# 浏览器中输入如下 docker/https://www.superscfan.top/docker/# 查找指定 Docker 安装文档 docker/docker_installhttps://www.superscfan.top/docker/docker_install 文章编写规则说明12# url_path 指定文章访问链接url_path: docker/docker_install 优质外链资源星级分级根据和技术的相关度和实用度进行区分, 星级评定仅供参考. ★★★★★ ★★★★☆ 技术类 ★★★★★ Python-资料大全-awesome-python ★★★★★ awesome 库集合 工具类 ★★★★★ 浏览器插件大全 其他 ★☆☆☆☆ 破解网站大全]]></content>
       <categories>
         <category>使用必读</category>
       </categories>
