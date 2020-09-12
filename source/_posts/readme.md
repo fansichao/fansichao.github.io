@@ -4,6 +4,7 @@ url_path: readme
 top: true
 tags:
   - index
+  - ★★★★★
 categories:
   - 使用必读
 description: 博客食用文档。食用博客前，先食用此文档，可以更好更优雅的食用此博客。<br> 含博客内容、博客结构、博客功能等。含文章内容、文章链接等
@@ -40,9 +41,9 @@ TODO 未来主要补全 Spark、Hive 大数据方向知识
     - [Centos8 使用记录](https://www.superscfan.top/linux/centos8)
     - [HTTPS 证书配置](https://www.superscfan.top/linux/https)
   - Linux 工具脚本等
-    - [性能测试工具](https://www.superscfan.top/linux/cmdn_test)
-    - [性能监控工具](https://www.superscfan.top/linux/cmdn_tools)
-    - [关机前执行脚本](https://www.superscfan.top/linux/restart_scripts)
+    - [性能测试工具](https://www.superscfan.top/linux/cmdn-test)
+    - [性能监控工具](https://www.superscfan.top/linux/cmdn-tools)
+    - [关机前执行脚本](https://www.superscfan.top/linux/restart-scripts)
 - 03-前端知识
   - [Web](https://www.superscfan.top/web/)
 - 04-常用模块知识
@@ -79,6 +80,7 @@ TODO 未来主要补全 Spark、Hive 大数据方向知识
   - 项目工具
     - [项目代码行数统计工具](https://www.superscfan.top/tools/sourcecount)
 - 07-[读书笔记](https://www.superscfan.top/book/)
+- 08-[随笔](https://www.superscfan.top/notes)
 - 09-[总结类文章](https://www.superscfan.top/sumup/)
 - 99-[附录文件清单](https://www.superscfan.top/file/)
 
@@ -94,8 +96,8 @@ TODO 未来主要补全 Spark、Hive 大数据方向知识
 # 浏览器中输入如下 docker/
 https://www.superscfan.top/docker/
 
-# 查找指定 Docker 安装文档 docker/docker_install
-https://www.superscfan.top/docker/docker_install
+# 查找指定 Docker 安装文档 docker/install
+https://www.superscfan.top/docker/install
 ```
 
 ![如何查看博客文件](https://raw.githubusercontent.com/fansichao/images/master/markdown/blog_find_file.png)
@@ -104,7 +106,8 @@ https://www.superscfan.top/docker/docker_install
 
 ```bash
 # url_path 指定文章访问链接
-url_path: docker/docker_install
+url_path: docker/install
+url_path: docker/docker-compose
 ```
 
 ## 优质外链资源

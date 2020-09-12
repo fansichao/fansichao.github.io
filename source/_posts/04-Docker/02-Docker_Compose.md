@@ -1,6 +1,6 @@
 ---
 title: Docker-Compose使用文档
-url_path: docker/docker_compose
+url_path: docker/docker-compose
 tags:
   - docker
   - module
@@ -123,7 +123,7 @@ restart:always
 
 ## 使用样例
 
-- 参考文档 [Docker_es](https://www.superscfan.top/docker/docker_es)
+- 参考文档 [Docker_es](https://www.superscfan.top/docker/es)
 
 创建网络
 

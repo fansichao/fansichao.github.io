@@ -16,7 +16,7 @@ description: ...
 
 ## Docker-Mysql
 
-详见 [Docker-Mysql](https://superscfan.top/docker/docker_mysql)
+详见 [Docker-Mysql](https://superscfan.top/docker/mysql)
 
 ## CentOS8.1.19
 

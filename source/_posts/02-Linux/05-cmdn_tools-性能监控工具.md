@@ -1,6 +1,6 @@
 ---
 title: Linux-性能监控工具
-url_path: linux/cmdn_tools
+url_path: linux/cmdn-tools
 tags:
   - linux
 categories:

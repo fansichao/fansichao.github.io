@@ -1,6 +1,6 @@
 ---
 title: Docker-Doris 部署文档
-url_path: docker/docker_doris
+url_path: docker/doris
 tags:
   - docker
   - module

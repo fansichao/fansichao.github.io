@@ -1,6 +1,6 @@
 ---
 title: Python安装升级
-url_path: python/base/python_install
+url_path: python/base/python-install
 tags:
   - python
   - python-基础

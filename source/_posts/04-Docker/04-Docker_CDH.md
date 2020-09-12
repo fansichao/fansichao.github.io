@@ -1,6 +1,6 @@
 ---
 title: Docker-CDH部署文档
-url_path: docker/docker_cdh
+url_path: docker/cdh
 tags:
   - docker
   - module

@@ -1,6 +1,6 @@
 ---
 title: Linux-性能测试工具
-url_path: linux/cmdn_test
+url_path: linux/cmdn-test
 tags:
   - linux
 categories:

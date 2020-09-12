@@ -5,11 +5,25 @@ tags:
   - python
   - python-algorithm
   - index
+  - todo
 categories:
   - python
   - python-algorithm
 description: ....
 ---
+
+- 刷题网站
+  - [★★★★★ 力扣 LeetCode 算法题库](https://leetcode-cn.com/)
+  - [★★★★★ 牛客网](https://www.nowcoder.com/)
+
+## 索引目录
+
+- 算法基础知识
+  - [数据结构](https://superscfan.top/python/algorithm/data-structure)
+- 算法题
+  - [趣味算法题附详细题解](https://superscfan.top/python/algorithm/interesting-algorithm-questions)
+
+## 参考资源
 
 Python 算法及其实现
 

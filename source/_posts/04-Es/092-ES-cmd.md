@@ -47,6 +47,13 @@ description: ES 常用命令
 /_cat/templates
 ```
 
+## 命令说明
+
+- 临时（Transient）
+  - 这些变更在集群重启之前一直会生效。一旦整个集群重启，这些配置就被清除。
+- 永久（Persistent）
+  - 这些变更会永久存在直到被显式修改。即使全集群重启它们也会存活下来并覆盖掉静态配置文件里的选项。
+
 ## 常用命令
 
 ```bash
@@ -85,6 +92,8 @@ curl -XGET 'http:/191.110.110.61:9200/_cat/indices?v'
 # 显示副本的详细情况
 curl -XGET 'http:/191.110.110.61:9200/_cat/recovery?v'
 
+# 查看集群设置
+GET _cluster/settings
 
 # 删除无用数据
 time curl -XPOST 'http://191.110.110.53:9200/tranjrnl-01000000-2016-10-31/_forcemerge?max_num_segments=1'
@@ -97,19 +106,23 @@ curl -XGET 'http://191.110.110.53:9200/_cat/indices?v&health=yellow' | wc -l
 
 
 
-# 开启节点分配自动均衡
-curl -XPUT http://191.110.110.53:9200/_cluster/settings -d '
+# 关闭 集群 自动均衡 分片恢复
+curl -XPUT 'http://191.110.110.53:9200/_cluster/settings' -H 'Content-Type: application/json' -d '
 {
-  "transient" : {
-    "cluster.routing.allocation.enable" : "all"
+  "persistent" : {
+    "cluster.routing.allocation.enable" : "primaries"
     }
 }'
+
+# 开启 集群 自动均衡 分片恢复
+curl -XPUT 'http://191.110.110.53:9200/_cluster/settings' -H 'Content-Type: application/json' -d '
+{
+  "persistent" : {
+    "cluster.routing.allocation.enable" : "none"
+    }
+}'
+
 ```
-
-
-
-
-
 
 ## ES 语法
 
@@ -139,19 +152,4 @@ Connected to 192.168.100.200.
 Escape character is '^]'.
 Connection closed by foreign host.
 
-# 查看集群状态
-[root@540d820ba866 ~]# curl -XGET 'http://192.168.100.200:7403/_cluster/state?pretty'
-{
-  "error" : {
-    "root_cause" : [
-      {
-        "type" : "master_not_discovered_exception",
-        "reason" : null
-      }
-    ],
-    "type" : "master_not_discovered_exception",
-    "reason" : null
-  },
-  "status" : 503
-}
 ```

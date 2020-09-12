@@ -1,6 +1,6 @@
 ---
 title: Docker-Neo4j 部署文档
-url_path: docker/docker_neo4j
+url_path: docker/neo4j
 tags:
   - docker
   - module

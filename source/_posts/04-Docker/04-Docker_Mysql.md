@@ -1,6 +1,6 @@
 ---
 title: Docker-Mysql 部署文档
-url_path: docker/docker_mysql
+url_path: docker/mysql
 tags:
   - docker
   - module

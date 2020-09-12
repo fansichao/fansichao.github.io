@@ -1,6 +1,6 @@
 ---
 title: Docker-Oracle 部署文档
-url_path: docker/docker_oracle
+url_path: docker/oracle
 tags:
   - docker
   - module

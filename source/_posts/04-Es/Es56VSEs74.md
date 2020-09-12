@@ -1,6 +1,6 @@
 ---
 title: Module-ES-版本差异对比
-url_path: module/es/es_version
+url_path: module/es/es-version
 tags:
   - module
   - Elasticsearch

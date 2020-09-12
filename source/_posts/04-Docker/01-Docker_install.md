@@ -1,6 +1,6 @@
 ---
 title: Docker部署文档
-url_path: docker/docker_install
+url_path: docker/install
 tags:
   - docker
   - module

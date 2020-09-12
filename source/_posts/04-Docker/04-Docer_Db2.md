@@ -1,6 +1,6 @@
 ---
 title: Docker-Db2 部署文档
-url_path: docker/docker_db2
+url_path: docker/db2
 tags:
   - docker
   - module

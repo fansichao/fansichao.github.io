@@ -1,6 +1,6 @@
 ---
 title: Docker-Elasticsearch 部署文档
-url_path: docker/docker_es
+url_path: docker/es
 tags:
   - docker
   - module

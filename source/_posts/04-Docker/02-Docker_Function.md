@@ -10,6 +10,8 @@ categories:
 description: Docker功能模块
 ---
 
+TODO docker进入容器后，界面会出现问题，会进入容器登录界面，待解决
+
 ## 功能模块
 
 ### Docker 修改默认存储位置(可选)
@@ -22,8 +24,8 @@ docker stop xxxx
 # 关闭 docker 服务
 systemctl stop docker
 # 迁移数据
-mv /var/lib/docker /home/docker_data
-ln -s /home/docker_data /var/lib/docker
+mv /var/lib/docker /home/fdm/docker_data
+ln -s /home/fdm/docker_data /var/lib/docker
 # 重启服务
 systemctl start docker
 ```

@@ -1,6 +1,6 @@
 ---
 title: Docker常见问题
-url_path: docker/docker_issue
+url_path: docker/issue
 tags:
   - docker
   - module

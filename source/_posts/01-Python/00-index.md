@@ -22,7 +22,7 @@ description: Python-index 目录索引, Python 相关内容详见此文件。
 [Python-基础知识-index](https://www.superscfan.top/python/base)
 
 - 基础使用
-  - [Python 安装升级](https://www.superscfan.top/python/base/python_install)
+  - [Python 安装升级](https://www.superscfan.top/python/base/python-install)
 - 简介介绍
   - [python 简介](https://www.superscfan.top/python/base/python简介)
   - [菜鸟驿站](https://www.superscfan.top/python/base/菜鸟驿站)

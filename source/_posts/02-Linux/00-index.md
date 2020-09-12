@@ -29,9 +29,9 @@ description: Linux-index 目录索引，Linux相关内容详见此文件。
   - [Centos8使用记录](https://www.superscfan.top/linux/centos8)
   - [HTTPS证书配置](https://www.superscfan.top/linux/https)
 - Linux 工具脚本等
-  - [性能测试工具](https://www.superscfan.top/linux/cmdn_test)
-  - [性能监控工具](https://www.superscfan.top/linux/cmdn_tools)
-  - [关机前执行脚本](https://www.superscfan.top/linux/restart_scripts)
+  - [性能测试工具](https://www.superscfan.top/linux/cmdn-test)
+  - [性能监控工具](https://www.superscfan.top/linux/cmdn-tools)
+  - [关机前执行脚本](https://www.superscfan.top/linux/restart-scripts)
 
 
 Linux-功能模块清单

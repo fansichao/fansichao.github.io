@@ -13,7 +13,7 @@ description: Python基础知识，入门知识等
 ## Python-Base-目录索引
 
 - 基础使用
-  - [Python 安装升级](https://www.superscfan.top/python/base/python_install)
+  - [Python 安装升级](https://www.superscfan.top/python/base/python-install)
 - 简介介绍
   - [python 简介](https://www.superscfan.top/python/base/python简介)
   - [菜鸟驿站](https://www.superscfan.top/python/base/菜鸟驿站)
@@ -27,5 +27,6 @@ description: Python基础知识，入门知识等
   - [模块](https://www.superscfan.top/python/base/模块)
   - [数据类型](https://www.superscfan.top/python/base/数据类型)
   - [异常处理](https://www.superscfan.top/python/base/异常处理)
-  - [魔法函数](https://www.superscfan.top/python/base/魔法函数)
+
+
 ## 相关资源

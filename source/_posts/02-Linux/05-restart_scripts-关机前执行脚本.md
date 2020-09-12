@@ -1,6 +1,6 @@
 ---
 title: Linux-关机前执行脚本
-url_path: linux/restart_scripts
+url_path: linux/restart-scripts
 tags:
   - linux
 categories:
