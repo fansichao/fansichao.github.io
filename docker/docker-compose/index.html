@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="格物方能致知">
 <meta property="og:description" content="Docker-Compose 使用文档。容器快速部署。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-06T07:35:13.849Z">
+<meta property="og:updated_time" content="2020-09-12T12:24:56.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker-Compose使用文档">
 <meta name="twitter:description" content="Docker-Compose 使用文档。容器快速部署。">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-06T15:35:13+08:00">
-                2020-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-12T20:24:56+08:00">
+                2020-09-12
               </time>
             
           </span>
@@ -467,7 +467,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#启动并后台运行所有的服务</span></span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment">#列出项目中目前的所有容器</span></span><br><span class="line"></span><br><span class="line">docker-compose ps</span><br><span class="line"></span><br><span class="line"><span class="comment">#停止某个服务</span></span><br><span class="line"></span><br><span class="line">docker-compose stop 服务名</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动某个服务</span></span><br><span class="line"></span><br><span class="line">docker-compose start 服务名</span><br><span class="line"></span><br><span class="line"><span class="comment">#停止并删除容器、网络、卷、镜像</span></span><br><span class="line"></span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动所有容器</span></span><br><span class="line">docker-compose -f 21-es-docker-compose.yml start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看最新日志  配置文件 service 名称</span></span><br><span class="line">docker-compose -f 21-es-docker-compose.yml logs -t -f es_client1 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行命令</span></span><br><span class="line">docker-compose -f es-docker-compose.yml up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 compose 日志</span></span><br><span class="line">docker-compose  -f 12-es-docker-compose.yml  logs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">up</span><br><span class="line"></span><br><span class="line">　　启动所有在Compose问中定义的容器，并且把它们的日志信息汇集在一起。通常会添加-d参数（在up后面），让容器在后台执行</span><br><span class="line"></span><br><span class="line">start</span><br><span class="line">　　启动指定的已经存在的容器</span><br><span class="line"></span><br><span class="line">build</span><br><span class="line">　　重新建造由Dockerfile构建的镜像。</span><br><span class="line"></span><br><span class="line">ps</span><br><span class="line">　　获取由Compose管理的容器的状态信息</span><br><span class="line"></span><br><span class="line">run</span><br><span class="line">　　启动一个容器，并允许一个一次性的命令。被连接的容器会同时启动，除非用了 --no-deps参数。</span><br><span class="line"></span><br><span class="line">logs</span><br><span class="line">　　汇集由Compose管理的容器的日志，并以彩色输出。</span><br><span class="line"></span><br><span class="line">stop</span><br><span class="line">　　停止容器，但不会删除它们</span><br><span class="line"></span><br><span class="line">rm</span><br><span class="line">　　删除已停止的容器。不要忘记使用-v参数来删除任何由Docker管理的数据卷</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">　　一个普通的工作流程以docker-compose up -d名利启动应用程序开始。docker-compose logs和ps命令可以用来验证应用程序的状态，还能帮助调试。</span><br><span class="line">修改代码后，先执行docker-compose build 构建新的镜像，然后执行docker-compose up -d 取代运行中的容器。注意，Compose会保留原来容器中所有旧的数据卷，这意味着即使容器更新后，数据库和缓存也依旧在容器内（这很可能造成混淆，因此要特别小心）。</span><br><span class="line">　　如果你修改了Compose的YAML文件，但不需要构建新的镜像，可以通过up -d参数使Compose以新的配置替换容器。如果想要强制停止Compose并重新创建所有容器，可以使用--force-recreate选项来达到目的。</span><br></pre></td></tr></table></figure>
 <h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动无限次重启服务</span></span><br><span class="line">restart:always</span><br></pre></td></tr></table></figure>
 <h2 id="使用样例"><a href="#使用样例" class="headerlink" title="使用样例"></a>使用样例</h2><ul>
-<li>参考文档 <a href="https://www.superscfan.top/docker/docker_es" target="_blank" rel="noopener">Docker_es</a></li>
+<li>参考文档 <a href="https://www.superscfan.top/docker/es" target="_blank" rel="noopener">Docker_es</a></li>
 </ul>
 <p>创建网络</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --subnet=172.19.0.0/16 esnetwork</span><br></pre></td></tr></table></figure>
@@ -585,7 +585,7 @@
       <!-- hexo-related-popular-posts -->
         
         <h3>相关文章</h3>
-        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\dockerdocker\" title="Module-Docker-使用文档" rel="bookmark">Module-Docker-使用文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-k8s\" title="Docker-K8S 集群式容器管理平台" rel="bookmark">Docker-K8S 集群式容器管理平台</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-oracle\" title="Docker-Oracle 部署文档" rel="bookmark">Docker-Oracle 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-neo4j\" title="Docker-Neo4j 部署文档" rel="bookmark">Docker-Neo4j 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-mysql\" title="Docker-Mysql 部署文档" rel="bookmark">Docker-Mysql 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-es\" title="Docker-Elasticsearch 部署文档" rel="bookmark">Docker-Elasticsearch 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-doris\" title="Docker-Doris 部署文档" rel="bookmark">Docker-Doris 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-cdh\" title="Docker-CDH部署文档" rel="bookmark">Docker-CDH部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-db2\" title="Docker-Db2 部署文档" rel="bookmark">Docker-Db2 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-file\" title="Docker-File使用文档" rel="bookmark">Docker-File使用文档</a></h3></div></li></ul>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\config\" title="Docker配置文件" rel="bookmark">Docker配置文件</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\dockerdocker\" title="Module-Docker-使用文档" rel="bookmark">Module-Docker-使用文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\k8s\" title="Docker-K8S 集群式容器管理平台" rel="bookmark">Docker-K8S 集群式容器管理平台</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\oracle\" title="Docker-Oracle 部署文档" rel="bookmark">Docker-Oracle 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\neo4j\" title="Docker-Neo4j 部署文档" rel="bookmark">Docker-Neo4j 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\mysql\" title="Docker-Mysql 部署文档" rel="bookmark">Docker-Mysql 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\es\" title="Docker-Elasticsearch 部署文档" rel="bookmark">Docker-Elasticsearch 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\doris\" title="Docker-Doris 部署文档" rel="bookmark">Docker-Doris 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\cdh\" title="Docker-CDH部署文档" rel="bookmark">Docker-CDH部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\db2\" title="Docker-Db2 部署文档" rel="bookmark">Docker-Db2 部署文档</a></h3></div></li></ul>
       
     </footer>
   </div>
@@ -665,7 +665,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">167</span>
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -676,7 +676,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -687,7 +687,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -764,7 +764,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">247.3k</span>
+    <span title="Site words total count">254.4k</span>
   
 </div>
 

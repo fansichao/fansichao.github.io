@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/fansichao/images/master/markdown/Module_Docker_%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A701.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fansichao/images/master/markdown/Module_Docker_%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A702.png">
-<meta property="og:updated_time" content="2020-09-06T07:35:16.143Z">
+<meta property="og:updated_time" content="2020-09-11T07:51:37.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker 功能模块">
 <meta name="twitter:description" content="Docker功能模块">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-06T15:35:16+08:00">
-                2020-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-11T15:51:37+08:00">
+                2020-09-11
               </time>
             
           </span>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  609
+                  637
                 </span>
               
 
@@ -459,8 +459,9 @@
       
 
       
-        <h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h3 id="Docker-修改默认存储位置-可选"><a href="#Docker-修改默认存储位置-可选" class="headerlink" title="Docker 修改默认存储位置(可选)"></a>Docker 修改默认存储位置(可选)</h3><p>由于 Docker 默认存储位置在 <code>/</code>, 但<code>/</code>空间不足时，可以将默认存储位置修改到其他位置。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先关闭 docker 容器</span></span><br><span class="line">docker stop xxxx</span><br><span class="line"><span class="comment"># 关闭 docker 服务</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"><span class="comment"># 迁移数据</span></span><br><span class="line">mv /var/lib/docker /home/docker_data</span><br><span class="line">ln -s /home/docker_data /var/lib/docker</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+        <p>TODO docker进入容器后，界面会出现问题，会进入容器登录界面，待解决</p>
+<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h3 id="Docker-修改默认存储位置-可选"><a href="#Docker-修改默认存储位置-可选" class="headerlink" title="Docker 修改默认存储位置(可选)"></a>Docker 修改默认存储位置(可选)</h3><p>由于 Docker 默认存储位置在 <code>/</code>, 但<code>/</code>空间不足时，可以将默认存储位置修改到其他位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先关闭 docker 容器</span></span><br><span class="line">docker stop xxxx</span><br><span class="line"><span class="comment"># 关闭 docker 服务</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"><span class="comment"># 迁移数据</span></span><br><span class="line">mv /var/lib/docker /home/fdm/docker_data</span><br><span class="line">ln -s /home/fdm/docker_data /var/lib/docker</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 <h3 id="docker-快速登录-可选"><a href="#docker-快速登录-可选" class="headerlink" title="docker-快速登录(可选)"></a>docker-快速登录(可选)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加入的.bash_profile</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">dockerlogin</span></span>()&#123;</span><br><span class="line">    docker <span class="built_in">exec</span> -it --env COLUMNS=`tput cols` --env LINES=`tput lines` <span class="variable">$1</span> /bin/bash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Docker-时区配置-必选"><a href="#Docker-时区配置-必选" class="headerlink" title="Docker-时区配置(必选)"></a>Docker-时区配置(必选)</h3><p>docker 时区问题，容器时间和宿主机时间不一致问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：容器外部配置 Docker时区设置</span></span><br><span class="line">docker cp /etc/localtime 容器id:/etc/localtime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2: 容器内部配置 容器外部配置报错，进入容器内部配置即可。</span></span><br><span class="line">[fdm@fdm2 fdm_server]$ docker cp /etc/localtime fdm_server:/etc/localtime</span><br><span class="line">Error response from daemon: Could not find the file /usr/share/zoneinfo/usr/share/zoneinfo/Asia <span class="keyword">in</span> container fdm_server</span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># echo "Asia/Shanghai" &gt; /etc/timezone</span></span><br><span class="line">[root@f3a3540cb8e5 ~]<span class="comment"># date</span></span><br><span class="line">Fri Jul 31 09:42:08 CST 2020</span><br></pre></td></tr></table></figure>
@@ -578,7 +579,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/docker/docker-issue/" rel="prev" title="Docker常见问题">
+              <a href="/docker/issue/" rel="prev" title="Docker常见问题">
                 Docker常见问题 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -593,7 +594,7 @@
       <!-- hexo-related-popular-posts -->
         
         <h3>相关文章</h3>
-        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\dockerdocker\" title="Module-Docker-使用文档" rel="bookmark">Module-Docker-使用文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-k8s\" title="Docker-K8S 集群式容器管理平台" rel="bookmark">Docker-K8S 集群式容器管理平台</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-oracle\" title="Docker-Oracle 部署文档" rel="bookmark">Docker-Oracle 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-neo4j\" title="Docker-Neo4j 部署文档" rel="bookmark">Docker-Neo4j 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-mysql\" title="Docker-Mysql 部署文档" rel="bookmark">Docker-Mysql 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-es\" title="Docker-Elasticsearch 部署文档" rel="bookmark">Docker-Elasticsearch 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-doris\" title="Docker-Doris 部署文档" rel="bookmark">Docker-Doris 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-cdh\" title="Docker-CDH部署文档" rel="bookmark">Docker-CDH部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-db2\" title="Docker-Db2 部署文档" rel="bookmark">Docker-Db2 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\docker-file\" title="Docker-File使用文档" rel="bookmark">Docker-File使用文档</a></h3></div></li></ul>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\config\" title="Docker配置文件" rel="bookmark">Docker配置文件</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\dockerdocker\" title="Module-Docker-使用文档" rel="bookmark">Module-Docker-使用文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\k8s\" title="Docker-K8S 集群式容器管理平台" rel="bookmark">Docker-K8S 集群式容器管理平台</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\oracle\" title="Docker-Oracle 部署文档" rel="bookmark">Docker-Oracle 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\neo4j\" title="Docker-Neo4j 部署文档" rel="bookmark">Docker-Neo4j 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\mysql\" title="Docker-Mysql 部署文档" rel="bookmark">Docker-Mysql 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\es\" title="Docker-Elasticsearch 部署文档" rel="bookmark">Docker-Elasticsearch 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\doris\" title="Docker-Doris 部署文档" rel="bookmark">Docker-Doris 部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\cdh\" title="Docker-CDH部署文档" rel="bookmark">Docker-CDH部署文档</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\docker\db2\" title="Docker-Db2 部署文档" rel="bookmark">Docker-Db2 部署文档</a></h3></div></li></ul>
       
     </footer>
   </div>
@@ -673,7 +674,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">167</span>
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +685,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -695,7 +696,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -772,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">247.3k</span>
+    <span title="Site words total count">254.4k</span>
   
 </div>
 
