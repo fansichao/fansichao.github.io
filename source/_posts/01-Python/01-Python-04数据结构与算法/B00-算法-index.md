@@ -18,10 +18,10 @@ description: ....
 
 ## 索引目录
 
-- 算法基础知识
-  - [数据结构](https://superscfan.top/python/algorithm/data-structure)
 - 算法题
   - [趣味算法题附详细题解](https://superscfan.top/python/algorithm/interesting-algorithm-questions)
+- 算法读书笔记
+  - [数据结构与算法-Python 实现](https://www/superscfa.top/book/数据结构与算法-Python实现)
 
 ## 参考资源
 

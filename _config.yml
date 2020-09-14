@@ -150,7 +150,7 @@ easy_tags_plugin:
 # 可将中文标题转换为音译的永久链接。 
 # https://github.com/viko16/hexo-permalink-pinyin
 permalink_pinyin:
-  enable: true             # Enable this plugin
+  enable: false             # Enable this plugin
   separator: '-'           # Separator of the slug, default: '-'
   exclude: /ignore_post/   # Regex for which post should skip
 

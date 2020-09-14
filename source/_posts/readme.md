@@ -14,6 +14,12 @@ TODO 未来主要补全 Spark、Hive 大数据方向知识
 
 [github](https://github.com/fansichao/fansichao.github.io/tree/hexo_code/source/_posts)
 
+TODO
+
+- [数据结构](https://superscfan.top/python/algorithm/data-structure)
+- [读书笔记\_数据结构与算法-Python 实现](https://superscfan.top/python/algorithm/数据结构与算法-Python实现)
+- [★★★★★ 博客编写](https://superscfan.top/sumup/document-standard)
+
 ## 博客内容说明
 
 此处目录结构不定期更新，详细见内部目录结果, exp `https://www.superscfan.top/python/`

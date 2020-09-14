@@ -67,6 +67,10 @@ description: Python-index 目录索引, Python 相关内容详见此文件。
   - [Python23 差异对比 02](https://www.superscfan.top/python/advance/Python23差异对比02)
   - [Python23 项目切换](https://www.superscfan.top/python/advance/Python23项目切换)
 
+### Python-数据结构
+
+- [Python-数据结构](https://www.superscfan.top/python/data-structure/)
+
 ### Python-算法
 
 - [Python-算法-index 目录](https://www.superscfan.top/python/algorithm/)
