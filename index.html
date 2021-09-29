@@ -2,15 +2,15 @@
 <html ng-app="HomePage" ng-controller="HomePageCtrl">
 
 <head>
-    <meta name="generator" content="Hugo 0.73.0"/>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="author" content="fansichao"/>
-    <meta name="description" content="嘿，你好, 朋友. 这里是我的主页，汇总了我的网站"/>
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="fansichao" />
+    <meta name="description" content="嘿，你好, 朋友. 这里是我的主页，汇总了我的网站" />
     <title>fansichao</title>
     <!-- <link href="static/css/tailwind.min.css" rel="stylesheet" /> -->
     <link ng-href="https://cdn.bootcdn.net/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="{{favicon_url}}" type="image/x-icon"/>
+    <link rel="icon" href="{{favicon_url}}" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" ng-href="{{favicon_url}}">
     <style>
         @font-face {
@@ -36,121 +36,118 @@
         }
     </style>
     <!-- <script src="node_modules/angular/angular.min.js"></script> -->
-    <script src="static/node_modules/angular/angular.min.js"></script>
-    <script src="static/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.bootcdn.net/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
 </head>
 
 <body>
-<header class="text-gray-700 body-font sticky top-0 bg-white z-10">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="https://github.com/fansichao">
-            <img ng-src="{{favicon_url}}" width="15%">
-        </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-        </nav>
-    </div>
-</header>
-<div id="content">
-    <section class="text-gray-700 body-font">
-        <div class="container px-5 py-8 mx-auto">
-            <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-                <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
-                    {{category_map.prod}}
-                </h1>
-            </div>
-            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'prod'}" href="{{site_info.href}}"
-                   class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal"
-                   ng-mouseenter="opaceity_flag = true" ng-mouseleave="opaceity_flag = false">
-                    <div class="rounded-lg h-64 overflow-hidden relative">
-                        <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}"/>
-                        <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
-                        <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
-                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
-                            {{site_info.title}}
-                        </h2>
-                        <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
-                                font-light w-full text-center absolute bottom-0 left-0">
-                            {{site_info.content}}
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-
-            <br>
-            <hr>
-            <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-                <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
-                    {{category_map.building}}
-                </h1>
-            </div>
-            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'building'}" href="{{site_info.href}}"
-                   class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal"
-                   ng-mouseenter="opaceity_flag = true" ng-mouseleave="opaceity_flag = false">
-                    <div class="rounded-lg h-64 overflow-hidden relative">
-                        <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}"/>
-                        <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
-                        <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
-                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
-                            {{site_info.title}}
-                        </h2>
-                        <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
-                                font-light w-full text-center absolute bottom-0 left-0">
-                            {{site_info.content}}
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <br>
-            <hr>
-            <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-                <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
-                    {{category_map.history}}
-                </h1>
-            </div>
-            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'history'}" href="{{site_info.href}}"
-                   class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal"
-                   ng-mouseenter="opaceity_flag = true" ng-mouseleave="opaceity_flag = false">
-                    <div class="rounded-lg h-64 overflow-hidden relative">
-                        <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}"/>
-                        <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
-                        <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
-                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
-                            {{site_info.title}}
-                        </h2>
-                        <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
-                                font-light w-full text-center absolute bottom-0 left-0">
-                            {{site_info.content}}
-                        </p>
-                    </div>
-                </a>
-            </div>
-
+    <header class="text-gray-700 body-font sticky top-0 bg-white z-10">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="https://github.com/fansichao">
+                <img ng-src="{{favicon_url}}" width="15%">
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            </nav>
         </div>
+    </header>
+    <div id="content">
+        <section class="text-gray-700 body-font">
+            <div class="container px-5 py-8 mx-auto">
+                <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+                    <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
+                        {{category_map.prod}}
+                    </h1>
+                </div>
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'prod'}" href="{{site_info.href}}"
+                        class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal" ng-mouseenter="opaceity_flag = true"
+                        ng-mouseleave="opaceity_flag = false">
+                        <div class="rounded-lg h-64 overflow-hidden relative">
+                            <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}" />
+                            <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
+                            <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
+                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
+                                {{site_info.title}}
+                            </h2>
+                            <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
+                                font-light w-full text-center absolute bottom-0 left-0">
+                                {{site_info.content}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
 
 
-    </section>
+                <br>
+                <hr>
+                <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+                    <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
+                        {{category_map.building}}
+                    </h1>
+                </div>
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'building'}" href="{{site_info.href}}"
+                        class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal" ng-mouseenter="opaceity_flag = true"
+                        ng-mouseleave="opaceity_flag = false">
+                        <div class="rounded-lg h-64 overflow-hidden relative">
+                            <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}" />
+                            <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
+                            <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
+                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
+                                {{site_info.title}}
+                            </h2>
+                            <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
+                                font-light w-full text-center absolute bottom-0 left-0">
+                                {{site_info.content}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <br>
+                <hr>
+                <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+                    <h1 class="text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0 text-center w-full">
+                        {{category_map.history}}
+                    </h1>
+                </div>
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <a target="_blank" rel="noopener" ng-repeat="site_info in site_infos  | filter:{'category':'history'}" href="{{site_info.href}}"
+                        class="card p-4 md:w-1/3 sm:mb-4 mb-6 hover:shadow-xl hover:bg-gray-400 transition duration-200 ease-in rounded-lg personal" ng-mouseenter="opaceity_flag = true"
+                        ng-mouseleave="opaceity_flag = false">
+                        <div class="rounded-lg h-64 overflow-hidden relative">
+                            <img ng-style="setStyleMethod()" alt="{{site_info.img_alt}}" class="object-cover object-center h-full w-full" ng-src="{{site_info.img_src}}" />
+                            <span class="bg-blue-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">{{site_info.type}}</span>
+                            <h2 class="text-white px-2 py-1 tracking-widest text-2xl leading-tight font-extrabold font-bree
+                                text-center w-full h-full flex justify-center items-center absolute top-0 left-0">
+                                {{site_info.title}}
+                            </h2>
+                            <p class="text-white px-2 py-1 tracking-widest text-md leading-tight
+                                font-light w-full text-center absolute bottom-0 left-0">
+                                {{site_info.content}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
 
 
-</div>
-<footer class="text-gray-700 body-font">
-    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-1 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-            <a href="{{home_url}}">&copy; fansichao</a>
-        </p>
-        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            </span>
+        </section>
+
+
     </div>
-</footer>
+    <footer class="text-gray-700 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-1 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                <a href="{{home_url}}">&copy; fansichao</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            </span>
+        </div>
+    </footer>
 
 
-<script>
+    <script>
 
     //    const allTypes = ["all", "personal", "project",];
     //    const filter = (event, type) => {
@@ -209,165 +206,165 @@
     //    if (showAllButton) showAllButton.addEventListener("click", showAll);
 
 
-</script>
+    </script>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<script>
-    var app = angular.module('HomePage', []);
-    app.controller('HomePageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
-        $scope.home_url = "http://118.31.244.228:9990/admin/";
-        $scope.favicon_url = 'static/images/home_page_favicon.ico'
-        $scope.category_map = {
-            'prod': "你好, 这里是我的正式网站汇总, 希望可以帮到你 ~",
-            'building': '这里正在加班加点构建中 ...',
-            'history': '这里年代过久, 已不再维护 ~',
-        }
+    <script>
+        var app = angular.module('HomePage', []);
+        app.controller('HomePageCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+            $scope.home_url = "http://118.31.244.228:9990/admin/";
+            $scope.favicon_url = 'static/images/home_page_favicon.ico'
+            $scope.category_map = {
+                'prod': "你好, 这里是我的正式网站汇总, 希望可以帮到你 ~",
+                'building': '这里正在加班加点构建中 ...',
+                'history': '这里年代过久, 已不再维护 ~',
+            }
 
 
-        // 正式服务
-        $scope.site_infos = [
-            // prod
-            {
-                "category": "prod",
-                'type': 'Personal',
-                'href': "",
-                "img_src": null,
-                'img_alt': "博客",
-                "title": "技术博客",
-                "content": "各类技术相关文章."
-            },
-            {
-                "category": "prod",
-                'type': 'Personal',
-                'href': "",
-                "img_src": null,
-                'img_alt': "简历",
-                "title": "简历",
-                "content": "这是我的个人简历~"
-            },
-            // building
-            {
-                "category": "building",
-                'type': 'Project',
-                'href': "https://baidu.com",
-                "img_src": null,
-                'img_alt': "DjangoPro",
+            // 正式服务
+            $scope.site_infos = [
+                // prod
+                {
+                    "category": "prod",
+                    'type': 'Personal',
+                    'href': "",
+                    "img_src": null,
+                    'img_alt': "博客",
+                    "title": "技术博客",
+                    "content": "各类技术相关文章."
+                },
+                {
+                    "category": "prod",
+                    'type': 'Personal',
+                    'href': "",
+                    "img_src": null,
+                    'img_alt': "简历",
+                    "title": "简历",
+                    "content": "这是我的个人简历~"
+                },
+                // building
+                {
+                    "category": "building",
+                    'type': 'Project',
+                    'href': "https://baidu.com",
+                    "img_src": null,
+                    'img_alt': "DjangoPro",
 
-                "title": "DjangoPro",
-                "content": "Django一些项目"
-            },
-            {
-                "category": "building",
-                'type': 'Project',
-                'href': "#",
-                'img_alt': "大数据清洗配置平台",
-                "img_src": null,
-                "title": "大数据清洗配置平台",
-                "content": "大数据Spark/hive等自动化配置平台"
-            },
-            {
-                "category": "building",
-                'type': 'Project',
-                'href': "#",
-                "img_src": null,
-                'img_alt': "智能金融投顾",
-                "title": "实时世界金融",
-                "content": "股票新闻资讯/智能选股预测等"
-            },
-            {
-                "category": "building",
-                'type': 'SmallProject',
-                'href': "#",
-                "img_src": null,
-                'img_alt': "个人云盘",
-                "title": "个人云盘",
-                "content": "个人云盘服务, 受限于宽带 ! "
-            },
-            {
-                "category": "building",
-                'type': 'SmallProject',
-                'href': "#",
-                "img_src": null,
-                'img_alt': "个人图书馆",
-                "title": "个人图书馆",
-                "content": "个人图书馆, 技术类书籍 2G+ ! "
-            },
-            {
-                "category": "building",
-                'type': 'Project',
-                'href': "#",
-                "img_src": null,
-                'img_alt': "二次元生活",
-                "title": "二次元生活",
-                "content": "壁纸/动漫/资讯等等 ! "
-            },
-            {
-                "category": "building",
-                'type': 'Personal',
-                'href': "#",
-                "img_src": null,
-                'img_alt': "速查区",
-                "title": "速查区",
-                "content": "高效搜索 高效人生."
-            },
-            // 历史痕迹
-            {
-                'category': 'history',
-                'type': 'Personal',
-                'href': "#",
-                //"img_src": null,
-                'img_alt': "旧博客",
-                "title": "旧博客",
-                "content": "Hexo旧博客 !"
-            },
-        ];
+                    "title": "DjangoPro",
+                    "content": "Django一些项目"
+                },
+                {
+                    "category": "building",
+                    'type': 'Project',
+                    'href': "#",
+                    'img_alt': "大数据清洗配置平台",
+                    "img_src": null,
+                    "title": "大数据清洗配置平台",
+                    "content": "大数据Spark/hive等自动化配置平台"
+                },
+                {
+                    "category": "building",
+                    'type': 'Project',
+                    'href': "#",
+                    "img_src": null,
+                    'img_alt': "智能金融投顾",
+                    "title": "实时世界金融",
+                    "content": "股票新闻资讯/智能选股预测等"
+                },
+                {
+                    "category": "building",
+                    'type': 'SmallProject',
+                    'href': "#",
+                    "img_src": null,
+                    'img_alt': "个人云盘",
+                    "title": "个人云盘",
+                    "content": "个人云盘服务, 受限于宽带 ! "
+                },
+                {
+                    "category": "building",
+                    'type': 'SmallProject',
+                    'href': "#",
+                    "img_src": null,
+                    'img_alt': "个人图书馆",
+                    "title": "个人图书馆",
+                    "content": "个人图书馆, 技术类书籍 2G+ ! "
+                },
+                {
+                    "category": "building",
+                    'type': 'Project',
+                    'href': "#",
+                    "img_src": null,
+                    'img_alt': "二次元生活",
+                    "title": "二次元生活",
+                    "content": "壁纸/动漫/资讯等等 ! "
+                },
+                {
+                    "category": "building",
+                    'type': 'Personal',
+                    'href': "#",
+                    "img_src": null,
+                    'img_alt': "速查区",
+                    "title": "速查区",
+                    "content": "高效搜索 高效人生."
+                },
+                // 历史痕迹
+                {
+                    'category': 'history',
+                    'type': 'Personal',
+                    'href': "#",
+                    //"img_src": null,
+                    'img_alt': "旧博客",
+                    "title": "旧博客",
+                    "content": "Hexo旧博客 !"
+                },
+            ];
 
-        $scope.images_path = [
-            'static/images/home_page_022.jpg',
-            'static/images/home_page_021.jpg',
-            'static/images/home_page_020.jpg',
-            'static/images/home_page_019.jpg',
-            'static/images/home_page_018.jpg',
-            'static/images/home_page_017.jpg',
-            'static/images/home_page_016.jpg',
-            'static/images/home_page_015.jpg',
-            'static/images/home_page_014.jpg',
-            'static/images/home_page_013.jpg',
-            'static/images/home_page_012.jpg',
-            'static/images/home_page_011.jpg',
-            'static/images/home_page_009.jpg',
-            'static/images/home_page_010.jpg',
-            'static/images/home_page_001.jpg',
-            'static/images/home_page_005.jpg',
-            'static/images/home_page_004.jpg',
-            'static/images/home_page_007.jpg',
-            'static/images/home_page_006.jpg',
-            'static/images/home_page_008.jpg',
-            'static/images/home_page_003.jpg',
-            'static/images/home_page_002.jpg',
-        ];
+            $scope.images_path = [
+                'static/images/home_page_022.jpg',
+                'static/images/home_page_021.jpg',
+                'static/images/home_page_020.jpg',
+                'static/images/home_page_019.jpg',
+                'static/images/home_page_018.jpg',
+                'static/images/home_page_017.jpg',
+                'static/images/home_page_016.jpg',
+                'static/images/home_page_015.jpg',
+                'static/images/home_page_014.jpg',
+                'static/images/home_page_013.jpg',
+                'static/images/home_page_012.jpg',
+                'static/images/home_page_011.jpg',
+                'static/images/home_page_009.jpg',
+                'static/images/home_page_010.jpg',
+                'static/images/home_page_001.jpg',
+                'static/images/home_page_005.jpg',
+                'static/images/home_page_004.jpg',
+                'static/images/home_page_007.jpg',
+                'static/images/home_page_006.jpg',
+                'static/images/home_page_008.jpg',
+                'static/images/home_page_003.jpg',
+                'static/images/home_page_002.jpg',
+            ];
 
-        // 更新没有指定 image_src 的图片路径
-        $scope.update_site_img_url = function () {
-            for (let i in $scope.site_infos) {
-                if (!$scope.site_infos[i].img_src || $scope.site_infos[i].img_src == undefined) {
-                    $scope.site_infos[i].img_src = $scope.images_path[i]
+            // 更新没有指定 image_src 的图片路径
+            $scope.update_site_img_url = function () {
+                for (let i in $scope.site_infos) {
+                    if (!$scope.site_infos[i].img_src || $scope.site_infos[i].img_src == undefined) {
+                        $scope.site_infos[i].img_src = $scope.images_path[i]
+                    }
                 }
-            }
-        };
-        $scope.update_site_img_url();
+            };
+            $scope.update_site_img_url();
 
-        // 鼠标移入移出时 修改样式
-        $scope.setStyleMethod = function () {
-            let style = {opacity: 1}
-            if (this.opaceity_flag) {
-                style = {opacity: 0.2}
+            // 鼠标移入移出时 修改样式
+            $scope.setStyleMethod = function () {
+                let style = { opacity: 1 }
+                if (this.opaceity_flag) {
+                    style = { opacity: 0.2 }
+                }
+                return style
             }
-            return style
-        }
-    }]);
-</script>
+        }]);
+    </script>
 </body>
 
 </html>
