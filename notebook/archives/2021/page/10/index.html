@@ -2924,12 +2924,13 @@ DB2
 		</div>	
 	
 		<div class="index-li">
-			<a href="/notebook/Tools/Crawl/crawl-xpath.md/">
+			<a href="/notebook/Tools/Crawl/crawl-resumable-large-files.md/">
 				<h2 class="index-title">
-					Xpath
+					大文件断点续传功能
 				</h2>
 				<div class="index-brief">
-					123456789101112131415161718192021222324from lxml import etreeweb_data=&quot;xxxx&lt;div&gt;xxx&lt;/div&gt;&quot;html = etree.HTML(web_data)# 打印htmlres
+					由于普通下载时，文件会缓存在内存中，当文件大小超过内存时，会报内存溢出错误，从而下载失败。
+12345678910import requests# stream=True 客户端不会立即下载文件的内容，但客户端与服务端会持续建立 HTTP 连接with requests.get(url, strea
 					...
 				</div>
 			</a>
@@ -2942,13 +2943,12 @@ DB2
 		</div>	
 	
 		<div class="index-li">
-			<a href="/notebook/Tools/Crawl/crawl-resumable-large-files.md/">
+			<a href="/notebook/Tools/Crawl/crawl-xpath.md/">
 				<h2 class="index-title">
-					大文件断点续传功能
+					Xpath
 				</h2>
 				<div class="index-brief">
-					由于普通下载时，文件会缓存在内存中，当文件大小超过内存时，会报内存溢出错误，从而下载失败。
-12345678910import requests# stream=True 客户端不会立即下载文件的内容，但客户端与服务端会持续建立 HTTP 连接with requests.get(url, strea
+					123456789101112131415161718192021222324from lxml import etreeweb_data=&quot;xxxx&lt;div&gt;xxx&lt;/div&gt;&quot;html = etree.HTML(web_data)# 打印htmlres
 					...
 				</div>
 			</a>
