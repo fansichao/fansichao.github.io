@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Neo4j-配置说明 | 
+	 
+	NoteBook
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="Neo4j-配置说明" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "http://localhost:4000/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "fansichao.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">NoteBook</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Algorithm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Algorithm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Languages
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Go
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-env-config.md/">
+										go-env-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-info.md/">
+										go-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-apache.md/">
+										linux-apache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-bashshell.md/">
+										linux-bashshell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-centos8.md/">
+										linux-centos8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-test.md/">
+										linux-cmdn-test
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-tools.md/">
+										linux-cmdn-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ftp.md/">
+										linux-ftp
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-function.md/">
+										linux-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-https-cert.md/">
+										linux-https-cert
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-locale.md/">
+										linux-locale
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-network.md/">
+										linux-network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-nfs.md/">
+										linux-nfs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ntpd.md/">
+										linux-ntpd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-pip.md/">
+										linux-pip
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-raid.md/">
+										linux-raid
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-restart-scripts.md/">
+										linux-restart-scripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ssh.md/">
+										linux-ssh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-svn.md/">
+										linux-svn
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-term-info.md/">
+										linux-term-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-trash.md/">
+										linux-trash
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-using-cmd.md/">
+										linux-using-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-virtualenvwarapper.md/">
+										linux-virtualenvwarapper
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-yum.md/">
+										linux-yum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/%E8%B6%A3%E5%91%B3%E5%91%BD%E4%BB%A4.md/">
+										趣味命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-base-know.md/">
+										learn1-base-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-class.md/">
+										learn1-class
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-data-type.md/">
+										learn1-data-type
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-func.md/">
+										learn1-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-info.md/">
+										learn1-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-install.md/">
+										learn1-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-knowledge.md/">
+										learn1-knowledge
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-module.md/">
+										learn1-module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-runoob.md/">
+										learn1-runoob
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-try-except.md/">
+										learn1-try-except
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-asyc-code.md/">
+										learn2-asyc-code
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-base-principle.md/">
+										learn2-base-principle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-decorator.md/">
+										learn2-decorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-design-mode.md/">
+										learn2-design-mode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-garbage-collection.md/">
+										learn2-garbage-collection
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-generators.md/">
+										learn2-generators
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-magic-func.md/">
+										learn2-magic-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tips.md/">
+										learn2-optimization-tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tools.md/">
+										learn2-optimization-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-process.md/">
+										learn2-process
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-know.md/">
+										learn5-algorithm-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-topic.md/">
+										learn5-algorithm-topic
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-data-structure.md/">
+										learn5-data-structure
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-code-format.md/">
+										learn9-code-format
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-diff-py3.md/">
+										learn9-py2-diff-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-to-py3.md/">
+										learn9-py2-to-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-scripts-read-conf.md/">
+										learn9-scripts-read-conf
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-terms.md/">
+										learn9-terms
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-utils.md/">
+										learn9-utils
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-logging.md/">
+										lib-logging
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-os.md/">
+										lib-os
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-re.md/">
+										lib-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-sys.md/">
+										lib-sys
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-time.md/">
+										lib-time
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-click.md/">
+										lib3-click
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-dask.md/">
+										lib3-dask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-faker.md/">
+										lib3-faker
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-flask.md/">
+										lib3-flask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-ipython.md/">
+										lib3-ipython
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-jieba.md/">
+										lib3-jieba
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-nosetests.md/">
+										lib3-nosetests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-pandas.md/">
+										lib3-pandas
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-re.md/">
+										lib3-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-selenium.md/">
+										lib3-selenium
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-sqlalchemy.md/">
+										lib3-sqlalchemy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-z-packages.md/">
+										lib3-z-packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Web
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/ReadMe.md/">
+										ReadMe
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/bootstrap.md/">
+										bootstrap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-angularJs.md/">
+										web-angularJs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-echarts.md/">
+										web-echarts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-gis.md/">
+										web-gis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-html.md/">
+										web-html
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-http-requests.md/">
+										web-http-requests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-javascripts.md/">
+										web-javascripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Projects
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GUI编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/GUI.md/">
+										GUI
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课堂抽签助手
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/database-4bcf258d288d59d13e33eafc4692e706.md/">
+										database-4bcf258d288d59d13e33eafc4692e706
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Stocks
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/01-%E9%80%89%E8%82%A1%E6%80%9D%E8%B7%AF.md/">
+										01-选股思路
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/TODO.md/">
+										TODO
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tools
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										A-Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/001-%E6%9C%AF%E8%AF%AD%E7%9F%A5%E8%AF%86.md/">
+										001-术语知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/002-%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95.md/">
+										002-知识清单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/01-IT%E6%9C%AF%E8%AF%AD.md/">
+										01-IT术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md/">
+										03-数据结构
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/04-%E7%AE%97%E6%B3%95.md/">
+										04-算法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/A-hot-github.md/">
+										A-hot-github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/B04-%E8%B6%A3%E5%91%B3%E7%AE%97%E6%B3%95%E9%A2%98.md/">
+										B04-趣味算法题
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-chain.md/">
+										datastruct-chain
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-index.md/">
+										datastruct-index
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/info.md/">
+										info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips-cmd.md/">
+										tips-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips001.md/">
+										tips001
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/%E7%AD%96%E7%95%A5%E7%9F%A5%E8%AF%86.md/">
+										策略知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Anaconda
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/issue.md/">
+										issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Centos8
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Centos8/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Chrome
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/Win-Chrome.md/">
+										Win-Chrome
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/module.md/">
+										module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Crawl
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-anti-spider.md/">
+										crawl-anti-spider
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-auth.md/">
+										crawl-auth
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-download-progress-bar.md/">
+										crawl-download-progress-bar
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-framework-diff.md/">
+										crawl-framework-diff
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-info.md/">
+										crawl-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-lawer.md/">
+										crawl-lawer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-pyquery.md/">
+										crawl-pyquery
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-re.md/">
+										crawl-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-resumable-large-files.md/">
+										crawl-resumable-large-files
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-xpath.md/">
+										crawl-xpath
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Databases
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-db2.md/">
+										db-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-mysql.md/">
+										db-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-config.md/">
+										db-oracle-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-optimization.md/">
+										db-oracle-optimization
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle.md/">
+										db-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Django
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/example.md/">
+										example
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/function.md/">
+										function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins-edit.md/">
+										plugins-edit
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cdh.md/">
+										docker-cdh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cmd.md/">
+										docker-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-compose.md/">
+										docker-compose
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-db2.md/">
+										docker-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-es.md/">
+										docker-es
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-function.md/">
+										docker-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-info.md/">
+										docker-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-install.md/">
+										docker-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-issue.md/">
+										docker-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-mysql.md/">
+										docker-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-neo4j.md/">
+										docker-neo4j
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-oracle.md/">
+										docker-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-redis.md/">
+										docker-redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ElasticSearch
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-cmd.md/">
+										es-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-config.md/">
+										es-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-function.md/">
+										es-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-install.md/">
+										es-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-issue.md/">
+										es-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Git
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/git.md/">
+										git
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Github
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/github.md/">
+										github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Graph
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/gremlin-cmd.md/">
+										gremlin-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-cmd.md/">
+										hugegraph-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-info.md/">
+										hugegraph-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-install.md/">
+										hugegraph-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-issue.md/">
+										hugegraph-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-load.md/">
+										hugegraph-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-cmd.md/">
+										neo4j-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/Tools/Graph/neo4j-config.md/">
+										neo4j-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-function.md/">
+										neo4j-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-info.md/">
+										neo4j-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-install.md/">
+										neo4j-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-load.md/">
+										neo4j-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Hexo/hexo.md/">
+										hexo
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										NodeJs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Pycharm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/Win-Pycharm.md/">
+										Win-Pycharm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/crack.md/">
+										crack
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Server
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/CentOS8.md/">
+										CentOS8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/Win10.md/">
+										Win10
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-VNC.md/">
+										Win-VNC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-Virtualbox.md/">
+										Win-Virtualbox
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/code-line-statis.md/">
+										code-line-statis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/drools-rule-engine.md/">
+										drools-rule-engine
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/gitbook.md/">
+										gitbook
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/sbt.md/">
+										sbt
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vscode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/Win-VScode.md/">
+										Win-VScode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ml
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										docs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-01%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97.md/">
+										ml-01学习指南
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-02%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD.md/">
+										ml-02相关术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-03%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B.md/">
+										ml-03发展历程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-04%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5.md/">
+										ml-04代码实践
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										google-course
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/01%E5%BF%AB%E9%80%9F%E9%93%BE%E6%8E%A5.md/">
+										01快速链接
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/02%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5.md/">
+										02机器学习概念
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/03%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B.md/">
+										03机器学习工程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/04%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E5%9C%A8%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E9%87%8C%E7%9A%84%E5%BA%94%E7%94%A8.md/">
+										04机器学习系统在现实世界里的应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/resources.md/">
+										resources
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Neo4j-配置说明
+</h1>
+<div class="article-meta">
+	
+	<span>fansichao</span>
+	<span>2021-10-23 16:25:17</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/">module</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/grpah/">grpah</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/module/">module</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Neo4j/">Neo4j</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<ul>
+<li>Version<ul>
+<li>Neo4j-3.3.5</li>
+<li>Centos8</li>
+</ul>
+</li>
+</ul>
+<h2 id="功能配置"><a href="#功能配置" class="headerlink" title="功能配置"></a>功能配置</h2><h3 id="配置文件详细说明"><a href="#配置文件详细说明" class="headerlink" title="配置文件详细说明"></a>配置文件详细说明</h3><p>配置文件路径: <code>conf/neo4j.conf</code></p>
+<details>
+  <summary>配置文件详细说明</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For more details and a complete list of settings, please see https://neo4j.com/docs/operations-manual/current/reference/configuration-settings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果想自定义neo4j数据库数据的存储路径，要同时修改dbms.active_database 和 dbms.directories.data 两项配置，</span></span><br><span class="line"><span class="comment"># 修改配置后，数据会存放在$&#123;dbms.directories.data&#125;/databases/$&#123;dbms.active_database&#125; 目录下</span></span><br><span class="line"><span class="comment"># 安装的数据库的名称，默认使用$&#123;NEO4J_HOME&#125;/data/databases/graph.db目录</span></span><br><span class="line"><span class="comment"># The name of the database to mount</span></span><br><span class="line"><span class="comment">#dbms.active_database=graph.db</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装Neo4j数据库的各个配置路径，默认使用$NEO4J_HOME下的路径</span></span><br><span class="line"><span class="comment">#Paths of directories in the installation.</span></span><br><span class="line"><span class="comment"># 数据路径</span></span><br><span class="line"><span class="comment">#dbms.directories.data=data</span></span><br><span class="line"><span class="comment"># 插件路径</span></span><br><span class="line"><span class="comment">#dbms.directories.plugins=plugins</span></span><br><span class="line"><span class="comment">#dbms.directories.certificates=certificates  证书路径</span></span><br><span class="line"><span class="comment">#dbms.directories.logs=logs 日志路径</span></span><br><span class="line"><span class="comment">#dbms.directories.lib=lib jar包路径</span></span><br><span class="line"><span class="comment">#dbms.directories.run=run 运行路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#默认情况下想load csv文件，只能把csv文件放到$&#123;NEO4J_HOME&#125;/import目录下，把下面的#删除后，可以在load csv时使用绝对路径，这样可能不安全</span></span><br><span class="line"><span class="comment">#This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the `LOAD CSV` section of the manual for details.</span></span><br><span class="line"><span class="comment">#此设置将所有“LOAD CSV”导入文件限制在`import`目录下。删除注释允许从文件系统的任何地方加载文件;这引入了可能的安全问题。</span></span><br><span class="line">dbms.directories.import=import</span><br><span class="line"></span><br><span class="line"><span class="comment">#把下面这行的#删掉后，连接neo4j数据库时就不用输密码了</span></span><br><span class="line"><span class="comment">#Whether requests to Neo4j are authenticated. 是否对Neo4j的请求进行了身份验证。</span></span><br><span class="line"><span class="comment">#To disable authentication, uncomment this line 要禁用身份验证，请取消注释此行。</span></span><br><span class="line"><span class="comment">#dbms.security.auth_enabled=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable this to be able to upgrade a store from an older version. 是否兼容以前版本的数据</span></span><br><span class="line">dbms.allow_format_migration=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Java Heap Size: by default the Java heap size is dynamically calculated based on available system resources. Java堆大小：默认情况下，Java堆大小是动态地根据可用的系统资源计算。</span></span><br><span class="line"><span class="comment">#Uncomment these lines to set specific initial and maximum heap size. 取消注释这些行以设置特定的初始值和最大值</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.initial_size=512m</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.max_size=512m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#The amount of memory to use for mapping the store files, in bytes (or kilobytes with the &#x27;k&#x27; suffix, megabytes with &#x27;m&#x27; and gigabytes with &#x27;g&#x27;).</span></span><br><span class="line"><span class="comment"># 用于映射存储文件的内存量(以字节为单位)千字节带有&#x27;k&#x27;后缀，兆字节带有&#x27;m&#x27;，千兆字节带有&#x27;g&#x27;)。</span></span><br><span class="line"><span class="comment">#If Neo4j is running on a dedicated server, then it is generally recommended to leave about 2-4 gigabytes for the operating system, give the JVM enough heap to hold all your transaction state and query context, and then leave the rest for the page cache.</span></span><br><span class="line"><span class="comment"># 如果Neo4j在专用服务器上运行，那么通常建议为操作系统保留大约2-4千兆字节，为JVM提供足够的堆来保存所有的事务状态和查询上下文，然后保留其余的页面缓存 。</span></span><br><span class="line"><span class="comment">#The default page cache memory assumes the machine is dedicated to running Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.  默认页面缓存存储器假定机器专用于运行Neo4j，并且试探性地设置为RAM的50％减去最大Java堆大小。</span></span><br><span class="line"><span class="comment">#dbms.memory.pagecache.size=10g</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Network connector configuration</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#With default configuration Neo4j only accepts local connections. Neo4j默认只接受本地连接(localhost)</span></span><br><span class="line"><span class="comment">#To accept non-local connections, uncomment this line:  要接受非本地连接，请取消注释此行</span></span><br><span class="line"><span class="comment"># (这是删除#后的配置，可以通过ip访问)</span></span><br><span class="line">dbms.connectors.default_listen_address=0.0.0.0</span><br><span class="line"></span><br><span class="line"><span class="comment">#You can also choose a specific network interface, and configure a non-default port for each connector, by setting their individual listen_address. 还可以选择特定的网络接口，并配置非默认值端口，设置它们各自的listen_address</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#The address at which this server can be reached by its clients. This may be the server&#x27;s IP address or DNS name, or it may be the address of a reverse proxy which sits in front of the server. This setting may be overridden for individual connectors below. 客户端可以访问此服务器的地址。这可以是服务器的IP地址或DNS名称，或者可以是位于服务器前面的反向代理的地址。此设置可能会覆盖以下各个连接器。</span></span><br><span class="line"><span class="comment">#dbms.connectors.default_advertised_address=localhost</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#You can also choose a specific advertised hostname or IP address, and configure an advertised port for each connector, by setting their individual advertised_address. 您还可以选择特定广播主机名或IP地址，</span></span><br><span class="line"><span class="comment"># 为每个连接器配置通告的端口，通过设置它们独特的advertised_address。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Bolt connector 使用Bolt协议</span></span><br><span class="line">dbms.connector.bolt.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.bolt.tls_level=OPTIONAL</span><br><span class="line">dbms.connector.bolt.listen_address=:7687</span><br><span class="line"></span><br><span class="line"><span class="comment">#HTTP Connector. There must be exactly one HTTP connector. 使用http协议</span></span><br><span class="line">dbms.connector.http.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.http.listen_address=:7474</span><br><span class="line"></span><br><span class="line"><span class="comment">#HTTPS Connector. There can be zero or one HTTPS connectors. 使用https协议</span></span><br><span class="line">dbms.connector.https.enabled=<span class="literal">true</span></span><br><span class="line">dbms.connector.https.listen_address=:7473</span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of Neo4j worker threads. Neo4j线程数</span></span><br><span class="line"><span class="comment">#dbms.threads.worker_count=</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Logging configuration  日志配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#To enable HTTP logging, uncomment this line  要启用HTTP日志记录，请取消注释此行</span></span><br><span class="line">dbms.logs.http.enabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of HTTP logs to keep. 要保留的HTTP日志数</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size of each HTTP log that is kept. 每个HTTP日志文件的大小</span></span><br><span class="line">dbms.logs.http.rotation.size=20m</span><br><span class="line"></span><br><span class="line"><span class="comment">#To enable GC Logging, uncomment this line 要启用GC日志记录，请取消注释此行</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#GC Logging Options see http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013 for more information.  GC日志记录选项 有关详细信息，请参见http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.options=-XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of GC logs to keep. 要保留的GC日志数</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size of each GC log that is kept. 保留的每个GC日志文件的大小</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Size threshold for rotation of the debug log. If set to zero then no rotation will occur. Accepts a binary suffix &quot;k&quot;, &quot;m&quot; or &quot;g&quot;.  调试日志旋转的大小阈值。如果设置为零，则不会发生滚动(达到指定大小后切割日志文件)。接受二进制后缀“k”，“m”或“g”。</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Maximum number of history files for the internal log. 最多保存几个日志文件</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.keep_number=7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Miscellaneous configuration  其他配置</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable this to specify a parser other than the default one. 启用此选项可指定除默认解析器之外的解析器</span></span><br><span class="line"><span class="comment">#cypher.default_language_version=3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Determines if Cypher will allow using file URLs when loading data using `LOAD CSV`. Setting this value to `false` will cause Neo4j to fail `LOAD CSV` clauses that load data from the file system.</span></span><br><span class="line"><span class="comment"># 确定当使用加载数据时，Cypher是否允许使用文件URL `LOAD CSV`。将此值设置为`false`将导致Neo4j不能通过互联网上的URL导入数据，`LOAD CSV` 会从文件系统加载数据。</span></span><br><span class="line">dbms.security.allow_csv_import_from_file_urls=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Retention policy for transaction logs needed to perform recovery and backups.  执行恢复和备份所需的事务日志的保留策略</span></span><br><span class="line"><span class="comment">#dbms.tx_log.rotation.retention_policy=7 days</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Enable a remote shell server which Neo4j Shell clients can log in to.  启用Neo4j Shell客户端可以登录的远程shell服务器</span></span><br><span class="line">dbms.shell.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#The network interface IP the shell will listen on (use 0.0.0.0 for all interfaces).</span></span><br><span class="line">dbms.shell.host=127.0.0.1</span><br><span class="line"><span class="comment">#The port the shell will listen on, default is 1337.</span></span><br><span class="line">dbms.shell.port=1337</span><br><span class="line"></span><br><span class="line"><span class="comment">#Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes.</span></span><br><span class="line"><span class="comment"># 只允许从Neo4j实例读取操作。此模式仍然需要对目录的写访问以用于锁定目的。</span></span><br><span class="line"><span class="comment">#dbms.read_only=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Comma separated list of JAX-RS packages containing JAX-RS resources, one package name for each mountpoint. The listed package names will be loaded under the mountpoints specified. Uncomment this line to mount the org.neo4j.examples.server.unmanaged.HelloWorldResource.java from neo4j-server-examples under /examples/unmanaged, resulting in a final URL of http://localhost:7474/examples/unmanaged/helloworld/&#123;nodeId&#125;      包含JAX-RS资源的JAX-RS软件包的逗号分隔列表，每个安装点一个软件包名称。所列出的软件包名称将在指定的安装点下加载。取消注释此行以装载org.neo4j.examples.server.unmanaged.HelloWorldResource.java neo4j-server-examples下/ examples / unmanaged，最终的URL为http//localhost7474/examples/unmanaged/helloworld/&#123;nodeId&#125;</span></span><br><span class="line"><span class="comment">#dbms.unmanaged_extension_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#JVM Parameters  JVM参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#G1GC generally strikes a good balance between throughput and tail latency, without too much tuning. G1GC通常在吞吐量和尾部延迟之间达到很好的平衡，而没有太多的调整。</span></span><br><span class="line">dbms.jvm.additional=-XX:+UseG1GC</span><br><span class="line"></span><br><span class="line"><span class="comment">#Have common exceptions keep producing stack traces, so they can be debugged regardless of how often logs are rotated. 有共同的异常保持生成堆栈跟踪，所以他们可以被调试，无论日志被旋转的频率</span></span><br><span class="line">dbms.jvm.additional=-XX:-OmitStackTraceInFastThrow</span><br><span class="line"></span><br><span class="line"><span class="comment">#Make sure that `initmemory` is not only allocated, but committed to the process, before starting the database. This reduces memory fragmentation, increasing the effectiveness of transparent huge pages. It also reduces the possibility of seeing performance drop due to heap-growing GC events, where a decrease in available page cache leads to an increase in mean IO response time. Try reducing the heap memory, if this flag degrades performance.    确保在启动数据库之前，“initmemory”不仅被分配，而且被提交到进程。这减少了内存碎片，增加了透明大页面的有效性。它还减少了由于堆增长的GC事件而导致性能下降的可能性，其中可用页面缓存的减少导致平均IO响应时间的增加。如果此标志降低性能，请减少堆内存。</span></span><br><span class="line">dbms.jvm.additional=-XX:+AlwaysPreTouch</span><br><span class="line"></span><br><span class="line"><span class="comment">#Trust that non-static final fields are really final. This allows more optimizations and improves overall performance. <span class="doctag">NOTE:</span> Disable this if you use embedded mode, or have extensions or dependencies that may use reflection or serialization to change the value of final fields!    信任非静态final字段真的是final。这允许更多的优化和提高整体性能。注意：如果使用嵌入模式，或者有可能使用反射或序列化更改最终字段的值的扩展或依赖关系，请禁用此选项！</span></span><br><span class="line">dbms.jvm.additional=-XX:+UnlockExperimentalVMOptions</span><br><span class="line">dbms.jvm.additional=-XX:+TrustFinalNonStaticFields</span><br><span class="line"></span><br><span class="line"><span class="comment">#Disable explicit garbage collection, which is occasionally invoked by the JDK itself.  禁用显式垃圾回收，这是偶尔由JDK本身调用。</span></span><br><span class="line">dbms.jvm.additional=-XX:+DisableExplicitGC</span><br><span class="line"></span><br><span class="line"><span class="comment">#Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and jmx.password files are required.</span></span><br><span class="line"><span class="comment"># 远程JMX监视，取消注释并根据需要调整以下行。需要jmx.access和jmx.password文件的绝对路径。</span></span><br><span class="line"><span class="comment">#Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords, the shipped configuration contains only a read only role called &#x27;monitor&#x27; with password &#x27;Neo4j&#x27;.</span></span><br><span class="line"><span class="comment"># 还要确保使用适当的权限角色和密码更新jmx.access和jmx.password文件，所配置的配置只包含名为“monitor”的只读角色，密码为“Neo4j”。</span></span><br><span class="line"><span class="comment">#For more details, see: http://download.oracle.com/javase/8/docs/technotes/guides/management/agent.html On Unix based systems the jmx.password file needs to be owned by the user that will run the server, and have permissions set to 0600. Unix系统，有关详情，请参阅：http：//download.oracle.com/javase/8/docs/technotes/guides/management/agent.html，jmx.password文件需要由运行服务器的用户拥有，并且权限设置为0600。</span></span><br><span class="line"><span class="comment">#For details on setting these file permissions on Windows see: http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html   Windows系统  有关在设置这些文件权限的详细信息，请参阅：http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.port=3637</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.authenticate=true</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.ssl=false</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.password.file=/absolute/path/to/conf/jmx.password</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.access.file=/absolute/path/to/conf/jmx.access</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Some systems cannot discover host name automatically, and need this line configured:  某些系统无法自动发现主机名，需要配置以下行：</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Djava.rmi.server.hostname=$THE_NEO4J_SERVER_HOSTNAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Expand Diffie Hellman (DH) key size from default 1024 to 2048 for DH-RSA cipher suites used in server TLS handshakes. 对于服务器TLS握手中使用的DH-RSA密码套件，将Diffie Hellman(DH)密钥大小从默认1024展开到2048。</span></span><br><span class="line"><span class="comment">#This is to protect the server from any potential passive eavesdropping. 这是为了保护服务器免受任何潜在的被动窃听。</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.ephemeralDHKeySize=2048</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Wrapper Windows NT/2000/XP Service Properties  包装器Windows NT / 2000 / XP服务属性包装器Windows NT / 2000 / XP服务属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#WARNING - Do not modify any of these properties when an application using this configuration file has been installed as a service.  WARNING - 当使用此配置文件的应用程序已作为服务安装时，不要修改任何这些属性。</span></span><br><span class="line"><span class="comment">#Please uninstall the service before modifying this section.  The service can then be reinstalled. 请在修改此部分之前卸载服务。 然后可以重新安装该服务。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Name of the service 服务的名称</span></span><br><span class="line">dbms.windows_service_name=neo4j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Other Neo4j system properties  其他Neo4j系统属性</span></span><br><span class="line">dbms.jvm.additional=-Dunsupported.dbms.udc.source=zip</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="常用配置文件"><a href="#常用配置文件" class="headerlink" title="常用配置文件"></a>常用配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本和默认配置文件相同，仅修改如下项。其他同原样</span></span><br><span class="line">dbms.active_database=20190718095032289977.db</span><br><span class="line">dbms.directories.import=import</span><br><span class="line">dbms.memory.heap.initial_size=1024m</span><br><span class="line">dbms.memory.heap.max_size=1024m</span><br><span class="line">dbms.memory.pagecache.size=20g</span><br><span class="line">dbms.connectors.default_listen_address=192.168.100.162</span><br><span class="line">dbms.connectors.default_advertised_address=192.168.100.162</span><br></pre></td></tr></table></figure>
+
+<h3 id="Neo4j-默认的配置文件"><a href="#Neo4j-默认的配置文件" class="headerlink" title="Neo4j 默认的配置文件"></a>Neo4j 默认的配置文件</h3><details>
+  <summary>Neo4j默认配置文件的内容</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br></pre></td><td class="code"><pre><span class="line">(env) [fdm@fdm neo4j-community-3.3.5]$ cat conf/neo4j.conf</span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Neo4j configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For more details and a complete list of settings, please see</span></span><br><span class="line"><span class="comment"># https://neo4j.com/docs/operations-manual/current/reference/configuration-settings/</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The name of the database to mount</span></span><br><span class="line"><span class="comment"># 数据库名称</span></span><br><span class="line">dbms.active_database=graph.db</span><br><span class="line"></span><br><span class="line"><span class="comment"># Paths of directories in the installation.</span></span><br><span class="line"><span class="comment">#dbms.directories.data=data</span></span><br><span class="line"><span class="comment">#dbms.directories.plugins=plugins</span></span><br><span class="line"><span class="comment">#dbms.directories.certificates=certificates</span></span><br><span class="line"><span class="comment">#dbms.directories.logs=logs</span></span><br><span class="line"><span class="comment">#dbms.directories.lib=lib</span></span><br><span class="line"><span class="comment">#dbms.directories.run=run</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to</span></span><br><span class="line"><span class="comment"># allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the</span></span><br><span class="line"><span class="comment"># `LOAD CSV` section of the manual for details.</span></span><br><span class="line"><span class="comment"># 默认数据库存储目录</span></span><br><span class="line">dbms.directories.import=import</span><br><span class="line"></span><br><span class="line"><span class="comment"># Whether requests to Neo4j are authenticated.</span></span><br><span class="line"><span class="comment"># To disable authentication, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.security.auth_enabled=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable this to be able to upgrade a store from an older version.</span></span><br><span class="line">dbms.allow_upgrade=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Java Heap Size: by default the Java heap size is dynamically</span></span><br><span class="line"><span class="comment"># calculated based on available system resources.</span></span><br><span class="line"><span class="comment"># Uncomment these lines to set specific initial and maximum</span></span><br><span class="line"><span class="comment"># heap size.</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.initial_size=512m</span></span><br><span class="line"><span class="comment">#dbms.memory.heap.max_size=512m</span></span><br><span class="line">dbms.memory.heap.initial_size=2048m</span><br><span class="line">dbms.memory.heap.max_size=2048m</span><br><span class="line"></span><br><span class="line"><span class="comment"># The amount of memory to use for mapping the store files, in bytes (or</span></span><br><span class="line"><span class="comment"># kilobytes with the &#x27;k&#x27; suffix, megabytes with &#x27;m&#x27; and gigabytes with &#x27;g&#x27;).</span></span><br><span class="line"><span class="comment"># If Neo4j is running on a dedicated server, then it is generally recommended</span></span><br><span class="line"><span class="comment"># to leave about 2-4 gigabytes for the operating system, give the JVM enough</span></span><br><span class="line"><span class="comment"># heap to hold all your transaction state and query context, and then leave the</span></span><br><span class="line"><span class="comment"># rest for the page cache.</span></span><br><span class="line"><span class="comment"># The default page cache memory assumes the machine is dedicated to running</span></span><br><span class="line"><span class="comment"># Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.</span></span><br><span class="line"><span class="comment">#dbms.memory.pagecache.size=10g</span></span><br><span class="line">dbms.memory.pagecache.size=20g</span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Network connector configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># With default configuration Neo4j only accepts local connections.</span></span><br><span class="line"><span class="comment"># To accept non-local connections, uncomment this line:</span></span><br><span class="line"><span class="comment"># 默认填充在前端页面内的 IP, 建议固定IP</span></span><br><span class="line">dbms.connectors.default_listen_address=0.0.0.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can also choose a specific network interface, and configure a non-default</span></span><br><span class="line"><span class="comment"># port for each connector, by setting their individual listen_address.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The address at which this server can be reached by its clients. This may be the server&#x27;s IP address or DNS name, or</span></span><br><span class="line"><span class="comment"># it may be the address of a reverse proxy which sits in front of the server. This setting may be overridden for</span></span><br><span class="line"><span class="comment"># individual connectors below.</span></span><br><span class="line"><span class="comment">#dbms.connectors.default_advertised_address=localhost</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认填充在前端页面内的 IP, 建议固定IP</span></span><br><span class="line">dbms.connectors.default_advertised_address=0.0.0.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can also choose a specific advertised hostname or IP address, and</span></span><br><span class="line"><span class="comment"># configure an advertised port for each connector, by setting their</span></span><br><span class="line"><span class="comment"># individual advertised_address.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Bolt connector</span></span><br><span class="line">dbms.connector.bolt.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#dbms.connector.bolt.tls_level=OPTIONAL</span></span><br><span class="line"><span class="comment"># 默认后端端口</span></span><br><span class="line"><span class="comment">#dbms.connector.bolt.listen_address=:7687</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTP Connector. There must be exactly one HTTP connector.</span></span><br><span class="line">dbms.connector.http.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 默认前端端口</span></span><br><span class="line"><span class="comment">#dbms.connector.http.listen_address=:7474</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTPS Connector. There can be zero or one HTTPS connectors.</span></span><br><span class="line">dbms.connector.https.enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment">#dbms.connector.https.listen_address=:7473</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of Neo4j worker threads.</span></span><br><span class="line"><span class="comment">#dbms.threads.worker_count=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># apoc setting [scfan] [2018-06-19]</span></span><br><span class="line">dbms.security.procedures.unrestricted=apoc.*</span><br><span class="line">apoc.import.file.enabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># SSL system configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Names of the SSL policies to be used for the respective components.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The legacy policy is a special policy which is not defined in</span></span><br><span class="line"><span class="comment"># the policy configuration section, but rather derives from</span></span><br><span class="line"><span class="comment"># dbms.directories.certificates and associated files</span></span><br><span class="line"><span class="comment"># (by default: neo4j.key and neo4j.cert). Its use will be deprecated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The policies to be used for connectors.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># N.B: Note that a connector must be configured to support/require</span></span><br><span class="line"><span class="comment">#      SSL/TLS for the policy to actually be utilized.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># see: dbms.connector.*.tls_level</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#bolt.ssl_policy=legacy</span></span><br><span class="line"><span class="comment">#https.ssl_policy=legacy</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># SSL policy configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Each policy is configured under a separate namespace, e.g.</span></span><br><span class="line"><span class="comment">#    dbms.ssl.policy.&lt;policyname&gt;.*</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The example settings below are for a new policy named &#x27;default&#x27;.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The base directory for cryptographic objects. Each policy will by</span></span><br><span class="line"><span class="comment"># default look for its associated objects (keys, certificates, ...)</span></span><br><span class="line"><span class="comment"># under the base directory.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Every such setting can be overriden using a full path to</span></span><br><span class="line"><span class="comment"># the respective object, but every policy will by default look</span></span><br><span class="line"><span class="comment"># for cryptographic objects in its base location.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Mandatory setting</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.base_directory=certificates/default</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Allows the generation of a fresh private key and a self-signed</span></span><br><span class="line"><span class="comment"># certificate if none are found in the expected locations. It is</span></span><br><span class="line"><span class="comment"># recommended to turn this off again after keys have been generated.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Keys should in general be generated and distributed offline</span></span><br><span class="line"><span class="comment"># by a trusted certificate authority (CA) and not by utilizing</span></span><br><span class="line"><span class="comment"># this mode.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.allow_key_generation=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enabling this makes it so that this policy ignores the contents</span></span><br><span class="line"><span class="comment"># of the trusted_dir and simply resorts to trusting everything.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Use of this mode is discouraged. It would offer encryption but no security.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.trust_all=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The private key for the default SSL policy. By default a file</span></span><br><span class="line"><span class="comment"># named private.key is expected under the base directory of the policy.</span></span><br><span class="line"><span class="comment"># It is mandatory that a key can be found or generated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.private_key=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The private key for the default SSL policy. By default a file</span></span><br><span class="line"><span class="comment"># named public.crt is expected under the base directory of the policy.</span></span><br><span class="line"><span class="comment"># It is mandatory that a certificate can be found or generated.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.public_certificate=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The certificates of trusted parties. By default a directory named</span></span><br><span class="line"><span class="comment"># &#x27;trusted&#x27; is expected under the base directory of the policy. It is</span></span><br><span class="line"><span class="comment"># mandatory to create the directory so that it exists, because it cannot</span></span><br><span class="line"><span class="comment"># be auto-created (for security purposes).</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># To enforce client authentication client_auth must be set to &#x27;require&#x27;!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.trusted_dir=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Client authentication setting. Values: none, optional, require</span></span><br><span class="line"><span class="comment"># The default is to require client authentication.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Servers are always authenticated unless explicitly overridden</span></span><br><span class="line"><span class="comment"># using the trust_all setting. In a mutual authentication setup this</span></span><br><span class="line"><span class="comment"># should be kept at the default of require and trusted certificates</span></span><br><span class="line"><span class="comment"># must be installed in the trusted_dir.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.client_auth=require</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A comma-separated list of allowed TLS versions.</span></span><br><span class="line"><span class="comment"># By default TLSv1, TLSv1.1 and TLSv1.2 are allowed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.tls_versions=</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A comma-separated list of allowed ciphers.</span></span><br><span class="line"><span class="comment"># The default ciphers are the defaults of the JVM platform.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dbms.ssl.policy.default.ciphers=</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Logging configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># To enable HTTP logging, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.logs.http.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of HTTP logs to keep.</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of each HTTP log that is kept.</span></span><br><span class="line"><span class="comment">#dbms.logs.http.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># To enable GC Logging, uncomment this line</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.enabled=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GC Logging Options</span></span><br><span class="line"><span class="comment"># see http://docs.oracle.com/cd/E19957-01/819-0084-10/pt_tuningjava.html#wp57013 for more information.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.options=-XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of GC logs to keep.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.keep_number=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size of each GC log that is kept.</span></span><br><span class="line"><span class="comment">#dbms.logs.gc.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Size threshold for rotation of the debug log. If set to zero then no rotation will occur. Accepts a binary suffix &quot;k&quot;,</span></span><br><span class="line"><span class="comment"># &quot;m&quot; or &quot;g&quot;.</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.size=20m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Maximum number of history files for the internal log.</span></span><br><span class="line"><span class="comment">#dbms.logs.debug.rotation.keep_number=7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"><span class="comment"># Miscellaneous configuration</span></span><br><span class="line"><span class="comment">#*****************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable this to specify a parser other than the default one.</span></span><br><span class="line"><span class="comment">#cypher.default_language_version=3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Determines if Cypher will allow using file URLs when loading data using</span></span><br><span class="line"><span class="comment"># `LOAD CSV`. Setting this value to `false` will cause Neo4j to fail `LOAD CSV`</span></span><br><span class="line"><span class="comment"># clauses that load data from the file system.</span></span><br><span class="line"><span class="comment">#dbms.security.allow_csv_import_from_file_urls=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Retention policy for transaction logs needed to perform recovery and backups.</span></span><br><span class="line">dbms.tx_log.rotation.retention_policy=1 days</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable a remote shell server which Neo4j Shell clients can log in to.</span></span><br><span class="line"><span class="comment">#dbms.shell.enabled=true</span></span><br><span class="line"><span class="comment"># The network interface IP the shell will listen on (use 0.0.0.0 for all interfaces).</span></span><br><span class="line"><span class="comment">#dbms.shell.host=127.0.0.1</span></span><br><span class="line"><span class="comment"># The port the shell will listen on, default is 1337.</span></span><br><span class="line"><span class="comment">#dbms.shell.port=1337</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Only allow read operations from this Neo4j instance. This mode still requires</span></span><br><span class="line"><span class="comment"># write access to the directory for lock purposes.</span></span><br><span class="line"><span class="comment">#dbms.read_only=false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Comma separated list of JAX-RS packages containing JAX-RS resources, one</span></span><br><span class="line"><span class="comment"># package name for each mountpoint. The listed package names will be loaded</span></span><br><span class="line"><span class="comment"># under the mountpoints specified. Uncomment this line to mount the</span></span><br><span class="line"><span class="comment"># org.neo4j.examples.server.unmanaged.HelloWorldResource.java from</span></span><br><span class="line"><span class="comment"># neo4j-server-examples under /examples/unmanaged, resulting in a final URL of</span></span><br><span class="line"><span class="comment"># http://localhost:7474/examples/unmanaged/helloworld/&#123;nodeId&#125;</span></span><br><span class="line"><span class="comment">#dbms.unmanaged_extension_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># JVM Parameters</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># G1GC generally strikes a good balance between throughput and tail</span></span><br><span class="line"><span class="comment"># latency, without too much tuning.</span></span><br><span class="line">dbms.jvm.additional=-XX:+UseG1GC</span><br><span class="line"></span><br><span class="line"><span class="comment"># Have common exceptions keep producing stack traces, so they can be</span></span><br><span class="line"><span class="comment"># debugged regardless of how often logs are rotated.</span></span><br><span class="line">dbms.jvm.additional=-XX:-OmitStackTraceInFastThrow</span><br><span class="line"></span><br><span class="line"><span class="comment"># Make sure that `initmemory` is not only allocated, but committed to</span></span><br><span class="line"><span class="comment"># the process, before starting the database. This reduces memory</span></span><br><span class="line"><span class="comment"># fragmentation, increasing the effectiveness of transparent huge</span></span><br><span class="line"><span class="comment"># pages. It also reduces the possibility of seeing performance drop</span></span><br><span class="line"><span class="comment"># due to heap-growing GC events, where a decrease in available page</span></span><br><span class="line"><span class="comment"># cache leads to an increase in mean IO response time.</span></span><br><span class="line"><span class="comment"># Try reducing the heap memory, if this flag degrades performance.</span></span><br><span class="line">dbms.jvm.additional=-XX:+AlwaysPreTouch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trust that non-static final fields are really final.</span></span><br><span class="line"><span class="comment"># This allows more optimizations and improves overall performance.</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> Disable this if you use embedded mode, or have extensions or dependencies that may use reflection or</span></span><br><span class="line"><span class="comment"># serialization to change the value of final fields!</span></span><br><span class="line">dbms.jvm.additional=-XX:+UnlockExperimentalVMOptions</span><br><span class="line">dbms.jvm.additional=-XX:+TrustFinalNonStaticFields</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable explicit garbage collection, which is occasionally invoked by the JDK itself.</span></span><br><span class="line">dbms.jvm.additional=-XX:+DisableExplicitGC</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and</span></span><br><span class="line"><span class="comment"># jmx.password files are required.</span></span><br><span class="line"><span class="comment"># Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords,</span></span><br><span class="line"><span class="comment"># the shipped configuration contains only a read only role called &#x27;monitor&#x27; with password &#x27;Neo4j&#x27;.</span></span><br><span class="line"><span class="comment"># For more details, see: http://download.oracle.com/javase/8/docs/technotes/guides/management/agent.html</span></span><br><span class="line"><span class="comment"># On Unix based systems the jmx.password file needs to be owned by the user that will run the server,</span></span><br><span class="line"><span class="comment"># and have permissions set to 0600.</span></span><br><span class="line"><span class="comment"># For details on setting these file permissions on Windows see:</span></span><br><span class="line"><span class="comment">#     http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.port=3637</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.authenticate=true</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.ssl=false</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.password.file=/absolute/path/to/conf/jmx.password</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Dcom.sun.management.jmxremote.access.file=/absolute/path/to/conf/jmx.access</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Some systems cannot discover host name automatically, and need this line configured:</span></span><br><span class="line"><span class="comment">#dbms.jvm.additional=-Djava.rmi.server.hostname=$THE_NEO4J_SERVER_HOSTNAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expand Diffie Hellman (DH) key size from default 1024 to 2048 for DH-RSA cipher suites used in server TLS handshakes.</span></span><br><span class="line"><span class="comment"># This is to protect the server from any potential passive eavesdropping.</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.ephemeralDHKeySize=2048</span><br><span class="line"></span><br><span class="line"><span class="comment"># This mitigates a DDoS vector.</span></span><br><span class="line">dbms.jvm.additional=-Djdk.tls.rejectClientInitiatedRenegotiation=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># Wrapper Windows NT/2000/XP Service Properties</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># WARNING - Do not modify any of these properties when an application</span></span><br><span class="line"><span class="comment">#  using this configuration file has been installed as a service.</span></span><br><span class="line"><span class="comment">#  Please uninstall the service before modifying this section.  The</span></span><br><span class="line"><span class="comment">#  service can then be reinstalled.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Name of the service</span></span><br><span class="line">dbms.windows_service_name=neo4j</span><br><span class="line"></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment"># Other Neo4j system properties</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line">dbms.jvm.additional=-Dunsupported.dbms.udc.source=tarball</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/operations-manual/3.5/reference/configuration-settings/">Neo4j3.5-Config</a></p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/Tools/Graph/neo4j-function.md/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Neo4j-功能模块
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/Tools/Graph/neo4j-cmd.md/">
+                Neo4j-常用命令
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			el: '#vcomments',
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			path: window.location.pathname,
+			avatar: 'retro',
+			highlight: false,
+      recordIP: true,
+      enableQQ: true,
+			requiredFields: ['nick','mail']
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">fansichao</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		SVN-技术文档 | 
+	 
+	NoteBook
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="项目代码版本管理库，和Git并列为最常用的代码管理库。" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "http://localhost:4000/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "fansichao.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">NoteBook</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Algorithm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Algorithm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Languages
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Go
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-env-config.md/">
+										go-env-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-info.md/">
+										go-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-apache.md/">
+										linux-apache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-bashshell.md/">
+										linux-bashshell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-centos8.md/">
+										linux-centos8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-test.md/">
+										linux-cmdn-test
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-tools.md/">
+										linux-cmdn-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ftp.md/">
+										linux-ftp
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-function.md/">
+										linux-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-https-cert.md/">
+										linux-https-cert
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-locale.md/">
+										linux-locale
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-network.md/">
+										linux-network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-nfs.md/">
+										linux-nfs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ntpd.md/">
+										linux-ntpd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-pip.md/">
+										linux-pip
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-raid.md/">
+										linux-raid
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-restart-scripts.md/">
+										linux-restart-scripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ssh.md/">
+										linux-ssh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/Languages/Linux/linux-svn.md/">
+										linux-svn
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-term-info.md/">
+										linux-term-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-trash.md/">
+										linux-trash
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-using-cmd.md/">
+										linux-using-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-virtualenvwarapper.md/">
+										linux-virtualenvwarapper
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-yum.md/">
+										linux-yum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/%E8%B6%A3%E5%91%B3%E5%91%BD%E4%BB%A4.md/">
+										趣味命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-base-know.md/">
+										learn1-base-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-class.md/">
+										learn1-class
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-data-type.md/">
+										learn1-data-type
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-func.md/">
+										learn1-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-info.md/">
+										learn1-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-install.md/">
+										learn1-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-knowledge.md/">
+										learn1-knowledge
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-module.md/">
+										learn1-module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-runoob.md/">
+										learn1-runoob
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-try-except.md/">
+										learn1-try-except
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-asyc-code.md/">
+										learn2-asyc-code
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-base-principle.md/">
+										learn2-base-principle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-decorator.md/">
+										learn2-decorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-design-mode.md/">
+										learn2-design-mode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-garbage-collection.md/">
+										learn2-garbage-collection
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-generators.md/">
+										learn2-generators
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-magic-func.md/">
+										learn2-magic-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tips.md/">
+										learn2-optimization-tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tools.md/">
+										learn2-optimization-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-process.md/">
+										learn2-process
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-know.md/">
+										learn5-algorithm-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-topic.md/">
+										learn5-algorithm-topic
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-data-structure.md/">
+										learn5-data-structure
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-code-format.md/">
+										learn9-code-format
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-diff-py3.md/">
+										learn9-py2-diff-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-to-py3.md/">
+										learn9-py2-to-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-scripts-read-conf.md/">
+										learn9-scripts-read-conf
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-terms.md/">
+										learn9-terms
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-utils.md/">
+										learn9-utils
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-logging.md/">
+										lib-logging
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-os.md/">
+										lib-os
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-re.md/">
+										lib-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-sys.md/">
+										lib-sys
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-time.md/">
+										lib-time
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-click.md/">
+										lib3-click
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-dask.md/">
+										lib3-dask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-faker.md/">
+										lib3-faker
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-flask.md/">
+										lib3-flask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-ipython.md/">
+										lib3-ipython
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-jieba.md/">
+										lib3-jieba
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-nosetests.md/">
+										lib3-nosetests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-pandas.md/">
+										lib3-pandas
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-re.md/">
+										lib3-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-selenium.md/">
+										lib3-selenium
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-sqlalchemy.md/">
+										lib3-sqlalchemy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-z-packages.md/">
+										lib3-z-packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Web
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/ReadMe.md/">
+										ReadMe
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/bootstrap.md/">
+										bootstrap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-angularJs.md/">
+										web-angularJs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-echarts.md/">
+										web-echarts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-gis.md/">
+										web-gis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-html.md/">
+										web-html
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-http-requests.md/">
+										web-http-requests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-javascripts.md/">
+										web-javascripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Projects
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GUI编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/GUI.md/">
+										GUI
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课堂抽签助手
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/database-4bcf258d288d59d13e33eafc4692e706.md/">
+										database-4bcf258d288d59d13e33eafc4692e706
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Stocks
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/01-%E9%80%89%E8%82%A1%E6%80%9D%E8%B7%AF.md/">
+										01-选股思路
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/TODO.md/">
+										TODO
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tools
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										A-Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/001-%E6%9C%AF%E8%AF%AD%E7%9F%A5%E8%AF%86.md/">
+										001-术语知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/002-%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95.md/">
+										002-知识清单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/01-IT%E6%9C%AF%E8%AF%AD.md/">
+										01-IT术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md/">
+										03-数据结构
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/04-%E7%AE%97%E6%B3%95.md/">
+										04-算法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/A-hot-github.md/">
+										A-hot-github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/B04-%E8%B6%A3%E5%91%B3%E7%AE%97%E6%B3%95%E9%A2%98.md/">
+										B04-趣味算法题
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-chain.md/">
+										datastruct-chain
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-index.md/">
+										datastruct-index
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/info.md/">
+										info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips-cmd.md/">
+										tips-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips001.md/">
+										tips001
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/%E7%AD%96%E7%95%A5%E7%9F%A5%E8%AF%86.md/">
+										策略知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Anaconda
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/issue.md/">
+										issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Centos8
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Centos8/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Chrome
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/Win-Chrome.md/">
+										Win-Chrome
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/module.md/">
+										module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Crawl
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-anti-spider.md/">
+										crawl-anti-spider
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-auth.md/">
+										crawl-auth
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-download-progress-bar.md/">
+										crawl-download-progress-bar
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-framework-diff.md/">
+										crawl-framework-diff
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-info.md/">
+										crawl-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-lawer.md/">
+										crawl-lawer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-pyquery.md/">
+										crawl-pyquery
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-re.md/">
+										crawl-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-resumable-large-files.md/">
+										crawl-resumable-large-files
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-xpath.md/">
+										crawl-xpath
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Databases
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-db2.md/">
+										db-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-mysql.md/">
+										db-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-config.md/">
+										db-oracle-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-optimization.md/">
+										db-oracle-optimization
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle.md/">
+										db-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Django
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/example.md/">
+										example
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/function.md/">
+										function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins-edit.md/">
+										plugins-edit
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cdh.md/">
+										docker-cdh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cmd.md/">
+										docker-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-compose.md/">
+										docker-compose
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-db2.md/">
+										docker-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-es.md/">
+										docker-es
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-function.md/">
+										docker-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-info.md/">
+										docker-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-install.md/">
+										docker-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-issue.md/">
+										docker-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-mysql.md/">
+										docker-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-neo4j.md/">
+										docker-neo4j
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-oracle.md/">
+										docker-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-redis.md/">
+										docker-redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ElasticSearch
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-cmd.md/">
+										es-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-config.md/">
+										es-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-function.md/">
+										es-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-install.md/">
+										es-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-issue.md/">
+										es-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Git
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/git.md/">
+										git
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Github
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/github.md/">
+										github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Graph
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/gremlin-cmd.md/">
+										gremlin-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-cmd.md/">
+										hugegraph-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-info.md/">
+										hugegraph-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-install.md/">
+										hugegraph-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-issue.md/">
+										hugegraph-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-load.md/">
+										hugegraph-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-cmd.md/">
+										neo4j-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-config.md/">
+										neo4j-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-function.md/">
+										neo4j-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-info.md/">
+										neo4j-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-install.md/">
+										neo4j-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-load.md/">
+										neo4j-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Hexo/hexo.md/">
+										hexo
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										NodeJs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Pycharm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/Win-Pycharm.md/">
+										Win-Pycharm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/crack.md/">
+										crack
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Server
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/CentOS8.md/">
+										CentOS8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/Win10.md/">
+										Win10
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-VNC.md/">
+										Win-VNC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-Virtualbox.md/">
+										Win-Virtualbox
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/code-line-statis.md/">
+										code-line-statis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/drools-rule-engine.md/">
+										drools-rule-engine
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/gitbook.md/">
+										gitbook
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/sbt.md/">
+										sbt
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vscode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/Win-VScode.md/">
+										Win-VScode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ml
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										docs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-01%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97.md/">
+										ml-01学习指南
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-02%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD.md/">
+										ml-02相关术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-03%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B.md/">
+										ml-03发展历程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-04%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5.md/">
+										ml-04代码实践
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										google-course
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/01%E5%BF%AB%E9%80%9F%E9%93%BE%E6%8E%A5.md/">
+										01快速链接
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/02%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5.md/">
+										02机器学习概念
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/03%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B.md/">
+										03机器学习工程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/04%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E5%9C%A8%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E9%87%8C%E7%9A%84%E5%BA%94%E7%94%A8.md/">
+										04机器学习系统在现实世界里的应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/resources.md/">
+										resources
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	SVN-技术文档
+</h1>
+<div class="article-meta">
+	
+	<span>fansichao</span>
+	<span>2021-10-23 16:16:35</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/">module</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/module/">module</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<p>SVN 是 Subversion 的简称，是一个开放源代码的版本控制系统，相较于 RCS、CVS，它采用了分支管理系统，它的设计目标就是取代 CVS。互联网上很多版本控制服务已从 CVS 迁移到 Subversion。说得简单一点 SVN 就是用于多个人共同开发同一个项目，共用资源的目的。</p>
+<p>Linux:涉及 SVN 的同步、更新以及同步到项目目录<br>SVN 基础用法：项目或者日常所需足以<br>SVN 进阶用法：svn 的问题难点等<br>SVN 终极用法：涉及 svn 的合并，分流，标签 tag 等很少使用的命令，了解即可。<br>Linux 中 SVN 扩充使用用法<br>SVN 使用注意事项:<br>SVN 细节 tips：</p>
+<h2 id="SVN-插件"><a href="#SVN-插件" class="headerlink" title="SVN 插件"></a>SVN 插件</h2><h3 id="SVN-Excel-比对"><a href="#SVN-Excel-比对" class="headerlink" title="SVN Excel 比对"></a>SVN Excel 比对</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ccpat/article/details/50725774">https://blog.csdn.net/ccpat/article/details/50725774</a></p>
+<h2 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h2><pre><code> 1.安装SVN
+      yum install subversion
+ 2.下载文件 svn co
+      用户名 密码 80001  80001
+      外网：svn co https://115.239.176.61:10081/svn/lqr/fb   出现输入用户名密码，之后会选择是否永久保存密码。保存/不保存都可。
+      内网：svn co https://155.104.1.106:81/svn/lqr/fb
+ 3.添加文件到版本库，新增加的文件需要此操作
+      svn add filename    添加文件到版本库控制
+      svn ci -m &quot;&quot; filename    上传文件
+ 4.上传文件 svn ci -m &quot;注释&quot; filename
+ 5.更新文件 svn up filename
+ 6.比对本地和版本库中那些文件不同
+      svn st 比对此目录下包含所有子目录的文件，显示状态如下：
+
+ 描述：输出WC中文件和目录的状态。如果WC提交，这些状态就会同步到库里。
+ 一般状态有         &#39; &#39;  没有修改
+ &#39;A&#39;  新增
+ &#39;D&#39;  删除
+ &#39;M&#39;  修改
+ &#39;R&#39;  替代
+ &#39;C&#39;  冲突
+ &#39;I&#39;  忽略
+ &#39;?&#39;  未受控
+ &#39;!&#39;  丢失，一般是将受控文件直接删除导致
+ 7.比对文件 svn diff filename  比对当前文件和svn版本上文件的区别
+ 8.删除文件 svn delete filename
+           svn ci -m&quot;注释&quot; filename  会删除版本库的文件，其他人电脑更新后也会删除
+ 9.导出文件夹
+      svn export filename  这样不会有.svn文件，直接拷贝会有.svn文件(导致无法放入版本库中)
+ 10.查看文件日志
+      svn log filename
+ 11.恢复到某一版本
+      1.暂时恢复，不会影响版本库，但是提交前需要更新
+      svn up -r 333 filename
+      2.将版本库中恢复到过去版本
+      svn merge -r 20:10 filename
+      svn ci -m &quot;注释back to r 10,xxxxx&quot; filename
+ 12.查看svn的信息
+      svn info  可以查看svn的路径等
+ 13.当svn up 出现  error:need cleanup
+      svn cleanup 当up失败时，清除失败文件重新up
+ 14.移动文件
+      svn move filename  在版本库中移动文件，当需要修改文件路径时，需要这么做。
+ 15.重命名文件
+      svn rename filename 修改版本库中的文件名。
+ 16.svn 删除版本库目录下所有中.svn文件
+</code></pre>
+<p><strong>svn 删除版本库目录下所有中.svn 文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> d -name “.svn”|xargs rm -rf      或者</span><br><span class="line">find . -<span class="built_in">type</span> d -iname ”.svn” -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<h2 id="进阶用法"><a href="#进阶用法" class="headerlink" title="进阶用法"></a>进阶用法</h2><p>1.svn up 更新过程中遇到冲突 1.显示信息：<br>选择: (p) 推迟，(df) 显示全部差异，(e) 编辑,<br>(mc) 我的版本, (tc) 他人的版本,<br>(s) 显示全部选项: 2.冲突出现时，一般按 p 查看冲突文件，<br>再解决冲突，解决之后，svn resolved filename 表示冲突已经解决</p>
+<p>2.svn up 文件返回的信息<br>$ svn update<br>U INSTALL 文件本地未修改<br>G README 文件本地已修改，修改内容无冲突，自动合并<br>C bar.c 文件本地已修改，修改内容有冲突，需要手动解决</p>
+<p>3.对于多个文件的提交<br>1.svn st 得到差异文件 2.拷贝内容至编辑器，同类文件批量替换，例如 M –&gt; svn ci -m “注释” 3.直接提交即可。</p>
+<p>4.其他</p>
+<p>svn ci -m”xxxx”web/a.py 会上传所有的的文件<br>svn ci -m”xxxx” web/a.py 只会上传一个</p>
+<p>svn ci -m”” * 会上传当前目录以及子目录下的所有文件，一般不用</p>
+<p>1.svn ci -m”注释” xx.py 如果后续的 xx.py 等未添加，会上传当前目录所有文件。</p>
+<p>SVN 终极用法–很少用的功能</p>
+<p>SVN 使用 log list cat diff 查看所有以及特定文件版本信息<br>svn log 展示给你主要信息：每个版本附加在版本上的作者与日期信息和所有路径修改。<br>svn diff 显示特定修改的行级详细信息。<br>svn cat 取得在特定版本的某一个文件显示在当前屏幕。<br>svn list 显示一个目录在某一版本存在的文件。<br>使用 svn xxx 时，可以用 svn diff -c <a target="_blank" rel="noopener" href="http://xxxxx/test.py">http://xxxxx/test.py</a> 用路径来做处理<br>-v 显示详细信息</p>
+<p>svn log –verbose(-v)，详细模式下，显示路径修改的历史<br>svn log -r 8 -v<br>svn log –quiet(-v) 禁止显示日志信息的主要部分<br>svn log -v -q 只显示修改的文件名<br>svn diff -r 2:3 test.py<br>svn diff –change(-c) test.py 与前一个修订版本的文件比较<br>svn cat -r 2 test.py 仅仅查看，某个版本的内容<br>svn cat -r 2 test.py &gt; test_2.py 重定向输出<br>svn list 不下载文件到本地目录的情况下来查看目录中的文件。</p>
+<p>svn delete 之后未提交的文件恢复，svn revert(恢复)<br>svn 误删除文件之后的恢复(已经提交)。<br>Windows 的文件恢复<br>1.svn showlog 找到被删除的文件 2.右键文件选择 revert changes from this revision<br>3.(或许需要更新)便可查看被删除的文件<br>svn log | more 查看所有的版本信息(当页面无法显示所有的 log 时)</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>1.不要直接替换文件，然后上传，应该用 svn up 更新无冲突后，在 svn ci 上传 2.如果需要拿出来文件，可以 svn co 从 xxxxx/xx/xx/xx/fb/xx 直接 svn 下载所需的文件夹，然后再 svn up 和 svn ci 上传文件 3.如果替换文件(不推荐)–必须在上传前，svn up 并且被替换文件无修改，无冲突(必须要被替换文件没有任何修改痕迹)等，才可以替换。<br>否则容易遗失。 4.如上</p>
+<h2 id="功能详解"><a href="#功能详解" class="headerlink" title="功能详解"></a>功能详解</h2><p>TortoiseSVN 是 windows 下其中一个非常优秀的 SVN 客户端工具。通过使用它，我们可以可视化的管理我们的版本库。不过由于它只是一个客户端，所以它不能对版本库进行权限管理。</p>
+<p>TortoiseSVN 不是一个独立的窗口程序，而是集成在 windows 右键菜单中，使用起来比较方便。</p>
+<p>TortoiseSVN 每个菜单项都表示什么意思</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">01、SVN Checkout(SVN取出)</span><br><span class="line">点击SVN Checkout，弹出检出提示框，在URL of repository输入框中输入服务器仓库地址，在Checkout directory输入框中输入本地工作拷贝的路径，点击确定，即可检出服务器上的配置库。</span><br><span class="line"></span><br><span class="line">02、SVN Update(SVN更新)</span><br><span class="line">如果配置库在本地已有工作拷贝，则取得最新版本只是执行SVN Update即可，点击SVN Update，系统弹出更新提示框，点击确定，则把服务器是最新版本更新下来</span><br><span class="line"></span><br><span class="line">03、Import(导入)</span><br><span class="line">选择要提交到服务器的目录，右键选择TortoiseSVN----Import，系统弹出导入提示框，在URL of repository输入框中输入服务器仓库地址，在Import Message输入框中输入导入日志信息，点击确定，则文件导入到服务器仓库中。</span><br><span class="line"></span><br><span class="line">04、Add(加入)</span><br><span class="line">如果有多个文件及文件夹要提交到服务器，我们可以先把这些要提交的文件加入到提交列表中，要执行提交操作，一次性把所有文件提交，如图，可以选择要提交的文件，然后点击执行提交(SVN Commit),即可把所有文件一次性提交到服务器上</span><br><span class="line"></span><br><span class="line">05、Resolving Conflicts(解决冲突)</span><br><span class="line">   有时你从档案库更新文件会有冲突。冲突产生于两人都修改文件的某一部分。解决冲突只能靠人而不是机器。当产生冲突时，你应该打开冲突的文件，查找以&lt;&lt;&lt;&lt;&lt;&lt;&lt;开始的行。冲突部分被标记：</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename</span><br><span class="line">your changes</span><br><span class="line">=======</span><br><span class="line">code merged <span class="keyword">from</span> repository</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision</span><br><span class="line">Subversion为每个冲突文件产生三个附加文件：</span><br><span class="line">filename.ext.mine</span><br><span class="line">更新前的本地文件。</span><br><span class="line">filename.ext.rOLDREV</span><br><span class="line">你作改动的基础版本。</span><br><span class="line">filename.ext.rNEWREV</span><br><span class="line">更新时从档案库得到的最新版本。</span><br><span class="line">使用快捷菜单的编辑冲突Edit Conflict命令来解决冲突。然后从快捷菜单中执行已解决Resolved命令，将改动送交到档案库。请注意，解决命令并不解决冲突，而仅仅是删除filename.ext.mineandfilename.ext.r*文件并允许你送交。</span><br><span class="line"></span><br><span class="line">06、Check <span class="keyword">for</span> Modifications(检查更新)</span><br><span class="line">点击Check <span class="keyword">for</span> Modifications,系统列表所以待更新的文件及文件夹的状态.</span><br><span class="line"></span><br><span class="line">07、Revision Graph(版本分支图)</span><br><span class="line">查看文件的分支,版本结构,可以点击Revision Graph,系统以图形化形式显示版本分支.</span><br><span class="line"></span><br><span class="line">08、Rename(改名)</span><br><span class="line">   SVN支持文件改名,点击Rename,弹出文件名称输入框,输入新的文件名称,点击确定,再把修改提交,即可完成文件改名</span><br><span class="line"></span><br><span class="line">09、Delete(删除)</span><br><span class="line">   SVN支持文件删除,而且操作简单,方便,选择要删除的文件,点击Delete,再把删除操作提交到服务器</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>、Moving(移动)</span><br><span class="line">   选择待移动的文件和文件夹；按住右键拖动right-drag文件(夹)到跟踪拷贝内的新地方；松开左键；在弹出菜单中选择move files <span class="keyword">in</span> Subversion to here</span><br><span class="line"></span><br><span class="line"><span class="number">11</span>、Revert(还原)</span><br><span class="line">   还原操作,如刚才对文件做了删除操作,现在把它还原回来,点击删除后,再点击提交,会出现如上的提示框,点击删除后,再点击Revert,即已撤销删除操作,如果这时候点击提交,则系统弹出提示框:没有文件被修改或增加,不能提交</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>、Branch/Tag(分支/标记)</span><br><span class="line">   当需要创建分支，点击Branch/Tag，在弹出的提示框中，输入分支文件名，输入日志信息，点击确定，分支创建成功，然后可查看文件的版本分支情况</span><br><span class="line"></span><br><span class="line"><span class="number">13</span>、Switch(切换)</span><br><span class="line">   文件创建分支后，你可以选择在主干工作，还是在分支工作，这时候你可以通过Switch来切换。</span><br><span class="line"></span><br><span class="line"><span class="number">14</span>、Merge(合并)</span><br><span class="line">   主干和分支的版本进行合并，在源和目的各输入文件的路径，版本号，点击确定。系统即对文件进行合并，如果存在冲突，请参考冲突解决。</span><br><span class="line"></span><br><span class="line"><span class="number">15</span>、Export(导出)</span><br><span class="line">   把整个工作拷贝导出到本地目录下,导出的文件将不带svn文件标志,文件及文件夹没有绿色的”√”符号标志。</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>、Relocate(重新定位)</span><br><span class="line">   当服务器上的文件库目录已经改变，我们可以把工作拷贝重新定位，在To URL输入框中输入新的地址</span><br><span class="line"></span><br><span class="line"><span class="number">17</span>、Add to Ignore <span class="type">List</span>(添加到忽略列表)</span><br><span class="line">   大多数项目会有一些文件(夹)不需要版本控制，如编译产生的*.obj, *.lst,等。每次送交，TortoiseSVN提示那些文件不需要控制，挺烦的。这时候可以把这些文件加入忽略列表。</span><br><span class="line"></span><br><span class="line"><span class="number">18</span>、SVN其它相关功能</span><br><span class="line">   客户端修改用户密码:</span><br><span class="line">   打开浏览器,在地址栏内输入http://<span class="number">192.168</span><span class="number">.1</span><span class="number">.250</span>/cgi-<span class="built_in">bin</span>/ChangePasswd,启动客户端修改用户密码的界面,输入正确的用户名,旧密码,新密码(注意密码的位数应该不小于<span class="number">6</span>,尽量使用安全的密码),点击修改即可.</span><br><span class="line"></span><br><span class="line"><span class="number">19</span>、SVN Commit(版本提交)</span><br><span class="line">把自己工作拷贝所做的修改提交到版本库中，这样别人在获取最新版本(Update)的时候就可以看到你的修改了。</span><br><span class="line"></span><br><span class="line"><span class="number">20</span>、Show log(显示日志)</span><br><span class="line">显示当前文件(夹)的所有修改历史。SVN支持文件以及文件夹独立的版本追溯。</span><br><span class="line"></span><br><span class="line"><span class="number">21</span>、Repo-Browser(查看当前版本库)</span><br><span class="line">查看当前版本库，这是TortoiseSVN查看版本库的入口，通过这个菜单项，我们就可以进入配置库的资源管理器，然后就可以对配置库的文件夹进行各种管理，相当于我们打开我的电脑进行文件管理一样。</span><br><span class="line"></span><br><span class="line"><span class="number">22</span>、Revision Graph(版本图形)</span><br><span class="line">查看当前项目或文件的修订历史图示。如果项目比较大型的话，一般会建多个分支，并且多个里程碑(稳定版本发布)，通过这里，我们就可以看到项目的全貌。</span><br><span class="line"></span><br><span class="line"><span class="number">23</span>、Resolved(解决冲突)</span><br><span class="line">如果当前工作拷贝和版本库上的有冲突，不能自动合并到一起，那么当你提交修改的时候，tortoisesvn就会提示你存在冲突，这时候你就可以通过这个菜单项来解决冲突。冲突的解决有两种，一种是保留某一份拷贝，例如使用配置库覆盖当前工作拷贝，或者反过来。还有一种是手动解决冲突，对于文本文件，可以使用tortoiseSVN自带的工具，它会列出存在冲突的地方，然后你就可以和提交者讨论怎么解决这个冲突。同时它也对Word有很好的支持</span><br><span class="line"></span><br><span class="line"><span class="number">24</span>、Update to Revision(更新至版本)</span><br><span class="line">从版本库中获取某一个历史版本。这个功能主要是方便查看历史版本用，而不是回滚版本。注意：获取下来之后，对这个文件不建议进行任何操作。如果你做了修改，那么当你提交的时候SVN会提示你，当前版本已失效(即不是最新版本)，无法提交，需要先update一下。这样你所做的修改也就白费了。</span><br><span class="line"></span><br><span class="line"><span class="number">25</span>、Revert(回滚)</span><br><span class="line">如果你对工作拷贝做了一些修改，但是你又不想要了，那么你可以使用这个选项把所做的修改撤销</span><br><span class="line"></span><br><span class="line"><span class="number">26</span>、Cleanup(清除状态)</span><br><span class="line">如果当前工作拷贝有任何问题的话，可以使用这个选项进行修正。例如，有些文件原来是版本控制的，但是你没有通过tortoiseSVN就直接删除了，但是tortoiseSVN还是保留着原来的信息(每个文件夹下都有一个.svn的隐藏文件夹，存放着当前文件夹下所有文件夹的版本信息)所以这就会产生一些冲突。可以使用cleanup来清理一下。</span><br><span class="line"></span><br><span class="line"><span class="number">27</span>、GetLock/ReleaseLock(加锁/解锁)</span><br><span class="line">如果你不想别人修改某个文件的话，那么你就可以把这个文件进行加锁，这样可以保证只有你对这个文件有修改权。除非你释放了锁，否则别人不可能提交任何修改到配置库中</span><br><span class="line"></span><br><span class="line"><span class="number">28</span>、Branch/tag(分支/标签)</span><br><span class="line">     Branch是分支的意思。例如当在设计一个东西的时候，不同的人有不同的实现，但是没有经过实践检验，谁也不想直接覆盖掉其他人的设计，所以可以引出不同的分支。将来如果需要，可以将这些分支进行合并。</span><br><span class="line">     tag是打标签的意思。通常当项目开发到一定程度，已经可以稳定运行的时候，可以对其打上一个标签，作为稳定版。将来可以方便的找到某个特定的版本(当然我们也可以使用版本号来查找，但是数字毕竟不方便)</span><br><span class="line">SVN对于分支和标签都是采用类似Linux下硬链接的方式(同一个文件可以存在两个地方，删除一个不会影响另一个，所做修改会影响另一个)，来管理文件的，而不是简单的复制一份文件的拷贝，所以不会有浪费存储空间的问题存在。</span><br><span class="line"></span><br><span class="line"><span class="number">29</span>、Export(导出)</span><br><span class="line">这个功能是方便我们部署用。当我们需要发布一个稳定版本时，就可以使用这个功能将整个工程导出到某个文件夹，新的文件夹将不会包含任何版本信息了。</span><br><span class="line"></span><br><span class="line"><span class="number">30</span>、Relocate(版本库转移)</span><br><span class="line">当我们版本库发生转移的时候就需要用到这个功能了。例如我原先的版本库是建在U盘上的，现在转移到(复制整个配置库文件夹)开发服务器上，使用https代替文件系统的访问。因此就需要将原来的工作拷贝的目标版本库重新定位到开发服务器上。</span><br><span class="line"></span><br><span class="line"><span class="number">31</span>、create patch(创建补丁)</span><br><span class="line">创建补丁。如果管理员不想让任何人都随便提交修改，而是都要经过审核才能做出修改，那么其他人就可以通过创建补丁的方式，把修改信息(补丁文件)发送给管理员，管理员审核通过之后就可以使用apply patch提交这次修改了。</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能详解-2"><a href="#功能详解-2" class="headerlink" title="功能详解 2"></a>功能详解 2</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line">SVN命令简介</span><br><span class="line"></span><br><span class="line">svn add [path]</span><br><span class="line"></span><br><span class="line">别名：无</span><br><span class="line">描述：添加文件或目录到你的wc，打上新增标记。这些文件会在下一次你提交wc的时候提交到svn服务器。</span><br><span class="line">在提交前，你也可以用svn revert撤销新增的文件。</span><br><span class="line">访问库：否</span><br><span class="line">eg: svn add file.cpp</span><br><span class="line"></span><br><span class="line">svn blame Target[@REV]</span><br><span class="line">别名：praise,annotate,ann</span><br><span class="line">描述：显示某个已受控文件的每一行的最后修改版本和作者</span><br><span class="line">访问库：是</span><br><span class="line">eg: svn blame file.cpp</span><br><span class="line">eg: svn blame --xml file.cpp  <span class="comment">##加上xml参数可以以xml格式显示每一行的属性。</span></span><br><span class="line"></span><br><span class="line">svn cat TARGET[@REV]</span><br><span class="line">别名：无</span><br><span class="line">描述：输出指定目标的内容，这里的目标一般是文件。</span><br><span class="line">访问库：是</span><br><span class="line">eg:svn cat file.cpp</span><br><span class="line">eg:svn cat file.cpp -r <span class="number">2</span> <span class="comment">##显示版本号为二的file.cpp内容。</span></span><br><span class="line">eg:svn cat file.cpp --revision HEAD <span class="comment">##显示最新版本的file.cpp内容。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">svn checkout URL[@REV]... [PATH]</span><br><span class="line">别名：co</span><br><span class="line">描述：检出</span><br><span class="line">访问库：否</span><br><span class="line">eg:svn checkout file:///var/svn/repos/test  file:///var/svn/repos/quiz working-copies</span><br><span class="line">eg:svn checkout -r <span class="number">2</span> file:///var/svn/repos/test mine  <span class="comment">##check out 版本号为2的项目</span></span><br><span class="line"></span><br><span class="line">svn cleanup [PATH...]</span><br><span class="line">别名：无</span><br><span class="line">描述：递归的清理WC中过期的锁和未完成的操作。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn cleanup</span><br><span class="line"></span><br><span class="line">svn commit [PATH...]</span><br><span class="line">别名：ci</span><br><span class="line">描述：把你WC的更改提交到仓库</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn commit -m <span class="string">&quot;added howto section.&quot;</span> <span class="comment">##默认情况下提交必须提供log message</span></span><br><span class="line"></span><br><span class="line">svn copy SRC[@REV]... DST</span><br><span class="line">别名：cp</span><br><span class="line">描述:copy操作可以从WC到WC；WC到URL；URL到WC；URL到URL。现在SVN只支持同一个仓库内文件的拷贝，不允许跨仓库操作。</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn copy -r <span class="number">11</span> file:///var/svn/repos/test/trunk \</span><br><span class="line">           file:///var/svn/repos/test/tags/<span class="number">0.6</span><span class="number">.32</span>-prerelease \</span><br><span class="line">           -m <span class="string">&quot;Forgot to tag at rev 11&quot;</span></span><br><span class="line"><span class="comment">##copy命令是创建分支和标记的常用方式。copy到url的操作隐含了提交动作，所以需要提供log messages。</span></span><br><span class="line"></span><br><span class="line">svn delete PATH...</span><br><span class="line">别名：<span class="keyword">del</span>，remove，rm</span><br><span class="line">描述：删除</span><br><span class="line">访问库：如果PATH是库地址时会，删除WC内的文件不会。</span><br><span class="line">eg：svn <span class="keyword">del</span> localfile.cpp    <span class="comment">##删除WC里的文件，在下一次提交WC的时候才会真正在仓库里将对应文件删除。</span></span><br><span class="line">eg: svn <span class="keyword">del</span> file:///var/svn/repos/test/yourfile  <span class="comment">##删除仓库里的文件</span></span><br><span class="line"></span><br><span class="line">svn diff</span><br><span class="line">别名：di</span><br><span class="line">描述：用来比较并显示修改点。</span><br><span class="line">访问库：</span><br><span class="line">eg：svn diff   <span class="comment">##最常用的方式，用来显示WC基于最近一次更新以后的所有的本地修改点。</span></span><br><span class="line">eg：svn diff -r <span class="number">301</span> <span class="built_in">bin</span> <span class="comment">## 比较WC和版本301中的bin目录的修改点</span></span><br><span class="line">eg：svn diff -r <span class="number">3000</span>:<span class="number">3500</span> file:///var/svn/repos/myProject/trunk   <span class="comment">##比较库里主干3000版和3500版的差异。</span></span><br><span class="line">eg：svn diff --summarize --xml http://svn.red-bean.com/repos/test@r2 http://svn.red-bean.com/repos/test  <span class="comment">##--summarize --xml 参数将差异情况以xml文档的方式显示出来。</span></span><br><span class="line"></span><br><span class="line">svn export [-r REV] URL[@PEGREV] [PATH]</span><br><span class="line">svn export [-r REV] PATH1[@PEGREV] [PATH2]</span><br><span class="line">别名：无</span><br><span class="line">描述：导出一个干净的目录树，不包含所有的受控信息。可以选择从URL或WC中导出。</span><br><span class="line">访问库：如果访问的是URL则会。</span><br><span class="line">eg：svn export file:///var/svn/repos my-export   <span class="comment">##导出到my-export目录。</span></span><br><span class="line"></span><br><span class="line">svn <span class="built_in">help</span> — Help!</span><br><span class="line">别名：?,h</span><br><span class="line">描述：不用解释了</span><br><span class="line">访问库：否。</span><br><span class="line"></span><br><span class="line">svn <span class="keyword">import</span> [PATH] URL</span><br><span class="line">别名：无</span><br><span class="line">描述：导入本地一个目录到库中。但是导入后，本地的目录并不会处于受控状态。</span><br><span class="line">访问库：是。</span><br><span class="line">eg：svn <span class="keyword">import</span> -m <span class="string">&quot;New import&quot;</span> myproj http://svn.myProject.com/repos/trunk/misc</span><br><span class="line"></span><br><span class="line">svn info [TARGET[@REV]...]</span><br><span class="line">别名：无</span><br><span class="line">描述：显示指定WC和URL信息。</span><br><span class="line">访问库：仅当访问的是库路径时。</span><br><span class="line">eg：svn info --xml http://svn.myProject.com/repos/test  <span class="comment">##将信息以xml格式显示。</span></span><br><span class="line"></span><br><span class="line">svn <span class="built_in">list</span> [TARGET[@REV]...]</span><br><span class="line">别名：ls</span><br><span class="line">描述：显示目标下的文件和目录列表。</span><br><span class="line">访问库：如果访问的是库地址就会。</span><br><span class="line">eg：svn <span class="built_in">list</span> --verbose file:///var/svn/repos   <span class="comment">##--verbose参数表示显示详细信息。</span></span><br><span class="line"></span><br><span class="line">svn lock TARGET...</span><br><span class="line">别名：无</span><br><span class="line">描述：对目标获得修改锁。如果目标已被其他用户锁定，则会抛出警告信息。用--force参数强制从其他用户那里获得锁。</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn lock --force tree.jpg</span><br><span class="line"></span><br><span class="line">svn log [PATH]</span><br><span class="line">svn log URL[@REV] [PATH...]</span><br><span class="line">别名：无</span><br><span class="line">描述：从库中显示log消息。log消息代码 A ：added  D：deleted  M：modified  R：replaced</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn log -v http://svn.myProject.com/repos/test/ foo.c bar.c   <span class="comment">##详细显示指定URL的库中foo.c和bar.c所有版本的log信息。</span></span><br><span class="line">eg：svn log -r <span class="number">14</span>:<span class="number">15</span>    <span class="comment">##显示当前WC的14和15版本log信息。</span></span><br><span class="line">eg：<span class="comment">##如果版本号不连续，只能采用如下方式。</span></span><br><span class="line">$ svn log -r <span class="number">14</span> &gt; mylog</span><br><span class="line">$ svn log -r <span class="number">19</span> &gt;&gt; mylog</span><br><span class="line">$ svn log -r <span class="number">27</span> &gt;&gt; mylog</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">svn move SRC... DST</span><br><span class="line">别名：mv, rename, ren</span><br><span class="line">描述：等同于svn copy命令跟个svn delete命令。WC到URL的重命名是不被允许的。</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn move foo.c bar.c  <span class="comment">##将foo.c改名成bar.c。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">svn resolve PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：将冲突的文件标记为已解决，并且删掉冲突产生的临时文件。注意这个命令并不是能把冲突解决，解决冲突还是得靠人工。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn resolve --accept mine-full foo.c   <span class="comment">##1.5版本后，加上--accept参数，尝试自动处理冲突。</span></span><br><span class="line"></span><br><span class="line">svn resolved PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：已过时，被resolve --accept取代。去除冲突的状态和冲突临时文件。</span><br><span class="line">访问库：否</span><br><span class="line"></span><br><span class="line">svn revert PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：还原WC中所有的本地更改。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn revert --depth=infinity .   <span class="comment">##将整个目录所有文件还原</span></span><br><span class="line"></span><br><span class="line">svn status [PATH...]</span><br><span class="line">别名：stat, st</span><br><span class="line">描述：输出WC中文件和目录的状态。如果WC提交，这些状态就会同步到库里。</span><br><span class="line">一般状态有         <span class="string">&#x27; &#x27;</span>  没有修改</span><br><span class="line"><span class="string">&#x27;A&#x27;</span>  新增</span><br><span class="line"><span class="string">&#x27;D&#x27;</span>  删除</span><br><span class="line"><span class="string">&#x27;M&#x27;</span>  修改</span><br><span class="line"><span class="string">&#x27;R&#x27;</span>  替代</span><br><span class="line"><span class="string">&#x27;C&#x27;</span>  冲突</span><br><span class="line"><span class="string">&#x27;I&#x27;</span>  忽略</span><br><span class="line"><span class="string">&#x27;?&#x27;</span>  未受控</span><br><span class="line"><span class="string">&#x27;!&#x27;</span>  丢失，一般是将受控文件直接删除导致</span><br><span class="line">访问库：加上--show-updates参数时会</span><br><span class="line">eg：svn status wc</span><br><span class="line"></span><br><span class="line">svn switch URL[@PEGREV] [PATH]</span><br><span class="line">svn switch --relocate FROM TO [PATH...]</span><br><span class="line">别名：sw</span><br><span class="line">描述：将WC转向一个其他的库地址同步</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn sw http://svn.myProject.com/repos/trunk/vendors .  <span class="comment">##将当前WC切换到另一个URL</span></span><br><span class="line"></span><br><span class="line">svn unlock TARGET...</span><br><span class="line">别名：无</span><br><span class="line">描述：解锁</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn unlock somefile</span><br><span class="line"></span><br><span class="line">svn update [PATH...]</span><br><span class="line">别名：up</span><br><span class="line">描述：更新WC，更新反馈有如下几种分类。</span><br><span class="line">        A  新增</span><br><span class="line">B  锁破坏</span><br><span class="line">D  删除</span><br><span class="line">U  更新</span><br><span class="line">C  冲突</span><br><span class="line">G  合并</span><br><span class="line">E  存在的</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn up -r22   <span class="comment">##更新到一个指定版本</span></span><br><span class="line"></span><br><span class="line">ps:如何去除SVN中保存的用户授权密码</span><br><span class="line">在Subversion安装目录下找到auth/svn.simple目录，将下面的文件删除即可。</span><br><span class="line">如果在乌龟中，可以setting-&gt;saved data-&gt;Authentication Data   点 clear 即可。</span><br><span class="line"></span><br><span class="line">参考资料：http://svnbook.red-bean.com/en/<span class="number">1.5</span>/svn.ref.svn.c.checkout.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能详解-3"><a href="#功能详解-3" class="headerlink" title="功能详解 3"></a>功能详解 3</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br></pre></td><td class="code"><pre><span class="line">**</span><br><span class="line">*  转载请注明作者longdick    http://longdick.javaeye.com</span><br><span class="line">*</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">SVN版本：<span class="number">1.5</span> 及更新版本</span><br><span class="line">名词说明：</span><br><span class="line">WC：Working Copy 你的工作区</span><br><span class="line">Versioned：受控的；受版本控制的</span><br><span class="line"></span><br><span class="line">SVN是什么？</span><br><span class="line"></span><br><span class="line">	*</span><br><span class="line">SVN是开源的版本控制系统。</span><br><span class="line">	*</span><br><span class="line">比CVS更多的特性。一个更好的CVS？因此SVN具有大部分CVS拥有的特性。</span><br><span class="line">	*</span><br><span class="line">不仅仅是文件受控，目录也加入版本控制。</span><br><span class="line">	*</span><br><span class="line">复制，删除，重命名这些操作都是受控的。</span><br><span class="line">	*</span><br><span class="line">特殊作用的元数据(属性)。</span><br><span class="line">	*</span><br><span class="line">提交事务原子性。提交完成之前任何一个部分都不会正真生效。版本号基于提交，而不是基于文件。提交时的log message也是依附于提交的那个版本。</span><br><span class="line">	*</span><br><span class="line">创建分支和标记非常简单。简单的通过copy命令就可以创建分支和标记。</span><br><span class="line">	*</span><br><span class="line">合并跟踪。在合并时协助你处理所有的更改点。</span><br><span class="line">	*</span><br><span class="line">文件锁定。svn支持文件锁定修改策略。</span><br><span class="line">	*</span><br><span class="line">Unix的link可以受控了。前提是WC必须在Unix下。</span><br><span class="line">	*</span><br><span class="line">可选的Apache network server，基于WEBDAV/DeltaV 协议。熟悉Apache的管理员会很喜欢这一点。</span><br><span class="line">	*</span><br><span class="line">内置的server选择(svnserve)。如果不想用Apache，可以试试Svn自己的server：svnserve。同样也能提供授权和验证，ssh通道等功能。</span><br><span class="line">	*</span><br><span class="line">方便解析的输出。svn的输出尽量做到方便阅读和方便机器解析。</span><br><span class="line">	*</span><br><span class="line">冲突解决交互性良好。svn命令行客户端提供多种不同的方式解决冲突。</span><br><span class="line">	*</span><br><span class="line">svn提供一个实用工具，svnsync来实现从主库到只读附属库的同步。</span><br><span class="line">	*</span><br><span class="line">持续写入代理功能让只读的附属库专门处理所有的读请求。所有的写请求交给主库处理。这个功能只在使用Apache WebDAV server的时候才有效。</span><br><span class="line">	*</span><br><span class="line">基于本地化的客户机服务器体系，分层的库，明晰的API方便扩展。</span><br><span class="line">	*</span><br><span class="line">高效处理二进制文件。</span><br><span class="line">	*</span><br><span class="line">性能消耗与更改点的数量成正比。</span><br><span class="line">	*</span><br><span class="line">svn的api可以和多种语言集成。Python，Perl,Java,Ruby(svn本身是用C写的)</span><br><span class="line">	*</span><br><span class="line">ChangeLists功能。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Svn的安装分客户端和服务端。</span><br><span class="line">你可以在如下地址找到下载：http://subversion.tigris.org/</span><br><span class="line">这篇文章主要介绍的是svn客户端的命令，你至少需要安装客户端。默认就是以SVN做版本控制的。如果你不想在自己机器上安装服务版，google code是个练习svn命令的好地方。</span><br><span class="line">http://code.google.com上申请托管项目很简单，但是现在不支持svn lock。目前最大支持1G空间。</span><br><span class="line"></span><br><span class="line">以下是svn客户端常用命令一览：</span><br><span class="line"></span><br><span class="line">svn add [path]</span><br><span class="line">别名：无</span><br><span class="line">描述：添加文件或目录到你的wc，打上新增标记。这些文件会在下一次你提交wc的时候提交到svn服务器。</span><br><span class="line">在提交前，你也可以用svn revert撤销新增的文件。</span><br><span class="line">访问库：否</span><br><span class="line">eg: svn add file.cpp</span><br><span class="line"></span><br><span class="line">svn blame Target[@REV]</span><br><span class="line">别名：praise,annotate,ann</span><br><span class="line">描述：显示某个已受控文件的每一行的最后修改版本和作者</span><br><span class="line">访问库：是</span><br><span class="line">eg: svn blame file.cpp</span><br><span class="line">eg: svn blame --xml file.cpp  <span class="comment">##加上xml参数可以以xml格式显示每一行的属性。</span></span><br><span class="line"></span><br><span class="line">svn cat TARGET[@REV]</span><br><span class="line">别名：无</span><br><span class="line">描述：输出指定目标的内容，这里的目标一般是文件。</span><br><span class="line">访问库：是</span><br><span class="line">eg:svn cat file.cpp</span><br><span class="line">eg:svn cat file.cpp -r <span class="number">2</span> <span class="comment">##显示版本号为二的file.cpp内容。</span></span><br><span class="line">eg:svn cat file.cpp --revision HEAD <span class="comment">##显示最新版本的file.cpp内容。</span></span><br><span class="line"></span><br><span class="line">svn changelist CLNAME TARGET...</span><br><span class="line">svn changelist --remove TARGET</span><br><span class="line">别名：cl</span><br><span class="line">描述：可以将wc中的文件从逻辑上分组.</span><br><span class="line">访问库：否</span><br><span class="line">eg:svn cl clName file.cpp file2.cpp file3.cpp  <span class="comment">##将file.cpp等三个文件加入名叫clName的changelist</span></span><br><span class="line">eg:svn commit --changelist clName -m <span class="string">&quot;ci&quot;</span>  <span class="comment">##将clName下的所有文件提交</span></span><br><span class="line"></span><br><span class="line">svn checkout URL[@REV]... [PATH]</span><br><span class="line">别名：co</span><br><span class="line">描述：检出</span><br><span class="line">访问库：否</span><br><span class="line">eg:svn checkout file:///var/svn/repos/test  file:///var/svn/repos/quiz working-copies</span><br><span class="line">eg:svn checkout -r <span class="number">2</span> file:///var/svn/repos/test mine  <span class="comment">##check out 版本号为2的项目</span></span><br><span class="line"></span><br><span class="line">svn cleanup [PATH...]</span><br><span class="line">别名：无</span><br><span class="line">描述：递归的清理WC中过期的锁和未完成的操作。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn cleanup</span><br><span class="line"></span><br><span class="line">svn commit [PATH...]</span><br><span class="line">别名：ci</span><br><span class="line">描述：把你WC的更改提交到仓库</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn commit -m <span class="string">&quot;added howto section.&quot;</span> <span class="comment">##默认情况下提交必须提供log message</span></span><br><span class="line"></span><br><span class="line">svn copy SRC[@REV]... DST</span><br><span class="line">别名：cp</span><br><span class="line">描述:copy操作可以从WC到WC；WC到URL；URL到WC；URL到URL。现在SVN只支持同一个仓库内文件的拷贝，不允许跨仓库操作。</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn copy -r <span class="number">11</span> file:///var/svn/repos/test/trunk \</span><br><span class="line">           file:///var/svn/repos/test/tags/<span class="number">0.6</span><span class="number">.32</span>-prerelease \</span><br><span class="line">           -m <span class="string">&quot;Forgot to tag at rev 11&quot;</span></span><br><span class="line"><span class="comment">##copy命令是创建分支和标记的常用方式。copy到url的操作隐含了提交动作，所以需要提供log messages。</span></span><br><span class="line"></span><br><span class="line">svn delete PATH...</span><br><span class="line">别名：<span class="keyword">del</span>，remove，rm</span><br><span class="line">描述：删除</span><br><span class="line">访问库：如果PATH是库地址时会，删除WC内的文件不会。</span><br><span class="line">eg：svn <span class="keyword">del</span> localfile.cpp    <span class="comment">##删除WC里的文件，在下一次提交WC的时候才会真正在仓库里将对应文件删除。</span></span><br><span class="line">eg: svn <span class="keyword">del</span> file:///var/svn/repos/test/yourfile  <span class="comment">##删除仓库里的文件</span></span><br><span class="line"></span><br><span class="line">svn diff</span><br><span class="line">别名：di</span><br><span class="line">描述：用来比较并显示修改点。</span><br><span class="line">访问库：</span><br><span class="line">eg：svn diff   <span class="comment">##最常用的方式，用来显示WC基于最近一次更新以后的所有的本地修改点。</span></span><br><span class="line">eg：svn diff -r <span class="number">301</span> <span class="built_in">bin</span> <span class="comment">## 比较WC和版本301中的bin目录的修改点</span></span><br><span class="line">eg：svn diff -r <span class="number">3000</span>:<span class="number">3500</span> file:///var/svn/repos/myProject/trunk   <span class="comment">##比较库里主干3000版和3500版的差异。</span></span><br><span class="line">eg：svn diff --summarize --xml http://svn.red-bean.com/repos/test@r2 http://svn.red-bean.com/repos/test  <span class="comment">##--summarize --xml 参数将差异情况以xml文档的方式显示出来。</span></span><br><span class="line"></span><br><span class="line">svn export [-r REV] URL[@PEGREV] [PATH]</span><br><span class="line">svn export [-r REV] PATH1[@PEGREV] [PATH2]</span><br><span class="line">别名：无</span><br><span class="line">描述：导出一个干净的目录树，不包含所有的受控信息。可以选择从URL或WC中导出。</span><br><span class="line">访问库：如果访问的是URL则会。</span><br><span class="line">eg：svn export file:///var/svn/repos my-export   <span class="comment">##导出到my-export目录。</span></span><br><span class="line"></span><br><span class="line">svn <span class="built_in">help</span> — Help!</span><br><span class="line">别名：?,h</span><br><span class="line">描述：不用解释了</span><br><span class="line">访问库：否。</span><br><span class="line"></span><br><span class="line">svn <span class="keyword">import</span> [PATH] URL</span><br><span class="line">别名：无</span><br><span class="line">描述：导入本地一个目录到库中。但是导入后，本地的目录并不会处于受控状态。</span><br><span class="line">访问库：是。</span><br><span class="line">eg：svn <span class="keyword">import</span> -m <span class="string">&quot;New import&quot;</span> myproj http://svn.myProject.com/repos/trunk/misc</span><br><span class="line"></span><br><span class="line">svn info [TARGET[@REV]...]</span><br><span class="line">别名：无</span><br><span class="line">描述：显示指定WC和URL信息。</span><br><span class="line">访问库：仅当访问的是库路径时。</span><br><span class="line">eg：svn info --xml http://svn.myProject.com/repos/test  <span class="comment">##将信息以xml格式显示。</span></span><br><span class="line"></span><br><span class="line">svn <span class="built_in">list</span> [TARGET[@REV]...]</span><br><span class="line">别名：ls</span><br><span class="line">描述：显示目标下的文件和目录列表。</span><br><span class="line">访问库：如果访问的是库地址就会。</span><br><span class="line">eg：svn <span class="built_in">list</span> --verbose file:///var/svn/repos   <span class="comment">##--verbose参数表示显示详细信息。</span></span><br><span class="line"></span><br><span class="line">svn lock TARGET...</span><br><span class="line">别名：无</span><br><span class="line">描述：对目标获得修改锁。如果目标已被其他用户锁定，则会抛出警告信息。用--force参数强制从其他用户那里获得锁。</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn lock --force tree.jpg</span><br><span class="line"></span><br><span class="line">svn log [PATH]</span><br><span class="line">svn log URL[@REV] [PATH...]</span><br><span class="line">别名：无</span><br><span class="line">描述：从库中显示log消息。log消息代码 A ：added  D：deleted  M：modified  R：replaced</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn log -v http://svn.myProject.com/repos/test/ foo.c bar.c   <span class="comment">##详细显示指定URL的库中foo.c和bar.c所有版本的log信息。</span></span><br><span class="line">eg：svn log -r <span class="number">14</span>:<span class="number">15</span>    <span class="comment">##显示当前WC的14和15版本log信息。</span></span><br><span class="line">eg：<span class="comment">##如果版本号不连续，只能采用如下方式。</span></span><br><span class="line">$ svn log -r <span class="number">14</span> &gt; mylog</span><br><span class="line">$ svn log -r <span class="number">19</span> &gt;&gt; mylog</span><br><span class="line">$ svn log -r <span class="number">27</span> &gt;&gt; mylog</span><br><span class="line"></span><br><span class="line">svn merge sourceURL1[@N] sourceURL2[@M] [WCPATH]</span><br><span class="line">svn merge sourceWCPATH1@N sourceWCPATH2@M [WCPATH]</span><br><span class="line">svn merge [[-c M]... | [-r N:M]...] [SOURCE[@REV] [WCPATH]]</span><br><span class="line">别名：无</span><br><span class="line">描述：合并两个受控源的不同之处，存放到一个WC里。</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn merge --reintegrate http://svn.example.com/repos/calc/branches/my-calc-branch  <span class="comment">##合并分支上的改变项到WC，往往用于分支合并到主干。</span></span><br><span class="line">eg：svn merge -r <span class="number">156</span>:<span class="number">157</span> http://svn.example.com/repos/calc/branches/my-calc-branch   <span class="comment">##将制定URL版本156到157的所有更新合并到WC。</span></span><br><span class="line"></span><br><span class="line">svn mkdir PATH...</span><br><span class="line">svn mkdir URL...</span><br><span class="line">别名：无</span><br><span class="line">描述：在WC或库路径创建目录</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn mkdir newdir</span><br><span class="line"></span><br><span class="line">svn move SRC... DST</span><br><span class="line">别名：mv, rename, ren</span><br><span class="line">描述：等同于svn copy命令跟个svn delete命令。WC到URL的重命名是不被允许的。</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn move foo.c bar.c  <span class="comment">##将foo.c改名成bar.c。</span></span><br><span class="line"></span><br><span class="line">svn propdel PROPNAME [PATH...]</span><br><span class="line">svn propdel PROPNAME --revprop -r REV [TARGET]</span><br><span class="line">别名：pdel, pd</span><br><span class="line">描述：从受控文件，目录等删除属性。第二种是删除某个指定版本上的附加属性。</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn propdel svn:mime-<span class="built_in">type</span> someFile    <span class="comment">##从someFile上移除svn:mime-type这个属性。</span></span><br><span class="line"></span><br><span class="line">svn propedit PROPNAME TARGET...</span><br><span class="line">svn propedit PROPNAME --revprop -r REV [TARGET]</span><br><span class="line">别名：pedit, pe</span><br><span class="line">描述：编辑属性</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn propedit svn:keywords  file.c  <span class="comment">##修改file.c上的svn:keywords属性。</span></span><br><span class="line"></span><br><span class="line">svn propget PROPNAME [TARGET[@REV]...]</span><br><span class="line">svn propget PROPNAME --revprop -r REV [URL]</span><br><span class="line">别名：pget,pg</span><br><span class="line">描述：从文件，目录或版本取得指定属性的值。</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn propget svn:keywords file.c   <span class="comment">##从file.c中取得svn:keywords属性的值</span></span><br><span class="line"></span><br><span class="line">svn proplist [TARGET[@REV]...]</span><br><span class="line">svn proplist --revprop -r REV [TARGET]</span><br><span class="line">别名：plist, pl</span><br><span class="line">描述：列出文件、目录或版本上的所有附加属性</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn proplist --verbose file.c</span><br><span class="line"></span><br><span class="line">svn propset PROPNAME [PROPVAL | -F VALFILE] PATH...</span><br><span class="line">svn propset PROPNAME --revprop -r REV [PROPVAL | -F VALFILE] [TARGET]</span><br><span class="line">别名：pset,ps</span><br><span class="line">描述：给文件、目录或版本附加属性并赋值</span><br><span class="line">访问库：只有当访问库地址时。</span><br><span class="line">eg：svn propset svn:mime-<span class="built_in">type</span> image/jpeg file.jpg   <span class="comment">##给file.jpg附加属性svn:mime-type 其值为image/jpeg</span></span><br><span class="line">eg:svn propset --revprop -r <span class="number">25</span> svn:log <span class="string">&quot;Journaled about trip to New York.&quot;</span></span><br><span class="line"><span class="comment">##给版本25补上log message</span></span><br><span class="line">eg:svn propset svn:ignore <span class="string">&#x27;.classpath&#x27;</span> .</span><br><span class="line"><span class="comment">##在本地忽略掉.classpath文件</span></span><br><span class="line"></span><br><span class="line">svn resolve PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：将冲突的文件标记为已解决，并且删掉冲突产生的临时文件。注意这个命令并不是能把冲突解决，解决冲突还是得靠人工。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn resolve --accept mine-full foo.c   <span class="comment">##1.5版本后，加上--accept参数，尝试自动处理冲突。</span></span><br><span class="line"></span><br><span class="line">svn resolved PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：已过时，被resolve --accept取代。去除冲突的状态和冲突临时文件。</span><br><span class="line">访问库：否</span><br><span class="line"></span><br><span class="line">svn revert PATH...</span><br><span class="line">别名：无</span><br><span class="line">描述：还原WC中所有的本地更改。</span><br><span class="line">访问库：否</span><br><span class="line">eg：svn revert --depth=infinity .   <span class="comment">##将整个目录所有文件还原</span></span><br><span class="line"></span><br><span class="line">svn status [PATH...]</span><br><span class="line">别名：stat, st</span><br><span class="line">描述：输出WC中文件和目录的状态。如果WC提交，这些状态就会同步到库里。</span><br><span class="line">一般状态有         <span class="string">&#x27; &#x27;</span>  没有修改</span><br><span class="line"><span class="string">&#x27;A&#x27;</span>  新增</span><br><span class="line"><span class="string">&#x27;D&#x27;</span>  删除</span><br><span class="line"><span class="string">&#x27;M&#x27;</span>  修改</span><br><span class="line"><span class="string">&#x27;R&#x27;</span>  替代</span><br><span class="line"><span class="string">&#x27;C&#x27;</span>  冲突</span><br><span class="line"><span class="string">&#x27;I&#x27;</span>  忽略</span><br><span class="line"><span class="string">&#x27;?&#x27;</span>  未受控</span><br><span class="line"><span class="string">&#x27;!&#x27;</span>  丢失，一般是将受控文件直接删除导致</span><br><span class="line">访问库：加上--show-updates参数时会</span><br><span class="line">eg：svn status wc</span><br><span class="line"></span><br><span class="line">svn switch URL[@PEGREV] [PATH]</span><br><span class="line">svn switch --relocate FROM TO [PATH...]</span><br><span class="line">别名：sw</span><br><span class="line">描述：将WC转向一个其他的库地址同步</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn sw http://svn.myProject.com/repos/trunk/vendors .  <span class="comment">##将当前WC切换到另一个URL</span></span><br><span class="line"></span><br><span class="line">svn unlock TARGET...</span><br><span class="line">别名：无</span><br><span class="line">描述：解锁</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn unlock somefile</span><br><span class="line"></span><br><span class="line">svn update [PATH...]</span><br><span class="line">别名：up</span><br><span class="line">描述：更新WC，更新反馈有如下几种分类。</span><br><span class="line">        A  新增</span><br><span class="line">B  锁破坏</span><br><span class="line">D  删除</span><br><span class="line">U  更新</span><br><span class="line">C  冲突</span><br><span class="line">G  合并</span><br><span class="line">E  存在的</span><br><span class="line">访问库：是</span><br><span class="line">eg：svn up -r22   <span class="comment">##更新到一个指定版本</span></span><br><span class="line"></span><br><span class="line">ps:如何去除SVN中保存的用户授权密码</span><br><span class="line">在Subversion安装目录下找到auth/svn.simple目录，将下面的文件删除即可。</span><br><span class="line">如果在乌龟中，可以setting-&gt;saved data-&gt;Authentication Data   点 clear 即可。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">参考资料：http://svnbook.red-bean.com/en/<span class="number">1.5</span>/svn.ref.svn.c.checkout.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h2><h2 id="SVN-EXCEL-比对工具"><a href="#SVN-EXCEL-比对工具" class="headerlink" title="SVN EXCEL 比对工具"></a>SVN EXCEL 比对工具</h2><h2 id="SVN-WORD-比对工具"><a href="#SVN-WORD-比对工具" class="headerlink" title="SVN WORD 比对工具"></a>SVN WORD 比对工具</h2><h3 id="SVN-创建分支"><a href="#SVN-创建分支" class="headerlink" title="SVN 创建分支"></a>SVN 创建分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># copy trunk</span></span><br><span class="line">svn copy svn://127.0.0.1/repos/trunk svn://127.0.0.1/repos/tags/suzhou-prod-1.1.1.190920_release -m <span class="string">&quot;创建tags suzhou-prod-1.1.1.190920_release&quot;</span></span><br><span class="line"><span class="comment"># 在其中修改提交即可 提交到单独的分支 branchs/branch_01</span></span><br><span class="line"></span><br><span class="line">如果SVN中显示</span><br><span class="line">(env) [scfan@scfan tags]$ svn st suzhou-prod-1.1.1.190920_release</span><br><span class="line">?       suzhou-prod-1.1.1.190920_release</span><br><span class="line">但是里面内容已经提交了</span><br><span class="line">mv suzhou-prod-1.1.1.190920_release suzhou-prod-1.1.1.190920_release_bak</span><br><span class="line">svn up 即可</span><br></pre></td></tr></table></figure>
+
+<h3 id="提交时-忽略文件-文件夹"><a href="#提交时-忽略文件-文件夹" class="headerlink" title="提交时 忽略文件/文件夹"></a>提交时 忽略文件/文件夹</h3><p>@创建日期: 2018-06-28<br>@创建作者: scfan</p>
+<p><strong>方法 1: 配置忽略文件</strong><br>对版本库修改，客户端无影响。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">步骤<span class="number">1</span>：配置SVN默认编辑器</span><br><span class="line">vi ~/.bash_profile</span><br><span class="line">最后一行加上：</span><br><span class="line">export SVN_EDITOR=vim  <span class="comment"># 定义svn editor为vim编辑</span></span><br><span class="line"></span><br><span class="line">步骤<span class="number">2</span>：让配置生效</span><br><span class="line">source ~/.bash_profile</span><br><span class="line"></span><br><span class="line">步骤<span class="number">3.</span>设置忽略文件：</span><br><span class="line">先切换到项目目录，如test</span><br><span class="line">输入：</span><br><span class="line">svn propedit svn:ignore .  <span class="comment">#‘.’号需加上，代表当前目录；</span></span><br><span class="line">输入需要忽略的文件/文件夹</span><br><span class="line">如：</span><br><span class="line">conf/db.php   <span class="comment">#代表忽略conf文件下db.php这个文件</span></span><br><span class="line">uploads       <span class="comment">#代表忽略uploads这个文件夹</span></span><br><span class="line">以上忽略的文件都是该项目目录的相对路径！</span><br><span class="line"></span><br><span class="line">步骤<span class="number">4</span>：检验忽略是否成功</span><br><span class="line">然后使用svn st查看，会显示：</span><br><span class="line">M       conf/db.php</span><br><span class="line">我们需要提交，然后这个svn:ignore属性才会起作用</span><br><span class="line"></span><br><span class="line">svn ci -m <span class="string">&#x27;忽略test.php文件&#x27;</span></span><br><span class="line"></span><br><span class="line">这时候，无论你如何修改conf/db.php文件，再使用svn st时，也不会出现修改提示</span><br><span class="line">符合M了。</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法 2：配置客户端</strong><br>对客户端修改，版本库无影响。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">svn 客户端的配置</span><br><span class="line">对 svn 命令的配置文件修改即可。进入个人用户目录</span><br><span class="line">$ vim .subversion/config</span><br><span class="line">找到包含  [miscellany] 这一行，取消注释，然后编辑包含 <span class="keyword">global</span>-ignores 的那一行，取消注释，并添加需要过滤文件的通配符即可。如下所示：注意开头不能有空格，否则svn会报错。</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span>-ignores = *.so *.a *.o *.lo *.la .*.rej *.rej .*~ *~ .<span class="comment">#* .DS_Store</span></span><br><span class="line"></span><br><span class="line">这个配置是对客户端的修改，对版本库没有任何影响。同时，这个配置也是全局的，适用于本机所有 svn 管理的项目。</span><br></pre></td></tr></table></figure>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/Languages/Linux/linux-trash.md/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  trash-cli 防止误删文件
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/Languages/Linux/linux-term-info.md/">
+                Linux-术语介绍
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			el: '#vcomments',
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			path: window.location.pathname,
+			avatar: 'retro',
+			highlight: false,
+      recordIP: true,
+      enableQQ: true,
+			requiredFields: ['nick','mail']
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">fansichao</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

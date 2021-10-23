@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Hexo静态博客使用文档 | 
+	 
+	NoteBook
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="Hexo静态博客使用文档。Hexo + GithubgPages" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "http://localhost:4000/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "fansichao.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">NoteBook</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Algorithm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Algorithm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Languages
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Go
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-env-config.md/">
+										go-env-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-info.md/">
+										go-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-apache.md/">
+										linux-apache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-bashshell.md/">
+										linux-bashshell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-centos8.md/">
+										linux-centos8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-test.md/">
+										linux-cmdn-test
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-tools.md/">
+										linux-cmdn-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ftp.md/">
+										linux-ftp
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-function.md/">
+										linux-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-https-cert.md/">
+										linux-https-cert
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-locale.md/">
+										linux-locale
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-network.md/">
+										linux-network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-nfs.md/">
+										linux-nfs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ntpd.md/">
+										linux-ntpd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-pip.md/">
+										linux-pip
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-raid.md/">
+										linux-raid
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-restart-scripts.md/">
+										linux-restart-scripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ssh.md/">
+										linux-ssh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-svn.md/">
+										linux-svn
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-term-info.md/">
+										linux-term-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-trash.md/">
+										linux-trash
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-using-cmd.md/">
+										linux-using-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-virtualenvwarapper.md/">
+										linux-virtualenvwarapper
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-yum.md/">
+										linux-yum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/%E8%B6%A3%E5%91%B3%E5%91%BD%E4%BB%A4.md/">
+										趣味命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-base-know.md/">
+										learn1-base-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-class.md/">
+										learn1-class
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-data-type.md/">
+										learn1-data-type
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-func.md/">
+										learn1-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-info.md/">
+										learn1-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-install.md/">
+										learn1-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-knowledge.md/">
+										learn1-knowledge
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-module.md/">
+										learn1-module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-runoob.md/">
+										learn1-runoob
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-try-except.md/">
+										learn1-try-except
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-asyc-code.md/">
+										learn2-asyc-code
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-base-principle.md/">
+										learn2-base-principle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-decorator.md/">
+										learn2-decorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-design-mode.md/">
+										learn2-design-mode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-garbage-collection.md/">
+										learn2-garbage-collection
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-generators.md/">
+										learn2-generators
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-magic-func.md/">
+										learn2-magic-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tips.md/">
+										learn2-optimization-tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tools.md/">
+										learn2-optimization-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-process.md/">
+										learn2-process
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-know.md/">
+										learn5-algorithm-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-topic.md/">
+										learn5-algorithm-topic
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-data-structure.md/">
+										learn5-data-structure
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-code-format.md/">
+										learn9-code-format
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-diff-py3.md/">
+										learn9-py2-diff-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-to-py3.md/">
+										learn9-py2-to-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-scripts-read-conf.md/">
+										learn9-scripts-read-conf
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-terms.md/">
+										learn9-terms
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-utils.md/">
+										learn9-utils
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-logging.md/">
+										lib-logging
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-os.md/">
+										lib-os
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-re.md/">
+										lib-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-sys.md/">
+										lib-sys
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-time.md/">
+										lib-time
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-click.md/">
+										lib3-click
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-dask.md/">
+										lib3-dask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-faker.md/">
+										lib3-faker
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-flask.md/">
+										lib3-flask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-ipython.md/">
+										lib3-ipython
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-jieba.md/">
+										lib3-jieba
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-nosetests.md/">
+										lib3-nosetests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-pandas.md/">
+										lib3-pandas
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-re.md/">
+										lib3-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-selenium.md/">
+										lib3-selenium
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-sqlalchemy.md/">
+										lib3-sqlalchemy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-z-packages.md/">
+										lib3-z-packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Web
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/ReadMe.md/">
+										ReadMe
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/bootstrap.md/">
+										bootstrap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-angularJs.md/">
+										web-angularJs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-echarts.md/">
+										web-echarts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-gis.md/">
+										web-gis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-html.md/">
+										web-html
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-http-requests.md/">
+										web-http-requests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-javascripts.md/">
+										web-javascripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Projects
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GUI编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/GUI.md/">
+										GUI
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课堂抽签助手
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/database-4bcf258d288d59d13e33eafc4692e706.md/">
+										database-4bcf258d288d59d13e33eafc4692e706
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Stocks
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/01-%E9%80%89%E8%82%A1%E6%80%9D%E8%B7%AF.md/">
+										01-选股思路
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/TODO.md/">
+										TODO
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tools
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										A-Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/001-%E6%9C%AF%E8%AF%AD%E7%9F%A5%E8%AF%86.md/">
+										001-术语知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/002-%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95.md/">
+										002-知识清单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/01-IT%E6%9C%AF%E8%AF%AD.md/">
+										01-IT术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md/">
+										03-数据结构
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/04-%E7%AE%97%E6%B3%95.md/">
+										04-算法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/A-hot-github.md/">
+										A-hot-github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/B04-%E8%B6%A3%E5%91%B3%E7%AE%97%E6%B3%95%E9%A2%98.md/">
+										B04-趣味算法题
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-chain.md/">
+										datastruct-chain
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-index.md/">
+										datastruct-index
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/info.md/">
+										info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips-cmd.md/">
+										tips-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips001.md/">
+										tips001
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/%E7%AD%96%E7%95%A5%E7%9F%A5%E8%AF%86.md/">
+										策略知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Anaconda
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/issue.md/">
+										issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Centos8
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Centos8/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Chrome
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/Win-Chrome.md/">
+										Win-Chrome
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/module.md/">
+										module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Crawl
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-anti-spider.md/">
+										crawl-anti-spider
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-auth.md/">
+										crawl-auth
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-download-progress-bar.md/">
+										crawl-download-progress-bar
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-framework-diff.md/">
+										crawl-framework-diff
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-info.md/">
+										crawl-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-lawer.md/">
+										crawl-lawer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-pyquery.md/">
+										crawl-pyquery
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-re.md/">
+										crawl-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-resumable-large-files.md/">
+										crawl-resumable-large-files
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-xpath.md/">
+										crawl-xpath
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Databases
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-db2.md/">
+										db-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-mysql.md/">
+										db-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-config.md/">
+										db-oracle-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-optimization.md/">
+										db-oracle-optimization
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle.md/">
+										db-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Django
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/example.md/">
+										example
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/function.md/">
+										function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins-edit.md/">
+										plugins-edit
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cdh.md/">
+										docker-cdh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cmd.md/">
+										docker-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-compose.md/">
+										docker-compose
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-db2.md/">
+										docker-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-es.md/">
+										docker-es
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-function.md/">
+										docker-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-info.md/">
+										docker-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-install.md/">
+										docker-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-issue.md/">
+										docker-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-mysql.md/">
+										docker-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-neo4j.md/">
+										docker-neo4j
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-oracle.md/">
+										docker-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-redis.md/">
+										docker-redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ElasticSearch
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-cmd.md/">
+										es-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-config.md/">
+										es-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-function.md/">
+										es-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-install.md/">
+										es-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-issue.md/">
+										es-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Git
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/git.md/">
+										git
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Github
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/github.md/">
+										github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Graph
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/gremlin-cmd.md/">
+										gremlin-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-cmd.md/">
+										hugegraph-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-info.md/">
+										hugegraph-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-install.md/">
+										hugegraph-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-issue.md/">
+										hugegraph-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-load.md/">
+										hugegraph-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-cmd.md/">
+										neo4j-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-config.md/">
+										neo4j-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-function.md/">
+										neo4j-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-info.md/">
+										neo4j-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-install.md/">
+										neo4j-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-load.md/">
+										neo4j-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Hexo
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/Tools/Hexo/hexo.md/">
+										hexo
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										NodeJs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Pycharm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/Win-Pycharm.md/">
+										Win-Pycharm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/crack.md/">
+										crack
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Server
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/CentOS8.md/">
+										CentOS8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/Win10.md/">
+										Win10
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-VNC.md/">
+										Win-VNC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-Virtualbox.md/">
+										Win-Virtualbox
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/code-line-statis.md/">
+										code-line-statis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/drools-rule-engine.md/">
+										drools-rule-engine
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/gitbook.md/">
+										gitbook
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/sbt.md/">
+										sbt
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vscode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/Win-VScode.md/">
+										Win-VScode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ml
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										docs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-01%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97.md/">
+										ml-01学习指南
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-02%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD.md/">
+										ml-02相关术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-03%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B.md/">
+										ml-03发展历程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-04%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5.md/">
+										ml-04代码实践
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										google-course
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/01%E5%BF%AB%E9%80%9F%E9%93%BE%E6%8E%A5.md/">
+										01快速链接
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/02%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5.md/">
+										02机器学习概念
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/03%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B.md/">
+										03机器学习工程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/04%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E5%9C%A8%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E9%87%8C%E7%9A%84%E5%BA%94%E7%94%A8.md/">
+										04机器学习系统在现实世界里的应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/resources.md/">
+										resources
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Hexo静态博客使用文档
+</h1>
+<div class="article-meta">
+	
+	<span>fansichao</span>
+	<span>2021-10-23 16:25:17</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/">module</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/hexo/">hexo</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/module/">module</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/hexo/">hexo</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/blog/">blog</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<!-- TOC -->
+
+<ul>
+<li><a href="#hexo-%E7%AE%80%E4%BB%8B">Hexo 简介</a></li>
+<li><a href="#hexo-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE">Hexo 基础配置</a></li>
+<li><a href="#hexo-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE">Hexo 博客配置</a><ul>
+<li><a href="#%E6%8A%98%E5%8F%A0%E9%9A%90%E8%97%8F%E9%83%A8%E5%88%86%E6%96%87%E5%AD%97">折叠隐藏部分文字</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4%E5%92%8C%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4">添加文章创建时间和更新时间</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0-url-%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F">修改文章 URL 生成方式</a></li>
+<li><a href="#%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE">个人博客绑定域名配置</a></li>
+<li><a href="#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE">博客评论配置</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E5%8D%9A%E5%AE%A2%E7%BD%AE%E9%A1%B6">设置博客置顶</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%A7%81%E5%AF%86%E5%8D%9A%E5%AE%A2-hexo-hide-posts">配置私密博客 hexo-hide-posts</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-%E7%9C%8B%E6%9D%BF%E5%A8%98">配置 看板娘</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-hexo-related-popular-posts">配置 hexo-related-popular-posts</a></li>
+<li><a href="#hexo-easy-tags-plugin">hexo-easy-tags-plugin</a></li>
+<li><a href="#hexo-permalink-pinyin">hexo-permalink-pinyin</a></li>
+<li><a href="#hexo-notify">hexo-notify</a></li>
+<li><a href="#hexo-seo-link-visualizer">hexo-seo-link-visualizer</a></li>
+<li><a href="#hexo-encrypt">hexo-encrypt</a></li>
+</ul>
+</li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+<!-- /TOC -->
+
+<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo 官网</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_17775997/article/details/83821027">hexo 原理分析</a></p>
+<h2 id="Hexo-基础配置"><a href="#Hexo-基础配置" class="headerlink" title="Hexo 基础配置"></a>Hexo 基础配置</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">node.js 下载</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 node.js 并安装</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo</span><br><span class="line"><span class="comment"># 配置 hexo 的 环境变量</span></span><br><span class="line">C:\Users\scfan\AppData\Roaming\npm\node_modules\hexo\bin</span><br><span class="line"></span><br><span class="line">配置之后重新打开 gitbash, 则会有 hexo 命令</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hexo-博客配置"><a href="#Hexo-博客配置" class="headerlink" title="Hexo 博客配置"></a>Hexo 博客配置</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/plugins/">Hexo 官方插件网</a></li>
+</ul>
+<h3 id="折叠隐藏部分文字"><a href="#折叠隐藏部分文字" class="headerlink" title="折叠隐藏部分文字"></a>折叠隐藏部分文字</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">  &lt;summary&gt;隐藏内容的标题&lt;/summary&gt;</span><br><span class="line"></span><br><span class="line">- 支持MarkDown语法</span><br><span class="line">- 支持代码块等等</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  import os</span><br><span class="line">  ``` // 防止排版错误：因为这是代码块内的代码。使用时可删除</span><br><span class="line"></span><br><span class="line">- 支持表格</span><br><span class="line"></span><br><span class="line">    |文字|文字|</span><br><span class="line">    |-|-|</span><br><span class="line">    |文字|文字|</span><br><span class="line"></span><br><span class="line">&lt;/details&gt;</span><br></pre></td></tr></table></figure>
+
+<details>
+  <summary>隐藏内容的标题</summary>
+
+<ul>
+<li><p>支持 MarkDown 语法</p>
+</li>
+<li><p>支持代码块等等</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure></li>
+<li><p>支持表格</p>
+<table>
+<thead>
+<tr>
+<th>文字</th>
+<th>文字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文字</td>
+<td>文字</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</details>
+
+<p><a target="_blank" rel="noopener" href="https://www.faker.top/2020/02/14/Hexo/h6-%E6%8A%98%E5%8F%A0%E6%96%87%E5%AD%97/">Hexo 博客如何折叠(显示/隐藏)部分文字</a></p>
+<h3 id="添加文章创建时间和更新时间"><a href="#添加文章创建时间和更新时间" class="headerlink" title="添加文章创建时间和更新时间"></a>添加文章创建时间和更新时间</h3><p>本博客采用更新时间 modified 。 创建时间 date</p>
+<p>配置方法详见如下</p>
+<p>配置自动更新时间 <code>themes\next\layout\_macro\post.swig</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">%</span> <span class="string">if</span> <span class="string">post.top</span> <span class="string">%</span>&#125;</span><br><span class="line">   <span class="string">&lt;i</span> <span class="string">class=&quot;fa</span> <span class="string">fa-thumb-tack&quot;&gt;&lt;/i&gt;</span></span><br><span class="line">   <span class="string">&lt;font</span> <span class="string">color=&quot;#F05050&quot;&gt;[置顶]&lt;/font&gt;</span></span><br><span class="line">   <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span></span><br><span class="line"> &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"> <span class="comment"># 添加如下内容 !!! 去除此注释.</span></span><br><span class="line"> <span class="string">&lt;span</span> <span class="string">class=&quot;post-time&quot;&gt;</span></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.post_meta.created_at</span> <span class="string">%</span>&#125;</span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-icon&quot;&gt;</span></span><br><span class="line">       <span class="string">&lt;i</span> <span class="string">class=&quot;fa</span> <span class="string">fa-calendar-o&quot;&gt;&lt;/i&gt;</span></span><br><span class="line">     <span class="string">&lt;/span&gt;</span></span><br><span class="line">     &#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.post_meta.item_text</span> <span class="string">%</span>&#125;</span><br><span class="line">       <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-text&quot;&gt;&#123;&#123;</span> <span class="string">__(&#x27;post.posted&#x27;)</span> <span class="string">&#125;&#125;&lt;/span&gt;</span></span><br><span class="line">     &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line">     <span class="string">&lt;time</span> <span class="string">title=&quot;&#123;&#123;</span> <span class="string">__(&#x27;post.created&#x27;)</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">itemprop=&quot;dateCreated</span> <span class="string">datePublished&quot;</span> <span class="string">datetime=&quot;&#123;&#123;</span> <span class="string">moment(post.date).format()</span> <span class="string">&#125;&#125;&quot;&gt;</span></span><br><span class="line">       &#123;&#123; <span class="string">date(post.date</span>, <span class="string">config.date_format)</span> &#125;&#125;</span><br><span class="line">     <span class="string">&lt;/time&gt;</span></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.post_meta.created_at</span> <span class="string">and</span> <span class="string">theme.post_meta.updated_at</span> <span class="string">%</span>&#125;</span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.post_meta.updated_at</span> <span class="string">%</span>&#125;</span><br><span class="line">     <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-icon&quot;&gt;</span></span><br><span class="line">       <span class="string">&lt;i</span> <span class="string">class=&quot;fa</span> <span class="string">fa-calendar-check-o&quot;&gt;&lt;/i&gt;</span></span><br><span class="line">     <span class="string">&lt;/span&gt;</span></span><br><span class="line">     &#123;<span class="string">%</span> <span class="string">if</span> <span class="string">theme.post_meta.item_text</span> <span class="string">%</span>&#125;</span><br><span class="line">       <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-text&quot;&gt;&#123;&#123;</span> <span class="string">__(&#x27;post.modified&#x27;)</span> <span class="string">&#125;&#125;&amp;#58;&lt;/span&gt;</span></span><br><span class="line">     &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line">     <span class="string">&lt;time</span> <span class="string">title=&quot;&#123;&#123;</span> <span class="string">__(&#x27;post.modified&#x27;)</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">itemprop=&quot;dateModified&quot;</span> <span class="string">datetime=&quot;&#123;&#123;</span> <span class="string">moment(post.updated).format()</span> <span class="string">&#125;&#125;&quot;&gt;</span></span><br><span class="line">       &#123;&#123; <span class="string">date(post.updated</span>, <span class="string">config.date_format)</span> &#125;&#125;</span><br><span class="line">     <span class="string">&lt;/time&gt;</span></span><br><span class="line">   &#123;<span class="string">%</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"> <span class="string">&lt;/span&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置文章展示项 <code>themes\next\_config.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line">  <span class="attr">item_text:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">created_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">updated_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>配置展示的名称 <code>themes\next\languages\zh-Hans.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line">  <span class="attr">created:</span> <span class="string">创建于</span></span><br><span class="line">  <span class="attr">modified:</span> <span class="string">更新于</span></span><br><span class="line">  <span class="attr">sticky:</span> <span class="string">置顶</span></span><br><span class="line">  <span class="attr">posted:</span> <span class="string">发表于</span></span><br></pre></td></tr></table></figure>
+
+<p>参考链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ae3a0666e998">hexo 添加文章更新时间</a></li>
+</ul>
+<h3 id="修改文章-URL-生成方式"><a href="#修改文章-URL-生成方式" class="headerlink" title="修改文章 URL 生成方式"></a>修改文章 URL 生成方式</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml 文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:url_path/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="个人博客绑定域名配置"><a href="#个人博客绑定域名配置" class="headerlink" title="个人博客绑定域名配置"></a>个人博客绑定域名配置</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Wonz5130/article/details/82828761">Hexo 个人博客绑定域名配置</a></li>
+</ul>
+<h3 id="博客评论配置"><a href="#博客评论配置" class="headerlink" title="博客评论配置"></a>博客评论配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># themes\next\layout\_partials\comments.swig</span></span><br><span class="line">&#123;<span class="string">%</span> <span class="string">elseif</span> <span class="string">theme.gitalk.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;div</span> <span class="string">class=&quot;comments&quot;</span> <span class="string">id=&quot;comments&quot;&gt;</span></span><br><span class="line">      <span class="string">&lt;div</span> <span class="string">id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;</span></span><br><span class="line">  <span class="string">&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">ClientID:</span> <span class="string">xxxxx</span></span><br><span class="line">  <span class="attr">ClientSecret:</span> <span class="string">xxxxxx</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">fansichao.github.io</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">fansichao</span></span><br><span class="line">  <span class="attr">adminUser:</span> <span class="string">fansichao</span></span><br><span class="line">  <span class="attr">IdPrefix:</span></span><br><span class="line">  <span class="attr">labels:</span> <span class="string">comments</span></span><br><span class="line">  <span class="attr">perPage:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">pagerDirection:</span> <span class="string">last</span></span><br><span class="line">  <span class="attr">createIssueManually:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">distractionFreeMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">enableHotKey:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>配置详见 <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">Gittalk-github 参考</a></p>
+<h3 id="设置博客置顶"><a href="#设置博客置顶" class="headerlink" title="设置博客置顶"></a>设置博客置顶</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章中配置 top: true 即可</span></span><br><span class="line">top: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置私密博客-hexo-hide-posts"><a href="#配置私密博客-hexo-hide-posts" class="headerlink" title="配置私密博客 hexo-hide-posts"></a>配置私密博客 hexo-hide-posts</h3><p>效果：博客在首页会被隐藏，实际通过链接仍可以访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1：_config.yml 配置</span></span><br><span class="line"><span class="comment"># 隐藏文章 hexo-hide-posts</span></span><br><span class="line">hide_posts:</span><br><span class="line">  <span class="comment"># 可以改成其他你喜欢的名字</span></span><br><span class="line">  filter: hidden</span><br><span class="line">  <span class="comment"># 指定你想要传递隐藏文章的 generator，比如让所有隐藏文章在存档页面可见</span></span><br><span class="line">  <span class="comment"># 常见的 generators 有：index, tag, category, archive, sitemap, feed, etc.</span></span><br><span class="line">  public_generators: []</span><br><span class="line">  <span class="comment"># 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录</span></span><br><span class="line">  noindex: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2：博客配置</span></span><br><span class="line">hidden: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看隐藏的文章列表</span></span><br><span class="line">hexo hidden:list</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/printempw/hexo-hide-posts/blob/master/README_ZH.md">hexo-hide-posts</a></p>
+<h3 id="配置-看板娘"><a href="#配置-看板娘" class="headerlink" title="配置 看板娘"></a>配置 看板娘</h3><p><a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d">看板娘 hexo-helper-live2d</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">华丽的看板娘 live2d-widget</a></p>
+<h3 id="配置-hexo-related-popular-posts"><a href="#配置-hexo-related-popular-posts" class="headerlink" title="配置 hexo-related-popular-posts"></a>配置 hexo-related-popular-posts</h3><p>生成到相关帖子或热门帖子的链接列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- hexo-related-popular-posts --&gt;</span><br><span class="line">&#123;% if not is_index %&#125;</span><br><span class="line">  &lt;h3&gt;相关文章&lt;/h3&gt;</span><br><span class="line">  &#123;&#123;</span><br><span class="line">    popular_posts(&#123; maxCount: 10 , ulClass: &#x27;popular-posts&#x27; , PPMixingRate: 0.0 ,</span><br><span class="line">      isImage: false, isDate: false, isExcerpt: false&#125; , post)</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">https://github.com/tea3/hexo-related-popular-posts/issues/4</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a></p>
+<h3 id="hexo-easy-tags-plugin"><a href="#hexo-easy-tags-plugin" class="headerlink" title="hexo-easy-tags-plugin"></a>hexo-easy-tags-plugin</h3><p>支持 标签的大小写、空格、下划线等统一<br><a target="_blank" rel="noopener" href="https://github.com/dailyrandomphoto/hexo-easy-tags-plugin">hexo-easy-tags-plugin</a></p>
+<h3 id="hexo-permalink-pinyin"><a href="#hexo-permalink-pinyin" class="headerlink" title="hexo-permalink-pinyin"></a>hexo-permalink-pinyin</h3><p>可将中文标题转换为音译的永久链接。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/viko16/hexo-permalink-pinyin">hexo-permalink-pinyin</a></p>
+<h3 id="hexo-notify"><a href="#hexo-notify" class="headerlink" title="hexo-notify"></a>hexo-notify</h3><p>Hexo 的通知插件。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-notify">hexo-notify</a></p>
+<h3 id="hexo-seo-link-visualizer"><a href="#hexo-seo-link-visualizer" class="headerlink" title="hexo-seo-link-visualizer"></a>hexo-seo-link-visualizer</h3><p>TODO 未成功</p>
+<p>分析链接并可视化 Hexo 的站点结构。<br><a target="_blank" rel="noopener" href="https://github.com/tea3/hexo-seo-link-visualizer">hexo-seo-link-visualizer</a></p>
+<h3 id="hexo-encrypt"><a href="#hexo-encrypt" class="headerlink" title="hexo-encrypt"></a>hexo-encrypt</h3><p>文章加密</p>
+<p>TODO 可用, 但是未显示加密页面</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/edolphin-ydf/hexo-encrypt">hexo-encrypt</a></p>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><p>适合做笔记的博客主题</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wujun234.github.io/">适合做笔记本的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://yelog.org/2020/06/13/Docker-summary/">类似印象笔记的博客</a></li>
+<li>[很好的文章展示博客](</li>
+</ul>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/Tools/NodeJs/cmd.md/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  CMD - 常用命令
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/Tools/Graph/neo4j-load.md/">
+                Neo4j-数据导入
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			el: '#vcomments',
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			path: window.location.pathname,
+			avatar: 'retro',
+			highlight: false,
+      recordIP: true,
+      enableQQ: true,
+			requiredFields: ['nick','mail']
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">fansichao</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

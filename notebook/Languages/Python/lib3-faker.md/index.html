@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Faker-技术文档 | 
+	 
+	NoteBook
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="Faker是一个Python包，可以为您生成虚假数据。无论您是需要引导数据库，创建外观漂亮的XML文档，填写持久性来对其进行压力测试，还是匿名化从生产服务中获取的数据，Faker都适合您。" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "http://localhost:4000/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "fansichao.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">NoteBook</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Algorithm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Algorithm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Languages
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Go
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-env-config.md/">
+										go-env-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-info.md/">
+										go-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-apache.md/">
+										linux-apache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-bashshell.md/">
+										linux-bashshell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-centos8.md/">
+										linux-centos8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-test.md/">
+										linux-cmdn-test
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-tools.md/">
+										linux-cmdn-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ftp.md/">
+										linux-ftp
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-function.md/">
+										linux-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-https-cert.md/">
+										linux-https-cert
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-locale.md/">
+										linux-locale
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-network.md/">
+										linux-network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-nfs.md/">
+										linux-nfs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ntpd.md/">
+										linux-ntpd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-pip.md/">
+										linux-pip
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-raid.md/">
+										linux-raid
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-restart-scripts.md/">
+										linux-restart-scripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ssh.md/">
+										linux-ssh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-svn.md/">
+										linux-svn
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-term-info.md/">
+										linux-term-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-trash.md/">
+										linux-trash
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-using-cmd.md/">
+										linux-using-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-virtualenvwarapper.md/">
+										linux-virtualenvwarapper
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-yum.md/">
+										linux-yum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/%E8%B6%A3%E5%91%B3%E5%91%BD%E4%BB%A4.md/">
+										趣味命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-base-know.md/">
+										learn1-base-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-class.md/">
+										learn1-class
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-data-type.md/">
+										learn1-data-type
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-func.md/">
+										learn1-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-info.md/">
+										learn1-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-install.md/">
+										learn1-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-knowledge.md/">
+										learn1-knowledge
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-module.md/">
+										learn1-module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-runoob.md/">
+										learn1-runoob
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-try-except.md/">
+										learn1-try-except
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-asyc-code.md/">
+										learn2-asyc-code
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-base-principle.md/">
+										learn2-base-principle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-decorator.md/">
+										learn2-decorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-design-mode.md/">
+										learn2-design-mode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-garbage-collection.md/">
+										learn2-garbage-collection
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-generators.md/">
+										learn2-generators
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-magic-func.md/">
+										learn2-magic-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tips.md/">
+										learn2-optimization-tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tools.md/">
+										learn2-optimization-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-process.md/">
+										learn2-process
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-know.md/">
+										learn5-algorithm-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-topic.md/">
+										learn5-algorithm-topic
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-data-structure.md/">
+										learn5-data-structure
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-code-format.md/">
+										learn9-code-format
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-diff-py3.md/">
+										learn9-py2-diff-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-to-py3.md/">
+										learn9-py2-to-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-scripts-read-conf.md/">
+										learn9-scripts-read-conf
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-terms.md/">
+										learn9-terms
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-utils.md/">
+										learn9-utils
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-logging.md/">
+										lib-logging
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-os.md/">
+										lib-os
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-re.md/">
+										lib-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-sys.md/">
+										lib-sys
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-time.md/">
+										lib-time
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-click.md/">
+										lib3-click
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-dask.md/">
+										lib3-dask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/Languages/Python/lib3-faker.md/">
+										lib3-faker
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-flask.md/">
+										lib3-flask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-ipython.md/">
+										lib3-ipython
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-jieba.md/">
+										lib3-jieba
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-nosetests.md/">
+										lib3-nosetests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-pandas.md/">
+										lib3-pandas
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-re.md/">
+										lib3-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-selenium.md/">
+										lib3-selenium
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-sqlalchemy.md/">
+										lib3-sqlalchemy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-z-packages.md/">
+										lib3-z-packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Web
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/ReadMe.md/">
+										ReadMe
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/bootstrap.md/">
+										bootstrap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-angularJs.md/">
+										web-angularJs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-echarts.md/">
+										web-echarts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-gis.md/">
+										web-gis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-html.md/">
+										web-html
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-http-requests.md/">
+										web-http-requests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-javascripts.md/">
+										web-javascripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Projects
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GUI编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/GUI.md/">
+										GUI
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课堂抽签助手
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/database-4bcf258d288d59d13e33eafc4692e706.md/">
+										database-4bcf258d288d59d13e33eafc4692e706
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Stocks
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/01-%E9%80%89%E8%82%A1%E6%80%9D%E8%B7%AF.md/">
+										01-选股思路
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/TODO.md/">
+										TODO
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tools
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										A-Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/001-%E6%9C%AF%E8%AF%AD%E7%9F%A5%E8%AF%86.md/">
+										001-术语知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/002-%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95.md/">
+										002-知识清单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/01-IT%E6%9C%AF%E8%AF%AD.md/">
+										01-IT术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md/">
+										03-数据结构
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/04-%E7%AE%97%E6%B3%95.md/">
+										04-算法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/A-hot-github.md/">
+										A-hot-github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/B04-%E8%B6%A3%E5%91%B3%E7%AE%97%E6%B3%95%E9%A2%98.md/">
+										B04-趣味算法题
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-chain.md/">
+										datastruct-chain
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-index.md/">
+										datastruct-index
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/info.md/">
+										info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips-cmd.md/">
+										tips-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips001.md/">
+										tips001
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/%E7%AD%96%E7%95%A5%E7%9F%A5%E8%AF%86.md/">
+										策略知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Anaconda
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/issue.md/">
+										issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Centos8
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Centos8/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Chrome
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/Win-Chrome.md/">
+										Win-Chrome
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/module.md/">
+										module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Crawl
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-anti-spider.md/">
+										crawl-anti-spider
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-auth.md/">
+										crawl-auth
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-download-progress-bar.md/">
+										crawl-download-progress-bar
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-framework-diff.md/">
+										crawl-framework-diff
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-info.md/">
+										crawl-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-lawer.md/">
+										crawl-lawer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-pyquery.md/">
+										crawl-pyquery
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-re.md/">
+										crawl-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-resumable-large-files.md/">
+										crawl-resumable-large-files
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-xpath.md/">
+										crawl-xpath
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Databases
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-db2.md/">
+										db-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-mysql.md/">
+										db-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-config.md/">
+										db-oracle-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-optimization.md/">
+										db-oracle-optimization
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle.md/">
+										db-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Django
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/example.md/">
+										example
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/function.md/">
+										function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins-edit.md/">
+										plugins-edit
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cdh.md/">
+										docker-cdh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cmd.md/">
+										docker-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-compose.md/">
+										docker-compose
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-db2.md/">
+										docker-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-es.md/">
+										docker-es
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-function.md/">
+										docker-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-info.md/">
+										docker-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-install.md/">
+										docker-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-issue.md/">
+										docker-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-mysql.md/">
+										docker-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-neo4j.md/">
+										docker-neo4j
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-oracle.md/">
+										docker-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-redis.md/">
+										docker-redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ElasticSearch
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-cmd.md/">
+										es-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-config.md/">
+										es-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-function.md/">
+										es-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-install.md/">
+										es-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-issue.md/">
+										es-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Git
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/git.md/">
+										git
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Github
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/github.md/">
+										github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Graph
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/gremlin-cmd.md/">
+										gremlin-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-cmd.md/">
+										hugegraph-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-info.md/">
+										hugegraph-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-install.md/">
+										hugegraph-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-issue.md/">
+										hugegraph-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-load.md/">
+										hugegraph-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-cmd.md/">
+										neo4j-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-config.md/">
+										neo4j-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-function.md/">
+										neo4j-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-info.md/">
+										neo4j-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-install.md/">
+										neo4j-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-load.md/">
+										neo4j-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Hexo/hexo.md/">
+										hexo
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										NodeJs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Pycharm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/Win-Pycharm.md/">
+										Win-Pycharm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/crack.md/">
+										crack
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Server
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/CentOS8.md/">
+										CentOS8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/Win10.md/">
+										Win10
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-VNC.md/">
+										Win-VNC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-Virtualbox.md/">
+										Win-Virtualbox
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/code-line-statis.md/">
+										code-line-statis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/drools-rule-engine.md/">
+										drools-rule-engine
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/gitbook.md/">
+										gitbook
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/sbt.md/">
+										sbt
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vscode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/Win-VScode.md/">
+										Win-VScode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ml
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										docs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-01%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97.md/">
+										ml-01学习指南
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-02%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD.md/">
+										ml-02相关术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-03%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B.md/">
+										ml-03发展历程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-04%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5.md/">
+										ml-04代码实践
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										google-course
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/01%E5%BF%AB%E9%80%9F%E9%93%BE%E6%8E%A5.md/">
+										01快速链接
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/02%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5.md/">
+										02机器学习概念
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/03%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B.md/">
+										03机器学习工程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/04%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E5%9C%A8%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E9%87%8C%E7%9A%84%E5%BA%94%E7%94%A8.md/">
+										04机器学习系统在现实世界里的应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/resources.md/">
+										resources
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Faker-技术文档
+</h1>
+<div class="article-meta">
+	
+	<span>fansichao</span>
+	<span>2021-10-23 16:16:35</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/module/">module</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/module/">module</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装<strong>faker</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install Faker</span><br><span class="line">(env) [scfan@WOM ~]$ faker -h</span><br></pre></td></tr></table></figure>
+
+<p>faker 官方文档链接:<a target="_blank" rel="noopener" href="https://faker.readthedocs.io/en/latest/index.html">https://faker.readthedocs.io/en/latest/index.html)</a><br>faker 函数列表参考:<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6bd6869631d9">https://www.jianshu.com/p/6bd6869631d9</a></p>
+<h2 id="官网函数样例"><a href="#官网函数样例" class="headerlink" title="官网函数样例"></a>官网函数样例</h2><p>官网的一些函数样例</p>
+<h2 id="Faker-常用函数"><a href="#Faker-常用函数" class="headerlink" title="Faker 常用函数"></a>Faker 常用函数</h2><p>导入模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Factory</span><br><span class="line">fake = Factory().create(<span class="string">&#x27;zh_CN&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>常用函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实例化对象</span></span><br><span class="line">In [<span class="number">2</span>]: <span class="keyword">from</span> faker <span class="keyword">import</span> Factory</span><br><span class="line">In [<span class="number">3</span>]: fake = Factory().create(<span class="string">&#x27;zh_CN&#x27;</span>)</span><br><span class="line"><span class="comment"># 身份证号码</span></span><br><span class="line">In [<span class="number">6</span>]: <span class="built_in">print</span>(fake.ssn())</span><br><span class="line">41012219881129736X</span><br><span class="line"><span class="comment"># 姓名 &amp; 女性姓名 &amp; 男性姓名</span></span><br><span class="line">In [<span class="number">7</span>]: <span class="built_in">print</span> fake.name(), fake.name_female(), fake.name_male()</span><br><span class="line">帅秀珍 须金凤 姬健</span><br><span class="line"></span><br><span class="line"><span class="comment"># 国家 &amp; 国家代码</span></span><br><span class="line">In [<span class="number">41</span>]: <span class="built_in">print</span> fake.country() ,fake.country_code()</span><br><span class="line">匈牙利 US</span><br><span class="line"><span class="comment"># 省份</span></span><br><span class="line">In [<span class="number">15</span>]: <span class="built_in">print</span>(fake.province())</span><br><span class="line">辽宁省</span><br><span class="line"><span class="comment"># 城市 &amp; 城市名称 &amp; 城市后缀</span></span><br><span class="line">In [<span class="number">42</span>]: <span class="built_in">print</span> fake.city(), fake.city_name(), fake.city_suffix()</span><br><span class="line">张家港市 深圳 县</span><br><span class="line"><span class="comment"># 电话号码 &amp; 电话号码前缀</span></span><br><span class="line">In [<span class="number">47</span>]: <span class="built_in">print</span> fake.phone_number(), fake.phonenumber_prefix()</span><br><span class="line"><span class="number">18074673371</span> <span class="number">157</span></span><br><span class="line"><span class="comment"># Email</span></span><br><span class="line">In [<span class="number">14</span>]: <span class="built_in">print</span>(fake.email())</span><br><span class="line">tao82@liao.cn</span><br><span class="line"><span class="comment"># 公司名称</span></span><br><span class="line">In [<span class="number">72</span>]: <span class="built_in">print</span> fake.company()</span><br><span class="line">中建创业传媒有限公司</span><br><span class="line"><span class="comment"># 地址</span></span><br><span class="line">In [<span class="number">94</span>]: <span class="built_in">print</span> fake.address()</span><br><span class="line">云南省峰县房山正街b座 <span class="number">190919</span></span><br><span class="line"><span class="comment"># 街道地址 &amp; 街道名称 &amp; 街道后缀</span></span><br><span class="line">In [<span class="number">93</span>]: <span class="built_in">print</span> fake.street_address(), fake.street_name(), fake.street_suffix()</span><br><span class="line">经路T座 合山路 路</span><br></pre></td></tr></table></figure>
+
+<h2 id="Faker-封装函数"><a href="#Faker-封装函数" class="headerlink" title="Faker 封装函数"></a>Faker 封装函数</h2><p>如下主要说明一些常用/基础函数(已封装)</p>
+<ol>
+<li>factory_choice_generator 随机生成 list 中一项</li>
+<li>Gen_length_Num 随机生成指定长度数字</li>
+<li>hanzi2pinyin 汉字转拼音</li>
+<li>fake_random_sentence 传入 list，生成随机组合的 list</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> random, string</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pypinyin <span class="keyword">import</span> pinyin, lazy_pinyin</span><br><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Factory</span><br><span class="line">fake = Factory().create(<span class="string">&#x27;zh_CN&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factory_choice_generator</span>(<span class="params">values</span>):</span></span><br><span class="line">    <span class="string">u&quot;&quot;&quot;从list中随机选择一个输出</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param values:列表</span></span><br><span class="line"><span class="string">    :return:随机取一返回</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    my_list = <span class="built_in">list</span>(values)</span><br><span class="line">    <span class="keyword">return</span> random.choice(my_list)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Gen_length_Num</span>(<span class="params">length</span>):</span></span><br><span class="line">    <span class="string">u&quot;&quot;&quot;输入指定长度，生成长度固定的随机数，且开头不为0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param length:长度</span></span><br><span class="line"><span class="string">    :return:长度固定的随机数，且开头不为0</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Gen_length_Num_1</span>(<span class="params">length</span>):</span></span><br><span class="line">        <span class="string">u&quot;生成流水号 - 纯数字&quot;</span></span><br><span class="line">        <span class="comment"># 随机出数字的个数</span></span><br><span class="line">        numOfNum = length</span><br><span class="line">        <span class="comment"># 选中numOfNum个数字</span></span><br><span class="line">        slcNum = [random.choice(string.digits) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(numOfNum)]</span><br><span class="line">        <span class="comment"># 打乱这个组合</span></span><br><span class="line">        slcChar = slcNum</span><br><span class="line">        random.shuffle(slcChar)</span><br><span class="line">        <span class="comment"># 生成密码</span></span><br><span class="line">        genPwd = <span class="string">&#x27;&#x27;</span>.join([i <span class="keyword">for</span> i <span class="keyword">in</span> slcChar])</span><br><span class="line">        <span class="keyword">return</span> genPwd</span><br><span class="line"></span><br><span class="line">    genPwd = Gen_length_Num_1(length)</span><br><span class="line">    <span class="keyword">while</span> genPwd[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>:  <span class="comment"># 加入循环，避免生成 0 开头的数据。</span></span><br><span class="line">        genPwd = Gen_length_Num_1(length)</span><br><span class="line">    <span class="keyword">return</span> genPwd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanzi2pinyin</span>(<span class="params">string, split2=<span class="string">&quot;&quot;</span></span>):</span></span><br><span class="line">    <span class="string">u&quot;汉字转拼音&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(string, (unicode)):</span><br><span class="line">        string = unicode(string)</span><br><span class="line">    pinyin_li = lazy_pinyin(string)  <span class="comment"># 必须为 Unicode</span></span><br><span class="line">    pinyin = <span class="string">u&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> pinyin_li:</span><br><span class="line">        pinyin += i</span><br><span class="line">    <span class="keyword">return</span> pinyin</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fake_random_sentence</span>(<span class="params">ext_word_list=<span class="literal">None</span></span>):</span></span><br><span class="line">    <span class="string">u&quot; 传入list随机组合生成列表 &quot;</span></span><br><span class="line">    my_word_list = [</span><br><span class="line">    <span class="string">&#x27;danish&#x27;</span>,<span class="string">&#x27;cheesecake&#x27;</span>,<span class="string">&#x27;sugar&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Lollipop&#x27;</span>,<span class="string">&#x27;wafer&#x27;</span>,<span class="string">&#x27;Gummies&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;sesame&#x27;</span>,<span class="string">&#x27;Jelly&#x27;</span>,<span class="string">&#x27;beans&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;pie&#x27;</span>,<span class="string">&#x27;bar&#x27;</span>,<span class="string">&#x27;Ice&#x27;</span>,<span class="string">&#x27;oat&#x27;</span> ]</span><br><span class="line">    fake.sentence()</span><br><span class="line">    <span class="comment"># &#x27;Expedita at beatae voluptatibus nulla omnis.&#x27;</span></span><br><span class="line">    sentence = fake.sentence(ext_word_list=my_word_list)</span><br><span class="line">    <span class="comment"># &#x27;Oat beans oat Lollipop bar cheesecake.&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> sentence</span><br></pre></td></tr></table></figure>
+
+<h2 id="Faker-函数效果一览"><a href="#Faker-函数效果一览" class="headerlink" title="Faker 函数效果一览"></a>Faker 函数效果一览</h2><p>生成<strong>函数样例</strong>的代码程序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding=utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Factory</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fake = Factory().create(<span class="string">&#x27;zh_CN&#x27;</span>)</span><br><span class="line">li =  <span class="built_in">dir</span>(fake)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_dir_run</span>():</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;somefile.txt&#x27;</span>, <span class="string">&#x27;wt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> li:</span><br><span class="line">            a = <span class="literal">None</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                cmd = <span class="string">&quot;fake.&quot;</span>+i+<span class="string">&quot;()&quot;</span></span><br><span class="line">                a = <span class="built_in">eval</span>(cmd)</span><br><span class="line">                <span class="built_in">print</span> cmd</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                a = <span class="literal">None</span></span><br><span class="line">            <span class="keyword">if</span> a:</span><br><span class="line">                message = <span class="string">&quot;&#123;0&#125;   # &#123;1&#125; \n&quot;</span>.<span class="built_in">format</span>(cmd,a)</span><br><span class="line">                f.write(message)</span><br><span class="line">get_dir_run()</span><br></pre></td></tr></table></figure>
+
+<p>Python-Faker 详细<strong>函数样例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">fake.__class__()   <span class="comment"># &lt;faker.generator.Generator object at 0x7ff780c23e10&gt;</span></span><br><span class="line">fake.__hash__()   <span class="comment"># 8793824177497</span></span><br><span class="line">fake.__repr__()   <span class="comment"># &lt;faker.generator.Generator object at 0x7ff78c42d590&gt;</span></span><br><span class="line">fake.__sizeof__()   <span class="comment"># 32</span></span><br><span class="line">fake.__str__()   <span class="comment"># &lt;faker.generator.Generator object at 0x7ff78c42d590&gt;</span></span><br><span class="line">fake.__subclasshook__()   <span class="comment"># NotImplemented</span></span><br><span class="line">fake.address()   <span class="comment"># 云南省荣县白云延路y座 648847</span></span><br><span class="line">fake.am_pm()   <span class="comment"># AM</span></span><br><span class="line">fake.ascii_company_email()   <span class="comment"># zhangchao@mao.com</span></span><br><span class="line">fake.ascii_email()   <span class="comment"># yongzheng@hotmail.com</span></span><br><span class="line">fake.ascii_free_email()   <span class="comment"># gongfang@hotmail.com</span></span><br><span class="line">fake.ascii_safe_email()   <span class="comment"># tzhao@example.net</span></span><br><span class="line">fake.boolean()   <span class="comment"># True</span></span><br><span class="line">fake.bothify()   <span class="comment"># 10 Nq</span></span><br><span class="line">fake.bs()   <span class="comment"># productize front-end supply-chains</span></span><br><span class="line">fake.building_number()   <span class="comment"># E座</span></span><br><span class="line">fake.catch_phrase()   <span class="comment"># Visionary logistical initiative</span></span><br><span class="line">fake.century()   <span class="comment"># II</span></span><br><span class="line">fake.chrome()   <span class="comment"># Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_8_9) AppleWebKit/5352 (KHTML, like Gecko) Chrome/14.0.828.0 Safari/5352</span></span><br><span class="line">fake.city()   <span class="comment"># 成都市</span></span><br><span class="line">fake.city_name()   <span class="comment"># 宁德</span></span><br><span class="line">fake.city_suffix()   <span class="comment"># 市</span></span><br><span class="line">fake.color_name()   <span class="comment"># DarkOliveGreen</span></span><br><span class="line">fake.company()   <span class="comment"># 网新恒天信息有限公司</span></span><br><span class="line">fake.company_email()   <span class="comment"># xiongchao@cai.com</span></span><br><span class="line">fake.company_prefix()   <span class="comment"># 维旺明</span></span><br><span class="line">fake.company_suffix()   <span class="comment"># 信息有限公司</span></span><br><span class="line">fake.country()   <span class="comment"># 阿拉伯联合酋长国</span></span><br><span class="line">fake.country_code()   <span class="comment"># ES</span></span><br><span class="line">fake.credit_card_expire()   <span class="comment"># 06/22</span></span><br><span class="line">fake.credit_card_full()   <span class="comment"># JCB 16 digit</span></span><br><span class="line">柳 冉</span><br><span class="line"><span class="number">3096337563919187</span> 07/<span class="number">23</span></span><br><span class="line">CVC: <span class="number">610</span></span><br><span class="line"></span><br><span class="line">fake.credit_card_number()   <span class="comment"># 6011172478902092</span></span><br><span class="line">fake.credit_card_provider()   <span class="comment"># Voyager</span></span><br><span class="line">fake.credit_card_security_code()   <span class="comment"># 0753</span></span><br><span class="line">fake.cryptocurrency_code()   <span class="comment"># XDN</span></span><br><span class="line">fake.currency_code()   <span class="comment"># TWD</span></span><br><span class="line">fake.date()   <span class="comment"># 1973-07-31</span></span><br><span class="line">fake.date_between()   <span class="comment"># 2008-01-12</span></span><br><span class="line">fake.date_between_dates()   <span class="comment"># 2017-12-06</span></span><br><span class="line">fake.date_object()   <span class="comment"># 1972-08-01</span></span><br><span class="line">fake.date_this_century()   <span class="comment"># 2008-09-16</span></span><br><span class="line">fake.date_this_decade()   <span class="comment"># 2013-12-26</span></span><br><span class="line">fake.date_this_month()   <span class="comment"># 2017-12-01</span></span><br><span class="line">fake.date_this_year()   <span class="comment"># 2017-09-19</span></span><br><span class="line">fake.date_time()   <span class="comment"># 2016-08-05 03:23:26</span></span><br><span class="line">fake.date_time_ad()   <span class="comment"># 0258-04-07 20:48:11</span></span><br><span class="line">fake.date_time_between()   <span class="comment"># 2006-06-09 01:28:22</span></span><br><span class="line">fake.date_time_between_dates()   <span class="comment"># 2017-12-06 10:47:23</span></span><br><span class="line">fake.date_time_this_century()   <span class="comment"># 2001-11-30 13:58:47</span></span><br><span class="line">fake.date_time_this_decade()   <span class="comment"># 2012-08-25 18:04:34</span></span><br><span class="line">fake.date_time_this_month()   <span class="comment"># 2017-12-04 11:24:57</span></span><br><span class="line">fake.date_time_this_year()   <span class="comment"># 2017-06-02 08:50:48</span></span><br><span class="line">fake.day_of_month()   <span class="comment"># 15</span></span><br><span class="line">fake.day_of_week()   <span class="comment"># Thursday</span></span><br><span class="line">fake.district()   <span class="comment"># 清河</span></span><br><span class="line">fake.domain_name()   <span class="comment"># lu.com</span></span><br><span class="line">fake.domain_word()   <span class="comment"># zhao</span></span><br><span class="line">fake.ean()   <span class="comment"># 5954186746588</span></span><br><span class="line">fake.ean13()   <span class="comment"># 9672235528133</span></span><br><span class="line">fake.ean8()   <span class="comment"># 06171292</span></span><br><span class="line">fake.email()   <span class="comment"># zhengtao@gmail.com</span></span><br><span class="line">fake.file_extension()   <span class="comment"># docx</span></span><br><span class="line">fake.file_name()   <span class="comment"># 品牌.doc</span></span><br><span class="line">fake.file_path()   <span class="comment"># /关于/推荐.pptx</span></span><br><span class="line">fake.firefox()   <span class="comment"># Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_7; rv:1.9.4.20) Gecko/2011-01-16 07:23:04 Firefox/5.0</span></span><br><span class="line">fake.first_name()   <span class="comment"># 玉珍</span></span><br><span class="line">fake.first_name_female()   <span class="comment"># 彬</span></span><br><span class="line">fake.first_name_male()   <span class="comment"># 莹</span></span><br><span class="line">fake.first_romanized_name()   <span class="comment"># Fang</span></span><br><span class="line">fake.free_email()   <span class="comment"># bwen@hotmail.com</span></span><br><span class="line">fake.free_email_domain()   <span class="comment"># yahoo.com</span></span><br><span class="line">fake.future_date()   <span class="comment"># 2017-12-13</span></span><br><span class="line">fake.future_datetime()   <span class="comment"># 2017-12-19 00:29:14</span></span><br><span class="line">fake.geo_coordinate()   <span class="comment"># -172.459902</span></span><br><span class="line">fake.hex_color()   <span class="comment"># #b4e7a9</span></span><br><span class="line">fake.image_url()   <span class="comment"># https://dummyimage.com/517x471</span></span><br><span class="line">fake.internet_explorer()   <span class="comment"># Mozilla/5.0 (compatible; MSIE 6.0; Windows CE; Trident/4.0)</span></span><br><span class="line">fake.ipv4()   <span class="comment"># 6.155.240.182</span></span><br><span class="line">fake.ipv6()   <span class="comment"># 6903:92c5:9e08:5f0c:5fda:b85e:97ec:b885</span></span><br><span class="line">fake.isbn10()   <span class="comment"># 0-02-210237-X</span></span><br><span class="line">fake.isbn13()   <span class="comment"># 978-1-79735-105-6</span></span><br><span class="line">fake.iso8601()   <span class="comment"># 1986-08-09T07:49:59</span></span><br><span class="line">fake.job()   <span class="comment"># Designer, graphic</span></span><br><span class="line">fake.language_code()   <span class="comment"># bs</span></span><br><span class="line">fake.last_name()   <span class="comment"># 逯</span></span><br><span class="line">fake.last_name_female()   <span class="comment"># 申</span></span><br><span class="line">fake.last_name_male()   <span class="comment"># 查</span></span><br><span class="line">fake.last_romanized_name()   <span class="comment"># Dong</span></span><br><span class="line">fake.latitude()   <span class="comment"># 10.6496555</span></span><br><span class="line">fake.lexify()   <span class="comment"># PEdF</span></span><br><span class="line">fake.license_plate()   <span class="comment"># 4-2558G</span></span><br><span class="line">fake.linux_platform_token()   <span class="comment"># X11; Linux i686</span></span><br><span class="line">fake.linux_processor()   <span class="comment"># i686</span></span><br><span class="line">fake.locale()   <span class="comment"># ka_GE</span></span><br><span class="line">fake.longitude()   <span class="comment"># -45.494435</span></span><br><span class="line">fake.mac_address()   <span class="comment"># 70:0a:bf:0f:77:47</span></span><br><span class="line">fake.mac_platform_token()   <span class="comment"># Macintosh; PPC Mac OS X 10_7_7</span></span><br><span class="line">fake.mac_processor()   <span class="comment"># Intel</span></span><br><span class="line">fake.md5()   <span class="comment"># 71f8c16a5f87000130b7df65611c364a</span></span><br><span class="line">fake.mime_type()   <span class="comment"># message/partial</span></span><br><span class="line">fake.month()   <span class="comment"># 11</span></span><br><span class="line">fake.month_name()   <span class="comment"># February</span></span><br><span class="line">fake.msisdn()   <span class="comment"># 6138497580204</span></span><br><span class="line">fake.name()   <span class="comment"># 离莹</span></span><br><span class="line">fake.name_female()   <span class="comment"># 万成</span></span><br><span class="line">fake.name_male()   <span class="comment"># 况丽华</span></span><br><span class="line">fake.null_boolean()   <span class="comment"># True</span></span><br><span class="line">fake.numerify()   <span class="comment"># 877</span></span><br><span class="line">fake.opera()   <span class="comment"># Opera/9.94.(Windows 95; nl-BE) Presto/2.9.171 Version/11.00</span></span><br><span class="line">fake.paragraph()   <span class="comment"># 系列位置由于作品什么特别研究.精华网络或者搜索.主题我们类别这个增加.</span></span><br><span class="line">fake.paragraphs()   <span class="comment"># [u&#x27;\u516c\u53f8\u9700\u8981\u65f6\u95f4\u73af\u5883.\u7684\u4eba\u63d0\u4f9b\u79ef\u5206\u5728\u7ebf\u6807\u51c6\u6cd5\u5f8b\u6211\u4eec\u6ce8\u610f.&#x27;, u&#x27;\u8c22\u8c22\u57fa\u672c\u4ec0\u4e48\u4e2d\u6587\u540d\u79f0\u7136\u540e\u9996\u9875\u5de5\u5177.\u539f\u56e0\u6ca1\u6709\u9700\u8981\u8ba1\u5212\u5b9e\u73b0\u89c9\u5f97.\u7ed3\u679c\u5f53\u524d\u7814\u7a76\u5927\u5bb6.&#x27;, u&#x27;\u7684\u8bdd\u90fd\u662f\u4e4b\u95f4\u4e3a\u4ec0\u672c\u7ad9\u89c4\u5b9a\u5927\u5b66.\u5206\u6790\u62e5\u6709\u800c\u4e14\u6587\u4ef6.&#x27;]</span></span><br><span class="line">fake.password()   <span class="comment"># z@YJ7Wcpgv</span></span><br><span class="line">fake.past_date()   <span class="comment"># 2017-11-22</span></span><br><span class="line">fake.past_datetime()   <span class="comment"># 2017-12-03 18:08:05</span></span><br><span class="line">fake.phone_number()   <span class="comment"># 18597001558</span></span><br><span class="line">fake.phonenumber_prefix()   <span class="comment"># 132</span></span><br><span class="line">fake.postcode()   <span class="comment"># 870942</span></span><br><span class="line">fake.profile()   <span class="comment"># &#123;&#x27;website&#x27;: [u&#x27;https://www.hu.net/&#x27;, u&#x27;https://www.zou.cn/&#x27;, u&#x27;https://shen.cn/&#x27;, u&#x27;http://kong.com/&#x27;], &#x27;username&#x27;: u&#x27;wanjing&#x27;, &#x27;name&#x27;: u&#x27;\u79e6\u79c0\u5170&#x27;, &#x27;blood_group&#x27;: &#x27;0+&#x27;, &#x27;residence&#x27;: u&#x27;\u8fbd\u5b81\u7701\u5e06\u53bf\u79c0\u82f1\u516d\u76d8\u6c34\u8857u\u5ea7 436149&#x27;, &#x27;company&#x27;: u&#x27;\u9ec4\u77f3\u91d1\u627f\u4fe1\u606f\u6709\u9650\u516c\u53f8&#x27;, &#x27;address&#x27;: u&#x27;\u897f\u85cf\u81ea\u6cbb\u533a\u51e4\u5170\u53bf\u5c71\u4ead\u94f6\u5ddd\u8857P\u5ea7 346744&#x27;, &#x27;birthdate&#x27;: &#x27;1985-04-28&#x27;, &#x27;sex&#x27;: &#x27;M&#x27;, &#x27;job&#x27;: &#x27;Engineer, mining&#x27;, &#x27;ssn&#x27;: u&#x27;433125195206070070&#x27;, &#x27;current_location&#x27;: (Decimal(&#x27;-15.7126615&#x27;), Decimal(&#x27;-143.411020&#x27;)), &#x27;mail&#x27;: u&#x27;fliang@hotmail.com&#x27;&#125;</span></span><br><span class="line">fake.province()   <span class="comment"># 广西壮族自治区</span></span><br><span class="line">fake.pybool()   <span class="comment"># True</span></span><br><span class="line">fake.pydecimal()   <span class="comment"># 384.433560097</span></span><br><span class="line">fake.pydict()   <span class="comment"># &#123;u&#x27;\u5927\u5bb6&#x27;: u&#x27;https://www.gao.net/categories/categories/index.php&#x27;, u&#x27;\u90a3\u4e48&#x27;: 4623, u&#x27;\u72b6\u6001&#x27;: datetime.datetime(1994, 3, 19, 8, 6, 12), u&#x27;\u80fd\u529b&#x27;: Decimal(&#x27;6.96492&#x27;), u&#x27;\u540c\u65f6&#x27;: u&#x27;JpjrByPDCgnsNDfaNYgd&#x27;, u&#x27;\u5ba2\u6237&#x27;: 3485&#125;</span></span><br><span class="line">fake.pyfloat()   <span class="comment"># -4099208226.9</span></span><br><span class="line">fake.pyint()   <span class="comment"># 3270</span></span><br><span class="line">fake.pyiterable()   <span class="comment"># [-7155.447707, u&#x27;KOQVBTsYxVpaVxpHBXiO&#x27;, u&#x27;https://www.kang.com/index.php&#x27;, u&#x27;jKmLqgUUOEqdXCeTGBID&#x27;, u&#x27;pGVNjKcxmCTQNpdpKbgm&#x27;, -48.1915257969, datetime.datetime(1975, 9, 27, 18, 22, 43)]</span></span><br><span class="line">fake.pylist()   <span class="comment"># [4770, datetime.datetime(1990, 4, 11, 9, 59, 16), 2546, 8087, -612180.919, 2.3246212976]</span></span><br><span class="line">fake.pyset()   <span class="comment"># set([u&#x27;uwFlxgSEwApkViCNpQZk&#x27;, u&#x27;TlijxYEXankqWtWXkHax&#x27;, u&#x27;TPgKtCtIHXIaKxgWMDjo&#x27;, Decimal(&#x27;-72118073288.1&#x27;), u&#x27;LYoqafrVUVggsnWJXKUg&#x27;, Decimal(&#x27;-239813.3099&#x27;), u&#x27;ELLFUOSNKtxYyhtCXPPg&#x27;, 1371])</span></span><br><span class="line">fake.pystr()   <span class="comment"># GdxudJdOCeExecGzFpJg</span></span><br><span class="line">fake.pystruct()   <span class="comment"># ([u&#x27;WTHzKZdDIrwhUfPHrjMb&#x27;, u&#x27;MVXsSqDWyabyceZRSgGr&#x27;, datetime.datetime(1993, 10, 3, 1, 1, 31), u&#x27;sKcZHJgAGVZrCIfIHwMS&#x27;, 7694, u&#x27;wdedDezTMpfOxUQHaVlO&#x27;, u&#x27;iMgUrRzaaYtArWrnxWda&#x27;, u&#x27;tixihvoqNqQVByfEoGsg&#x27;, u&#x27;https://www.qiu.com/search/explore/home.html&#x27;, 898068606944.83], &#123;u&#x27;\u6709\u9650&#x27;: Decimal(&#x27;4.3883198&#x27;), u&#x27;\u8fd9\u4e48&#x27;: u&#x27;UVOyihAmcukcQJcVIOah&#x27;, u&#x27;\u5408\u4f5c&#x27;: 3743, u&#x27;\u4e0d\u540c&#x27;: datetime.datetime(2005, 2, 23, 7, 35, 45), u&#x27;\u63d0\u9ad8&#x27;: datetime.datetime(1987, 2, 10, 2, 28, 44), u&#x27;\u8bc4\u8bba&#x27;: 8874, u&#x27;\u5173\u4e8e&#x27;: u&#x27;apan@wei.net&#x27;, u&#x27;\u7ec4\u7ec7&#x27;: 468, u&#x27;\u60c5\u51b5&#x27;: 6083, u&#x27;\u884c\u4e1a&#x27;: u&#x27;qiang61@long.org&#x27;&#125;, &#123;u&#x27;\u4e13\u4e1a&#x27;: &#123;3: u&#x27;AkBWAoxmmokgNrRogyYk&#x27;, 4: [4596, u&#x27;nJzscDjtYSbEzPdkOkRK&#x27;, 5365], 5: &#123;3: 4605, 4: u&#x27;chao87@wei.com&#x27;, 5: [u&#x27;xia30@lu.cn&#x27;, datetime.datetime(2006, 10, 25, 21, 37, 41)]&#125;&#125;, u&#x27;\u4e2d\u6587&#x27;: &#123;8: [u&#x27;oYYfArTznrMITieKBrdT&#x27;, u&#x27;QoESvZcnaAZFmaQqjrgk&#x27;, u&#x27;afkzJChqTNmwwcUXcTOu&#x27;], 9: &#123;8: u&#x27;ughNWEsmKFFnPReWycbf&#x27;, 9: [-6.41272, -39213.981], 7: u&#x27;RKIcxKTOThQLwaIgVFWe&#x27;&#125;, 7: u&#x27;uIVZuDPnedhnOJVZUzfX&#x27;&#125;, u&#x27;\u8fd8\u662f&#x27;: &#123;9: u&#x27;JqElYMJfaassiofLGvLn&#x27;, 10: [4443, u&#x27;aZgiftVvonSEzCzTddiO&#x27;, u&#x27;shaowei@yan.com&#x27;], 11: &#123;9: 9967, 10: 5143, 11: [u&#x27;usmTtsPWPYtObuYObOpB&#x27;, Decimal(&#x27;-31192.5654601&#x27;)]&#125;&#125;, u&#x27;\u6765\u81ea&#x27;: &#123;1: u&#x27;sIqUyGCneohdHGgznDuU&#x27;, 2: [datetime.datetime(2007, 5, 31, 11, 24, 16), 8321, u&#x27;pfIJmDxwAquYLyxrpuVz&#x27;], 3: &#123;1: u&#x27;gliang@hotmail.com&#x27;, 2: Decimal(&#x27;33965.0&#x27;), 3: [u&#x27;AexgPcuhOIziJhYifZtR&#x27;, datetime.datetime(2003, 3, 24, 22, 28, 43)]&#125;&#125;, u&#x27;\u7cfb\u7edf&#x27;: &#123;4: u&#x27;welRgeLqhOQPGkdkviok&#x27;, 5: [Decimal(&#x27;-46.5&#x27;), u&#x27;hmJxbwRBLukmjHylLojM&#x27;, u&#x27;http://www.mao.cn/search/tag/index.html&#x27;], 6: &#123;4: u&#x27;http://zou.cn/tag/index/&#x27;, 5: u&#x27;uBlLVOtLauDbAMlrpTZM&#x27;, 6: [u&#x27;bqiHwnSArJdlQnvsbKPN&#x27;, u&#x27;RQdmtWPMwiFuaThJrMWm&#x27;]&#125;&#125;, u&#x27;\u6280\u672f&#x27;: &#123;8: 2626, 9: [Decimal(&#x27;4719860282.19&#x27;), Decimal(&#x27;-392046163.17&#x27;), datetime.datetime(2005, 1, 11, 13, 21, 2)], 10: &#123;8: u&#x27;MoUiPqxBcSTrkudFLIza&#x27;, 9: u&#x27;XUQtWQGntEeuayziAnYA&#x27;, 10: [u&#x27;ulhMPZKMdlQzfWdUuYIF&#x27;, datetime.datetime(1994, 7, 25, 9, 15, 28)]&#125;&#125;, u&#x27;\u9009\u62e9&#x27;: &#123;8: &#123;8: [u&#x27;yong58@ren.cn&#x27;, u&#x27;cGFuWyLdFRUzGhTCaFjE&#x27;], 6: 7701, 7: datetime.datetime(2010, 8, 15, 10, 6, 13)&#125;, 6: u&#x27;zengwei@gmail.com&#x27;, 7: [6858, 6403, datetime.datetime(1984, 4, 18, 11, 0, 12)]&#125;, u&#x27;\u4e00\u70b9&#x27;: &#123;0: 6620, 1: [u&#x27;OrTScuyESDqszlQjOlYX&#x27;, u&#x27;hJahyMWdkPLhNOMzrdfy&#x27;, u&#x27;mmZYqEDMYPodgUuICyct&#x27;], 2: &#123;0: -33313798379.385, 1: u&#x27;XRpLoRsRMQIROsBqIHlG&#x27;, 2: [u&#x27;xZozzLqTMwXpfdTpMscc&#x27;, u&#x27;https://www.xia.com/&#x27;]&#125;&#125;, u&#x27;\u7531\u4e8e&#x27;: &#123;2: u&#x27;naguo@qian.com&#x27;, 3: [u&#x27;wTVRQMbwJPUNAKbhAKFs&#x27;, Decimal(&#x27;-679732200.8&#x27;), u&#x27;braeyLsfMvOtsSrgwlxX&#x27;], 4: &#123;2: u&#x27;feviQSXEPjAzICRiXIWU&#x27;, 3: u&#x27;xiuyinghe@gmail.com&#x27;, 4: [5961281603639.0, u&#x27;YNOuECSZEExtHvlGKwwE&#x27;]&#125;&#125;, u&#x27;\u56fe\u7247&#x27;: &#123;5: datetime.datetime(1977, 3, 29, 23, 38), 6: [u&#x27;http://yin.com/main.jsp&#x27;, u&#x27;yanjia@yahoo.com&#x27;, 632.53909299766], 7: &#123;5: u&#x27;RqBzkDuehAQUCHYQCmAZ&#x27;, 6: 4597, 7: [8421, 7708]&#125;&#125;&#125;)</span></span><br><span class="line">fake.pytuple()   <span class="comment"># (u&#x27;CJFHMwspGSwiPKfZhCVY&#x27;, u&#x27;IDhxTOsuOiDHOlKtMbbe&#x27;, 6637, 978, u&#x27;RodatDSuaRbwlgTJNzKx&#x27;, u&#x27;fsUVemSiAyPqyLFmfdZD&#x27;, u&#x27;zhujuan@li.cn&#x27;, u&#x27;https://kong.cn/categories/app/login.htm&#x27;, Decimal(&#x27;-406039.250589&#x27;), 8127)</span></span><br><span class="line">fake.random_digit()   <span class="comment"># 9</span></span><br><span class="line">fake.random_digit_not_null()   <span class="comment"># 6</span></span><br><span class="line">fake.random_digit_not_null_or_empty()   <span class="comment"># 5</span></span><br><span class="line">fake.random_digit_or_empty()   <span class="comment"># 3</span></span><br><span class="line">fake.random_element()   <span class="comment"># a</span></span><br><span class="line">fake.random_int()   <span class="comment"># 4585</span></span><br><span class="line">fake.random_letter()   <span class="comment"># o</span></span><br><span class="line">fake.random_number()   <span class="comment"># 80709883</span></span><br><span class="line">fake.random_sample()   <span class="comment"># [&#x27;a&#x27;, &#x27;c&#x27;]</span></span><br><span class="line">fake.random_sample_unique()   <span class="comment"># set([&#x27;a&#x27;, &#x27;c&#x27;, &#x27;b&#x27;])</span></span><br><span class="line">fake.randomize_nb_elements()   <span class="comment"># 13</span></span><br><span class="line">fake.rgb_color()   <span class="comment"># 97,134,130</span></span><br><span class="line">fake.rgb_css_color()   <span class="comment"># rgb(39,226,180)</span></span><br><span class="line">fake.romanized_name()   <span class="comment"># Qiang Du</span></span><br><span class="line">fake.safari()   <span class="comment"># Mozilla/5.0 (Windows; U; Windows NT 6.0) AppleWebKit/532.2.5 (KHTML, like Gecko) Version/4.0.2 Safari/532.2.5</span></span><br><span class="line">fake.safe_color_name()   <span class="comment"># yellow</span></span><br><span class="line">fake.safe_email()   <span class="comment"># ming14@example.net</span></span><br><span class="line">fake.safe_hex_color()   <span class="comment"># #ff3300</span></span><br><span class="line">fake.sentence()   <span class="comment"># 方法科技是否只有无法.</span></span><br><span class="line">fake.sentences()   <span class="comment"># [u&#x27;\u4ec0\u4e48\u672c\u7ad9\u6280\u672f\u4e00\u6b21\u8868\u793a\u4e0d\u540c\u5904\u7406.&#x27;, u&#x27;\u8fd0\u884c\u65b9\u5f0f\u80fd\u529b\u4e00\u6837\u5f53\u524d.&#x27;, u&#x27;\u6700\u65b0\u901a\u8fc7\u4e00\u4e2a\u5b66\u6821\u5f53\u524d\u4eca\u5e74\u5982\u679c\u5efa\u8bbe.&#x27;]</span></span><br><span class="line">fake.sha1()   <span class="comment"># 7052c75358562302ddacd77e14e49986926374fa</span></span><br><span class="line">fake.sha256()   <span class="comment"># 27e24e47230c764507a2e54d25a495e2f1f24ebcc23c6bf2b213b21379f8865e</span></span><br><span class="line">fake.simple_profile()   <span class="comment"># &#123;&#x27;username&#x27;: u&#x27;nayuan&#x27;, &#x27;name&#x27;: u&#x27;\u5b87\u9633&#x27;, &#x27;birthdate&#x27;: &#x27;1975-11-12&#x27;, &#x27;sex&#x27;: &#x27;M&#x27;, &#x27;address&#x27;: u&#x27;\u6c5f\u897f\u7701\u6f5c\u6c5f\u53bf\u6c38\u5ddd\u62d3\u8defj\u5ea7 699193&#x27;, &#x27;mail&#x27;: u&#x27;guiying19@hotmail.com&#x27;&#125;</span></span><br><span class="line">fake.ssn()   <span class="comment"># 410403194106288547</span></span><br><span class="line">fake.street_address()   <span class="comment"># 燕街L座</span></span><br><span class="line">fake.street_name()   <span class="comment"># 广州街</span></span><br><span class="line">fake.street_suffix()   <span class="comment"># 路</span></span><br><span class="line">fake.text()   <span class="comment"># 留言大小看到.成为控制拥有.</span></span><br><span class="line">电子个人产品产品这么其他文章.国际谢谢公司系统为什.一起其他作品客户一种系列.</span><br><span class="line">事情中国记者.男人为什组织的话.</span><br><span class="line">要求部门希望.很多投资深圳方面操作威望需要.</span><br><span class="line">注意你们这种学生可是所有通过基本.游戏时候日本目前数据生活得到.</span><br><span class="line">市场这是还是学校时间最后.关于之后浏览相关企业支持结果类别.正在专业人员实现.</span><br><span class="line">fake.time()   <span class="comment"># 17:02:29</span></span><br><span class="line">fake.time_delta()   <span class="comment"># 8837 days, 21:54:15</span></span><br><span class="line">fake.time_object()   <span class="comment"># 03:34:28</span></span><br><span class="line">fake.time_series()   <span class="comment"># &lt;generator object time_series at 0x7ff7800cb280&gt;</span></span><br><span class="line">fake.timezone()   <span class="comment"># Asia/Jerusalem</span></span><br><span class="line">fake.tld()   <span class="comment"># cn</span></span><br><span class="line">fake.unix_time()   <span class="comment"># 1100321594</span></span><br><span class="line">fake.uri()   <span class="comment"># https://pan.org/terms/</span></span><br><span class="line">fake.uri_extension()   <span class="comment"># .php</span></span><br><span class="line">fake.uri_page()   <span class="comment"># login</span></span><br><span class="line">fake.uri_path()   <span class="comment"># app/category</span></span><br><span class="line">fake.url()   <span class="comment"># http://www.xie.com/</span></span><br><span class="line">fake.user_agent()   <span class="comment"># Mozilla/5.0 (Macintosh; Intel Mac OS X 10_5_6; rv:1.9.5.20) Gecko/2016-10-29 04:38:17 Firefox/12.0</span></span><br><span class="line">fake.user_name()   <span class="comment"># jingmo</span></span><br><span class="line">fake.uuid4()   <span class="comment"># f64bcfad-67c4-c748-5e19-86a74848e6fa</span></span><br><span class="line">fake.windows_platform_token()   <span class="comment"># Windows NT 5.2</span></span><br><span class="line">fake.word()   <span class="comment"># 更新</span></span><br><span class="line">fake.words()   <span class="comment"># [u&#x27;\u7136\u540e&#x27;, u&#x27;\u5927\u5b66&#x27;, u&#x27;\u7a0b\u5e8f&#x27;]</span></span><br><span class="line">fake.year()   <span class="comment"># 2001</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/Languages/Python/lib3-flask.md/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  flask-后台技术框架
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/Languages/Python/lib3-dask.md/">
+                Dask并行任务调度
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			el: '#vcomments',
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			path: window.location.pathname,
+			avatar: 'retro',
+			highlight: false,
+      recordIP: true,
+      enableQQ: true,
+			requiredFields: ['nick','mail']
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">fansichao</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

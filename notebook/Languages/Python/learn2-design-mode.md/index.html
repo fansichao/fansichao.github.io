@@ -1,0 +1,3272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Python7 大原则与 24 种设计模式 | 
+	 
+	NoteBook
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="Python7 大原则与 24 种设计模式" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "http://localhost:4000/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "fansichao.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">NoteBook</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Algorithm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Algorithm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Languages
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Go
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-env-config.md/">
+										go-env-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/go-info.md/">
+										go-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Go/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-apache.md/">
+										linux-apache
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-bashshell.md/">
+										linux-bashshell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-centos8.md/">
+										linux-centos8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-test.md/">
+										linux-cmdn-test
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-cmdn-tools.md/">
+										linux-cmdn-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ftp.md/">
+										linux-ftp
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-function.md/">
+										linux-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-https-cert.md/">
+										linux-https-cert
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-locale.md/">
+										linux-locale
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-network.md/">
+										linux-network
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-nfs.md/">
+										linux-nfs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ntpd.md/">
+										linux-ntpd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-pip.md/">
+										linux-pip
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-raid.md/">
+										linux-raid
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-restart-scripts.md/">
+										linux-restart-scripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-ssh.md/">
+										linux-ssh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-svn.md/">
+										linux-svn
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-term-info.md/">
+										linux-term-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-trash.md/">
+										linux-trash
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-using-cmd.md/">
+										linux-using-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-virtualenvwarapper.md/">
+										linux-virtualenvwarapper
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/linux-yum.md/">
+										linux-yum
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Linux/%E8%B6%A3%E5%91%B3%E5%91%BD%E4%BB%A4.md/">
+										趣味命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-base-know.md/">
+										learn1-base-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-class.md/">
+										learn1-class
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-data-type.md/">
+										learn1-data-type
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-func.md/">
+										learn1-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-info.md/">
+										learn1-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-install.md/">
+										learn1-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-knowledge.md/">
+										learn1-knowledge
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-module.md/">
+										learn1-module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-runoob.md/">
+										learn1-runoob
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn1-try-except.md/">
+										learn1-try-except
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-asyc-code.md/">
+										learn2-asyc-code
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-base-principle.md/">
+										learn2-base-principle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-decorator.md/">
+										learn2-decorator
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/Languages/Python/learn2-design-mode.md/">
+										learn2-design-mode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-garbage-collection.md/">
+										learn2-garbage-collection
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-generators.md/">
+										learn2-generators
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-magic-func.md/">
+										learn2-magic-func
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tips.md/">
+										learn2-optimization-tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-optimization-tools.md/">
+										learn2-optimization-tools
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn2-process.md/">
+										learn2-process
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-know.md/">
+										learn5-algorithm-know
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-algorithm-topic.md/">
+										learn5-algorithm-topic
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn5-data-structure.md/">
+										learn5-data-structure
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-code-format.md/">
+										learn9-code-format
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-diff-py3.md/">
+										learn9-py2-diff-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-py2-to-py3.md/">
+										learn9-py2-to-py3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-scripts-read-conf.md/">
+										learn9-scripts-read-conf
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-terms.md/">
+										learn9-terms
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/learn9-utils.md/">
+										learn9-utils
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-logging.md/">
+										lib-logging
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-os.md/">
+										lib-os
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-re.md/">
+										lib-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-sys.md/">
+										lib-sys
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib-time.md/">
+										lib-time
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-click.md/">
+										lib3-click
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-dask.md/">
+										lib3-dask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-faker.md/">
+										lib3-faker
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-flask.md/">
+										lib3-flask
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-ipython.md/">
+										lib3-ipython
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-jieba.md/">
+										lib3-jieba
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-nosetests.md/">
+										lib3-nosetests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-pandas.md/">
+										lib3-pandas
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-re.md/">
+										lib3-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-selenium.md/">
+										lib3-selenium
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-sqlalchemy.md/">
+										lib3-sqlalchemy
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Python/lib3-z-packages.md/">
+										lib3-z-packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Web
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/ReadMe.md/">
+										ReadMe
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/bootstrap.md/">
+										bootstrap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-angularJs.md/">
+										web-angularJs
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-echarts.md/">
+										web-echarts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-gis.md/">
+										web-gis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-html.md/">
+										web-html
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-http-requests.md/">
+										web-http-requests
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Languages/Web/web-javascripts.md/">
+										web-javascripts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Projects
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GUI编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/GUI.md/">
+										GUI
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										课堂抽签助手
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/GUI%E7%BC%96%E7%A8%8B/%E8%AF%BE%E5%A0%82%E6%8A%BD%E7%AD%BE%E5%8A%A9%E6%89%8B/database-4bcf258d288d59d13e33eafc4692e706.md/">
+										database-4bcf258d288d59d13e33eafc4692e706
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Stocks
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/01-%E9%80%89%E8%82%A1%E6%80%9D%E8%B7%AF.md/">
+										01-选股思路
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Projects/Stocks/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/TODO.md/">
+										TODO
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tools
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										A-Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/001-%E6%9C%AF%E8%AF%AD%E7%9F%A5%E8%AF%86.md/">
+										001-术语知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/002-%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95.md/">
+										002-知识清单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/01-IT%E6%9C%AF%E8%AF%AD.md/">
+										01-IT术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/03-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md/">
+										03-数据结构
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/04-%E7%AE%97%E6%B3%95.md/">
+										04-算法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/A-hot-github.md/">
+										A-hot-github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/B04-%E8%B6%A3%E5%91%B3%E7%AE%97%E6%B3%95%E9%A2%98.md/">
+										B04-趣味算法题
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-chain.md/">
+										datastruct-chain
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/datastruct-index.md/">
+										datastruct-index
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/info.md/">
+										info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips-cmd.md/">
+										tips-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/tips001.md/">
+										tips001
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/A-Tips/%E7%AD%96%E7%95%A5%E7%9F%A5%E8%AF%86.md/">
+										策略知识
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Anaconda
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/issue.md/">
+										issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Anaconda/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										BigData
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-Redis.md/">
+										bigdata-Redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-clean.md/">
+										bigdata-clean
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-ecosphere.md/">
+										bigdata-ecosphere
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-flink.md/">
+										bigdata-flink
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hadoop.md/">
+										bigdata-hadoop
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hbase.md/">
+										bigdata-hbase
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive-sql.md/">
+										bigdata-hive-sql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-hive.md/">
+										bigdata-hive
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-huey.md/">
+										bigdata-huey
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-kafka.md/">
+										bigdata-kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-prestodb.md/">
+										bigdata-prestodb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-quality-analysis.md/">
+										bigdata-quality-analysis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-rabbitmq.md/">
+										bigdata-rabbitmq
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-scylladb.md/">
+										bigdata-scylladb
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-spark.md/">
+										bigdata-spark
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/BigData/bigdata-visualization-web.md/">
+										bigdata-visualization-web
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Centos8
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Centos8/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Chrome
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/Win-Chrome.md/">
+										Win-Chrome
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/module.md/">
+										module
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Chrome/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Crawl
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-anti-spider.md/">
+										crawl-anti-spider
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-auth.md/">
+										crawl-auth
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-download-progress-bar.md/">
+										crawl-download-progress-bar
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-framework-diff.md/">
+										crawl-framework-diff
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-info.md/">
+										crawl-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-lawer.md/">
+										crawl-lawer
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-pyquery.md/">
+										crawl-pyquery
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-re.md/">
+										crawl-re
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-resumable-large-files.md/">
+										crawl-resumable-large-files
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Crawl/crawl-xpath.md/">
+										crawl-xpath
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Databases
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-db2.md/">
+										db-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-mysql.md/">
+										db-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-config.md/">
+										db-oracle-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle-optimization.md/">
+										db-oracle-optimization
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Databases/db-oracle.md/">
+										db-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Django
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/config.md/">
+										config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/example.md/">
+										example
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/function.md/">
+										function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins-edit.md/">
+										plugins-edit
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Django/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cdh.md/">
+										docker-cdh
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-cmd.md/">
+										docker-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-compose.md/">
+										docker-compose
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-db2.md/">
+										docker-db2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-es.md/">
+										docker-es
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-function.md/">
+										docker-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-info.md/">
+										docker-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-install.md/">
+										docker-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-issue.md/">
+										docker-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-mysql.md/">
+										docker-mysql
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-neo4j.md/">
+										docker-neo4j
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-oracle.md/">
+										docker-oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/docker-redis.md/">
+										docker-redis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Docker/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ElasticSearch
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-cmd.md/">
+										es-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-config.md/">
+										es-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-function.md/">
+										es-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-install.md/">
+										es-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ElasticSearch/es-issue.md/">
+										es-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Git
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Git/git.md/">
+										git
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Github
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/github.md/">
+										github
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Github/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Graph
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/gremlin-cmd.md/">
+										gremlin-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-cmd.md/">
+										hugegraph-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-info.md/">
+										hugegraph-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-install.md/">
+										hugegraph-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-issue.md/">
+										hugegraph-issue
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/hugegraph-load.md/">
+										hugegraph-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-cmd.md/">
+										neo4j-cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-config.md/">
+										neo4j-config
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-function.md/">
+										neo4j-function
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-info.md/">
+										neo4j-info
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-install.md/">
+										neo4j-install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/neo4j-load.md/">
+										neo4j-load
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Graph/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Hexo
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Hexo/hexo.md/">
+										hexo
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										NodeJs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/cmd.md/">
+										cmd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/NodeJs/install.md/">
+										install
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Pycharm
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/Win-Pycharm.md/">
+										Win-Pycharm
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Pycharm/crack.md/">
+										crack
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Server
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/CentOS8.md/">
+										CentOS8
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Server/Win10.md/">
+										Win10
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Tips
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-VNC.md/">
+										Win-VNC
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/Win-Virtualbox.md/">
+										Win-Virtualbox
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/code-line-statis.md/">
+										code-line-statis
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/drools-rule-engine.md/">
+										drools-rule-engine
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/gitbook.md/">
+										gitbook
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Tips/sbt.md/">
+										sbt
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vscode
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/Win-VScode.md/">
+										Win-VScode
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/plugins.md/">
+										plugins
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/Vscode/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										ml
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/README.md/">
+										README
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										docs
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-01%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97.md/">
+										ml-01学习指南
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-02%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD.md/">
+										ml-02相关术语
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-03%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B.md/">
+										ml-03发展历程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/docs/ml-04%E4%BB%A3%E7%A0%81%E5%AE%9E%E8%B7%B5.md/">
+										ml-04代码实践
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										google-course
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/01%E5%BF%AB%E9%80%9F%E9%93%BE%E6%8E%A5.md/">
+										01快速链接
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/02%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5.md/">
+										02机器学习概念
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/03%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B.md/">
+										03机器学习工程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/04%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E5%9C%A8%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E9%87%8C%E7%9A%84%E5%BA%94%E7%94%A8.md/">
+										04机器学习系统在现实世界里的应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/Tools/ml/google-course/readme.md/">
+										readme
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/resources.md/">
+										resources
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Python7 大原则与 24 种设计模式
+</h1>
+<div class="article-meta">
+	
+	<span>fansichao</span>
+	<span>2021-10-23 16:16:35</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/python/">python</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/python/python-进阶/">python-进阶</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/python/">python</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/python-进阶/">python-进阶</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/todo/">todo</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<p>TODO 需要补充 行为型模式 结构型模式 小结等</p>
+<!-- TOC -->
+
+<ul>
+<li><a href="#%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">七大设计原则</a></li>
+<li><a href="#24-%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">24 种设计模式</a><ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">创建型模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F">结构型模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">行为型模式</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%88%9B%E5%BB%BA%E5%9E%8B">设计模式-创建型</a><ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-01-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">创建型-01 工厂模式</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-02-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">创建型-02 抽象工厂模式</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-03-%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F">创建型-03 生成器模式</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-04-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F">创建型-04 原型模式</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-05-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">创建型-05 单例模式</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-06-%E5%A4%9A%E4%BE%8B%E6%A8%A1%E5%BC%8F">创建型-06 多例模式</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%93%E6%9E%84%E5%9E%8B">设计模式-结构型</a><ul>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-01-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F">结构型-01 适配器模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-02-%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F">结构型-02 桥接模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-03-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F">结构型-03 组合模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-04-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">结构型-04 装饰者模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-05-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F">结构型-05 外观模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-06-%E4%BA%A8%E5%85%83%E6%A8%A1%E5%BC%8F">结构型-06 亨元模式</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B-07-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F">结构型-07 代理模式</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A1%8C%E4%B8%BA%E5%9E%8B">设计模式-行为型</a><ul>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-01-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F">行为型-01 责任链模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-02-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F">行为型-02 命令模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-03-%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F">行为型-03 解释器模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-04-%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F">行为型-04 迭代器模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-05-%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F">行为型-05 中介者模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-06-%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F">行为型-06 备忘录模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-07-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">行为型-07 观察者模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-08-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F">行为型-08 状态模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-09-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F">行为型-09 策略模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-10-%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">行为型-10 模板方法模式</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B-11-%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F">行为型-11 访问者模式</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a><ul>
+<li><a href="#%E4%BE%8B%E5%AD%90">例子</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<!-- /TOC -->
+
+<h2 id="七大设计原则"><a href="#七大设计原则" class="headerlink" title="七大设计原则"></a>七大设计原则</h2><ul>
+<li>1、单一职责原则【SINGLE RESPONSIBILITY PRINCIPLE】：一个类负责一项职责.</li>
+<li>2、里氏替换原则【LISKOV SUBSTITUTION PRINCIPLE】：继承与派生的规则.(子类可替换父类)</li>
+<li>3、依赖倒转原则【DEPENDENCE INVERSION PRINCIPLE】：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。即针对接口编程，不要针对实现编程。</li>
+<li>4、接口隔离原则【INTERFACE SEGREGATION PRINCIPLE】：建立单一接口，不要建立庞大臃肿的接口，尽量细化接口，接口中的方法尽量少。</li>
+<li>5、迪米特法则【LOW OF DEMETER】：高内聚 低耦合 – high cohesion low coupling(类只做一类事情,类的成员函数关联尽量少)</li>
+<li>6、开闭原则【OPEN CLOSE PRINCIPLE】：一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。</li>
+<li>7、组合/聚合复用原则【Composition/Aggregation Reuse Principle(CARP) 】：尽量使用组合和聚合少使用继承的关系来达到复用的原则。</li>
+</ul>
+<h2 id="24-种设计模式"><a href="#24-种设计模式" class="headerlink" title="24 种设计模式"></a>24 种设计模式</h2><p>创建型模式基于对象的创建机制，隔离了对象的创建细节，使代码能够与要创建的对象的类型相互独立</p>
+<p>结构型模式用于设计对象和类的结构，使它们可以相互协作以获得更大的结构</p>
+<p>行为型模式主要关注对象的责任，用来处理对象之间的交互，以实现更大的功能</p>
+<h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><ul>
+<li>1、抽象工厂模式(Abstract factory pattern): 提供一个接口, 用于创建相关或依赖对象的家族, 而不需要指定具体类.</li>
+<li>2、生成器模式(Builder pattern): 使用生成器模式封装一个产品的构造过程, 并允许按步骤构造. 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示.</li>
+<li>3、工厂模式(factory method pattern): 定义了一个创建对象的接口, 但由子类决定要实例化的类是哪一个. 工厂方法让类把实例化推迟到子类.</li>
+<li>4、原型模式(prototype pattern): 当创建给定类的实例过程很昂贵或很复杂时, 就使用原形模式.</li>
+<li>5、单例模式(Singleton pattern): 确保一个类只有一个实例, 并提供全局访问点.</li>
+<li>6、多例模式(Multition pattern): 在一个解决方案中结合两个或多个模式, 以解决一般或重复发生的问题.</li>
+</ul>
+<h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><ul>
+<li>1、适配器模式(Adapter pattern): 将一个类的接口, 转换成客户期望的另一个接口. 适配器让原本接口不兼容的类可以合作无间. 对象适配器使用组合, 类适配器使用多重继承.</li>
+<li>2、桥接模式(Bridge pattern): 使用桥接模式通过将实现和抽象放在两个不同的类层次中而使它们可以独立改变.</li>
+<li>3、组合模式(composite pattern): 允许你将对象组合成树形结构来表现”整体/部分”层次结构. 组合能让客户以一致的方式处理个别对象以及对象组合.</li>
+<li>4、装饰者模式(decorator pattern): 动态地将责任附加到对象上, 若要扩展功能, 装饰者提供了比继承更有弹性的替代方案.</li>
+<li>5、外观模式(facade pattern): 提供了一个统一的接口, 用来访问子系统中的一群接口. 外观定义了一个高层接口, 让子系统更容易使用.</li>
+<li>6、亨元模式(Flyweight Pattern): 如想让某个类的一个实例能用来提供许多”虚拟实例”, 就使用蝇量模式.</li>
+<li>7、代理模式(Proxy pattern): 为另一个对象提供一个替身或占位符以控制对这个对象的访问.</li>
+</ul>
+<h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><ul>
+<li>1、责任链模式(Chain of responsibility pattern): 通过责任链模式, 你可以为某个请求创建一个对象链. 每个对象依序检查此请求并对其进行处理或者将它传给链中的下一个对象.</li>
+<li>2、命令模式(Command pattern): 将”请求”封闭成对象, 以便使用不同的请求,队列或者日志来参数化其他对象. 命令模式也支持可撤销的操作.</li>
+<li>3、解释器模式(Interpreter pattern): 使用解释器模式为语言创建解释器.</li>
+<li>4、迭代器模式(iterator pattern): 提供一种方法顺序访问一个聚合对象中的各个元素, 而又不暴露其内部的表示.</li>
+<li>5、中介者模式(Mediator pattern) : 使用中介者模式来集中相关对象之间复杂的沟通和控制方式.</li>
+<li>6、备忘录模式(Memento pattern): 当你需要让对象返回之前的状态时(例如, 你的用户请求”撤销”), 你使用备忘录模式.</li>
+<li>7、观察者模式(observer pattern): 在对象之间定义一对多的依赖, 这样一来, 当一个对象改变状态, 依赖它的对象都会收到通知, 并自动更新.</li>
+<li>8、状态模式(State pattern): 允许对象在内部状态改变时改变它的行为, 对象看起来好象改了它的类.</li>
+<li>9、策略模式(strategy pattern): 定义了算法族, 分别封闭起来, 让它们之间可以互相替换, 此模式让算法的变化独立于使用算法的客户.</li>
+<li>10、模板方法模式(Template pattern): 在一个方法中定义一个算法的骨架, 而将一些步骤延迟到子类中. 模板方法使得子类可以在不改变算法结构的情况下, 重新定义算法中的某些步骤.</li>
+<li>11、访问者模式(visitor pattern): 当你想要为一个对象的组合增加新的能力, 且封装并不重要时, 就使用访问者模式.</li>
+</ul>
+<p>设计模式参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html">菜鸟教程-设计模式大全</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ricky110?t=1">CSDN 博主-设计模式</a></li>
+</ul>
+<h2 id="设计模式-创建型"><a href="#设计模式-创建型" class="headerlink" title="设计模式-创建型"></a>设计模式-创建型</h2><h3 id="创建型-01-工厂模式"><a href="#创建型-01-工厂模式" class="headerlink" title="创建型-01 工厂模式"></a>创建型-01 工厂模式</h3><blockquote>
+<p>工厂模式：主要用于抽象对象的创建过程，让用户可以指定自己想要的对象而不必关心对象的实例化过程</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013053013">用 Python 实现设计模式——工厂模式</a></p>
+<h3 id="创建型-02-抽象工厂模式"><a href="#创建型-02-抽象工厂模式" class="headerlink" title="创建型-02 抽象工厂模式"></a>创建型-02 抽象工厂模式</h3><blockquote>
+<p>抽象工厂模式：提供一个接口, 用于创建相关或依赖对象的家族, 而不需要指定具体类<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013053013">用 Python 实现设计模式——工厂模式</a></p>
+</blockquote>
+<h3 id="创建型-03-生成器模式"><a href="#创建型-03-生成器模式" class="headerlink" title="创建型-03 生成器模式"></a>创建型-03 生成器模式</h3><blockquote>
+<p>生成器模式：使用生成器模式封装一个产品的构造过程, 并允许按步骤构造. 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示.</p>
+</blockquote>
+<ul>
+<li>概念<ul>
+<li>特点<ul>
+<li>建造者模式注重一步一步创建对象</li>
+<li>元对象不允许被消费者对象直接调用。 元对象 -&gt; 中间对象(不同产品种类) -&gt; 消费者</li>
+</ul>
+</li>
+<li>应用场景<ul>
+<li>对象的创建步骤可以独立于创建过程的时候</li>
+<li>被创建的对象拥有不同的表现形式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.pythonf.cn/read/86185">Python 设计模式生成器模式,建造,者</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903457283899406">建造者模式 —— Python 描述</a></p>
+<h3 id="创建型-04-原型模式"><a href="#创建型-04-原型模式" class="headerlink" title="创建型-04 原型模式"></a>创建型-04 原型模式</h3><blockquote>
+<p>原型模式：支持复制类中的对象，且更新其部分属性. 用于简化外部操作，提供简单接口等等</p>
+</blockquote>
+<ul>
+<li>特点<ul>
+<li>通过对传入对象进行深拷贝。可以通过 copy.deepcopy 另一种方式来实现。只是类中集成了此功能，从而更方便使用。</li>
+</ul>
+</li>
+<li>应用场景<ul>
+<li>原型模式用于创建对象的浅副本<ul>
+<li>数据间共享</li>
+</ul>
+</li>
+<li>原型模式用于创建对象的完全副本<ul>
+<li>需要复制类中的对象。</li>
+<li>需要复制类中的对象，并对返回的对象更新其部分参数。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, authors, price, **rest</span>):</span></span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;rest的例子有：出版商、长度、标签、出版日期&#x27;&#x27;&#x27;</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.authors = authors</span><br><span class="line">        self.price = price</span><br><span class="line">        self.__dict__.update(rest)      <span class="comment"># 添加其他额外属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        mylist = []</span><br><span class="line">        ordered = OrderedDict(<span class="built_in">sorted</span>(self.__dict__.items()))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> ordered.keys():</span><br><span class="line">            mylist.append(<span class="string">&#x27;&#123;&#125;: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(i, ordered[i]))</span><br><span class="line">            <span class="keyword">if</span> i == <span class="string">&#x27;price&#x27;</span>:</span><br><span class="line">                mylist.append(<span class="string">&#x27;$&#x27;</span>)</span><br><span class="line">            mylist.append(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(mylist)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prototype</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.objects = <span class="built_in">dict</span>()    <span class="comment"># 初始化一个原型列表</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">register</span>(<span class="params">self, identifier, obj</span>):</span></span><br><span class="line">        <span class="comment"># 在原型列表中注册原型对象</span></span><br><span class="line">        self.objects[identifier] = obj</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unregister</span>(<span class="params">self, identifier</span>):</span></span><br><span class="line">        <span class="comment"># 从原型列表中删除原型对象</span></span><br><span class="line">        <span class="keyword">del</span> self.objects[identifier]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clone</span>(<span class="params">self, identifier, **attr</span>):</span></span><br><span class="line">        <span class="comment"># 根据 identifier 在原型列表中查找原型对象并克隆</span></span><br><span class="line">        found = self.objects.get(identifier)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> found:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&#x27;Incorrect object identifier: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(identifier))</span><br><span class="line">        obj = copy.deepcopy(found)</span><br><span class="line">        obj.__dict__.update(attr)   <span class="comment"># 用新的属性值替换原型对象中的对应属性</span></span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    b1 = Book(<span class="string">&#x27;The C Programming Language&#x27;</span>, (<span class="string">&#x27;Brian W. Kernighan&#x27;</span>, <span class="string">&#x27;Dennis M.Ritchie&#x27;</span>),</span><br><span class="line">    price=<span class="number">118</span>, publisher=<span class="string">&#x27;Prentice Hall&#x27;</span>, length=<span class="number">228</span>, publication_date=<span class="string">&#x27;1978-02-22&#x27;</span>,</span><br><span class="line">    tags=(<span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;programming&#x27;</span>, <span class="string">&#x27;algorithms&#x27;</span>, <span class="string">&#x27;data structures&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    prototype = Prototype()</span><br><span class="line">    cid = <span class="string">&#x27;k&amp;r-first&#x27;</span></span><br><span class="line">    prototype.register(cid, b1)</span><br><span class="line">    b2 = prototype.clone(cid, name=<span class="string">&#x27;The C Programming Language(ANSI)&#x27;</span>, price=<span class="number">48.99</span>, length=<span class="number">274</span>, publication_date=<span class="string">&#x27;1988-04-01&#x27;</span>, edition=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> (b1, b2):</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ID b1 : &#123;&#125; != ID b2 : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">id</span>(b1), <span class="built_in">id</span>(b2)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/littlefivebolg/p/9927328.html">浅谈 Python 设计模式 - 原型模式</a></p>
+<h3 id="创建型-05-单例模式"><a href="#创建型-05-单例模式" class="headerlink" title="创建型-05 单例模式"></a>创建型-05 单例模式</h3><blockquote>
+<p>单例模式：一个类只能被实例化一次，实例对象在第一次实例化时就已经固定，后续的实例化用的都是第一次实例化的对象</p>
+</blockquote>
+<ul>
+<li>概念<ul>
+<li>应用场景<ul>
+<li>整个系统中类只能出现一个实例时，比如 配置文件类 AppConfig 等等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>单例模式是一个经典设计模式，简要的说，一个类只能被实例化一次，实例对象在第一次实例化时就已经固定，从第二次以后其实一直都是用的第一次实例化的对象，相当于全局。</p>
+<p><strong>创建单例模式的方法:</strong></p>
+<ul>
+<li>使用模块</li>
+<li>使用 <code>__new__</code></li>
+<li>使用 metaclass</li>
+<li>使用 装饰器</li>
+<li>静态方法</li>
+<li>类方法</li>
+<li>名称覆盖</li>
+<li>属性共享</li>
+</ul>
+<p><strong>创建单例模式方法-使用模块:</strong></p>
+<p>Python 的模块就是天然的单例模式，因为模块在第一次导入时，会生成 .pyc 文件，当第二次导入时，就会直接加载 .pyc 文件，而不会再次执行模块代码。因此，我们只需把相关的函数和数据定义在一个模块中，就可以获得一个单例对象了。如果我们真的想要一个单例类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysingleton.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">My_Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">my_singleton = My_Singleton()</span><br><span class="line"></span><br><span class="line"><span class="comment"># demo.py</span></span><br><span class="line"><span class="keyword">from</span> mysingleton <span class="keyword">import</span> my_singleton</span><br><span class="line">my_singleton.foo()</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-使用<code>__new__</code>:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span>:</span></span><br><span class="line">    __<span class="built_in">isinstance</span> = <span class="literal">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.__<span class="built_in">isinstance</span>:  <span class="comment"># 如果被实例化了</span></span><br><span class="line">            cls.__<span class="built_in">isinstance</span> = <span class="built_in">object</span>.__new__(cls)  <span class="comment"># 否则实例化</span></span><br><span class="line">      <span class="comment"># 或者</span></span><br><span class="line">      <span class="comment"># cls._instance = super().__new__(cls)</span></span><br><span class="line">      <span class="keyword">return</span> cls.__<span class="built_in">isinstance</span>  <span class="comment"># 返回实例化的对象</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;我是 %s&#x27;</span>%(name))</span><br><span class="line"></span><br><span class="line">d1 = Demo(<span class="string">&#x27;小明&#x27;</span>)</span><br><span class="line">d2 = Demo(<span class="string">&#x27;小红&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(d1)</span><br><span class="line"><span class="built_in">print</span>(d2)</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-元类 metaclass:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SigletonMetaClass</span>(<span class="params"><span class="built_in">type</span></span>):</span></span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().__new__(cls, *args, **kwargs)  <span class="comment"># 断点1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self._instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self._instance = <span class="built_in">super</span>().__call__(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> self._instance  <span class="comment"># 断点2</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params">metaclass=SigletonMetaClass</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().__new__(cls)  <span class="comment"># 断点3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 元类 metaclass 通过 __call__ 拦截</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-装饰器:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SingletonDecorator</span>(<span class="params">cls</span>):</span></span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">nonlocal</span> _instance</span><br><span class="line">        <span class="keyword">if</span> _instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            _instance = cls(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> _instance</span><br><span class="line">    <span class="keyword">return</span> get_instance</span><br><span class="line"></span><br><span class="line"><span class="meta">@SingletonDecorator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton()</span><br><span class="line">b = Singleton()</span><br><span class="line"><span class="comment"># id(a) == id(b)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 类装饰器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingletonDecorator</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, cls</span>):</span></span><br><span class="line">        self._cls = cls</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span>(<span class="params">self, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self._instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self._instance = self._cls(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> self._instance</span><br><span class="line"></span><br><span class="line"><span class="meta">@SingletonDecorator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton()</span><br><span class="line">b = Singleton()</span><br><span class="line"><span class="comment"># id(a) == id(b)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-静态方法:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance</span>():</span></span><br><span class="line">        cls = __class__</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> cls._instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            cls._instance = <span class="built_in">super</span>(cls, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton.get_instance()</span><br><span class="line">b = Singleton.get_instance()</span><br><span class="line"><span class="comment"># id(a) == id(b)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-类方法:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance</span>(<span class="params">cls</span>):</span></span><br><span class="line">        <span class="keyword">if</span> cls._instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            cls._instance = <span class="built_in">super</span>().__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton.get_instance()</span><br><span class="line">b = Singleton.get_instance()</span><br><span class="line"><span class="comment"># id(a) == id(b)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-名称覆盖:</strong></p>
+<p>用实例名覆盖类名后，执行 Singleton() 就是在调用 <strong>call</strong>() 函数，总是返回自身。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">Singleton = Singleton()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton()</span><br><span class="line">b = Singleton()</span><br><span class="line"><span class="comment"># id(a) == id(b)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>创建单例模式方法-属性共享:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    _state = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        obj = <span class="built_in">super</span>().__new__(cls)</span><br><span class="line">        obj.__dict__ = cls._state</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：</span></span><br><span class="line">a = Singleton()</span><br><span class="line">b = Singleton()</span><br><span class="line"><span class="comment"># id(a) != id(b)</span></span><br></pre></td></tr></table></figure>
+
+<p>实例对象的私有属性存放在 <strong>dict</strong> 中。因此，将所有对象指向同一个属性 Singleton._state，即便它们的 id 值 不同，由于共享属性仍实现了单例效果。</p>
+<p>TODO 复杂情况下的单例模式</p>
+<p><strong>多线程下的单例模式应用:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span>(<span class="params">cls</span>):</span></span><br><span class="line">    cls.__new_original__ = cls.__new__</span><br><span class="line"></span><br><span class="line"><span class="meta">    @functools.wraps(<span class="params">cls.__new__</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_new</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        it = cls.__dict__.get(<span class="string">&#x27;__it__&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> it <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> it</span><br><span class="line"></span><br><span class="line">        cls.__it__ = it = cls.__new_original__(cls, *args, **kwargs)</span><br><span class="line">        it.__init_original__(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> it</span><br><span class="line"></span><br><span class="line">    cls.__new__ = singleton_new</span><br><span class="line">    cls.__init_original__ = cls.__init__</span><br><span class="line">    cls.__init__ = <span class="built_in">object</span>.__init__</span><br><span class="line">    <span class="keyword">return</span> cls</span><br><span class="line"></span><br><span class="line"><span class="meta">@singleton</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        cls.x = <span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">object</span>.__new__(cls)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x, y</span>):</span></span><br><span class="line">        <span class="keyword">assert</span> self.x == <span class="number">10</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中定义了 singleton 类装饰器，装饰器在预编译时就会执行，利用这个特性，singleton 类装饰器中替换了类原本的<strong>new</strong>与<strong>init</strong>方法，使用 singleton_new 方法进行类的实例化，在 singleton_new 方法中，先判断类的属性中是否存在<strong>it</strong>属性，以此来判断是否要创建新的实例，如果要创建，则调用类原本的<strong>new</strong>方法完成实例化并调用原本的<strong>init</strong>方法将参数传递给当前类，从而完成单例模式的目的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加上线程锁</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span>(<span class="params">cls</span>):</span></span><br><span class="line">    cls.__new_original__ = cls.__new__</span><br><span class="line"><span class="meta">    @functools.wraps(<span class="params">cls.__new__</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_new</span>(<span class="params">cls, *args, **kwargs</span>):</span></span><br><span class="line">        <span class="comment"># 同步锁</span></span><br><span class="line">        <span class="keyword">with</span> threading.Lock():</span><br><span class="line">            it = cls.__dict__.get(<span class="string">&#x27;__it__&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> it <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> it</span><br><span class="line"></span><br><span class="line">            cls.__it__ = it = cls.__new_original__(cls, *args, **kwargs)</span><br><span class="line">            it.__init_original__(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> it</span><br><span class="line"></span><br><span class="line">    cls.__new__ = singleton_new</span><br><span class="line">    cls.__init_original__ = cls.__init__</span><br><span class="line">    cls.__init__ = <span class="built_in">object</span>.__init__</span><br><span class="line">    <span class="keyword">return</span> cls</span><br></pre></td></tr></table></figure>
+
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904081182425102">Python 单例模式最佳实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://xiaorui.cc/archives/3165">python 多线程下保持单例模式的实例唯一</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/l460133921/article/details/73695010">Python 中的单例模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41359051/article/details/91469933">Python 实现单例</a></li>
+</ul>
+<h3 id="创建型-06-多例模式"><a href="#创建型-06-多例模式" class="headerlink" title="创建型-06 多例模式"></a>创建型-06 多例模式</h3><blockquote>
+<p>多例模式：多例模式允许存在有限个实例(多例模式又分为有上限模式和无上限模式，无上限模式和直接 new 一个对象差不多，此处不做讨论)</p>
+</blockquote>
+<ul>
+<li>特点<ul>
+<li>允许有多个实例；</li>
+<li>多例类自己负责创建、管理自己的实例，并向外界提供自己的实例(这点根单例模式相同)</li>
+</ul>
+</li>
+</ul>
+<p>单例模式仅创建一个对象。多例模式可以创建 有限个对象</p>
+<p>详情请参考 <a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B-05-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a></p>
+<h2 id="设计模式-结构型"><a href="#设计模式-结构型" class="headerlink" title="设计模式-结构型"></a>设计模式-结构型</h2><h3 id="结构型-01-适配器模式"><a href="#结构型-01-适配器模式" class="headerlink" title="结构型-01 适配器模式"></a>结构型-01 适配器模式</h3><blockquote>
+<p>适配器可以理解为万能接口，各种类可以通过这个接口然后被调用，达到万能转换的效果。</p>
+<p>他的实现是以我们定义的适配器函数来分类，将各种类的不同方法注册到对应的分类函数中，调用的时候只需要使用分类名，这样就达到了适配所有类不同方法的效果.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">a</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;我是A类的a方法&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">b</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;我是B类的b方法&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">c</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;我是C类的c方法&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adapter</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 适配器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    objects = []</span></span><br><span class="line"><span class="string">    AA = A()</span></span><br><span class="line"><span class="string">    objects.append(Adapter(AA, dict(test=AA.a)))</span></span><br><span class="line"><span class="string">    for obj in objects:</span></span><br><span class="line"><span class="string">        obj.test()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    核心思想 创建一个适配器类，通过__dict__将需要转化的类的方法注册到适配器，</span></span><br><span class="line"><span class="string">        复写__getattr__使其在适配器函数查无方法的时候，执行getattr魔法方法</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, instance, method</span>):</span></span><br><span class="line">        self.instance = instance</span><br><span class="line">        self.__dict__.update(method)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span>(<span class="params">self, attr</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getattr</span>(self.instance, attr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    objects = []</span><br><span class="line">    AA = A()</span><br><span class="line">    objects.append(Adapter(AA, <span class="built_in">dict</span>(test=AA.a)))</span><br><span class="line">    BB = B()</span><br><span class="line">    objects.append(Adapter(BB, <span class="built_in">dict</span>(test=BB.b)))</span><br><span class="line">    CC = C()</span><br><span class="line">    objects.append(Adapter(CC, <span class="built_in">dict</span>(test=CC.c)))</span><br><span class="line">    <span class="keyword">for</span> obj <span class="keyword">in</span> objects:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&gt;&gt;&gt; 11&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">dir</span>(obj))</span><br><span class="line">        obj.test()</span><br><span class="line"></span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<h3 id="结构型-02-桥接模式"><a href="#结构型-02-桥接模式" class="headerlink" title="结构型-02 桥接模式"></a>结构型-02 桥接模式</h3><blockquote>
+<p>桥接模式(Bridge Pattern)：将抽象部分与它的实现部分分离，使它们都可以独立地变化。它是一种对象结构型模式，又称为柄体(Handle and Body)模式或接口(Interface)模式。</p>
+</blockquote>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012184662">python 设计模式-桥接模式&amp;比较桥接模式和装饰模式的不同</a></li>
+</ul>
+<h3 id="结构型-03-组合模式"><a href="#结构型-03-组合模式" class="headerlink" title="结构型-03 组合模式"></a>结构型-03 组合模式</h3><ul>
+<li>优点<ul>
+<li>节点增加和减少是非常自由和方便的，这也是树形结构的一大特点；</li>
+<li>所有节点，不管是分支节点还是叶子结点，不管是调用一个结点，还是调用一个结点群，都是非常方便的</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>由于叶子结点和分支结点直接使用了实现类，而不方便使用抽象类，这大大限制了接口的影响范围；若结点接口发生变更，对系统造成的风险会比较大。</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>维护部分与整体的逻辑关系，或者动态调用整体或部分的功能接口，可以考虑使用组合模式。例如，非常多的操作系统(如 Linux)都把文件系统设计成树形结构，再比如说分布式应用中借助 Zookeeper，也可以组织和调用分布式集群中的结点功能。</li>
+</ul>
+</li>
+</ul>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuqingzheng/articles/10039630.html">9-Python 与设计模式–组合模式</a></li>
+</ul>
+<h3 id="结构型-04-装饰者模式"><a href="#结构型-04-装饰者模式" class="headerlink" title="结构型-04 装饰者模式"></a>结构型-04 装饰者模式</h3><p>TODO 装饰器的缺点</p>
+<blockquote>
+<p>装饰者模式：使用装饰器来动态的添加功能。例如日志记录、权限认证等等</p>
+</blockquote>
+<ul>
+<li>优点<ul>
+<li>能够在不修改任何底层代码情况下，给已有对象赋予新的职责。</li>
+<li>代码量减少，可复用，易维护，增加可读性</li>
+</ul>
+</li>
+<li>缺点</li>
+</ul>
+<p>当装饰器已经作用于某函数，而你想撤销它，那么可以访问 <strong>wrapped</strong> 属性来访问原始函数。 不建议使用，多装饰器时，不可控。</p>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruguowoshiyu/article/details/80921165">python 设计模式(十) 装饰者模式(Decorator pattern)</a></li>
+</ul>
+<h3 id="结构型-05-外观模式"><a href="#结构型-05-外观模式" class="headerlink" title="结构型-05 外观模式"></a>结构型-05 外观模式</h3><blockquote>
+<p>外观模式(Facade Pattern)：外部与一个子系统的通信必须通过一个统一的外观对象进行，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+</blockquote>
+<ul>
+<li>概念简述<ul>
+<li>将复杂的方法简化为一个类的函数接口，便于统一调用。类似于函数封装。</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>优点在于对客户屏蔽子系统组件，减少了客户处理的对象数目并使得子系统使用起来更加容易，它实现了子系统与客户之间的松耦合关系，并降低了大型软件系统中的编译依赖性，简化了系统在不同平台之间的移植过程；</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>缺点在于不能很好地限制客户使用子系统类，而且在不引入抽象外观类的情况下，增加新的子系统可能需要修改外观类或客户端的源代码，违背了“开闭原则”。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单的样例</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_all</span>():</span></span><br><span class="line">    run_a()</span><br><span class="line">    run_b()</span><br><span class="line">    run_c()</span><br><span class="line"><span class="comment"># 定义一个统一的外观 run_all 便于统一调用</span></span><br></pre></td></tr></table></figure>
+
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/welan/p/9127000.html#top">python-外观模式</a></li>
+</ul>
+<h3 id="结构型-06-亨元模式"><a href="#结构型-06-亨元模式" class="headerlink" title="结构型-06 亨元模式"></a>结构型-06 亨元模式</h3><blockquote>
+<p>亨元模式：用于解决资源和性能压力时会使用到的设计模式，它的核心思想是通过引入数据共享来提升性能。</p>
+</blockquote>
+<ul>
+<li>概念<ul>
+<li>重点在于将不可变(可共享)的属性与可变的属性区分开</li>
+<li>在多个对象有相同属性，但又有各自不同属性时，享元模式可以对相同属性那部分进行数据共享，从而提升性能。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line"></span><br><span class="line">TreeType = Enum(<span class="string">&#x27;TreeType&#x27;</span>,<span class="string">&#x27;apple_tree cherry_tree peach_tree&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span>:</span></span><br><span class="line">    pool = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span>(<span class="params">cls, tree_type, *args,**kwargs</span>):</span></span><br><span class="line">        obj = cls.pool.get(tree_type,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> obj:</span><br><span class="line">            obj = <span class="built_in">super</span>().__new__(cls,*args, **kwargs)</span><br><span class="line">            cls.pool[tree_type] = obj</span><br><span class="line">            obj.tree_type = tree_type</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init</span>(<span class="params">self,size </span>):</span></span><br><span class="line">        self.size = size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span>(<span class="params">self,age,x,y</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;render a tree of type &#123;&#125; and age &#123;&#125; at (&#123;&#125;,&#123;&#125;)&#x27;</span>.<span class="built_in">format</span>(self.tree_type,age,x,y))</span><br></pre></td></tr></table></figure>
+
+<p>该示例中，在<strong>new</strong>方法中实现类不可变数据的共享。在<strong>init</strong>方法中实现了可变数据的独立，即不共享。</p>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/littlefivebolg/p/9930388.html">浅谈 Python 设计模式 - 享元模式</a></li>
+</ul>
+<h3 id="结构型-07-代理模式"><a href="#结构型-07-代理模式" class="headerlink" title="结构型-07 代理模式"></a>结构型-07 代理模式</h3><blockquote>
+<p>为其他对象提供一种代理以控制对这个对象的访问.通俗的来讲代理模式就是我们生活中常见的中介</p>
+</blockquote>
+<ul>
+<li>使用场景<ul>
+<li>一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用</li>
+<li>远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实。<ul>
+<li>虚拟代理，是根据需要创建开销大的对象。通过它来存放实例化需要很长时间的真是对象。用于惰性求值，将一个大计算量对象的创建延迟到真正需要的时候进行。例如 html 中，图片需要 load 很久，所以通过虚拟代理来代替真实的图片</li>
+<li>安全代理，或叫保护/防护代理：控制对敏感对象的访问。用来控制真实对象访问时的权限</li>
+<li>智能(引用)代理：在对象被访问时执行额外的动作。此类代理的例子包括引用计数和线程安全检查。是指当调用真实的对象时，代理处理另外一些事</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10870612.html">python 设计模式之代理模式</a></li>
+</ul>
+<h2 id="设计模式-行为型"><a href="#设计模式-行为型" class="headerlink" title="设计模式-行为型"></a>设计模式-行为型</h2><h3 id="行为型-01-责任链模式"><a href="#行为型-01-责任链模式" class="headerlink" title="行为型-01 责任链模式"></a>行为型-01 责任链模式</h3><blockquote>
+<p>责任链模式(Chain of responsibility pattern): 通过责任链模式, 你可以为某个请求创建一个对象链. 每个对象依序检查此请求并对其进行处理或者将它传给链中的下一个对象.</p>
+</blockquote>
+<p>参考链接:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/littlefivebolg/p/9932009.html">Python 设计模式 – 责任链模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hbu_pig/article/details/80799488">python 实现 责任链模式</a></li>
+</ul>
+<h3 id="行为型-02-命令模式"><a href="#行为型-02-命令模式" class="headerlink" title="行为型-02 命令模式"></a>行为型-02 命令模式</h3><blockquote>
+<p>命令模式(Command pattern): 将”请求”封闭成对象, 以便使用不同的请求,队列或者日志来参数化其他对象. 命令模式也支持可撤销的操作.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf8 -*-</span></span><br><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABCMeta,abstractmethod</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,recv</span>):</span></span><br><span class="line">        self.recv = recv</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">execute</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收对象和执行操作绑定</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteCommand</span>(<span class="params">Command</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,recv</span>):</span></span><br><span class="line">        self.recv = recv</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">execute</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.recv.action()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收对象</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Receiver</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&quot;Receiver Action&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行请求</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Invoker</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">command</span>(<span class="params">self, cmd</span>):</span></span><br><span class="line">        self.cmd = cmd</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">execute</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.cmd.execute()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    recv = Receiver()</span><br><span class="line">    cmd = ConcreteCommand(recv)</span><br><span class="line">    invoker = Invoker()</span><br><span class="line">    <span class="comment"># 核心: 命令的生成 &amp; 命令的执行</span></span><br><span class="line">    invoker.command(cmd)</span><br><span class="line">    invoker.execute()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>参考链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruoyunliufeng/article/details/78725188">python 设计模式之命令模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mrwuzs/p/12026311.html">python 设计模式-命令模式</a></li>
+</ul>
+<h3 id="行为型-03-解释器模式"><a href="#行为型-03-解释器模式" class="headerlink" title="行为型-03 解释器模式"></a>行为型-03 解释器模式</h3><blockquote>
+<p>解释器模式(Interpreter pattern): 使用解释器模式为语言创建解释器.</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<ul>
+<li>可扩展性比较好，灵活。</li>
+<li>增加了新的解释表达式的方式。</li>
+<li>易于实现简单文法。</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>1、可利用场景比较少。</li>
+<li>2、对于复杂的文法比较难维护。</li>
+<li>3、解释器模式会引起类膨胀。</li>
+<li>4、解释器模式采用递归调用方法。</li>
+</ul>
+</li>
+<li><p>使用场景：</p>
+<ul>
+<li>1、可以将一个需要解释执行的语言中的句子表示为一个抽象语法树。</li>
+<li>2、一些重复出现的问题可以用一种简单的语言来进行表达。</li>
+<li>3、一个简单语法需要解释的场景。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ricky110/article/details/77900469">python 设计模式之解释器模式</a></p>
+</li>
+</ul>
+<h3 id="行为型-04-迭代器模式"><a href="#行为型-04-迭代器模式" class="headerlink" title="行为型-04 迭代器模式"></a>行为型-04 迭代器模式</h3><blockquote>
+<p>迭代器模式(iterator pattern): 提供一种方法顺序访问一个聚合对象中的各个元素, 而又不暴露其内部的表示.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ricky110/article/details/77916830">python 设计模式之迭代器</a></li>
+</ul>
+<h3 id="行为型-05-中介者模式"><a href="#行为型-05-中介者模式" class="headerlink" title="行为型-05 中介者模式"></a>行为型-05 中介者模式</h3><blockquote>
+<p>中介者模式(Mediator pattern) : 使用中介者模式来集中相关对象之间复杂的沟通和控制方式.</p>
+</blockquote>
+<h3 id="行为型-06-备忘录模式"><a href="#行为型-06-备忘录模式" class="headerlink" title="行为型-06 备忘录模式"></a>行为型-06 备忘录模式</h3><blockquote>
+<p>备忘录模式(Memento pattern): 当你需要让对象返回之前的状态时(例如, 你的用户请求”撤销”), 你使用备忘录模式。</p>
+<p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ricky110/article/details/77922413">备忘录模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43351292/article/details/107335997">Python 简单的备忘录系统</a></li>
+</ul>
+<h3 id="行为型-07-观察者模式"><a href="#行为型-07-观察者模式" class="headerlink" title="行为型-07 观察者模式"></a>行为型-07 观察者模式</h3><blockquote>
+<p>观察者模式(observer pattern): 在对象之间定义一对多的依赖, 这样一来, 当一个对象改变状态, 依赖它的对象都会收到通知, 并自动更新.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sfencs-hcy/p/10056376.html">python 设计模式之观察者模式</a></p>
+<h3 id="行为型-08-状态模式"><a href="#行为型-08-状态模式" class="headerlink" title="行为型-08 状态模式"></a>行为型-08 状态模式</h3><blockquote>
+<p>状态模式(State Pattern):当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类.</p>
+<p>应用场景:当控制一个对象的状态转换的条件表达式过于复杂时,把状态的判断逻辑转移到表示不同状态的一系列类当中,可以把复杂的判断逻辑简化</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/154659.htm">Python 设计模式之状态模式原理与用法详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10893976.html">Python 设计模式之状态模式详解</a></li>
+</ul>
+<h3 id="行为型-09-策略模式"><a href="#行为型-09-策略模式" class="headerlink" title="行为型-09 策略模式"></a>行为型-09 策略模式</h3><blockquote>
+<p>策略模式(strategy pattern): 定义了算法族, 分别封闭起来, 让它们之间可以互相替换, 此模式让算法的变化独立于使用算法的客户.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baxianhua/p/10926204.html">策略模式</a></p>
+<h3 id="行为型-10-模板方法模式"><a href="#行为型-10-模板方法模式" class="headerlink" title="行为型-10 模板方法模式"></a>行为型-10 模板方法模式</h3><blockquote>
+<p>模板方法模式(Template pattern): 在一个方法中定义一个算法的骨架, 而将一些步骤延迟到子类中. 模板方法使得子类可以在不改变算法结构的情况下, 重新定义算法中的某些步骤.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/guyuyun/p/12019996.html">Python 设计模式模板方法</a></p>
+<h3 id="行为型-11-访问者模式"><a href="#行为型-11-访问者模式" class="headerlink" title="行为型-11 访问者模式"></a>行为型-11 访问者模式</h3><blockquote>
+<p>访问者模式(visitor pattern): 当你想要为一个对象的组合增加新的能力, 且封装并不重要时, 就使用访问者模式.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ydf0509/p/9652688.html">Python 访问者模式</a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huchong/p/8244279.html">单例模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/llbky/p/11322246.html">工厂模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/p/python-adapter-pattern.html">适配器模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/p/python-bridge-pattern.html">桥接模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/p/python_proxy_pattern.html">代理模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/p/python-publish-subscribe-pattern.html">观察者模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/p/python-state-pattern.html">状态模式</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/gennad/Design-Patterns-in-Python">Python 设计模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tangkaishou/p/9246353.html">常见 Python 设计模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cundi/Mastering.Python.Design.Patterns">Mastering.Python.Desing.Patterns</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepiece-andy/tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">大话设计模式</a></li>
+</ul>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/Languages/Python/learn2-optimization-tips.md/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  代码优化技巧
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/Languages/Python/learn2-generators.md/">
+                Python 生成器
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			el: '#vcomments',
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			path: window.location.pathname,
+			avatar: 'retro',
+			highlight: false,
+      recordIP: true,
+      enableQQ: true,
+			requiredFields: ['nick','mail']
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">fansichao</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
