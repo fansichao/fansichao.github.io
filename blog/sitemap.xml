@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fansichao.github.com/blog/categories/index.html</loc>
+    <loc>http://fansichao.github.com/blog/Tools/Hexo/hexo.md/</loc>
     
-    <lastmod>2021-10-23</lastmod>
+    <lastmod>2021-10-24</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fansichao.github.com/blog/links/index.html</loc>
+    <loc>http://fansichao.github.com/blog/aaa.md/</loc>
+    
+    <lastmod>2021-10-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/categories/index.html</loc>
     
     <lastmod>2021-10-23</lastmod>
     
@@ -227,13 +234,6 @@
   
   <url>
     <loc>http://fansichao.github.com/blog/Tools/Pycharm/README.md/</loc>
-    
-    <lastmod>2021-10-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fansichao.github.com/blog/Tools/Hexo/hexo.md/</loc>
     
     <lastmod>2021-10-23</lastmod>
     
@@ -1723,6 +1723,41 @@
     
   </url>
   
+  <url>
+    <loc>http://fansichao.github.com/blog/tags/index.html</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/repository/index.html</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/links/index.html</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/books/index.html</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/404.html</loc>
+    
+    <lastmod>2021-10-23</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>http://fansichao.github.com/blog</loc>
@@ -1942,6 +1977,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://fansichao.github.com/blog/tags/aaa/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -2044,6 +2086,13 @@
   
   <url>
     <loc>http://fansichao.github.com/blog/categories/module/grpah/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fansichao.github.com/blog/categories/xxx/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
